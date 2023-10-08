@@ -11,7 +11,7 @@ position = Vector2(0, 100)
 scale = Vector2(2, 0.3)
 
 [node name="Protagonista" parent="." instance=ExtResource("2_4krbi")]
-position = Vector2(45, 52)
+position = Vector2(-360, 33)
 
 [node name="salto_enemigo" parent="." instance=ExtResource("3_7n4oj")]
 position = Vector2(-89, -121)
