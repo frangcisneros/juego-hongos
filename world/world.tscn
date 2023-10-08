@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://c1ufqvud4an3j"]
+
+[ext_resource type="PackedScene" uid="uid://dusk6dox3dxnb" path="res://world/plataforma/plataforma.tscn" id="1_wtmbu"]
+[ext_resource type="PackedScene" uid="uid://dj07mg1sgtrmu" path="res://world/protagonista/protagonista.tscn" id="2_4krbi"]
+[ext_resource type="PackedScene" uid="uid://t13h28qs4lvp" path="res://world/salto_enemigo/salto_enemigo.tscn" id="3_7n4oj"]
+
+[node name="world" type="Node2D"]
+
+[node name="plataforma" parent="." instance=ExtResource("1_wtmbu")]
+position = Vector2(0, 100)
+scale = Vector2(2, 0.3)
+
+[node name="Protagonista" parent="." instance=ExtResource("2_4krbi")]
+position = Vector2(45, 52)
+
+[node name="salto_enemigo" parent="." instance=ExtResource("3_7n4oj")]
+position = Vector2(-89, -121)
+collision_layer = 2
+
+[node name="plataforma2" parent="." instance=ExtResource("1_wtmbu")]
+position = Vector2(-14, 11)
+scale = Vector2(0.5, 0.25)

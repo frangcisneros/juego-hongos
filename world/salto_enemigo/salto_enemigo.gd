@@ -14,4 +14,5 @@ func salto():
 	if jump_cd.is_stopped() and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 		jump_cd.start()
-
+func enemy():
+	pass

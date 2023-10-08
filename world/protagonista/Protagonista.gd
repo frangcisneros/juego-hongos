@@ -26,6 +26,7 @@ var enemigo_position = Vector2.ZERO
 @onready var ataque = $Ataque
 @onready var retroceso_tiempo = $retroceso_tiempo
 @onready var hitbox = $hitbox
+@onready var tiempo_invencibilidad = $tiempo_invencibilidad
 
 #func _ready():
 #	retroceso_tiempo.start()
@@ -91,7 +92,21 @@ func _physics_process(delta): # toda la logica fisica del personaje
 	# resetea si se cae
 	if position.y >= 650:
 		position = initialPos
-	
+		
+	if not tiempo_invencibilidad.is_stopped(): #si le pegaron al pj lo hacemos invencible
+		# esto es lo que uso para cambiar como interactuan los objetos
+		# deberia haber una forma de cambiar mas facil el tema de las hitbox
+		hitbox.set_collision_mask_value(2,false)
+		hitbox.set_collision_layer_value(1,false)
+		set_collision_layer_value(1,false)
+		set_collision_mask_value(2,false) 
+		set_collision_layer_value(5,true)
+	else: #si no le pegaron en los ultimos X segundos, no es invencible
+		hitbox.set_collision_mask_value(2,true)
+		hitbox.set_collision_layer_value(1,true)
+		set_collision_layer_value(1,true)
+		set_collision_mask_value(2,true) 
+		set_collision_layer_value(5,false)
 func update_health():
 	var healthbar = $healthbar
 	healthbar.value = health
@@ -100,6 +115,7 @@ func player():
 	pass
 
 func _on_hitbox_body_entered(body):
+	print(body.name)
 	if body.has_method("enemy"):
 #		enemigo_rango = true
 		health = health - 1
@@ -109,12 +125,12 @@ func _on_hitbox_body_entered(body):
 		retroceso_vector = (global_position - enemigo_position).normalized() * retroceso_normal
 		velocity.x = retroceso_vector.x
 		velocity.y = -200
+		if tiempo_invencibilidad.is_stopped(): #si el personaje no es invencible
+			tiempo_invencibilidad.start() #lo hacemos invencible por un tiempo
 		
-		# esto es lo que uso para cambiar como interactuan los objetos
-		# deberia haber una forma de cambiar mas facil el tema de las hitbox
-		hitbox.set_collision_mask_value(2,false)
-		hitbox.set_collision_layer_value(1,false)
-		set_collision_layer_value(1,false)
-		set_collision_mask_value(2,false) 
-		set_collision_layer_value(5,true)
 		
+		
+
+
+func _on_hitbox_body_exited(body): #conectado por las dudas
+	pass # Replace with function body.
