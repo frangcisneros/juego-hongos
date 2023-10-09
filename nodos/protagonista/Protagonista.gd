@@ -35,7 +35,7 @@ func _input(event):
 	# Mouse in viewport coordinates.
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-			global_position = get_viewport().get_mouse_position()
+			global_position = get_global_mouse_position()
 
 func _physics_process(delta): # toda la logica fisica del personaje
 	update_health()
