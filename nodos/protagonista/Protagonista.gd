@@ -114,8 +114,10 @@ func update_health():
 func player():
 	pass
 
+
+
 func _on_hitbox_body_entered(body):
-	print(body.name)
+#	print(body.name)
 	if body.has_method("enemy"):
 #		enemigo_rango = true
 		health = health - 1
@@ -128,9 +130,21 @@ func _on_hitbox_body_entered(body):
 		if tiempo_invencibilidad.is_stopped(): #si el personaje no es invencible
 			tiempo_invencibilidad.start() #lo hacemos invencible por un tiempo
 		
-		
-		
-
 
 func _on_hitbox_body_exited(body): #conectado por las dudas
 	pass # Replace with function body.
+
+
+func _on_hitbox_area_entered(area):
+	print(area.name)
+	if area.has_method("enemy"):
+#		enemigo_rango = true
+		health = health - 1
+		#hitted = true
+		enemigo_position = area.global_position
+		retroceso_tiempo.start()
+		retroceso_vector = (global_position - enemigo_position).normalized() * retroceso_normal
+		velocity.x = retroceso_vector.x
+		velocity.y = -200
+		if tiempo_invencibilidad.is_stopped(): #si el personaje no es invencible
+			tiempo_invencibilidad.start() #lo hacemos invencible por un tiempo

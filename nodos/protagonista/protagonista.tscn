@@ -87,5 +87,6 @@ wait_time = 5.0
 one_shot = true
 
 [connection signal="body_entered" from="Ataque" to="Ataque" method="_on_body_entered"]
+[connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]
 [connection signal="body_exited" from="hitbox" to="." method="_on_hitbox_body_exited"]

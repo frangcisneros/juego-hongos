@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://bi31bxoehsk7c"]
 
-[ext_resource type="Script" path="res://world/Enemigo/Enemigo.gd" id="1_npc3e"]
+[ext_resource type="Script" path="res://nodos/Enemigo/Enemigo.gd" id="1_npc3e"]
 [ext_resource type="Texture2D" uid="uid://bqh0w6153q0gf" path="res://arte/prota.png" id="2_4kw4g"]
-[ext_resource type="Script" path="res://world/Enemigo/collision query/collision query.gd" id="3_qfjsa"]
+[ext_resource type="Script" path="res://nodos/Enemigo/collision query/collision query.gd" id="3_qfjsa"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_16xy7"]
 radius = 26.6667
