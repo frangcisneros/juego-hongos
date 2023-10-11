@@ -39,8 +39,6 @@ func _input(event):
 
 func _physics_process(delta): # toda la logica fisica del personaje
 	update_health()
-#	retroceso(retroceso_normal, enemigo_position)
-
 	
 	if health <=0:
 		player_alive = false
