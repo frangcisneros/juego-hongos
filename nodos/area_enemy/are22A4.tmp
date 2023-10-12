@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://d0gordpyc8o5m"]
+
+[ext_resource type="Script" path="res://nodos/area_enemy/area_enemy.gd" id="1_5xb8b"]
+[ext_resource type="Texture2D" uid="uid://bqh0w6153q0gf" path="res://arte/prota.png" id="1_8r7dp"]
+[ext_resource type="Script" path="res://nodos/area_enemy/damage_area.gd" id="3_pko5k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ary8"]
+size = Vector2(18, 26)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fap0i"]
+size = Vector2(82.5, 123)
+
+[node name="area_enemy" type="CharacterBody2D"]
+position = Vector2(0, -13)
+script = ExtResource("1_5xb8b")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_8r7dp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_1ary8")
+
+[node name="damage_area" type="Area2D" parent="."]
+script = ExtResource("3_pko5k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="damage_area"]
+position = Vector2(7.64949e-08, -28.75)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_fap0i")
+
+[node name="tiempo_ataque" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="body_entered" from="damage_area" to="damage_area" method="_on_body_entered"]
