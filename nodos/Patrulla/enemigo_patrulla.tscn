@@ -67,6 +67,7 @@ corpse_timer = NodePath("../../CorpseTimer")
 one_shot = true
 
 [node name="CorpseTimer" type="Timer" parent="."]
+one_shot = true
 
 [connection signal="body_exited" from="collision query" to="StateMachine/PatrullarState" method="_on_collision_query_body_exited"]
 [connection signal="body_entered" from="detection area" to="StateMachine/PatrullarState" method="_on_detection_area_body_entered"]

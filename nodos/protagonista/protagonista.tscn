@@ -41,6 +41,7 @@ one_shot = true
 
 [node name="Ataque" type="Area2D" parent="."]
 position = Vector2(70, 0)
+collision_mask = 3
 script = ExtResource("2_ucc6x")
 
 [node name="colisionAtaque" type="CollisionShape2D" parent="Ataque"]

@@ -9,7 +9,7 @@ class_name AtacarState
 @export var attack_timer : Timer
 @onready var speed : float = Enemigo.running_speed
 @onready var health : float= Enemigo.health
-#@onready var scale_x : float = Enemigo.scale.x
+@onready var scale_x : float = Enemigo.scale.x
 var StateActive : bool = false
 var posicion_objetivo : Vector2 
 
@@ -33,17 +33,16 @@ func Update(_delta : float):
 		Transition.emit(self,"PatrullarState")
 	if Enemigo.velocity.x < 0:
 		
-		Enemigo.scale.x = -1
-		print(Enemigo.scale.x)
-#	elif Enemigo.velocity.x > 0:
-#		Enemigo.scale.x = scale_x
+		Enemigo.scale.x = -2
+	elif Enemigo.velocity.x > 0:
+		Enemigo.scale.x = scale_x
 
 func UpdatePhysics(_delta : float):
 	if posicion_objetivo.x - Enemigo.position.x >= 5:
 		Enemigo.velocity.x = speed
-#		get_parent().get_node("PatrullarState").right = true
+		get_parent().get_node("PatrullarState").right = true
 	elif posicion_objetivo.x - Enemigo.position.x <= -5:
 		Enemigo.velocity.x = -speed
-#		get_parent().get_node("PatrullarState").right = false
+		get_parent().get_node("PatrullarState").right = false
 	else:
 		attack_timer.stop()

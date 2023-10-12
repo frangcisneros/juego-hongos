@@ -18,7 +18,6 @@ func _ready():
 		currentState = initial_state 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	print(Enemigo.scale.x)
 	currentState.Update(delta)
 
 func _physics_process(delta):

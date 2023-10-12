@@ -28,7 +28,7 @@ func UpdatePhysics(_delta:float):
 		Enemigo.velocity.x = -speed
 func _on_collision_query_body_exited(body):
 	if body.has_method("plataforma") and Enemigo.is_on_floor() and StateActive:
-#		Enemigo.scale.x = -Enemigo.scale.x
+		Enemigo.scale.x = -Enemigo.scale.x
 		Enemigo.velocity.x = -Enemigo.velocity.x
 		right = !right
 
