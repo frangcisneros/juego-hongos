@@ -1,0 +1,72 @@
+[gd_scene load_steps=10 format=3 uid="uid://cqvycjf6wy0df"]
+
+[ext_resource type="Script" path="res://nodos/Patrulla/EnemigoPatrulla.gd" id="1_lqiqa"]
+[ext_resource type="Texture2D" uid="uid://bqh0w6153q0gf" path="res://arte/prota.png" id="2_qbwvu"]
+[ext_resource type="Script" path="res://nodos/Patrulla/StateMachine.gd" id="3_m0d4l"]
+[ext_resource type="Script" path="res://nodos/Patrulla/States/PatrullarState.gd" id="4_xch8n"]
+[ext_resource type="Script" path="res://nodos/Patrulla/States/AtacarState.gd" id="5_h5tcb"]
+[ext_resource type="Script" path="res://nodos/Patrulla/States/DeadState.gd" id="6_slt30"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dol65"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_712fq"]
+size = Vector2(5, 5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4sxdg"]
+size = Vector2(155, 20)
+
+[node name="EnemigoPatrulla" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 9
+script = ExtResource("1_lqiqa")
+running_speed = 500.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.114103, 0.114103)
+texture = ExtResource("2_qbwvu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_dol65")
+
+[node name="collision query" type="Area2D" parent="."]
+position = Vector2(2, 1)
+collision_layer = 2
+collision_mask = 8
+
+[node name="collision query collision shape" type="CollisionShape2D" parent="collision query"]
+position = Vector2(6, 13)
+shape = SubResource("RectangleShape2D_712fq")
+
+[node name="detection area" type="Area2D" parent="."]
+position = Vector2(12, 5)
+collision_layer = 2
+
+[node name="detection area collision shape" type="CollisionShape2D" parent="detection area"]
+position = Vector2(-11.5, -5)
+shape = SubResource("RectangleShape2D_4sxdg")
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state", "Enemigo")]
+script = ExtResource("3_m0d4l")
+initial_state = NodePath("PatrullarState")
+Enemigo = NodePath("..")
+
+[node name="PatrullarState" type="Node" parent="StateMachine" node_paths=PackedStringArray("Enemigo")]
+script = ExtResource("4_xch8n")
+Enemigo = NodePath("../..")
+
+[node name="AtacarState" type="Node" parent="StateMachine" node_paths=PackedStringArray("detection_area", "attack_timer")]
+script = ExtResource("5_h5tcb")
+detection_area = NodePath("../../detection area")
+attack_timer = NodePath("../../AttackTimer")
+
+[node name="DeadState" type="Node" parent="StateMachine" node_paths=PackedStringArray("corpse_timer")]
+script = ExtResource("6_slt30")
+corpse_timer = NodePath("../../CorpseTimer")
+
+[node name="AttackTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="CorpseTimer" type="Timer" parent="."]
+
+[connection signal="body_exited" from="collision query" to="StateMachine/PatrullarState" method="_on_collision_query_body_exited"]
+[connection signal="body_entered" from="detection area" to="StateMachine/PatrullarState" method="_on_detection_area_body_entered"]

@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+class_name Player
+
 # variables
 const SPEED = 300.0 # velocidad
 const JUMP_VELOCITY = -400.0 # velocidad de salto
