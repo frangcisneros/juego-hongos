@@ -11,7 +11,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @export var health : float = 20
 
 @onready var sprite_enemigo = $Sprite2D
-
+@onready var sprite_animacion = $AnimatedSprite2D
 
 func _ready():
 	velocity.x = 15
@@ -22,11 +22,13 @@ func _physics_process(delta):
 
 	# Handle Jump.
 	if not stop:
+		sprite_animacion.play("run")
 		if right:
 			velocity.x = SPEED
 		else:
 			velocity.x = -SPEED
 	else:
+		sprite_animacion.stop()
 		velocity.x = 0 
 
 	move_and_slide()

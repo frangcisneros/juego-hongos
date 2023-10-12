@@ -1,30 +1,312 @@
-[gd_scene load_steps=8 format=3 uid="uid://t13h28qs4lvp"]
+[gd_scene load_steps=34 format=3 uid="uid://t13h28qs4lvp"]
 
 [ext_resource type="Script" path="res://nodos/salto_enemigo/salto_enemigo.gd" id="1_b4o2j"]
-[ext_resource type="Texture2D" uid="uid://bqh0w6153q0gf" path="res://arte/prota.png" id="2_cceq3"]
+[ext_resource type="Texture2D" path="res://arte/Animaciones/saltador musgo/0021.png" id="2_ov8os"]
 [ext_resource type="Script" path="res://nodos/Enemigo/collision query/collision query.gd" id="3_cnybw"]
 [ext_resource type="Script" path="res://nodos/salto_enemigo/RayCast2D/RayCast2D.gd" id="4_qd63y"]
+[ext_resource type="Texture2D" path="res://arte/Animaciones/saltador musgo/0001.png" id="5_jkbge"]
+[ext_resource type="Texture2D" path="res://arte/Animaciones/saltador musgo/0004.png" id="6_67ejh"]
+[ext_resource type="Texture2D" path="res://arte/Animaciones/saltador musgo/0007.png" id="7_6541c"]
+[ext_resource type="Texture2D" path="res://arte/Animaciones/saltador musgo/0010.png" id="8_unohq"]
+[ext_resource type="Texture2D" path="res://arte/Animaciones/saltador musgo/0013.png" id="9_d2rjr"]
+[ext_resource type="Texture2D" path="res://arte/Animaciones/saltador musgo/0016.png" id="10_humcq"]
+[ext_resource type="Texture2D" path="res://arte/Animaciones/saltador musgo/0019.png" id="11_bblb7"]
+[ext_resource type="Texture2D" path="res://arte/Animaciones/saltador musgo/0022.png" id="12_uk7cu"]
+[ext_resource type="Script" path="res://nodos/salto_enemigo/SaltoEnemigoStateMachine.gd" id="13_xq8bs"]
+[ext_resource type="Script" path="res://nodos/salto_enemigo/PreparandoseState.gd" id="14_vri2e"]
+[ext_resource type="Script" path="res://nodos/salto_enemigo/SubiendoState.gd" id="15_i6ff4"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8sfx5"]
-radius = 32.0
-height = 92.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lk7uj"]
+radius = 34.0
+height = 90.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n2ss1"]
 size = Vector2(12.7643, 14.535)
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_wjayb"]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1ee1i"]
+radius = 34.75
+height = 95.35
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oq67s"]
+radius = 30.35
+height = 94.05
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_krlma"]
+radius = 42.375
+height = 85.15
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d4at1"]
+radius = 27.0
+height = 88.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_eoycl"]
+radius = 41.0
+height = 82.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2qccg"]
+radius = 23.0
+height = 104.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yjlxl"]
+radius = 30.0
+height = 88.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8sfx5"]
+radius = 37.0
+height = 80.0
+
+[sub_resource type="Animation" id="Animation_6vtnt"]
+resource_name = "jump"
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("5_jkbge"), ExtResource("6_67ejh"), ExtResource("7_6541c"), ExtResource("8_unohq"), ExtResource("9_d2rjr"), ExtResource("10_humcq"), ExtResource("11_bblb7"), ExtResource("12_uk7cu"), ExtResource("5_jkbge")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../CollisionShape2D:shape")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [SubResource("CapsuleShape2D_1ee1i"), SubResource("CapsuleShape2D_oq67s"), SubResource("CapsuleShape2D_lk7uj"), SubResource("CapsuleShape2D_krlma"), SubResource("CapsuleShape2D_d4at1"), SubResource("CapsuleShape2D_eoycl"), SubResource("CapsuleShape2D_2qccg"), SubResource("CapsuleShape2D_yjlxl"), SubResource("CapsuleShape2D_8sfx5")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(15, 0), Vector2(15, -5), Vector2(15, -10), Vector2(10.355, 6.83), Vector2(10, 5), Vector2(10, 5), Vector2(9, -10), Vector2(11, -5), Vector2(15, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../CollisionShape2D:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.625),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [1.5708, 0.0, 1.5708]
+}
+
+[sub_resource type="Animation" id="Animation_8dfmq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_ov8os")]
+}
+
+[sub_resource type="Animation" id="Animation_wygmx"]
+resource_name = "preparing"
+length = 0.375004
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("5_jkbge"), ExtResource("6_67ejh"), ExtResource("7_6541c")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../CollisionShape2D:shape")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [SubResource("CapsuleShape2D_1ee1i"), SubResource("CapsuleShape2D_oq67s"), SubResource("CapsuleShape2D_lk7uj")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2(15, 0), Vector2(15, -5), Vector2(15, -10)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../CollisionShape2D:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1.5708]
+}
+
+[sub_resource type="Animation" id="Animation_ctvxb"]
+resource_name = "top"
+length = 0.0416708
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("9_d2rjr")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../CollisionShape2D:shape")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("CapsuleShape2D_d4at1")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2(10, 5)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../CollisionShape2D:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_tnl5e"]
+resource_name = "jumping"
+length = 0.0416708
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("8_unohq")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../CollisionShape2D:shape")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("CapsuleShape2D_krlma")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2(10.355, 6.83)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../CollisionShape2D:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0l3qw"]
+_data = {
+"RESET": SubResource("Animation_8dfmq"),
+"jump": SubResource("Animation_6vtnt"),
+"jumping": SubResource("Animation_tnl5e"),
+"preparing": SubResource("Animation_wygmx"),
+"top": SubResource("Animation_ctvxb")
+}
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_fmbs8"]
+
 [node name="salto_enemigo" type="CharacterBody2D"]
 collision_mask = 9
 script = ExtResource("1_b4o2j")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.35641, 0.35641)
-texture = ExtResource("2_cceq3")
+visible = false
+position = Vector2(15, -10)
+scale = Vector2(0.156409, 0.156409)
+texture = ExtResource("2_ov8os")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 1)
-shape = SubResource("CapsuleShape2D_8sfx5")
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_lk7uj")
 
 [node name="jump_cd" type="Timer" parent="."]
 one_shot = true
@@ -49,3 +331,24 @@ position = Vector2(35, 1)
 target_position = Vector2(0, 1000)
 collision_mask = 8
 script = ExtResource("4_qd63y")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Sprite2D")
+libraries = {
+"": SubResource("AnimationLibrary_0l3qw")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_fmbs8")
+anim_player = NodePath("../AnimationPlayer")
+
+[node name="SaltoEnemigoStateMachine" type="Node" parent="."]
+script = ExtResource("13_xq8bs")
+
+[node name="PreparandoseState" type="Node" parent="SaltoEnemigoStateMachine"]
+script = ExtResource("14_vri2e")
+
+[node name="SubiendoState" type="Node" parent="SaltoEnemigoStateMachine"]
+script = ExtResource("15_i6ff4")
+
+[node name="BajandoState" type="Node" parent="SaltoEnemigoStateMachine"]
