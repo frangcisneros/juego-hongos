@@ -28,19 +28,18 @@ var enemigo_position = Vector2.ZERO
 @onready var hitbox = $hitbox
 @onready var tiempo_invencibilidad = $tiempo_invencibilidad
 
-#func _ready():
-#	retroceso_tiempo.start()
-
 func _input(event):
 	# Mouse in viewport coordinates.
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-			global_position = get_viewport().get_mouse_position()
+			global_position = get_global_mouse_position()
+
+func _process(delta):
+	update_health()
+	invencibilidad()
 
 func _physics_process(delta): # toda la logica fisica del personaje
-	update_health()
-#	retroceso(retroceso_normal, enemigo_position)
-
+#	update_health()
 	
 	if health <=0:
 		player_alive = false
@@ -93,6 +92,47 @@ func _physics_process(delta): # toda la logica fisica del personaje
 	if position.y >= 650:
 		position = initialPos
 		
+	
+func update_health():
+	var healthbar = $healthbar
+	healthbar.value = health
+
+func player():
+	pass
+
+func _on_hitbox_body_entered(body):
+#	print(body.name)
+	if body.has_method("enemy"):
+#		enemigo_rango = true
+		health = health - 1
+		#hitted = true
+		enemigo_position = body.global_position
+		retroceso_tiempo.start()
+		retroceso_vector = (global_position - enemigo_position).normalized() * retroceso_normal
+		velocity.x = retroceso_vector.x
+		velocity.y = -200
+		if tiempo_invencibilidad.is_stopped(): #si el personaje no es invencible
+			tiempo_invencibilidad.start() #lo hacemos invencible por un tiempo
+		
+
+func _on_hitbox_body_exited(body): #conectado por las dudas
+	pass # Replace with function body.
+
+
+func _on_hitbox_area_entered(area):
+	if area.has_method("enemy"):
+#		enemigo_rango = true
+		health = health - 1
+		#hitted = true
+		enemigo_position = area.global_position
+		retroceso_tiempo.start()
+		retroceso_vector = (global_position - enemigo_position).normalized() * retroceso_normal
+		velocity.x = retroceso_vector.x
+		velocity.y = -200
+		if tiempo_invencibilidad.is_stopped(): #si el personaje no es invencible
+			tiempo_invencibilidad.start() #lo hacemos invencible por un tiempo
+
+func invencibilidad():
 	if not tiempo_invencibilidad.is_stopped(): #si le pegaron al pj lo hacemos invencible
 		# esto es lo que uso para cambiar como interactuan los objetos
 		# deberia haber una forma de cambiar mas facil el tema de las hitbox
@@ -107,30 +147,3 @@ func _physics_process(delta): # toda la logica fisica del personaje
 		set_collision_layer_value(1,true)
 		set_collision_mask_value(2,true) 
 		set_collision_layer_value(5,false)
-func update_health():
-	var healthbar = $healthbar
-	healthbar.value = health
-
-func player():
-	pass
-
-func _on_hitbox_body_entered(body):
-	print(body.name)
-	if body.has_method("enemy"):
-#		enemigo_rango = true
-		health = health - 1
-		#hitted = true
-		enemigo_position = body.global_position
-		retroceso_tiempo.start()
-		retroceso_vector = (global_position - enemigo_position).normalized() * retroceso_normal
-		velocity.x = retroceso_vector.x
-		velocity.y = -200
-		if tiempo_invencibilidad.is_stopped(): #si el personaje no es invencible
-			tiempo_invencibilidad.start() #lo hacemos invencible por un tiempo
-		
-		
-		
-
-
-func _on_hitbox_body_exited(body): #conectado por las dudas
-	pass # Replace with function body.
