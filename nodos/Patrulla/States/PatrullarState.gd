@@ -10,7 +10,7 @@ class_name PatrullarState
 var StateActive : bool = false
 
 func Enter():
-	Enemigo.velocity.x = 15
+#	Enemigo.velocity.x = 15
 	StateActive = true
 
 func Exit():

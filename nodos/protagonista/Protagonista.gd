@@ -117,7 +117,7 @@ func player():
 	pass
 
 func _on_hitbox_body_entered(body):
-	print(body.name)
+#	print(body.name)
 	if body.has_method("enemy"):
 #		enemigo_rango = true
 		health = health - 1

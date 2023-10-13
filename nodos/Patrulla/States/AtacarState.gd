@@ -17,7 +17,15 @@ func Enter():
 	for body in detection_area.get_overlapping_bodies():
 		if body is Player:
 			posicion_objetivo = body.position
-	Enemigo.velocity.x = 30
+	if posicion_objetivo.x - Enemigo.position.x >= 5:
+		if Enemigo.velocity.x < 0:
+			Enemigo.scale.x *= -1 
+		get_parent().get_node("PatrullarState").right = true
+	elif posicion_objetivo.x - Enemigo.position.x <= -5:
+		if Enemigo.velocity.x > 0:
+			Enemigo.scale.x *= -1 
+		get_parent().get_node("PatrullarState").right = false
+#	Enemigo.velocity.x = 30
 	attack_timer.start()
 	StateActive = true
 
@@ -31,18 +39,11 @@ func Update(_delta : float):
 		Transition.emit(self, "DeadState")
 	elif attack_timer.is_stopped():
 		Transition.emit(self,"PatrullarState")
-	if Enemigo.velocity.x < 0:
-		
-		Enemigo.scale.x = -2
-	elif Enemigo.velocity.x > 0:
-		Enemigo.scale.x = scale_x
 
 func UpdatePhysics(_delta : float):
 	if posicion_objetivo.x - Enemigo.position.x >= 5:
 		Enemigo.velocity.x = speed
-		get_parent().get_node("PatrullarState").right = true
 	elif posicion_objetivo.x - Enemigo.position.x <= -5:
 		Enemigo.velocity.x = -speed
-		get_parent().get_node("PatrullarState").right = false
 	else:
 		attack_timer.stop()

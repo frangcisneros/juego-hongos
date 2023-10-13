@@ -21,10 +21,6 @@ collision_mask = 9
 script = ExtResource("1_lqiqa")
 running_speed = 500.0
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.114103, 0.114103)
-texture = ExtResource("2_qbwvu")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_dol65")
 
@@ -68,6 +64,12 @@ one_shot = true
 
 [node name="CorpseTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="Marker2D" type="Marker2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Marker2D"]
+scale = Vector2(0.114103, 0.114103)
+texture = ExtResource("2_qbwvu")
 
 [connection signal="body_exited" from="collision query" to="StateMachine/PatrullarState" method="_on_collision_query_body_exited"]
 [connection signal="body_entered" from="detection area" to="StateMachine/PatrullarState" method="_on_detection_area_body_entered"]
