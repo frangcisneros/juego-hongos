@@ -7,6 +7,7 @@ class_name DeadState
 var StateActive : bool = false
 # Called when the node enters the scene tree for the first time.
 func Enter():
+	
 	Enemigo.velocity.x = 0;
 	Enemigo.set_rotation_degrees(180)
 	corpse_timer.start()

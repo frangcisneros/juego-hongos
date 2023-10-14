@@ -5,8 +5,10 @@ class_name AtacarState
 @onready var Enemigo : CharacterBody2D= get_parent().Enemigo
 
 @export var detection_area : Area2D 
-
+@export var animation_tree : AnimationTree
+@export var animation_player : AnimationPlayer
 @export var attack_timer : Timer
+
 @onready var speed : float = Enemigo.running_speed
 @onready var health : float= Enemigo.health
 @onready var scale_x : float = Enemigo.scale.x
@@ -28,6 +30,8 @@ func Enter():
 #	Enemigo.velocity.x = 30
 	attack_timer.start()
 	StateActive = true
+	animation_tree.set("parameters/Patrulla/blend_position",1)
+	animation_player.set("speed_scale", (Enemigo.walking_speed/speed))
 
 func Exit():
 	StateActive = false

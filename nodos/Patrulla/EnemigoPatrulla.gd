@@ -7,6 +7,10 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @export var running_speed : float = 75
 @export var health : float = 20
 @onready var sprite_enemigo = $Sprite2D
+@onready var animation_tree = $AnimationTree
+
+func _ready():
+	animation_tree.active = true
 
 func _physics_process(delta):
 	if not is_on_floor():

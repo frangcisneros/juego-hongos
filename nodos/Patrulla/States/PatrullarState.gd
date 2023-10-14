@@ -3,15 +3,20 @@ extends State
 class_name PatrullarState
 
 @export var Enemigo : CharacterBody2D # = get_parent().get_parent()
+@export var animation_tree : AnimationTree
+@export var animation_player : AnimationPlayer
 
 @onready var right : bool = true
 @onready var speed : float = Enemigo.walking_speed
 @onready var health = Enemigo.health
+
 var StateActive : bool = false
 
 func Enter():
 #	Enemigo.velocity.x = 15
 	StateActive = true
+	animation_tree.set("parameters/Patrulla/blend_position",0)
+	animation_player.set("speed_scale", 1)
 
 func Exit():
 	StateActive = false
