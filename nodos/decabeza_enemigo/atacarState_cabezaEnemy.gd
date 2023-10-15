@@ -21,4 +21,4 @@ func UpdatePhysics(_delta : float):
 
 
 func _on_hitbox_body_entered(body):
-	Transition.emit(self,"ReposoState_cabezaEnemy")
+	Transition.emit(self,"back_state_flip_enemy")

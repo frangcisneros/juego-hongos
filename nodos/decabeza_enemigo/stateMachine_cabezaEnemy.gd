@@ -20,7 +20,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	currentState.Update(delta)
-	print(currentState)
+#	print(currentState)
 
 func _physics_process(delta):
 	currentState.UpdatePhysics(delta)

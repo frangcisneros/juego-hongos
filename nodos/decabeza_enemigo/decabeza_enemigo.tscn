@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://2bxnpi0o6m4"]
+[gd_scene load_steps=10 format=3 uid="uid://2bxnpi0o6m4"]
 
 [ext_resource type="Script" path="res://nodos/decabeza_enemigo/decabeza_enemigo.gd" id="1_oqvle"]
 [ext_resource type="Texture2D" uid="uid://bqh0w6153q0gf" path="res://arte/prota.png" id="2_ghnxk"]
 [ext_resource type="Script" path="res://nodos/decabeza_enemigo/stateMachine_cabezaEnemy.gd" id="4_5len2"]
 [ext_resource type="Script" path="res://nodos/decabeza_enemigo/reposoState_cabezaEnemy.gd" id="5_0d7pj"]
 [ext_resource type="Script" path="res://nodos/decabeza_enemigo/atacarState_cabezaEnemy.gd" id="6_gt3wc"]
+[ext_resource type="Script" path="res://nodos/decabeza_enemigo/back_state_flip_enemy.gd" id="7_5idwa"]
 [ext_resource type="Script" path="res://nodos/decabeza_enemigo/deadState_cabezaEnemy.gd" id="7_sulay"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i0ajd"]
@@ -45,6 +46,7 @@ debug_color = Color(0, 0.639216, 0.380392, 0.419608)
 [node name="RayCast2D" type="RayCast2D" parent="."]
 position = Vector2(50, 0)
 target_position = Vector2(0, -84)
+collision_mask = 8
 
 [node name="stateMachine_cabezaEnemy" type="Node" parent="." node_paths=PackedStringArray("initial_state", "Enemigo")]
 script = ExtResource("4_5len2")
@@ -59,6 +61,9 @@ script = ExtResource("6_gt3wc")
 
 [node name="deadState_cabezaEnemy" type="Node" parent="stateMachine_cabezaEnemy"]
 script = ExtResource("7_sulay")
+
+[node name="back_state_flip_enemy" type="Node" parent="stateMachine_cabezaEnemy"]
+script = ExtResource("7_5idwa")
 
 [connection signal="body_entered" from="deteccion" to="stateMachine_cabezaEnemy/reposoState_cabezaEnemy" method="_on_deteccion_body_entered"]
 [connection signal="body_entered" from="hitbox" to="stateMachine_cabezaEnemy/atacarState_cabezaEnemy" method="_on_hitbox_body_entered"]

@@ -23,6 +23,14 @@ var posicion_inicial = Vector2.ZERO
 var first_detection = false
 
 func Enter():
+	
+	StateActive = true
+
+func Exit():
+	StateActive = false
+	
+func Update(_delta : float):
+#	print(posicion_inicial)
 	if raycast.get_collider_rid().is_valid() and not primera_vez:
 		first_object = raycast.get_collider()
 		primera_vez = true
@@ -30,17 +38,12 @@ func Enter():
 		posicion_inicial = Enemigo.global_position
 		primera_posicion = true
 	StateActive = true
-	Enemigo.velocity = Enemigo.position.direction_to(posicion_inicial) * Enemigo.JUMP_VELOCITY
-
-func Exit():
-	StateActive = false
-	
-func Update(_delta : float):
 	pass
 
 func UpdatePhysics(delta : float):
 	Enemigo.velocity.y += decabeza_gravity * delta
-	
+	if Enemigo.is_on_ceiling() and primera_posicion:
+		Enemigo.position = posicion_inicial
 
 func _on_deteccion_body_entered(body):
 	if body.has_method("player") and not first_detection and Enemigo.is_on_ceiling():
