@@ -101,11 +101,9 @@ func player():
 	pass
 
 func _on_hitbox_body_entered(body):
-#	print(body.name)
 	if body.has_method("enemy"):
-#		enemigo_rango = true
+		print("ay")
 		health = health - 1
-		#hitted = true
 		enemigo_position = body.global_position
 		retroceso_tiempo.start()
 		retroceso_vector = (global_position - enemigo_position).normalized() * retroceso_normal

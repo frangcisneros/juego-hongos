@@ -1,18 +1,9 @@
-extends Enemy
+extends molde_enemigo
 
-@onready var jump_cd = $jump_cd
-
-func _physics_process(delta):
-	super._physics_process(delta)
-	salto()
+var JUMP_VELOCITY = -400
+var SPEED = 50
+var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _ready():
-	super._ready()
-	jump_cd.start()
-	
-func salto():
-	if jump_cd.is_stopped() and is_on_floor():
-		velocity.y = JUMP_VELOCITY
-		jump_cd.start()
-func enemy():
-	pass
+	health = 20
+	sprite_enemigo = $Sprite2D

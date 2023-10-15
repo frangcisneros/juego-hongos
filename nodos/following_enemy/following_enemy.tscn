@@ -1,7 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://b37c4705el0oa"]
+[gd_scene load_steps=9 format=3 uid="uid://b37c4705el0oa"]
 
 [ext_resource type="Script" path="res://nodos/following_enemy/following_enemy.gd" id="1_dya4w"]
 [ext_resource type="Texture2D" uid="uid://bqh0w6153q0gf" path="res://arte/prota.png" id="2_f5vwm"]
+[ext_resource type="Script" path="res://nodos/following_enemy/state_machine_chase_enemy.gd" id="3_yg5su"]
+[ext_resource type="Script" path="res://nodos/following_enemy/idle_state_chase_enemy.gd" id="4_30ip5"]
+[ext_resource type="Script" path="res://nodos/following_enemy/chasing_state_chase_enemy.gd" id="5_ukk1a"]
+[ext_resource type="Script" path="res://nodos/following_enemy/dead_state_chase_enemy.gd" id="6_jeiv5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_s0y12"]
 radius = 161.05
@@ -10,12 +14,15 @@ radius = 161.05
 radius = 23.5
 height = 64.0
 
-[node name="following_enemy" type="CharacterBody2D"]
+[node name="chase_enemy" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 9
 script = ExtResource("1_dya4w")
 
 [node name="detection_area" type="Area2D" parent="."]
 light_mask = 2
 visibility_layer = 2
+collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="detection_area"]
 shape = SubResource("CircleShape2D_s0y12")
@@ -28,5 +35,19 @@ texture = ExtResource("2_f5vwm")
 position = Vector2(-0.5, 0)
 shape = SubResource("CapsuleShape2D_dfddu")
 
-[connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
-[connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]
+[node name="state_machine_chase_enemy" type="Node" parent="." node_paths=PackedStringArray("initial_state", "Enemigo")]
+script = ExtResource("3_yg5su")
+initial_state = NodePath("idle_state_chase_enemy")
+Enemigo = NodePath("..")
+
+[node name="idle_state_chase_enemy" type="Node" parent="state_machine_chase_enemy"]
+script = ExtResource("4_30ip5")
+
+[node name="chasing_state_chase_enemy" type="Node" parent="state_machine_chase_enemy"]
+script = ExtResource("5_ukk1a")
+
+[node name="dead_state_chase_enemy" type="Node" parent="state_machine_chase_enemy"]
+script = ExtResource("6_jeiv5")
+
+[connection signal="body_entered" from="detection_area" to="state_machine_chase_enemy/idle_state_chase_enemy" method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="detection_area" to="state_machine_chase_enemy/chasing_state_chase_enemy" method="_on_detection_area_body_exited"]
