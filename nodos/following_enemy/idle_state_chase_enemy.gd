@@ -7,6 +7,7 @@ var player = null
 var player_chase = false
 
 @onready var Enemigo = get_parent().Enemigo
+@onready var vision = Enemigo.get_node("vision")
 
 func Enter():
 	Enemigo.velocity = Vector2.ZERO
@@ -25,4 +26,5 @@ func UpdatePhysics(_delta : float):
 func _on_detection_area_body_entered(body):
 	if body.has_method("player"):
 		player = body # setea al player como el cuerpo que entro al area
-		Transition.emit(self,"chasing_state_chase_enemy")
+		if vision.vision_player(body.position):
+			Transition.emit(self,"chasing_state_chase_enemy")

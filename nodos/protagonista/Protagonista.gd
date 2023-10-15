@@ -30,6 +30,9 @@ var enemigo_position = Vector2.ZERO
 @onready var hitbox = $hitbox
 @onready var tiempo_invencibilidad = $tiempo_invencibilidad
 
+func _ready():
+	add_to_group("player")
+
 func _input(event):
 	# Mouse in viewport coordinates.
 	if event is InputEventMouseButton:

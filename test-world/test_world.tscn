@@ -1,53 +1,42 @@
-[gd_scene load_steps=8 format=3 uid="uid://bnwuefdep2gcu"]
+
+[gd_scene load_steps=6 format=3 uid="uid://bnwuefdep2gcu"]
 
 [ext_resource type="PackedScene" uid="uid://dusk6dox3dxnb" path="res://nodos/plataforma/plataforma.tscn" id="1_h2qiq"]
 [ext_resource type="PackedScene" uid="uid://dj07mg1sgtrmu" path="res://nodos/protagonista/protagonista.tscn" id="2_s5o1e"]
-[ext_resource type="PackedScene" uid="uid://t13h28qs4lvp" path="res://nodos/salto_enemigo/salto_enemigo.tscn" id="3_b02dm"]
-[ext_resource type="PackedScene" uid="uid://d0gordpyc8o5m" path="res://nodos/area_enemy/area_enemy.tscn" id="4_0m32g"]
+[ext_resource type="PackedScene" uid="uid://b37c4705el0oa" path="res://nodos/following_enemy/following_enemy.tscn" id="3_jqj01"]
+[ext_resource type="PackedScene" uid="uid://cqvycjf6wy0df" path="res://nodos/Patrulla/enemigo_patrulla.tscn" id="4_c6qcd"]
 [ext_resource type="PackedScene" uid="uid://2bxnpi0o6m4" path="res://nodos/decabeza_enemigo/decabeza_enemigo.tscn" id="5_nthwm"]
-[ext_resource type="PackedScene" uid="uid://b37c4705el0oa" path="res://nodos/following_enemy/following_enemy.tscn" id="6_cnt8a"]
-[ext_resource type="PackedScene" uid="uid://cqvycjf6wy0df" path="res://nodos/Patrulla/enemigo_patrulla.tscn" id="7_vq14i"]
+
 
 [node name="test-world" type="Node2D"]
 
 [node name="plataforma" parent="." instance=ExtResource("1_h2qiq")]
-scale = Vector2(5, 0.3)
+
+position = Vector2(0, 37)
+
 
 [node name="Protagonista" parent="." instance=ExtResource("2_s5o1e")]
-position = Vector2(54, -69.9999)
-
-[node name="salto_enemigo" parent="." instance=ExtResource("3_b02dm")]
-position = Vector2(497, -319)
+position = Vector2(263, -9)
 
 [node name="plataforma2" parent="." instance=ExtResource("1_h2qiq")]
 position = Vector2(505, -241)
 scale = Vector2(0.6, 0.2)
 
-[node name="plataforma3" parent="." instance=ExtResource("1_h2qiq")]
-position = Vector2(-7.00002, -206)
-scale = Vector2(0.6, 0.2)
-
-[node name="area_enemy" parent="." instance=ExtResource("4_0m32g")]
-position = Vector2(-11, -237)
-
 [node name="plataforma4" parent="." instance=ExtResource("1_h2qiq")]
 position = Vector2(507, -92)
 scale = Vector2(0.6, 0.2)
 
-[node name="decabeza_enemigo" parent="." instance=ExtResource("5_nthwm")]
-position = Vector2(505, -183)
-
-[node name="chase_enemy" parent="." instance=ExtResource("6_cnt8a")]
-position = Vector2(-635, -282)
-
-[node name="plataforma5" parent="." instance=ExtResource("1_h2qiq")]
-position = Vector2(-637, -230)
-scale = Vector2(0.6, 0.2)
-
 [node name="plataforma6" parent="." instance=ExtResource("1_h2qiq")]
-position = Vector2(-328, -102)
+position = Vector2(71, -135)
 scale = Vector2(0.6, 0.2)
 
-[node name="EnemigoPatrulla" parent="." instance=ExtResource("7_vq14i")]
-position = Vector2(-327, -144)
-scale = Vector2(2.43393, 2.43393)
+[node name="EnemigoPatrulla" parent="." instance=ExtResource("4_c6qcd")]
+position = Vector2(60, -165)
+
+[node name="decabeza_enemigo" parent="." instance=ExtResource("5_nthwm")]
+position = Vector2(510, -176)
+
+
+[node name="chase_enemy" parent="." instance=ExtResource("3_jqj01")]
+position = Vector2(430, -285)
+
