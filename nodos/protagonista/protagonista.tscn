@@ -17,7 +17,7 @@ size = Vector2(45.7142, 106.667)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ycceo"]
 radius = 39.0476
-height = 102.857
+height = 106.667
 
 [node name="Protagonista" type="CharacterBody2D"]
 scale = Vector2(0.525, 0.525)
@@ -25,12 +25,11 @@ collision_mask = 10
 script = ExtResource("1_wp7lc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 1
 shape = SubResource("CapsuleShape2D_tlug4")
 debug_color = Color(0.901961, 0, 0.141176, 0.478431)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(0, -150.476)
-zoom = Vector2(2.19, 2.19)
 
 [node name="CoyoteTimer" type="Timer" parent="."]
 wait_time = 0.15
@@ -42,7 +41,7 @@ one_shot = true
 
 [node name="Ataque" type="Area2D" parent="."]
 position = Vector2(70, 0)
-collision_mask = 3
+collision_mask = 2
 script = ExtResource("2_ucc6x")
 
 [node name="colisionAtaque" type="CollisionShape2D" parent="Ataque"]
@@ -74,12 +73,12 @@ offset_bottom = -54.9048
 
 [node name="hitbox" type="Area2D" parent="."]
 position = Vector2(-41.9048, -81.9048)
-collision_layer = 3
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
 position = Vector2(40.9524, 81.9048)
 shape = SubResource("CapsuleShape2D_ycceo")
+debug_color = Color(0.0313726, 0.647059, 0.164706, 0.419608)
 
 [node name="retroceso_tiempo" type="Timer" parent="."]
 wait_time = 0.15
@@ -90,5 +89,6 @@ wait_time = 5.0
 one_shot = true
 
 [connection signal="body_entered" from="Ataque" to="Ataque" method="_on_body_entered"]
+[connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]
 [connection signal="body_exited" from="hitbox" to="." method="_on_hitbox_body_exited"]

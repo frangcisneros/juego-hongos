@@ -1,19 +1,25 @@
-[gd_scene load_steps=7 format=3 uid="uid://bi31bxoehsk7c"]
+[gd_scene load_steps=9 format=3 uid="uid://bi31bxoehsk7c"]
 
 [ext_resource type="Script" path="res://nodos/Enemigo/Enemigo.gd" id="1_npc3e"]
 [ext_resource type="Texture2D" uid="uid://bqh0w6153q0gf" path="res://arte/prota.png" id="2_4kw4g"]
-[ext_resource type="Script" path="res://nodos/Enemigo/collision query/collision query.gd" id="3_qfjsa"]
+[ext_resource type="Script" path="res://nodos/Enemigo/state_machine_platform_enemy.gd" id="4_dka2m"]
+[ext_resource type="Script" path="res://nodos/Enemigo/idle_state_platform_enemy.gd" id="5_er5xs"]
+[ext_resource type="Script" path="res://nodos/Enemigo/dead_state_platform_enemy.gd" id="6_c2qvp"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_16xy7"]
 radius = 26.6667
 height = 74.2861
 
+[sub_resource type="GDScript" id="GDScript_7hg7f"]
+script/source = "extends Area2D
+
+var escala : Vector2
+"
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w3xhl"]
 size = Vector2(12.7643, 14.535)
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_a0uwx"]
-
-[node name="Enemigo" type="CharacterBody2D"]
+[node name="platform_enemy" type="CharacterBody2D"]
 scale = Vector2(0.525, 0.525)
 collision_layer = 2
 collision_mask = 9
@@ -30,15 +36,26 @@ shape = SubResource("CapsuleShape2D_16xy7")
 position = Vector2(24.7619, 30.4762)
 collision_layer = 2
 collision_mask = 8
-script = ExtResource("3_qfjsa")
+script = SubResource("GDScript_7hg7f")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="collision query"]
 position = Vector2(-0.000244141, 0.000183105)
 shape = SubResource("RectangleShape2D_w3xhl")
+debug_color = Color(0.823529, 0.4, 0.0588235, 0.419608)
 
-[node name="collisionSprite" type="Sprite2D" parent="collision query/CollisionShape2D"]
-position = Vector2(0.000139884, -8.88109e-05)
-scale = Vector2(11.4287, 15.2381)
-texture = SubResource("PlaceholderTexture2D_a0uwx")
+[node name="state_machine_platform_enemy" type="Node" parent="." node_paths=PackedStringArray("initial_state", "Enemigo")]
+script = ExtResource("4_dka2m")
+initial_state = NodePath("idle_state_platform_enemy")
+Enemigo = NodePath("..")
 
-[connection signal="body_exited" from="collision query" to="." method="_on_collision_query_body_exited"]
+[node name="idle_state_platform_enemy" type="Node" parent="state_machine_platform_enemy"]
+script = ExtResource("5_er5xs")
+
+[node name="dead_state_platform_enemy" type="Node" parent="state_machine_platform_enemy" node_paths=PackedStringArray("corpse_timer")]
+script = ExtResource("6_c2qvp")
+corpse_timer = NodePath("../../corpse_timer")
+
+[node name="corpse_timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="body_exited" from="collision query" to="state_machine_platform_enemy/idle_state_platform_enemy" method="_on_collision_query_body_exited"]
