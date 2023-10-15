@@ -1,3 +1,4 @@
+
 [gd_scene load_steps=6 format=3 uid="uid://bnwuefdep2gcu"]
 
 [ext_resource type="PackedScene" uid="uid://dusk6dox3dxnb" path="res://nodos/plataforma/plataforma.tscn" id="1_h2qiq"]
@@ -6,11 +7,13 @@
 [ext_resource type="PackedScene" uid="uid://cqvycjf6wy0df" path="res://nodos/Patrulla/enemigo_patrulla.tscn" id="4_c6qcd"]
 [ext_resource type="PackedScene" uid="uid://2bxnpi0o6m4" path="res://nodos/decabeza_enemigo/decabeza_enemigo.tscn" id="5_nthwm"]
 
+
 [node name="test-world" type="Node2D"]
 
 [node name="plataforma" parent="." instance=ExtResource("1_h2qiq")]
+
 position = Vector2(0, 37)
-scale = Vector2(5, 0.3)
+
 
 [node name="Protagonista" parent="." instance=ExtResource("2_s5o1e")]
 position = Vector2(263, -9)
@@ -33,5 +36,7 @@ position = Vector2(60, -165)
 [node name="decabeza_enemigo" parent="." instance=ExtResource("5_nthwm")]
 position = Vector2(510, -176)
 
+
 [node name="chase_enemy" parent="." instance=ExtResource("3_jqj01")]
 position = Vector2(430, -285)
+
