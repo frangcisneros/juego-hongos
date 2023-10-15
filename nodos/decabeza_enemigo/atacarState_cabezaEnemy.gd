@@ -5,7 +5,6 @@ class_name AtacarState_cabezaEnemigo
 var StateActive : bool = false
 
 @onready var Enemigo = get_parent().Enemigo
-#@onready var player_position = Enemigo.get_node("stateMachine_cabezaEnemy/reposoState_cabezaEnemy").player_position
 
 func Enter():
 	StateActive = true

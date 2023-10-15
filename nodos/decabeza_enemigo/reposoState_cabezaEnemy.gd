@@ -4,11 +4,13 @@ class_name ReposoState_cabezaEnemigo
 
 var StateActive : bool = false
 var player = null
+#var player_vision = false
 
 @export var player_position = Vector2.ZERO
 @onready var Enemigo = get_parent().Enemigo
 
 @onready var raycast = Enemigo.get_node("RayCast2D")
+@onready var vision = Enemigo.get_node("vision")
 
 var decabeza_gravity = - ProjectSettings.get_setting("physics/2d/default_gravity")
 
@@ -21,6 +23,8 @@ var primera_posicion = false
 var posicion_inicial = Vector2.ZERO
 
 var first_detection = false
+
+var view_distance = 3
 
 func Enter():
 	
@@ -45,7 +49,20 @@ func UpdatePhysics(delta : float):
 	if Enemigo.is_on_ceiling() and primera_posicion:
 		Enemigo.position = posicion_inicial
 
+
+
 func _on_deteccion_body_entered(body):
 	if body.has_method("player") and not first_detection and Enemigo.is_on_ceiling():
 		player_position = body.position
-		Transition.emit(self, "AtacarState_cabezaEnemy")
+		print(vision_player(player_position))
+		print(vision.get_collider())
+		vision.force_raycast_update()
+		if vision_player(player_position):
+			Transition.emit(self, "AtacarState_cabezaEnemy")
+
+func vision_player(position):
+	vision.set_target_position((position - Enemigo.global_position)*view_distance)
+	if vision.is_colliding() and vision.get_collider().has_method("player"):
+		return true
+	else:
+		return false	

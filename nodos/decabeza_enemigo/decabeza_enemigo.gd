@@ -8,5 +8,4 @@ func _ready():
 	health = 20
 	sprite_enemigo = $Sprite2D
 
-func _physics_process(delta):
-	move_and_slide()
+
