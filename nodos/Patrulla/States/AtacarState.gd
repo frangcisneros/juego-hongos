@@ -12,6 +12,7 @@ class_name AtacarState
 @onready var speed : float = Enemigo.running_speed
 @onready var health : float= Enemigo.health
 @onready var scale_x : float = Enemigo.scale.x
+@onready var vision = Enemigo.get_node("vision")
 var StateActive : bool = false
 var posicion_objetivo : Vector2 
 
@@ -22,10 +23,12 @@ func Enter():
 	if posicion_objetivo.x - Enemigo.position.x >= 5:
 		if Enemigo.velocity.x < 0:
 			Enemigo.scale.x *= -1 
+			vision.scale.x = - vision.scale.x
 		get_parent().get_node("PatrullarState").right = true
 	elif posicion_objetivo.x - Enemigo.position.x <= -5:
 		if Enemigo.velocity.x > 0:
 			Enemigo.scale.x *= -1 
+			vision.scale.x = - vision.scale.x
 		get_parent().get_node("PatrullarState").right = false
 #	Enemigo.velocity.x = 30
 	attack_timer.start()

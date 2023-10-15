@@ -1,8 +1,9 @@
-[gd_scene load_steps=33 format=3 uid="uid://cqvycjf6wy0df"]
+[gd_scene load_steps=34 format=3 uid="uid://cqvycjf6wy0df"]
 
 [ext_resource type="Script" path="res://nodos/Patrulla/EnemigoPatrulla.gd" id="1_lqiqa"]
 [ext_resource type="Texture2D" uid="uid://xmaew1ertpoi" path="res://arte/Animaciones/Seccion 1 Musgo/patrulla/frames/patrullar/0008.png" id="2_ff1xk"]
 [ext_resource type="Script" path="res://nodos/Patrulla/StateMachine.gd" id="3_m0d4l"]
+[ext_resource type="Script" path="res://nodos/Patrulla/vision.gd" id="3_qa4vv"]
 [ext_resource type="Script" path="res://nodos/Patrulla/States/PatrullarState.gd" id="4_xch8n"]
 [ext_resource type="Script" path="res://nodos/Patrulla/States/AtacarState.gd" id="5_h5tcb"]
 [ext_resource type="Script" path="res://nodos/Patrulla/States/DeadState.gd" id="6_slt30"]
@@ -126,6 +127,9 @@ collision_layer = 2
 position = Vector2(-11.5, -5)
 shape = SubResource("RectangleShape2D_4sxdg")
 
+[node name="vision" type="RayCast2D" parent="."]
+script = ExtResource("3_qa4vv")
+
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state", "Enemigo")]
 script = ExtResource("3_m0d4l")
 initial_state = NodePath("PatrullarState")
@@ -165,6 +169,10 @@ libraries = {
 tree_root = SubResource("AnimationNodeStateMachine_dqn0s")
 anim_player = NodePath("../AnimationPlayer")
 parameters/Patrulla/blend_position = 0
+
+[node name="rest" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
 
 [connection signal="body_exited" from="collision query" to="StateMachine/PatrullarState" method="_on_collision_query_body_exited"]
 [connection signal="body_entered" from="detection area" to="StateMachine/PatrullarState" method="_on_detection_area_body_entered"]

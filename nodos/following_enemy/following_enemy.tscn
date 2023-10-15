@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b37c4705el0oa"]
+[gd_scene load_steps=10 format=3 uid="uid://b37c4705el0oa"]
 
 [ext_resource type="Script" path="res://nodos/following_enemy/following_enemy.gd" id="1_dya4w"]
 [ext_resource type="Texture2D" uid="uid://bqh0w6153q0gf" path="res://arte/prota.png" id="2_f5vwm"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://nodos/following_enemy/idle_state_chase_enemy.gd" id="4_30ip5"]
 [ext_resource type="Script" path="res://nodos/following_enemy/chasing_state_chase_enemy.gd" id="5_ukk1a"]
 [ext_resource type="Script" path="res://nodos/following_enemy/dead_state_chase_enemy.gd" id="6_jeiv5"]
+[ext_resource type="Script" path="res://nodos/following_enemy/vision.gd" id="7_wmsvk"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_s0y12"]
 radius = 161.05
@@ -26,6 +27,7 @@ collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="detection_area"]
 shape = SubResource("CircleShape2D_s0y12")
+debug_color = Color(0.941176, 0.2, 0.356863, 0.419608)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.252564, 0.252564)
@@ -48,6 +50,10 @@ script = ExtResource("5_ukk1a")
 
 [node name="dead_state_chase_enemy" type="Node" parent="state_machine_chase_enemy"]
 script = ExtResource("6_jeiv5")
+
+[node name="vision" type="RayCast2D" parent="."]
+collision_mask = 9
+script = ExtResource("7_wmsvk")
 
 [connection signal="body_entered" from="detection_area" to="state_machine_chase_enemy/idle_state_chase_enemy" method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="detection_area" to="state_machine_chase_enemy/chasing_state_chase_enemy" method="_on_detection_area_body_exited"]
