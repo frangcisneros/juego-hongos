@@ -2,19 +2,19 @@
 
 [ext_resource type="PackedScene" uid="uid://dusk6dox3dxnb" path="res://nodos/plataforma/plataforma.tscn" id="1_h2qiq"]
 [ext_resource type="PackedScene" uid="uid://dj07mg1sgtrmu" path="res://nodos/protagonista/protagonista.tscn" id="2_s5o1e"]
-[ext_resource type="PackedScene" uid="uid://2bxnpi0o6m4" path="res://nodos/decabeza_enemigo/decabeza_enemigo.tscn" id="3_rtvre"]
+[ext_resource type="PackedScene" uid="uid://t13h28qs4lvp" path="res://nodos/salto_enemigo/salto_enemigo.tscn" id="3_b02dm"]
 
 [node name="test-world" type="Node2D"]
 
 [node name="plataforma" parent="." instance=ExtResource("1_h2qiq")]
-scale = Vector2(3, 0.3)
-
-[node name="plataforma2" parent="." instance=ExtResource("1_h2qiq")]
-position = Vector2(0, -200)
-scale = Vector2(1, 0.4)
+scale = Vector2(5, 0.3)
 
 [node name="Protagonista" parent="." instance=ExtResource("2_s5o1e")]
-position = Vector2(-213, -57)
+position = Vector2(-28, -291)
 
-[node name="decabeza_enemigo" parent="." instance=ExtResource("3_rtvre")]
-position = Vector2(0, -140)
+[node name="salto_enemigo" parent="." instance=ExtResource("3_b02dm")]
+position = Vector2(115, -281)
+
+[node name="plataforma2" parent="." instance=ExtResource("1_h2qiq")]
+position = Vector2(113, -213)
+scale = Vector2(0.6, 0.2)

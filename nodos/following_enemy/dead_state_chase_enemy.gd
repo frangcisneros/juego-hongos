@@ -1,6 +1,6 @@
 extends State
 
-class_name deadState_cabezaEnemy
+class_name dead_state_chase_enemy
 
 @onready var Enemigo = get_parent().Enemigo
 @export var corpse_timer : Timer
