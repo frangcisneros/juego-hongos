@@ -131,11 +131,12 @@ script = ExtResource("3_m0d4l")
 initial_state = NodePath("PatrullarState")
 Enemigo = NodePath("..")
 
-[node name="PatrullarState" type="Node" parent="StateMachine" node_paths=PackedStringArray("Enemigo", "animation_tree", "animation_player")]
+[node name="PatrullarState" type="Node" parent="StateMachine" node_paths=PackedStringArray("Enemigo", "animation_tree", "animation_player", "detection_area")]
 script = ExtResource("4_xch8n")
 Enemigo = NodePath("../..")
 animation_tree = NodePath("../../AnimationTree")
 animation_player = NodePath("../../AnimationPlayer")
+detection_area = NodePath("../../detection area")
 
 [node name="AtacarState" type="Node" parent="StateMachine" node_paths=PackedStringArray("detection_area", "animation_tree", "animation_player", "attack_timer")]
 script = ExtResource("5_h5tcb")
