@@ -5,6 +5,7 @@ class_name PatrullarState
 @export var Enemigo : CharacterBody2D # = get_parent().get_parent()
 @export var animation_tree : AnimationTree
 @export var animation_player : AnimationPlayer
+@export var detection_area : Area2D 
 
 @onready var right : bool = true
 @onready var speed : float = Enemigo.walking_speed
@@ -22,6 +23,9 @@ func Exit():
 	StateActive = false
 	
 func Update(_delta : float):
+	for body in detection_area.get_overlapping_bodies():
+		if body is Player:
+			Transition.emit(self, "AtacarState")
 	if(Enemigo.health <= 0):
 		Enemigo.set_rotation_degrees(180)
 		Transition.emit(self, "DeadState")
