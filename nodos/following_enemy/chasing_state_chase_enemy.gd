@@ -18,6 +18,8 @@ func Update(_delta : float):
 	pass
 
 func UpdatePhysics(_delta : float):
+	if not Enemigo.is_on_floor():
+		Enemigo.velocity.y += Enemigo.gravity * _delta
 	Enemigo.velocity.x = (Enemigo.position.direction_to(Enemigo.get_node("state_machine_chase_enemy/idle_state_chase_enemy").player.position) * Enemigo.speed).x
 
 func _on_detection_area_body_exited(body):
