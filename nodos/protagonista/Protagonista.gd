@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+class_name Player
+
 # variables
 const SPEED = 300.0 # velocidad
 const JUMP_VELOCITY = -400.0 # velocidad de salto
@@ -145,3 +147,4 @@ func invencibilidad():
 		set_collision_layer_value(1,true)
 		set_collision_mask_value(2,true) 
 		set_collision_layer_value(5,false)
+
