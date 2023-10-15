@@ -2,19 +2,20 @@
 
 [ext_resource type="PackedScene" uid="uid://dusk6dox3dxnb" path="res://nodos/plataforma/plataforma.tscn" id="1_h2qiq"]
 [ext_resource type="PackedScene" uid="uid://dj07mg1sgtrmu" path="res://nodos/protagonista/protagonista.tscn" id="2_s5o1e"]
-[ext_resource type="PackedScene" uid="uid://d0gordpyc8o5m" path="res://nodos/area_enemy/area_enemy.tscn" id="3_i2qo2"]
+[ext_resource type="PackedScene" uid="uid://2bxnpi0o6m4" path="res://nodos/decabeza_enemigo/decabeza_enemigo.tscn" id="3_ejfci"]
 
 [node name="test-world" type="Node2D"]
 
 [node name="plataforma" parent="." instance=ExtResource("1_h2qiq")]
+position = Vector2(0, 131)
 scale = Vector2(3, 0.3)
 
 [node name="plataforma2" parent="." instance=ExtResource("1_h2qiq")]
-position = Vector2(0, -100)
+position = Vector2(4, -52)
 scale = Vector2(1, 0.4)
 
 [node name="Protagonista" parent="." instance=ExtResource("2_s5o1e")]
-position = Vector2(-229, -168)
+position = Vector2(-190, 56)
 
-[node name="area_enemy" parent="." instance=ExtResource("3_i2qo2")]
-position = Vector2(0, -149)
+[node name="decabeza_enemigo" parent="." instance=ExtResource("3_ejfci")]
+position = Vector2(3, 15)
