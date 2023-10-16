@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3 uid="uid://bnwuefdep2gcu"]
+
+[ext_resource type="PackedScene" uid="uid://dusk6dox3dxnb" path="res://nodos/platform_world/platform_world.tscn" id="1_h2qiq"]
+[ext_resource type="PackedScene" uid="uid://dj07mg1sgtrmu" path="res://nodos/player/player.tscn" id="2_s5o1e"]
+[ext_resource type="PackedScene" uid="uid://b37c4705el0oa" path="res://nodos/chase_enemy/chase_enemy.tscn" id="3_jm765"]
+[ext_resource type="PackedScene" uid="uid://d0gordpyc8o5m" path="res://nodos/area_enemy/area_enemy.tscn" id="4_kk8cr"]
+
+[node name="test_world" type="Node2D"]
+
+[node name="player" parent="." instance=ExtResource("2_s5o1e")]
+position = Vector2(-528, 140)
+
+[node name="platform_world" parent="." instance=ExtResource("1_h2qiq")]
+position = Vector2(0, 200)
+scale = Vector2(50, 0.2)
+
+[node name="platform_world2" parent="." instance=ExtResource("1_h2qiq")]
+position = Vector2(-637, 79)
+scale = Vector2(1, 0.3)
+
+[node name="platform_world3" parent="." instance=ExtResource("1_h2qiq")]
+position = Vector2(-11, -212)
+scale = Vector2(1, 0.3)
+
+[node name="platform_world4" parent="." instance=ExtResource("1_h2qiq")]
+position = Vector2(-632, -214)
+scale = Vector2(1, 0.3)
+
+[node name="platform_world5" parent="." instance=ExtResource("1_h2qiq")]
+position = Vector2(-11, 81)
+scale = Vector2(1, 0.3)
+
+[node name="platform_world6" parent="." instance=ExtResource("1_h2qiq")]
+position = Vector2(-13, -71)
+scale = Vector2(1, 0.3)
+
+[node name="platform_world7" parent="." instance=ExtResource("1_h2qiq")]
+position = Vector2(-630, -72)
+scale = Vector2(1, 0.3)
+
+[node name="chase_enemy" parent="." instance=ExtResource("3_jm765")]
+position = Vector2(-59, 27)
+
+[node name="area_enemy" parent="." instance=ExtResource("4_kk8cr")]
+position = Vector2(-326, 147)

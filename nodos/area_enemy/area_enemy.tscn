@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" path="res://nodos/area_enemy/area_enemy.gd" id="1_5xb8b"]
 [ext_resource type="Texture2D" uid="uid://bqh0w6153q0gf" path="res://arte/prota.png" id="1_8r7dp"]
-[ext_resource type="Script" path="res://nodos/area_enemy/damage_area.gd" id="3_pko5k"]
-[ext_resource type="Script" path="res://nodos/area_enemy/stateMachine_areaEnemy.gd" id="4_lf255"]
-[ext_resource type="Script" path="res://nodos/area_enemy/ReposoState.gd" id="6_6vf5n"]
-[ext_resource type="Script" path="res://nodos/area_enemy/AtacarState.gd" id="7_tupln"]
-[ext_resource type="Script" path="res://nodos/area_enemy/DeadState.gd" id="8_leaxx"]
+[ext_resource type="Script" path="res://nodos/area_enemy/damage_area.gd" id="3_ihx6a"]
+[ext_resource type="Script" path="res://nodos/area_enemy/state_machine_area_enemy.gd" id="4_lf255"]
+[ext_resource type="Script" path="res://nodos/area_enemy/idle_state_area_enemy.gd" id="6_6vf5n"]
+[ext_resource type="Script" path="res://nodos/area_enemy/attack_state_area_enemy.gd" id="6_mt6j6"]
+[ext_resource type="Script" path="res://nodos/area_enemy/dead_state_area_enemy.gd" id="8_leaxx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ary8"]
 size = Vector2(18, 26)
@@ -43,28 +43,28 @@ one_shot = true
 
 [node name="damage_area" type="Area2D" parent="."]
 collision_layer = 2
-script = ExtResource("3_pko5k")
+script = ExtResource("3_ihx6a")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="damage_area"]
 position = Vector2(7.64949e-08, -28.75)
 rotation = 1.5708
 shape = SubResource("RectangleShape2D_fap0i")
 
-[node name="stateMachine_areaEnemy" type="Node" parent="." node_paths=PackedStringArray("initial_state", "Enemigo")]
+[node name="state_machine_area_enemy" type="Node" parent="." node_paths=PackedStringArray("initial_state", "Enemigo")]
 script = ExtResource("4_lf255")
-initial_state = NodePath("reposoState_areaEnemy")
+initial_state = NodePath("idle_state_area_enemy")
 Enemigo = NodePath("..")
 
-[node name="reposoState_areaEnemy" type="Node" parent="stateMachine_areaEnemy"]
+[node name="idle_state_area_enemy" type="Node" parent="state_machine_area_enemy"]
 script = ExtResource("6_6vf5n")
 
-[node name="atacarState_areaEnemy" type="Node" parent="stateMachine_areaEnemy"]
-script = ExtResource("7_tupln")
+[node name="attack_state_area_enemy" type="Node" parent="state_machine_area_enemy"]
+script = ExtResource("6_mt6j6")
 
-[node name="deadState_areaEnemy" type="Node" parent="stateMachine_areaEnemy"]
+[node name="dead_state_area_enemy" type="Node" parent="state_machine_area_enemy"]
 script = ExtResource("8_leaxx")
 
 [node name="corpse_timer" type="Timer" parent="."]
 one_shot = true
 
-[connection signal="body_entered" from="detection_area" to="stateMachine_areaEnemy/reposoState_areaEnemy" method="_on_detection_area_body_entered"]
+[connection signal="body_entered" from="detection_area" to="state_machine_area_enemy/idle_state_area_enemy" method="_on_detection_area_body_entered"]
