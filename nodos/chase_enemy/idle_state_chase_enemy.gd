@@ -17,7 +17,9 @@ func Exit():
 	StateActive = false
 	
 func Update(_delta : float):
-	pass
+	if(Enemigo.health <= 0):
+		Enemigo.set_rotation_degrees(180)
+		Transition.emit(self, "dead_state_chase_enemy")
 
 func UpdatePhysics(_delta : float):
 	if not Enemigo.is_on_floor():

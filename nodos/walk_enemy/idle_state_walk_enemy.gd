@@ -1,6 +1,6 @@
 extends State
 
-class_name idle_state_platform_enemy
+class_name idle_state_walk_enemy
 
 var StateActive : bool = false
 var stop : bool = false
@@ -20,7 +20,7 @@ func Update(_delta : float):
 	if(Enemigo.health <= 0):
 		Enemigo.set_rotation_degrees(180)
 		Enemigo.velocity.x = 0
-		Transition.emit(self, "dead_state_platform_enemy")
+		Transition.emit(self, "dead_state_walk_enemy")
 
 func UpdatePhysics(_delta : float):
 	if not Enemigo.is_on_floor():

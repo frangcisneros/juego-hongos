@@ -1,6 +1,6 @@
 extends State
 
-class_name AtacarState
+class_name atack_state_patrol_enemy
 
 @onready var Enemigo : CharacterBody2D= get_parent().Enemigo
 
@@ -12,7 +12,7 @@ class_name AtacarState
 @onready var speed : float = Enemigo.running_speed
 @onready var health : float= Enemigo.health
 @onready var scale_x : float = Enemigo.scale.x
-@onready var vision = Enemigo.get_node("vision")
+@onready var vision = Enemigo.get_node("vision_patrol_enemy")
 var StateActive : bool = false
 var posicion_objetivo : Vector2 
 
@@ -24,12 +24,12 @@ func Enter():
 		if Enemigo.velocity.x < 0:
 			Enemigo.scale.x *= -1 
 			vision.scale.x = - vision.scale.x
-		get_parent().get_node("PatrullarState").right = true
+		get_parent().get_node("idle_state_patrol_enemy").right = true
 	elif posicion_objetivo.x - Enemigo.position.x <= -5:
 		if Enemigo.velocity.x > 0:
 			Enemigo.scale.x *= -1 
 			vision.scale.x = - vision.scale.x
-		get_parent().get_node("PatrullarState").right = false
+		get_parent().get_node("idle_state_patrol_enemy").right = false
 #	Enemigo.velocity.x = 30
 	attack_timer.start()
 	StateActive = true
@@ -43,9 +43,9 @@ func Update(_delta : float):
 	
 	if(Enemigo.health <= 0):
 		Enemigo.set_rotation_degrees(180)
-		Transition.emit(self, "DeadState")
+		Transition.emit(self, "dead_state__patrol_enemy")
 	elif attack_timer.is_stopped():
-		Transition.emit(self,"PatrullarState")
+		Transition.emit(self,"idle_state_patrol_enemy")
 
 func UpdatePhysics(_delta : float):
 	if posicion_objetivo.x - Enemigo.position.x >= 5:

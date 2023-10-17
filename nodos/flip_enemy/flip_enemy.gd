@@ -1,4 +1,4 @@
-extends molde_enemigo
+extends template_enemy
 
 const JUMP_VELOCITY = 100.0
 

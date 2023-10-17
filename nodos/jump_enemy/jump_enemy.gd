@@ -1,4 +1,4 @@
-extends molde_enemigo
+extends template_enemy
 
 var JUMP_VELOCITY = -400
 var SPEED = 50

@@ -10,7 +10,7 @@ var StateActive : bool = false
 @onready var Enemigo = get_parent().Enemigo
 
 @onready var raycast = Enemigo.get_node("RayCast2D")
-@onready var vision = Enemigo.get_node("vision")
+@onready var vision = Enemigo.get_node("vision_flip_enemy")
 
 var decabeza_gravity = - ProjectSettings.get_setting("physics/2d/default_gravity")
 
@@ -32,6 +32,9 @@ func Exit():
 	StateActive = false
 	
 func Update(_delta : float):
+	if(Enemigo.health <= 0):
+		Enemigo.set_rotation_degrees(180)
+		Transition.emit(self, "dead_state_flip_enemy")
 	if raycast.get_collider_rid().is_valid() and not primera_vez:
 		first_object = raycast.get_collider()
 		primera_vez = true
@@ -50,6 +53,6 @@ func _on_deteccion_body_entered(body):
 	if body.has_method("player") and not first_detection and Enemigo.is_on_ceiling():
 		player_position = body.position
 		if vision.vision_player(player_position):
-			Transition.emit(self, "AtacarState_cabezaEnemy")
+			Transition.emit(self, "attack_state_flip_enemy")
 
 

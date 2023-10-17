@@ -1,6 +1,6 @@
 extends Node
 
-class_name StateMachine
+class_name state_machine_patrol_enemy
 
 @export var initial_state : State
 @export var Enemigo: CharacterBody2D

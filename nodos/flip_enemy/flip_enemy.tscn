@@ -49,7 +49,7 @@ position = Vector2(0, 56)
 shape = SubResource("RectangleShape2D_rjnno")
 debug_color = Color(0, 0.639216, 0.380392, 0.419608)
 
-[node name="vision" type="RayCast2D" parent="."]
+[node name="vision_flip_enemy" type="RayCast2D" parent="."]
 target_position = Vector2(0, 500)
 collision_mask = 9
 script = ExtResource("3_v3lnu")
@@ -62,14 +62,18 @@ Enemigo = NodePath("..")
 [node name="idle_state_flip_enemy" type="Node" parent="state_machine_flip_enemy"]
 script = ExtResource("5_0d7pj")
 
-[node name="atack_state_flip_enemy" type="Node" parent="state_machine_flip_enemy"]
+[node name="attack_state_flip_enemy" type="Node" parent="state_machine_flip_enemy"]
 script = ExtResource("6_gt3wc")
 
 [node name="back_state_flip_enemy" type="Node" parent="state_machine_flip_enemy"]
 script = ExtResource("7_5idwa")
 
-[node name="dead_state_flip_enemy" type="Node" parent="state_machine_flip_enemy"]
+[node name="dead_state_flip_enemy" type="Node" parent="state_machine_flip_enemy" node_paths=PackedStringArray("corpse_timer")]
 script = ExtResource("7_sulay")
+corpse_timer = NodePath("../../corpse_timer")
+
+[node name="corpse_timer" type="Timer" parent="."]
+one_shot = true
 
 [connection signal="body_entered" from="deteccion" to="state_machine_flip_enemy/idle_state_flip_enemy" method="_on_deteccion_body_entered"]
-[connection signal="body_entered" from="hitbox" to="state_machine_flip_enemy/atack_state_flip_enemy" method="_on_hitbox_body_entered"]
+[connection signal="body_entered" from="hitbox" to="state_machine_flip_enemy/attack_state_flip_enemy" method="_on_hitbox_body_entered"]

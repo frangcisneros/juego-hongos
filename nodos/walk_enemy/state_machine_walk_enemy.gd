@@ -1,6 +1,6 @@
 extends Node
 
-class_name state_machine_platform_enemy
+class_name state_machine_walk_enemy
 
 @export var initial_state : State
 @export var Enemigo: CharacterBody2D
