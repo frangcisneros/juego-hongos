@@ -1,0 +1,34 @@
+[gd_scene load_steps=4 format=3 uid="uid://cssevd6rtecpf"]
+
+[ext_resource type="Texture2D" uid="uid://bqh0w6153q0gf" path="res://arte/prota.png" id="1_6kns3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2mwuq"]
+size = Vector2(38, 35)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6fu32"]
+size = Vector2(7.5, 9.5)
+
+[node name="armor_walker" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_6kns3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 8.5)
+shape = SubResource("RectangleShape2D_2mwuq")
+
+[node name="collision query" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="collision query"]
+position = Vector2(17.25, 23.25)
+shape = SubResource("RectangleShape2D_6fu32")
+debug_color = Color(0.831373, 0.392157, 0.0705882, 0.419608)
+
+[node name="state_machine_armor_walker" type="Node" parent="."]
+
+[node name="idle_state_armor_walker" type="Node" parent="state_machine_armor_walker"]
+
+[node name="dead_state_armor_walker" type="Node" parent="state_machine_armor_walker"]
+
+[node name="corpse_timer" type="Timer" parent="."]
