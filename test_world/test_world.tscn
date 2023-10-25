@@ -1,41 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://bnwuefdep2gcu"]
+[gd_scene load_steps=3 format=3 uid="uid://bnwuefdep2gcu"]
 
 [ext_resource type="PackedScene" uid="uid://dusk6dox3dxnb" path="res://nodos/platform_world/platform_world.tscn" id="1_h2qiq"]
 [ext_resource type="PackedScene" uid="uid://dj07mg1sgtrmu" path="res://nodos/player/player.tscn" id="2_s5o1e"]
-[ext_resource type="PackedScene" uid="uid://cssevd6rtecpf" path="res://nodos/armor_walker/armor_walker.tscn" id="3_8fph3"]
 
 [node name="test_world" type="Node2D"]
 
 [node name="player" parent="." instance=ExtResource("2_s5o1e")]
-position = Vector2(-257, 29)
+position = Vector2(-658, -354)
 
 [node name="platform_world" parent="." instance=ExtResource("1_h2qiq")]
 position = Vector2(0, 200)
 scale = Vector2(50, 0.2)
 
 [node name="platform_world2" parent="." instance=ExtResource("1_h2qiq")]
-position = Vector2(-637, 79)
-scale = Vector2(1, 0.3)
-
-[node name="platform_world3" parent="." instance=ExtResource("1_h2qiq")]
-position = Vector2(-11, -212)
-scale = Vector2(1, 0.3)
-
-[node name="platform_world4" parent="." instance=ExtResource("1_h2qiq")]
-position = Vector2(-632, -214)
+position = Vector2(-656, -299)
 scale = Vector2(1, 0.3)
 
 [node name="platform_world5" parent="." instance=ExtResource("1_h2qiq")]
-position = Vector2(-11, 81)
+position = Vector2(-119, -40)
 scale = Vector2(1, 0.3)
-
-[node name="platform_world6" parent="." instance=ExtResource("1_h2qiq")]
-position = Vector2(-13, -71)
-scale = Vector2(1, 0.3)
-
-[node name="platform_world7" parent="." instance=ExtResource("1_h2qiq")]
-position = Vector2(-630, -72)
-scale = Vector2(1, 0.3)
-
-[node name="armor_walker" parent="." instance=ExtResource("3_8fph3")]
-position = Vector2(-127, 32)

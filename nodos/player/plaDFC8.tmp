@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dj07mg1sgtrmu"]
+[gd_scene load_steps=17 format=3 uid="uid://dj07mg1sgtrmu"]
 
 [ext_resource type="Script" path="res://nodos/player/player.gd" id="1_wp7lc"]
 [ext_resource type="Script" path="res://nodos/player/atack_player/atack_player.gd" id="2_ucc6x"]
@@ -10,7 +10,6 @@
 [ext_resource type="Script" path="res://nodos/player/walk_state_player.gd" id="7_vngty"]
 [ext_resource type="Script" path="res://nodos/player/jump_state_player.gd" id="8_fvqp5"]
 [ext_resource type="Script" path="res://nodos/player/attack_state_player.gd" id="9_3j50o"]
-[ext_resource type="Script" path="res://nodos/player/fall_state_player.gd" id="10_bjbsj"]
 [ext_resource type="Script" path="res://nodos/player/hurt_state_player.gd" id="10_cryw5"]
 [ext_resource type="Script" path="res://nodos/player/dead_state_player.gd" id="11_e346p"]
 
@@ -41,7 +40,6 @@ debug_color = Color(0.901961, 0, 0.141176, 0.478431)
 scale = Vector2(1.5, 1.5)
 
 [node name="coyote_timer" type="Timer" parent="."]
-wait_time = 0.5
 one_shot = true
 
 [node name="jump_buffer_timer" type="Timer" parent="."]
@@ -110,9 +108,6 @@ script = ExtResource("7_vngty")
 
 [node name="jump_state_player" type="Node" parent="state_machine_player"]
 script = ExtResource("8_fvqp5")
-
-[node name="fall_state_player" type="Node" parent="state_machine_player"]
-script = ExtResource("10_bjbsj")
 
 [node name="attack_state_player" type="Node" parent="state_machine_player"]
 script = ExtResource("9_3j50o")
