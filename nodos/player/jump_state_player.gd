@@ -9,6 +9,7 @@ var stop_jump = false
 @onready var Player = get_parent().Player
 
 func Enter():
+	Player.jump_buffer_timer.stop()
 	Player.velocity.y = Player.JUMP_VELOCITY
 	Player.coyote_timer.stop()
 	StateActive = true
@@ -32,3 +33,9 @@ func UpdatePhysics(_delta : float):
 		Player.velocity.y /= Player.velocity.y
 	if Player.is_on_floor():
 		Transition.emit(self,"idle_state_player")
+		
+	if Input.is_action_just_pressed("ui_select"):
+		Player.jump_buffer_timer.start()
+	
+	if not Player.jump_buffer_timer.is_stopped() and (Player.is_on_floor() or not Player.coyote_timer.is_stopped()):
+		Transition.emit(self,"jump_state_player")

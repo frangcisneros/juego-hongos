@@ -34,7 +34,6 @@ func _ready():
 	add_to_group("player")
 
 func _input(event):
-	# Mouse in viewport coordinates.
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 			global_position = get_global_mouse_position()
@@ -55,20 +54,8 @@ func _physics_process(delta):
 			velocity.y += gravity * 1.75 * delta # cuando salta, es afectado por la gravedad para que caiga mas rapido y no tan suave
 			velocity.y = clamp(velocity.y, 0, 750)
 
-	
-#	var was_on_floor = is_on_floor() # define una variable con el mismo valor de is on floor
+	move_and_slide()
 
-	
-	move_and_slide() # metodo para moverse
-	
-#	if was_on_floor && !is_on_floor(): # si las variables de estaba en el suelo es distinta a esta en el suelo (o sea el personaje esta en el aire) empieza el timer de coyote
-#		coyote_timer.start()
-	
-	# resetea si se cae
-	if position.y >= 650:
-		position = initialPos
-		
-	
 func update_health():
 	var healthbar = $health_bar
 	healthbar.value = health
@@ -78,7 +65,6 @@ func player():
 
 func _on_hitbox_body_entered(body):
 	if body.has_method("enemy"):
-		print("ay")
 		health = health - 1
 		enemigo_position = body.global_position
 		retroceso_tiempo.start()
