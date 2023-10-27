@@ -9,5 +9,3 @@ func _ready():
 	health = 20
 	sprite_enemigo = $Sprite2D
 
-
-
