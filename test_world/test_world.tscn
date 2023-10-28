@@ -2,12 +2,12 @@
 
 [ext_resource type="PackedScene" uid="uid://dusk6dox3dxnb" path="res://nodos/platform_world/platform_world.tscn" id="1_h2qiq"]
 [ext_resource type="PackedScene" uid="uid://dj07mg1sgtrmu" path="res://nodos/player/player.tscn" id="2_s5o1e"]
-[ext_resource type="PackedScene" uid="uid://cssevd6rtecpf" path="res://nodos/armor_walker/armor_walker.tscn" id="3_cgfy0"]
+[ext_resource type="PackedScene" uid="uid://cssevd6rtecpf" path="res://nodos/armor_walker/armor_walker.tscn" id="3_okg3t"]
 
 [node name="test_world" type="Node2D"]
 
 [node name="player" parent="." instance=ExtResource("2_s5o1e")]
-position = Vector2(-558, -354)
+position = Vector2(-644, -351)
 
 [node name="platform_world" parent="." instance=ExtResource("1_h2qiq")]
 position = Vector2(0, 200)
@@ -21,5 +21,5 @@ scale = Vector2(1, 0.3)
 position = Vector2(-119, -40)
 scale = Vector2(1, 0.3)
 
-[node name="armor_walker" parent="." instance=ExtResource("3_cgfy0")]
-position = Vector2(-450, -359)
+[node name="armor_walker" parent="." instance=ExtResource("3_okg3t")]
+position = Vector2(-509, -353)

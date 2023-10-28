@@ -87,6 +87,8 @@ func invencibilidad():
 		hitbox.set_collision_layer_value(1,true)
 		set_collision_layer_value(1,true)
 		set_collision_mask_value(2,true) 
-		set_collision_layer_value(5,false)
+		set_collision_layer_value(5,false) 
 
-
+func _on_hitbox_player_body_entered(body):
+	if body.has_method("coin"):
+		body.queue_free()
