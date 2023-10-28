@@ -21,11 +21,6 @@ func Exit():
 func Update(_delta : float):
 	if turtle_timer.is_stopped():
 		Transition.emit(self,"idle_state_armor_walker")
-	
-	if(Enemigo.health <= 0):
-		Enemigo.set_rotation_degrees(180)
-		Enemigo.velocity.x = 0
-		Transition.emit(self, "dead_state_armor_walker")
 
 func UpdatePhysics(_delta : float):
 	pass

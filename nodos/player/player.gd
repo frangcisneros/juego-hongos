@@ -58,22 +58,6 @@ func update_health():
 func player():
 	pass
 
-### NO ENTIENDO PARA QUE ESTA ESTO DE ACA ABAJO ###
-#func _on_hitbox_player_area_entered(area):
-#	print("ay")
-#	if area.has_method("enemy"):
-##		enemigo_rango = true
-#		health = health - 1
-#		#hitted = true
-#		enemigo_position = area.global_position
-#		retroceso_tiempo.start()
-#		retroceso_vector = (global_position - enemigo_position).normalized() * retroceso_normal
-#		velocity.x = retroceso_vector.x
-#		velocity.y = -200
-#		if tiempo_invencibilidad.is_stopped(): #si el personaje no es invencible
-#			tiempo_invencibilidad.start() #lo hacemos invencible por un tiempo
-### NO ENTIENDO PARA QUE ESTA ESTO DE ACA ARRIBA ###
-
 func invencibilidad():
 	if not tiempo_invencibilidad.is_stopped(): #si le pegaron al pj lo hacemos invencible
 		# esto es lo que uso para cambiar como interactuan los objetos

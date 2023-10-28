@@ -22,6 +22,7 @@ func _process(delta):
 #	print(currentState)
 	currentState.Update(delta)
 
+
 func _physics_process(delta):
 	currentState.UpdatePhysics(delta)
 
@@ -41,3 +42,14 @@ func on_child_transition(state, new_state_name):
 	new_state.Enter() #entras la nuevo estado
 
 	currentState = new_state #haces que el nuevo estado sea el estado actual
+
+func _on_hitbox_player_body_entered(body):
+	if body.has_method("enemy"):
+		on_child_transition(currentState,"hurt_state_player")
+
+func _on_hitbox_player_area_entered(area):
+	if area.has_method("enemy"):
+		on_child_transition(currentState,"hurt_state_player")
+
+
+
