@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://bk7cyyehyr7hi"]
+
+[ext_resource type="Script" path="res://nodos/collectables/coin_collectable.gd" id="1_knela"]
+[ext_resource type="Texture2D" uid="uid://dhmv6d5j327kq" path="res://arte/moneda.jpg" id="2_fvb8e"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_a6ycy"]
+rough = true
+bounce = 0.5
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_12cft"]
+radius = 39.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_00dyq"]
+radius = 10.0499
+
+[node name="coin_collectable" type="RigidBody2D"]
+collision_layer = 4
+collision_mask = 9
+mass = 0.5
+physics_material_override = SubResource("PhysicsMaterial_a6ycy")
+lock_rotation = true
+angular_damp_mode = 1
+script = ExtResource("1_knela")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-2.38419e-07, 5.96046e-07)
+scale = Vector2(0.114286, 0.0806452)
+texture = ExtResource("2_fvb8e")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_12cft")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_00dyq")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

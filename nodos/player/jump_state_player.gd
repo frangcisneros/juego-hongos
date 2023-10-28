@@ -40,6 +40,6 @@ func UpdatePhysics(_delta : float):
 	if not Player.jump_buffer_timer.is_stopped() and (Player.is_on_floor() or not Player.coyote_timer.is_stopped()):
 		Transition.emit(self,"jump_state_player")
 
-func _on_hitbox_player_body_entered(body):
-	if body.has_method("enemy"):
-		Transition.emit(self,"hurt_state_player")
+#func _on_hitbox_player_body_entered(body):
+#	if body.has_method("enemy"):
+#		Transition.emit(self,"hurt_state_player")

@@ -58,13 +58,13 @@ Enemigo = NodePath("..")
 [node name="idle_state_armor_walker" type="Node" parent="state_machine_armor_walker"]
 script = ExtResource("3_aaq01")
 
-[node name="dead_state_armor_walker" type="Node" parent="state_machine_armor_walker" node_paths=PackedStringArray("corpse_timer")]
-script = ExtResource("4_wfup6")
-corpse_timer = NodePath("../../corpse_timer")
-
 [node name="turtle_state_armor_walker" type="Node" parent="state_machine_armor_walker" node_paths=PackedStringArray("turtle_timer")]
 script = ExtResource("6_6520q")
 turtle_timer = NodePath("../../turtle_timer")
+
+[node name="dead_state_armor_walker" type="Node" parent="state_machine_armor_walker" node_paths=PackedStringArray("corpse_timer")]
+script = ExtResource("4_wfup6")
+corpse_timer = NodePath("../../corpse_timer")
 
 [node name="corpse_timer" type="Timer" parent="."]
 one_shot = true
