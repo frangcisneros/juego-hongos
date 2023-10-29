@@ -1,0 +1,74 @@
+[gd_scene load_steps=6 format=3 uid="uid://r3cq616udhwe"]
+
+[ext_resource type="Script" path="res://nodos/ui/ui.gd" id="1_f806u"]
+[ext_resource type="Texture2D" uid="uid://boq102ohomryy" path="res://arte/hearth.png" id="1_ttkvy"]
+[ext_resource type="Texture2D" uid="uid://vj865u0uu1vo" path="res://arte/empty_hearth.png" id="2_s885q"]
+[ext_resource type="Script" path="res://nodos/ui/pause.gd" id="4_36261"]
+[ext_resource type="Texture2D" uid="uid://cp84dbkl2bal5" path="res://arte/solid_black.png" id="4_u0ggt"]
+
+[node name="UI" type="CanvasLayer"]
+
+[node name="health" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_f806u")
+
+[node name="empty_heart" type="TextureRect" parent="health"]
+layout_mode = 2
+offset_right = 3745.0
+offset_bottom = 493.0
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_s885q")
+stretch_mode = 1
+
+[node name="full_heart" type="TextureRect" parent="health"]
+layout_mode = 2
+offset_right = 740.0
+offset_bottom = 476.0
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_ttkvy")
+stretch_mode = 1
+
+[node name="pause" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 2.0
+offset_top = 4.0
+offset_right = 364.0
+offset_bottom = 188.0
+scale = Vector2(3.16, 3.48)
+script = ExtResource("4_36261")
+
+[node name="TextureRect" type="TextureRect" parent="pause"]
+modulate = Color(1, 1, 1, 0.380392)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(9.06329, 4.62069)
+texture = ExtResource("4_u0ggt")
+expand_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="pause"]
+layout_mode = 0
+offset_left = 91.1392
+offset_top = 74.4253
+offset_right = 434.139
+offset_bottom = 140.425
+scale = Vector2(0.5, 0.5)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="pause/MarginContainer"]
+layout_mode = 2
+
+[node name="resume" type="Button" parent="pause/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Resume"
+
+[node name="quit" type="Button" parent="pause/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+
+[connection signal="pressed" from="pause/MarginContainer/VBoxContainer/resume" to="pause" method="_on_resume_pressed"]
+[connection signal="pressed" from="pause/MarginContainer/VBoxContainer/quit" to="pause" method="_on_quit_pressed"]

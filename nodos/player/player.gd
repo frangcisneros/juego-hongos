@@ -12,7 +12,8 @@ var retroceso_vector = Vector2.ZERO
 var retroceso_normal = 500
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity") # obtiene la gravedad desde la configuracion global del proyecto
-var health = 100
+var max_health = 5
+var health = 5
 var player_alive = true
 var enemigo_rango = false
 #var enemigo_position = Vector2.ZERO
