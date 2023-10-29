@@ -6,8 +6,15 @@ extends Control
 @onready var empty_heart = $empty_heart
 
 var hearts = PlayerStats.health
-	
+
+func _ready():
+	pass
+
 func _process(delta):
+	if game.game_run:
+		show()
+	else:
+		hide()
 	hearts = PlayerStats.health
 	set_hearts(hearts)
 

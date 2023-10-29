@@ -42,7 +42,7 @@ scale = Vector2(1.5, 1.5)
 zoom = Vector2(1.5, 1.5)
 
 [node name="coyote_timer" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 0.15
 one_shot = true
 
 [node name="jump_buffer_timer" type="Timer" parent="."]

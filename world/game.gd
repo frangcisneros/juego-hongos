@@ -14,6 +14,8 @@ var game_paused : bool = false:
 		get_tree().paused = game_paused
 		emit_signal("toggle_game_paused", game_paused)
 
+var game_run = false
+
 func unload_level():
 	if is_instance_valid(level_instance):
 		level_instance.queue_free()
@@ -29,12 +31,12 @@ func load_level(level_name : String):
 
 
 func _ready():
-	load_level("test_world")
+	pass
 
 func _input(event : InputEvent):
-	if event.is_action_pressed("ui_cancel"):
+	if event.is_action_pressed("ui_cancel") and game_run:
 		game_paused = !game_paused
-	if event.is_action_pressed("ui_home"):
+	if event.is_action_pressed("ui_home") and game_run:
 		load_level("test_1")
 		
 

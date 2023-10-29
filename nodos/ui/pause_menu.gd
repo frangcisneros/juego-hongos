@@ -15,7 +15,6 @@ func _on_game_toggle_game_paused(is_paused : bool):
 	else:
 		hide()
 
-
 func _on_resume_pressed():
 	game.game_paused = false
 
