@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://vj865u0uu1vo"
-path="res://.godot/imported/empty_hearth.png-781bc3ec75dd84d6428bcf82cfb1fad3.ctex"
+path="res://.godot/imported/empty_heart.png-426e88af1e920fe07e6b9780fd04d285.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://arte/empty_hearth.png"
-dest_files=["res://.godot/imported/empty_hearth.png-781bc3ec75dd84d6428bcf82cfb1fad3.ctex"]
+source_file="res://arte/empty_heart.png"
+dest_files=["res://.godot/imported/empty_heart.png-426e88af1e920fe07e6b9780fd04d285.ctex"]
 
 [params]
 

@@ -11,13 +11,13 @@ config_version=5
 [application]
 
 config/name="Juego"
-run/main_scene="res://test_world/test_world.tscn"
+run/main_scene="res://world/game.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
-global="*res://scripts/global.gd"
+PlayerStats="*res://scripts/player_stats.gd"
 
 [layer_names]
 
