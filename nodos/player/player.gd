@@ -34,7 +34,6 @@ func _input(event):
 			global_position = get_global_mouse_position()
 
 func _process(delta):
-	update_health()
 	invencibilidad()
 
 func _physics_process(delta):
@@ -51,9 +50,7 @@ func _physics_process(delta):
 
 	move_and_slide()
 
-func update_health():
-	var healthbar = $health_bar
-	healthbar.value = PlayerStats.health
+
 
 func player():
 	pass

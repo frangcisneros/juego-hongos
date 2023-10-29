@@ -31,6 +31,7 @@ texture = ExtResource("1_8r7dp")
 shape = SubResource("RectangleShape2D_1ary8")
 
 [node name="detection_area" type="Area2D" parent="."]
+collision_layer = 32
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="detection_area"]
 position = Vector2(0, -29.5)
@@ -42,7 +43,7 @@ wait_time = 0.5
 one_shot = true
 
 [node name="damage_area" type="Area2D" parent="."]
-collision_layer = 2
+collision_layer = 32
 script = ExtResource("3_ihx6a")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="damage_area"]

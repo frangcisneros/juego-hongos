@@ -29,7 +29,6 @@ func load_level(level_name : String):
 		level_instance = level_resource.instantiate()
 		self.add_child(level_instance)
 
-
 func _ready():
 	pass
 
