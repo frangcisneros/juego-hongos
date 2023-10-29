@@ -2,7 +2,7 @@ extends State
 
 class_name idle_state_patrol_enemy
 
-@export var Enemigo : CharacterBody2D # = get_parent().get_parent()
+@export var Enemigo : CharacterBody2D
 @export var animation_tree : AnimationTree
 @export var animation_player : AnimationPlayer
 @export var detection_area : Area2D 
@@ -17,7 +17,6 @@ var StateActive : bool = false
 
 func Enter():
 	rest_timer.start()
-	
 	StateActive = true
 	animation_tree.set("parameters/Patrulla/blend_position",0)
 	animation_player.set("speed_scale", 1)
@@ -26,11 +25,11 @@ func Exit():
 	StateActive = false
 	
 func Update(_delta : float):
-
+	print(Enemigo.get_node("detection area").monitoring)
 	if not rest_timer.is_stopped():
-		Enemigo.get_node("detection area").monitoring = false
+		Enemigo.get_node("detection area").set_deferred("monitoring",false)
 	elif rest_timer.is_stopped():
-		Enemigo.get_node("detection area").monitoring = true
+		Enemigo.get_node("detection area").set_deferred("monitoring",true)
 
 	if(Enemigo.health <= 0):
 		Enemigo.set_rotation_degrees(180)

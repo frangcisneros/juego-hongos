@@ -7,20 +7,13 @@
 [node name="test_world" type="Node2D"]
 process_mode = 1
 
-[node name="player" parent="." groups=["player"] instance=ExtResource("2_s5o1e")]
-position = Vector2(419, 238)
+[node name="player" parent="." instance=ExtResource("2_s5o1e")]
+position = Vector2(507, 604)
 
 [node name="platform_world" parent="." instance=ExtResource("1_h2qiq")]
 position = Vector2(58, 648)
 scale = Vector2(50, 0.2)
 
-[node name="platform_world2" parent="." instance=ExtResource("1_h2qiq")]
-position = Vector2(363, 282)
-scale = Vector2(1, 0.3)
-
-[node name="platform_world5" parent="." instance=ExtResource("1_h2qiq")]
-position = Vector2(808, 473)
-scale = Vector2(1, 0.3)
-
 [node name="patrol_enemy" parent="." instance=ExtResource("3_rd206")]
-position = Vector2(260, 225)
+position = Vector2(307, 605)
+scale = Vector2(2, 2)
