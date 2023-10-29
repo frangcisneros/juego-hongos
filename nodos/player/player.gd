@@ -12,7 +12,7 @@ var retroceso_vector = Vector2.ZERO
 var retroceso_normal = 500
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity") # obtiene la gravedad desde la configuracion global del proyecto
-var health = 100
+
 var player_alive = true
 var enemigo_rango = false
 #var enemigo_position = Vector2.ZERO
@@ -38,9 +38,9 @@ func _process(delta):
 	invencibilidad()
 
 func _physics_process(delta):
-	if health <=0:
+	if PlayerStats.health <=0:
 		player_alive = false
-		health = 0
+		PlayerStats.health = 0
 	
 	if not is_on_floor():
 		if velocity.y < 0: # cuando cae este es afectado por la gravedad
@@ -53,7 +53,7 @@ func _physics_process(delta):
 
 func update_health():
 	var healthbar = $health_bar
-	healthbar.value = health
+	healthbar.value = PlayerStats.health
 
 func player():
 	pass

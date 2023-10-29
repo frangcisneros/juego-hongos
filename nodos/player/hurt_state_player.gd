@@ -8,7 +8,7 @@ var StateActive : bool = false
 
 func Enter():
 	StateActive = true
-	Player.health = Player.health - 1
+	PlayerStats.health = PlayerStats.health - 1
 	if Player.marker2D.scale.x == 1:
 		Player.velocity.x = -1000
 	else:
