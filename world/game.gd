@@ -4,7 +4,6 @@ class_name game
 
 signal toggle_game_paused(is_paused : bool)
 
-
 var level_instance = null
 var game_paused : bool = false:
 	get:

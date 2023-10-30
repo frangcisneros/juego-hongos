@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bdcwy0l23ge2o"]
+[gd_scene load_steps=14 format=3 uid="uid://bdcwy0l23ge2o"]
 
 [ext_resource type="Script" path="res://nodos/patrol_area_enemy/patrol_area_enemy.gd" id="1_bx1uf"]
 [ext_resource type="Texture2D" uid="uid://bqh0w6153q0gf" path="res://arte/prota.png" id="1_ochcv"]
@@ -8,7 +8,6 @@
 [ext_resource type="Script" path="res://nodos/patrol_area_enemy/idle_state_patrol_area_enemy.gd" id="5_oamxw"]
 [ext_resource type="Script" path="res://nodos/patrol_area_enemy/atack_state_patrol_area_enemy.gd" id="6_ovsot"]
 [ext_resource type="Script" path="res://nodos/patrol_area_enemy/dead_state_patrol_area_enemy.gd" id="7_rihyf"]
-[ext_resource type="Script" path="res://nodos/patrol_area_enemy/hitted_state_patrol_area_enemy.gd" id="9_5g2yo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bny47"]
 size = Vector2(58, 43)
@@ -29,6 +28,8 @@ collision_layer = 2
 collision_mask = 9
 floor_block_on_wall = false
 script = ExtResource("1_bx1uf")
+walking_speed = null
+running_speed = null
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-2.38419e-07, 19.0199)
@@ -96,9 +97,6 @@ attack_timer = NodePath("../../AttackTimer")
 [node name="dead_state_patrol_area_enemy" type="Node" parent="state_machine_patrol_area_enemy" node_paths=PackedStringArray("corpse_timer")]
 script = ExtResource("7_rihyf")
 corpse_timer = NodePath("../../CorpseTimer")
-
-[node name="hitted_state_patrol_area_enemy" type="Node" parent="state_machine_patrol_area_enemy"]
-script = ExtResource("9_5g2yo")
 
 [node name="AttackTimer" type="Timer" parent="."]
 wait_time = 2.0

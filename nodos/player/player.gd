@@ -4,7 +4,7 @@ class_name Player
 
 # variables
 const SPEED = 300.0 # velocidad
-const JUMP_VELOCITY = -400.0 # velocidad de salto
+const JUMP_VELOCITY = -600.0 # velocidad de salto
 const initialPos = Vector2(519,554) # posicion inicial en el mundo para resetear luego
 const FLOOR = Vector2.UP
 

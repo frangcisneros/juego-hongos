@@ -4,6 +4,10 @@ var view_distance = 1
 
 @onready var player = get_tree().get_nodes_in_group("player")[0]
 
+
+func _ready():
+	pass
+
 func _process(delta):
 	vision_player(player.position)
 
