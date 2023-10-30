@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Juego"
-run/main_scene="res://test_world/test_world.tscn"
+run/main_scene="res://world/section_1/starting_area.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -26,3 +26,4 @@ global="*res://scripts/global.gd"
 2d_physics/layer_3="item"
 2d_physics/layer_4="floor"
 2d_physics/layer_5="invencibilidad"
+2d_physics/layer_6="attack_and_detection"

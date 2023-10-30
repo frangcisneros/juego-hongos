@@ -10,7 +10,7 @@ func plataforma():
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ooqg2"]
-size = Vector2(531, 63)
+size = Vector2(579, 80)
 
 [node name="platform_world" type="StaticBody2D"]
 collision_layer = 8
@@ -22,4 +22,5 @@ scale = Vector2(1.89216, 0.631783)
 texture = ExtResource("1_pbwk5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_ooqg2")

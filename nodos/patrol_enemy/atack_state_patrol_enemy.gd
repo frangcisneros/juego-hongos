@@ -25,11 +25,13 @@ func Enter():
 			Enemigo.scale.x *= -1 
 			vision.scale.x = - vision.scale.x
 		get_parent().get_node("idle_state_patrol_enemy").right = true
+		Enemigo.velocity.x = speed
 	elif posicion_objetivo.x - Enemigo.position.x <= -5:
 		if Enemigo.velocity.x > 0:
 			Enemigo.scale.x *= -1 
 			vision.scale.x = - vision.scale.x
 		get_parent().get_node("idle_state_patrol_enemy").right = false
+		Enemigo.velocity.x = -speed
 #	Enemigo.velocity.x = 30
 	attack_timer.start()
 	StateActive = true
@@ -47,10 +49,8 @@ func Update(_delta : float):
 	elif attack_timer.is_stopped():
 		Transition.emit(self,"idle_state_patrol_enemy")
 
-func UpdatePhysics(_delta : float):
-	if posicion_objetivo.x - Enemigo.position.x >= 5:
-		Enemigo.velocity.x = speed
-	elif posicion_objetivo.x - Enemigo.position.x <= -5:
-		Enemigo.velocity.x = -speed
-	else:
-		attack_timer.stop()
+#func UpdatePhysics(_delta : float):
+#	if posicion_objetivo.x - Enemigo.position.x >= 5:
+#		Enemigo.velocity.x = speed
+#	elif posicion_objetivo.x - Enemigo.position.x <= -5:
+#		Enemigo.velocity.x = -speed

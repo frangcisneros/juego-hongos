@@ -6,11 +6,14 @@ var StateActive : bool = false
 
 @onready var Enemigo = get_parent().Enemigo
 @onready var damage_area = Enemigo.get_node("damage_area/CollisionShape2D")
+@onready var sprite = Enemigo.get_node("damage_area/CollisionShape2D/Sprite2D2")
 
 
 func Enter():
 	damage_area.shape.extents = Vector2(0,0)
 	StateActive = true
+	sprite.scale.x = 0
+	sprite.scale.y = 0
 
 func Exit():
 	StateActive = false

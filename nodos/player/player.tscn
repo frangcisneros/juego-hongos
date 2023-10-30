@@ -30,6 +30,7 @@ height = 106.667
 [node name="player" type="CharacterBody2D"]
 scale = Vector2(0.525, 0.525)
 collision_mask = 10
+safe_margin = 1.0
 script = ExtResource("1_wp7lc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -50,6 +51,7 @@ one_shot = true
 
 [node name="attack" type="Area2D" parent="."]
 position = Vector2(70, 0)
+collision_layer = 32
 collision_mask = 2
 script = ExtResource("2_ucc6x")
 
@@ -82,7 +84,7 @@ offset_bottom = -54.9048
 
 [node name="hitbox_player" type="Area2D" parent="."]
 position = Vector2(-41.9048, -81.9048)
-collision_mask = 2
+collision_mask = 34
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox_player"]
 position = Vector2(40.9524, 81.9048)
@@ -123,6 +125,7 @@ script = ExtResource("10_cryw5")
 script = ExtResource("11_e346p")
 
 [connection signal="area_entered" from="attack" to="attack" method="_on_area_entered"]
+[connection signal="area_entered" from="hitbox_player" to="state_machine_player" method="_on_hitbox_player_area_entered"]
 [connection signal="body_entered" from="hitbox_player" to="state_machine_player/idle_state_player" method="_on_hitbox_player_body_entered"]
 [connection signal="body_entered" from="hitbox_player" to="state_machine_player/walk_state_player" method="_on_hitbox_player_body_entered"]
 [connection signal="body_entered" from="hitbox_player" to="state_machine_player/jump_state_player" method="_on_hitbox_player_body_entered"]

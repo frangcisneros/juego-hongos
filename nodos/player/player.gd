@@ -4,7 +4,7 @@ class_name Player
 
 # variables
 const SPEED = 300.0 # velocidad
-const JUMP_VELOCITY = -400.0 # velocidad de salto
+const JUMP_VELOCITY = -600.0 # velocidad de salto
 const initialPos = Vector2(519,554) # posicion inicial en el mundo para resetear luego
 const FLOOR = Vector2.UP
 
@@ -33,7 +33,7 @@ func _input(event):
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 			global_position = get_global_mouse_position()
 
-func _process(delta):
+func _process(_delta):
 	update_health()
 	invencibilidad()
 
@@ -47,8 +47,7 @@ func _physics_process(delta):
 			velocity.y += gravity * delta
 		else:
 			velocity.y += gravity * 1.75 * delta # cuando salta, es afectado por la gravedad para que caiga mas rapido y no tan suave
-			velocity.y = clamp(velocity.y, 0, 750)
-
+			velocity.y = clamp(velocity.y, 0, 1000)
 	move_and_slide()
 
 func update_health():
