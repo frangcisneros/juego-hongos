@@ -3,10 +3,10 @@
 [ext_resource type="PackedScene" uid="uid://dusk6dox3dxnb" path="res://nodos/platform_world/platform_world.tscn" id="1_5mxna"]
 [ext_resource type="PackedScene" uid="uid://dj07mg1sgtrmu" path="res://nodos/player/player.tscn" id="2_8onms"]
 [ext_resource type="PackedScene" uid="uid://bi31bxoehsk7c" path="res://nodos/walk_enemy/walk_enemy.tscn" id="3_4ro21"]
-[ext_resource type="PackedScene" uid="uid://d0gordpyc8o5m" path="res://nodos/area_enemy/area_enemy.tscn" id="4_hwogb"]
 [ext_resource type="PackedScene" uid="uid://dhtcxchlvm5ud" path="res://nodos/moss_house.tscn" id="5_ggl8k"]
 [ext_resource type="PackedScene" uid="uid://sqrkoe0x2f65" path="res://nodos/chest.tscn" id="6_krfsi"]
 [ext_resource type="PackedScene" uid="uid://cqvycjf6wy0df" path="res://nodos/patrol_enemy/patrol_enemy.tscn" id="7_icycp"]
+[ext_resource type="PackedScene" uid="uid://t13h28qs4lvp" path="res://nodos/jump_enemy/jump_enemy.tscn" id="7_qi715"]
 
 [node name="first_zone" type="Node2D"]
 
@@ -119,28 +119,12 @@ position = Vector2(1675, -52)
 scale = Vector2(0.79732, 0.79732)
 
 [node name="walk_enemy2" parent="." instance=ExtResource("3_4ro21")]
-position = Vector2(874, -287)
+position = Vector2(904, -72)
 scale = Vector2(0.79732, 0.79732)
 
 [node name="walk_enemy4" parent="." instance=ExtResource("3_4ro21")]
 position = Vector2(4496, -303)
 scale = Vector2(0.79732, 0.79732)
-
-[node name="area_enemy" parent="." instance=ExtResource("4_hwogb")]
-position = Vector2(868, -38)
-scale = Vector2(1.67886, 1.67886)
-
-[node name="area_enemy2" parent="." instance=ExtResource("4_hwogb")]
-position = Vector2(1751, -522)
-scale = Vector2(1.67886, 1.67886)
-
-[node name="area_enemy3" parent="." instance=ExtResource("4_hwogb")]
-position = Vector2(3730, -393)
-scale = Vector2(1.67886, 1.67886)
-
-[node name="area_enemy4" parent="." instance=ExtResource("4_hwogb")]
-position = Vector2(6051, -475)
-scale = Vector2(1.67886, 1.67886)
 
 [node name="chest" parent="." instance=ExtResource("6_krfsi")]
 position = Vector2(2575, -783)
@@ -150,3 +134,12 @@ position = Vector2(4254, -60)
 
 [node name="patrol_enemy2" parent="." instance=ExtResource("7_icycp")]
 position = Vector2(5549, -54)
+
+[node name="jump_enemy" parent="." instance=ExtResource("7_qi715")]
+position = Vector2(1729.92, -539.519)
+
+[node name="jump_enemy2" parent="." instance=ExtResource("7_qi715")]
+position = Vector2(3704, -405)
+
+[node name="jump_enemy3" parent="." instance=ExtResource("7_qi715")]
+position = Vector2(6031.95, -515.974)

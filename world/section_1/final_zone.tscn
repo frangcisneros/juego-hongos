@@ -1,0 +1,191 @@
+[gd_scene load_steps=9 format=3 uid="uid://b27pr5ox0vcis"]
+
+[ext_resource type="PackedScene" uid="uid://dusk6dox3dxnb" path="res://nodos/platform_world/platform_world.tscn" id="1_g57r2"]
+[ext_resource type="PackedScene" uid="uid://dj07mg1sgtrmu" path="res://nodos/player/player.tscn" id="3_012lf"]
+[ext_resource type="PackedScene" uid="uid://cssevd6rtecpf" path="res://nodos/armor_walker/armor_walker.tscn" id="3_rfkgb"]
+[ext_resource type="PackedScene" uid="uid://bi31bxoehsk7c" path="res://nodos/walk_enemy/walk_enemy.tscn" id="4_4v1p0"]
+[ext_resource type="PackedScene" uid="uid://cqvycjf6wy0df" path="res://nodos/patrol_enemy/patrol_enemy.tscn" id="6_0cbno"]
+[ext_resource type="PackedScene" uid="uid://det7qsfsss5cr" path="res://nodos/spikes.tscn" id="6_gkagq"]
+[ext_resource type="PackedScene" uid="uid://t13h28qs4lvp" path="res://nodos/jump_enemy/jump_enemy.tscn" id="7_2ritm"]
+[ext_resource type="PackedScene" uid="uid://d0gordpyc8o5m" path="res://nodos/area_enemy/area_enemy.tscn" id="8_lj5sr"]
+
+[node name="first_zone" type="Node2D"]
+
+[node name="platform_world" parent="." instance=ExtResource("1_g57r2")]
+position = Vector2(6839, 176)
+scale = Vector2(27.75, 4.74624)
+
+[node name="platform_world2" parent="." instance=ExtResource("1_g57r2")]
+position = Vector2(528, -38)
+scale = Vector2(0.589998, 1.94624)
+
+[node name="platform_world3" parent="." instance=ExtResource("1_g57r2")]
+position = Vector2(2037, -24)
+scale = Vector2(0.589998, 2.90624)
+
+[node name="platform_world7" parent="." instance=ExtResource("1_g57r2")]
+position = Vector2(4610, -79)
+scale = Vector2(0.589998, 3.14624)
+
+[node name="platform_world9" parent="." instance=ExtResource("1_g57r2")]
+position = Vector2(5028, -252)
+scale = Vector2(0.193233, 1.14316)
+
+[node name="platform_world10" parent="." instance=ExtResource("1_g57r2")]
+position = Vector2(5343, -304)
+scale = Vector2(0.317197, 1.05014)
+
+[node name="platform_world11" parent="." instance=ExtResource("1_g57r2")]
+position = Vector2(5753, -285)
+scale = Vector2(0.510415, 1.29258)
+
+[node name="platform_world14" parent="." instance=ExtResource("1_g57r2")]
+position = Vector2(6516, -330)
+scale = Vector2(0.510415, 1.29258)
+
+[node name="platform_world15" parent="." instance=ExtResource("1_g57r2")]
+position = Vector2(6847, -440)
+scale = Vector2(0.19103, 1.29258)
+
+[node name="platform_world16" parent="." instance=ExtResource("1_g57r2")]
+position = Vector2(7697, -663)
+scale = Vector2(0.19103, 1.29258)
+
+[node name="platform_world17" parent="." instance=ExtResource("1_g57r2")]
+position = Vector2(8158, -657)
+scale = Vector2(0.541083, 1.29258)
+
+[node name="platform_world25" parent="." instance=ExtResource("1_g57r2")]
+position = Vector2(8308, -119)
+scale = Vector2(0.221083, 0.772581)
+
+[node name="platform_world26" parent="." instance=ExtResource("1_g57r2")]
+position = Vector2(9046, -97)
+scale = Vector2(0.221083, 0.772581)
+
+[node name="platform_world27" parent="." instance=ExtResource("1_g57r2")]
+position = Vector2(9348, -77)
+scale = Vector2(0.221083, 0.772581)
+
+[node name="platform_world18" parent="." instance=ExtResource("1_g57r2")]
+position = Vector2(8660, -721)
+scale = Vector2(0.335645, 1.89258)
+
+[node name="platform_world19" parent="." instance=ExtResource("1_g57r2")]
+position = Vector2(9189, -815)
+scale = Vector2(0.735636, 1.50156)
+
+[node name="platform_world12" parent="." instance=ExtResource("1_g57r2")]
+position = Vector2(6128, -339)
+scale = Vector2(0.230415, 1.29258)
+
+[node name="platform_world13" parent="." instance=ExtResource("1_g57r2")]
+position = Vector2(7233, -180)
+scale = Vector2(0.668313, 9.69592)
+
+[node name="platform_world24" parent="." instance=ExtResource("1_g57r2")]
+position = Vector2(7623, 170)
+scale = Vector2(0.668313, 9.69592)
+
+[node name="platform_world20" parent="." instance=ExtResource("1_g57r2")]
+position = Vector2(10034, -536)
+scale = Vector2(1.06832, 6.39918)
+
+[node name="platform_world28" parent="." instance=ExtResource("1_g57r2")]
+position = Vector2(10606, -576)
+scale = Vector2(0.428313, 1.55918)
+
+[node name="platform_world29" parent="." instance=ExtResource("1_g57r2")]
+position = Vector2(10918, -411)
+scale = Vector2(0.228293, 1.31918)
+
+[node name="platform_world21" parent="." instance=ExtResource("1_g57r2")]
+position = Vector2(9849, -311)
+scale = Vector2(0.428323, 4.07918)
+
+[node name="platform_world22" parent="." instance=ExtResource("1_g57r2")]
+position = Vector2(10218, -5)
+scale = Vector2(0.428323, 4.07918)
+
+[node name="platform_world23" parent="." instance=ExtResource("1_g57r2")]
+position = Vector2(11281, -8)
+scale = Vector2(0.428323, 4.07918)
+
+[node name="platform_world4" parent="." instance=ExtResource("1_g57r2")]
+position = Vector2(2589, -164)
+scale = Vector2(0.296569, 1.24004)
+
+[node name="platform_world5" parent="." instance=ExtResource("1_g57r2")]
+position = Vector2(3042, -137)
+scale = Vector2(0.405767, 1.09093)
+
+[node name="platform_world6" parent="." instance=ExtResource("1_g57r2")]
+position = Vector2(3450, -181)
+scale = Vector2(0.230003, 1.58624)
+
+[node name="platform_world8" parent="." instance=ExtResource("1_g57r2")]
+position = Vector2(3988, -146)
+scale = Vector2(0.81698, 1.18726)
+
+[node name="player" parent="." instance=ExtResource("3_012lf")]
+position = Vector2(-967.878, -200.007)
+
+[node name="armor_walker" parent="." instance=ExtResource("3_rfkgb")]
+position = Vector2(-180, -59)
+
+[node name="armor_walker2" parent="." instance=ExtResource("3_rfkgb")]
+position = Vector2(6001, -59)
+
+[node name="patrol_enemy" parent="." instance=ExtResource("6_0cbno")]
+position = Vector2(1081, -58)
+
+[node name="walk_enemy" parent="." instance=ExtResource("4_4v1p0")]
+position = Vector2(1599, -53)
+
+[node name="walk_enemy2" parent="." instance=ExtResource("4_4v1p0")]
+position = Vector2(5752, -368)
+
+[node name="spikes" parent="." instance=ExtResource("6_gkagq")]
+position = Vector2(3355, 24)
+scale = Vector2(4.83333, 2.33333)
+
+[node name="spikes2" parent="." instance=ExtResource("6_gkagq")]
+position = Vector2(8307, 30)
+scale = Vector2(1.19333, 2.33333)
+
+[node name="spikes3" parent="." instance=ExtResource("6_gkagq")]
+position = Vector2(9205, 31)
+scale = Vector2(1.56426, 2.21923)
+
+[node name="jump_enemy" parent="." instance=ExtResource("7_2ritm")]
+position = Vector2(3044, -246)
+
+[node name="area_enemy" parent="." instance=ExtResource("8_lj5sr")]
+position = Vector2(3986, -221)
+
+[node name="patrol_enemy2" parent="." instance=ExtResource("6_0cbno")]
+position = Vector2(5348, -73)
+
+[node name="patrol_enemy3" parent="." instance=ExtResource("6_0cbno")]
+position = Vector2(6613, -67)
+
+[node name="jump_enemy2" parent="." instance=ExtResource("7_2ritm")]
+position = Vector2(6543, -444)
+
+[node name="jump_enemy3" parent="." instance=ExtResource("7_2ritm")]
+position = Vector2(10589, -85)
+
+[node name="armor_walker3" parent="." instance=ExtResource("3_rfkgb")]
+position = Vector2(8722, -68)
+
+[node name="area_enemy2" parent="." instance=ExtResource("8_lj5sr")]
+position = Vector2(9184, -904)
+
+[node name="patrol_enemy4" parent="." instance=ExtResource("6_0cbno")]
+position = Vector2(10036, -840)
+
+[node name="walk_enemy3" parent="." instance=ExtResource("4_4v1p0")]
+position = Vector2(10904, -63)
+
+[node name="area_enemy3" parent="." instance=ExtResource("8_lj5sr")]
+position = Vector2(7621, -247)

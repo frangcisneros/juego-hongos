@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://vkdtt4fpq48c"]
+[gd_scene load_steps=9 format=3 uid="uid://vkdtt4fpq48c"]
 
 [ext_resource type="PackedScene" uid="uid://dusk6dox3dxnb" path="res://nodos/platform_world/platform_world.tscn" id="1_c3v7j"]
 [ext_resource type="PackedScene" uid="uid://dj07mg1sgtrmu" path="res://nodos/player/player.tscn" id="2_4po80"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bi31bxoehsk7c" path="res://nodos/walk_enemy/walk_enemy.tscn" id="5_h5ssk"]
 [ext_resource type="PackedScene" uid="uid://cqvycjf6wy0df" path="res://nodos/patrol_enemy/patrol_enemy.tscn" id="6_maw35"]
 [ext_resource type="PackedScene" uid="uid://det7qsfsss5cr" path="res://nodos/spikes.tscn" id="7_lr8q6"]
+[ext_resource type="PackedScene" uid="uid://t13h28qs4lvp" path="res://nodos/jump_enemy/jump_enemy.tscn" id="8_skxgp"]
 
 [node name="rock_zone" type="Node2D"]
 position = Vector2(1, 0)
@@ -367,7 +368,7 @@ position = Vector2(4069, -1054)
 position = Vector2(923, -1643)
 
 [node name="walk_enemy2" parent="." instance=ExtResource("5_h5ssk")]
-position = Vector2(1686, -1802)
+position = Vector2(1403, -1754)
 
 [node name="walk_enemy7" parent="." instance=ExtResource("5_h5ssk")]
 position = Vector2(5497, -889)
@@ -421,3 +422,9 @@ scale = Vector2(0.397396, 1)
 [node name="spikes3" parent="." instance=ExtResource("7_lr8q6")]
 position = Vector2(3406, -473)
 scale = Vector2(0.957394, 2)
+
+[node name="jump_enemy" parent="." instance=ExtResource("8_skxgp")]
+position = Vector2(1793, -1839)
+
+[node name="jump_enemy2" parent="." instance=ExtResource("8_skxgp")]
+position = Vector2(5922, -81)
