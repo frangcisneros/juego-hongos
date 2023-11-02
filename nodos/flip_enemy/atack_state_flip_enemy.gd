@@ -22,5 +22,8 @@ func UpdatePhysics(_delta : float):
 	Enemigo.velocity = Enemigo.position.direction_to(Enemigo.get_node("state_machine_flip_enemy/idle_state_flip_enemy").player_position) * Enemigo.JUMP_VELOCITY
 
 
-func _on_hitbox_body_entered(body):
+
+
+
+func _on_back_hitbox_body_entered(body):
 	Transition.emit(self,"back_state_flip_enemy")

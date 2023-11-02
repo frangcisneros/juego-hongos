@@ -29,7 +29,7 @@ height = 106.667
 
 [node name="player" type="CharacterBody2D"]
 scale = Vector2(0.525, 0.525)
-collision_mask = 10
+collision_mask = 26
 script = ExtResource("1_wp7lc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -39,7 +39,6 @@ debug_color = Color(0.901961, 0, 0.141176, 0.478431)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 scale = Vector2(1.5, 1.5)
-zoom = Vector2(1.5, 1.5)
 
 [node name="coyote_timer" type="Timer" parent="."]
 wait_time = 0.15
@@ -51,7 +50,8 @@ one_shot = true
 
 [node name="attack" type="Area2D" parent="."]
 position = Vector2(70, 0)
-collision_mask = 2
+collision_layer = 32
+collision_mask = 18
 script = ExtResource("2_ucc6x")
 
 [node name="collision_attack" type="CollisionShape2D" parent="attack"]
@@ -75,15 +75,9 @@ position = Vector2(68.5714, 0.238101)
 scale = Vector2(0.149393, 0.823182)
 texture = ExtResource("5_pc6bh")
 
-[node name="health_bar" type="ProgressBar" parent="."]
-offset_left = -41.9048
-offset_top = -81.9048
-offset_right = 40.0952
-offset_bottom = -54.9048
-
 [node name="hitbox_player" type="Area2D" parent="."]
 position = Vector2(-41.9048, -81.9048)
-collision_mask = 6
+collision_mask = 38
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox_player"]
 position = Vector2(40.9524, 81.9048)

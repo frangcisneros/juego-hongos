@@ -4,7 +4,7 @@ class_name Player
 
 # variables
 const SPEED = 300.0 # velocidad
-const JUMP_VELOCITY = -400.0 # velocidad de salto
+const JUMP_VELOCITY = -600.0 # velocidad de salto
 const initialPos = Vector2(519,554) # posicion inicial en el mundo para resetear luego
 const FLOOR = Vector2.UP
 
@@ -34,7 +34,6 @@ func _input(event):
 			global_position = get_global_mouse_position()
 
 func _process(delta):
-	update_health()
 	invencibilidad()
 
 func _physics_process(delta):
@@ -51,9 +50,7 @@ func _physics_process(delta):
 
 	move_and_slide()
 
-func update_health():
-	var healthbar = $health_bar
-	healthbar.value = PlayerStats.health
+
 
 func player():
 	pass

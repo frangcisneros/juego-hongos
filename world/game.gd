@@ -4,7 +4,6 @@ class_name game
 
 signal toggle_game_paused(is_paused : bool)
 
-
 var level_instance = null
 var game_paused : bool = false:
 	get:
@@ -28,7 +27,6 @@ func load_level(level_name : String):
 	if level_resource:
 		level_instance = level_resource.instantiate()
 		self.add_child(level_instance)
-
 
 func _ready():
 	pass

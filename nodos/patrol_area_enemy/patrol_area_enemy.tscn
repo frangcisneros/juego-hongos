@@ -1,0 +1,120 @@
+[gd_scene load_steps=15 format=3 uid="uid://bdcwy0l23ge2o"]
+
+[ext_resource type="Script" path="res://nodos/patrol_area_enemy/patrol_area_enemy.gd" id="1_bx1uf"]
+[ext_resource type="Texture2D" uid="uid://bqh0w6153q0gf" path="res://arte/prota.png" id="1_ochcv"]
+[ext_resource type="Script" path="res://nodos/patrol_area_enemy/vision_patrol_area_enemy.gd" id="3_jksjn"]
+[ext_resource type="Script" path="res://nodos/patrol_area_enemy/hitbox.gd" id="4_eonrq"]
+[ext_resource type="Script" path="res://nodos/patrol_area_enemy/state_machine_patrol_area_enemy.gd" id="4_u0iac"]
+[ext_resource type="Script" path="res://nodos/patrol_area_enemy/idle_state_patrol_area_enemy.gd" id="5_oamxw"]
+[ext_resource type="Script" path="res://nodos/patrol_area_enemy/atack_state_patrol_area_enemy.gd" id="6_ovsot"]
+[ext_resource type="Script" path="res://nodos/patrol_area_enemy/dead_state_patrol_area_enemy.gd" id="7_rihyf"]
+[ext_resource type="Script" path="res://nodos/patrol_area_enemy/hitted_state_patrol_area_enemy.gd" id="9_5g2yo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bny47"]
+size = Vector2(58, 43)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p3qhh"]
+size = Vector2(285, 124.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jgbkd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w64ht"]
+size = Vector2(239, 44)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sukuc"]
+size = Vector2(58, 36.7241)
+
+[node name="patrol_area_enemy" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 9
+floor_block_on_wall = false
+script = ExtResource("1_bx1uf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-2.38419e-07, 19.0199)
+scale = Vector2(0.305128, 0.163717)
+texture = ExtResource("1_ochcv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 18.5)
+shape = SubResource("RectangleShape2D_bny47")
+
+[node name="damage_area" type="Area2D" parent="."]
+collision_layer = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="damage_area"]
+position = Vector2(-1.5, 38)
+shape = SubResource("RectangleShape2D_p3qhh")
+
+[node name="collision_query" type="Area2D" parent="."]
+position = Vector2(31, 37)
+collision_layer = 32
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="collision_query"]
+position = Vector2(-8, -3)
+shape = SubResource("RectangleShape2D_jgbkd")
+debug_color = Color(0.662745, 0.219608, 0.215686, 0.419608)
+
+[node name="detection_area" type="Area2D" parent="."]
+collision_layer = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detection_area"]
+position = Vector2(0, 20)
+shape = SubResource("RectangleShape2D_w64ht")
+
+[node name="vision_patrol_area_enemy" type="RayCast2D" parent="."]
+script = ExtResource("3_jksjn")
+
+[node name="hitbox" type="Area2D" parent="."]
+position = Vector2(-1, 9)
+scale = Vector2(1, 1.16)
+collision_layer = 2
+collision_mask = 33
+script = ExtResource("4_eonrq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+position = Vector2(1, 8.36207)
+shape = SubResource("RectangleShape2D_sukuc")
+debug_color = Color(0.913725, 0.192157, 0.54902, 0.419608)
+
+[node name="state_machine_patrol_area_enemy" type="Node" parent="." node_paths=PackedStringArray("initial_state", "Enemigo")]
+script = ExtResource("4_u0iac")
+initial_state = NodePath("idle_state_patrol_area_enemy")
+Enemigo = NodePath("..")
+
+[node name="idle_state_patrol_area_enemy" type="Node" parent="state_machine_patrol_area_enemy" node_paths=PackedStringArray("Enemigo", "detection_area")]
+script = ExtResource("5_oamxw")
+Enemigo = NodePath("../..")
+detection_area = NodePath("../../detection_area")
+
+[node name="atack_state_patrol_area_enemy" type="Node" parent="state_machine_patrol_area_enemy" node_paths=PackedStringArray("detection_area", "attack_timer")]
+script = ExtResource("6_ovsot")
+detection_area = NodePath("../../detection_area")
+attack_timer = NodePath("../../AttackTimer")
+
+[node name="dead_state_patrol_area_enemy" type="Node" parent="state_machine_patrol_area_enemy" node_paths=PackedStringArray("corpse_timer")]
+script = ExtResource("7_rihyf")
+corpse_timer = NodePath("../../CorpseTimer")
+
+[node name="hitted_state_patrol_area_enemy" type="Node" parent="state_machine_patrol_area_enemy" node_paths=PackedStringArray("hitted_timer")]
+script = ExtResource("9_5g2yo")
+hitted_timer = NodePath("../../hitted_timer")
+
+[node name="AttackTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="CorpseTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="rest" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="hitted_timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="body_exited" from="collision_query" to="state_machine_patrol_area_enemy/idle_state_patrol_area_enemy" method="_on_collision_query_body_exited"]
+[connection signal="body_entered" from="detection_area" to="state_machine_patrol_area_enemy/idle_state_patrol_area_enemy" method="_on_detection_area_body_entered"]

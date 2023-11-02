@@ -1,0 +1,70 @@
+[gd_scene load_steps=10 format=3 uid="uid://jo3vaob754ij"]
+
+[ext_resource type="Script" path="res://nodos/liana_enemy/liana_enemy.gd" id="1_7gh5t"]
+[ext_resource type="Texture2D" uid="uid://ngcy3mdtqdw4" path="res://arte/piso.png" id="1_atekv"]
+[ext_resource type="Script" path="res://nodos/liana_enemy/state_machine_liana_enemy.gd" id="2_u1p48"]
+[ext_resource type="Script" path="res://nodos/liana_enemy/idle_state_liana_enemy.gd" id="4_ixt7l"]
+[ext_resource type="Script" path="res://nodos/liana_enemy/attack_state_liana_enemy.gd" id="5_qwwn6"]
+[ext_resource type="Script" path="res://nodos/liana_enemy/dead_state_liana_enemy.gd" id="6_os4tw"]
+[ext_resource type="Script" path="res://nodos/liana_enemy/hitbox.gd" id="7_h6k8o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kxhle"]
+size = Vector2(112, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ij2q"]
+size = Vector2(112, 128)
+
+[node name="liana_enemy" type="StaticBody2D"]
+collision_layer = 0
+collision_mask = 17
+script = ExtResource("1_7gh5t")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(4.12762e-06, 2.19585e-06)
+scale = Vector2(0.201802, 1.07563)
+texture = ExtResource("1_atekv")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-56, -64, -64, -64, -64, 72, 64, 72, 64, -64, 56, -64, 56, 64, -56, 64)
+
+[node name="detection_area" type="Area2D" parent="."]
+collision_layer = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detection_area"]
+shape = SubResource("RectangleShape2D_kxhle")
+debug_color = Color(0, 0.635294, 0.411765, 0.419608)
+
+[node name="state_machine_liana_enemy" type="Node" parent="." node_paths=PackedStringArray("initial_state", "Enemigo")]
+script = ExtResource("2_u1p48")
+initial_state = NodePath("idle_state_liana_enemy")
+Enemigo = NodePath("..")
+
+[node name="idle_state_liana_enemy" type="Node" parent="state_machine_liana_enemy" node_paths=PackedStringArray("wait_timer")]
+script = ExtResource("4_ixt7l")
+wait_timer = NodePath("../../wait_timer")
+
+[node name="attack_state_liana_enemy" type="Node" parent="state_machine_liana_enemy" node_paths=PackedStringArray("cage", "wait_timer")]
+script = ExtResource("5_qwwn6")
+cage = NodePath("../../CollisionPolygon2D")
+wait_timer = NodePath("../../wait_timer")
+
+[node name="dead_state_liana_enemy" type="Node" parent="state_machine_liana_enemy" node_paths=PackedStringArray("corpse_timer")]
+script = ExtResource("6_os4tw")
+corpse_timer = NodePath("../../corpse_timer")
+
+[node name="wait_timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="hitbox" type="Area2D" parent="."]
+collision_layer = 18
+collision_mask = 48
+script = ExtResource("7_h6k8o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+shape = SubResource("RectangleShape2D_6ij2q")
+debug_color = Color(0.870588, 0.278431, 0.537255, 0.419608)
+
+[node name="corpse_timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="body_entered" from="detection_area" to="state_machine_liana_enemy/idle_state_liana_enemy" method="_on_detection_area_body_entered"]

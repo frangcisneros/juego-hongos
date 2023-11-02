@@ -12,10 +12,8 @@ func Enter():
 	Enemigo.velocity = Vector2.ZERO
 	turtle_timer.start()
 	StateActive = true
-#	print(hitbox.disabled)
 
 func Exit():
-#	print(hitbox.disabled)
 	StateActive = false
 	
 func Update(_delta : float):
