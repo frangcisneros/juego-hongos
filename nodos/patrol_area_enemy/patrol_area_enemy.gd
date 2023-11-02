@@ -16,4 +16,4 @@ func _physics_process(delta):
 	
 func _process(delta):
 	super._process(delta)
-#	print(scale)
+

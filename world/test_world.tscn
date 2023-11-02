@@ -2,13 +2,13 @@
 
 [ext_resource type="PackedScene" uid="uid://dusk6dox3dxnb" path="res://nodos/platform_world/platform_world.tscn" id="1_h2qiq"]
 [ext_resource type="PackedScene" uid="uid://dj07mg1sgtrmu" path="res://nodos/player/player.tscn" id="2_s5o1e"]
-[ext_resource type="PackedScene" uid="uid://2bxnpi0o6m4" path="res://nodos/flip_enemy/flip_enemy.tscn" id="3_f4t2p"]
+[ext_resource type="PackedScene" uid="uid://cd6mnkulqnulf" path="res://nodos/missile_enemy/missile_enemy.tscn" id="3_v8sk4"]
 
 [node name="test_world" type="Node2D"]
 process_mode = 1
 
 [node name="player" parent="." instance=ExtResource("2_s5o1e")]
-position = Vector2(373, 87)
+position = Vector2(333, -141)
 
 [node name="platform_world" parent="." instance=ExtResource("1_h2qiq")]
 position = Vector2(117, 130)
@@ -16,6 +16,7 @@ scale = Vector2(50, 0.2)
 
 [node name="platform_world2" parent="." instance=ExtResource("1_h2qiq")]
 position = Vector2(526, -54)
+scale = Vector2(3.6, 1)
 
-[node name="flip_enemy" parent="." instance=ExtResource("3_f4t2p")]
-position = Vector2(595, 30)
+[node name="missile_enemy" parent="." instance=ExtResource("3_v8sk4")]
+position = Vector2(619, -107)

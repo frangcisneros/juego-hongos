@@ -1,0 +1,75 @@
+[gd_scene load_steps=12 format=3 uid="uid://cd6mnkulqnulf"]
+
+[ext_resource type="Script" path="res://nodos/missile_enemy/missile_enemy.gd" id="1_bvhhg"]
+[ext_resource type="Texture2D" uid="uid://bqh0w6153q0gf" path="res://arte/prota.png" id="1_w7ath"]
+[ext_resource type="Script" path="res://nodos/missile_enemy/state_machine_missile_enemy.gd" id="2_ewwnd"]
+[ext_resource type="Script" path="res://nodos/missile_enemy/idle_state_missile_enemy.gd" id="3_d4mev"]
+[ext_resource type="Script" path="res://nodos/missile_enemy/atack_state_missile_enemy.gd" id="4_50u8k"]
+[ext_resource type="Script" path="res://nodos/missile_enemy/dead_state_missile_enemy.gd" id="5_epjmo"]
+[ext_resource type="Script" path="res://nodos/missile_enemy/hitbox.gd" id="7_1mduj"]
+[ext_resource type="Script" path="res://nodos/missile_enemy/vision_missile_enemy.gd" id="9_c54ki"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lr3ic"]
+size = Vector2(48, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ep2d2"]
+size = Vector2(48, 32)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lh6h6"]
+radius = 280.114
+
+[node name="missile_enemy" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 9
+script = ExtResource("1_bvhhg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -16)
+scale = Vector2(0.246154, 0.118959)
+texture = ExtResource("1_w7ath")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -16)
+shape = SubResource("RectangleShape2D_lr3ic")
+
+[node name="state_machine_missile_enemy" type="Node" parent="." node_paths=PackedStringArray("initial_state", "Enemigo")]
+script = ExtResource("2_ewwnd")
+initial_state = NodePath("idle_state_missile_enemy")
+Enemigo = NodePath("..")
+
+[node name="idle_state_missile_enemy" type="Node" parent="state_machine_missile_enemy"]
+script = ExtResource("3_d4mev")
+
+[node name="atack_state_missile_enemy" type="Node" parent="state_machine_missile_enemy"]
+script = ExtResource("4_50u8k")
+
+[node name="dead_state_missile_enemy" type="Node" parent="state_machine_missile_enemy" node_paths=PackedStringArray("corpse_timer")]
+script = ExtResource("5_epjmo")
+corpse_timer = NodePath("../../corpse_timer")
+
+[node name="hitbox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 32
+script = ExtResource("7_1mduj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+position = Vector2(0, -16)
+shape = SubResource("RectangleShape2D_ep2d2")
+debug_color = Color(0.909804, 0.239216, 0.458824, 0.419608)
+
+[node name="corpse_timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="detection_area" type="Area2D" parent="."]
+position = Vector2(16, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detection_area"]
+position = Vector2(-16, -16)
+shape = SubResource("CircleShape2D_lh6h6")
+
+[node name="vision_missile_enemy" type="RayCast2D" parent="."]
+collision_mask = 9
+script = ExtResource("9_c54ki")
+
+[connection signal="body_entered" from="detection_area" to="state_machine_missile_enemy/idle_state_missile_enemy" method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="detection_area" to="state_machine_missile_enemy/atack_state_missile_enemy" method="_on_detection_area_body_exited"]

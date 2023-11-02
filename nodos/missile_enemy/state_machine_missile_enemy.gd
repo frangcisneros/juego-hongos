@@ -1,16 +1,17 @@
 extends Node
 
-class_name state_machine_armor_walker
+class_name state_machine_missile_enemy
 
 @export var initial_state : State
 @export var Enemigo: CharacterBody2D
 
-var states :  Dictionary = {}
-var currentState : State
 var is_dead = false
 
-# un for que ciclee por los hijos del nodo y si son estados (if child is State) los agregue al diccionario (states[child.name] = child)
+var states :  Dictionary = {}
+var currentState : State
+# Called when the node enters the scene tree for the first time.
 func _ready():
+#	Enemigo.hitted.connect(on_hit_transition)
 	for child in get_children():
 		if child is State:
 			states[child.name.to_lower()] = child
@@ -24,8 +25,9 @@ func _process(delta):
 	if(Enemigo.health <= 0) and not is_dead:
 		Enemigo.set_rotation_degrees(180)
 		Enemigo.velocity.x = 0
-		on_child_transition(currentState, "dead_state_armor_walker")
+		on_child_transition(currentState, "dead_state_missile_enemy")
 		is_dead = true
+	
 
 func _physics_process(delta):
 	currentState.UpdatePhysics(delta)
@@ -39,10 +41,13 @@ func on_child_transition(state, new_state_name):
 	if !new_state:
 		print("El estado al que quisiste pasar no existe")
 		return
-		
+
 	if currentState:
 		currentState.Exit() #si actualmente estas en un estado, salis del estado actual (podria ser que no estes en un estado definido, por ejemplo, al arrancar el programa)
 
 	new_state.Enter() #entras la nuevo estado
 
 	currentState = new_state #haces que el nuevo estado sea el estado actual
+
+#func on_hit_transition():
+#	on_child_transition(currentState, "hitted_state_patrol_area_enemy")

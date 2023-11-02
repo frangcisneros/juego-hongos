@@ -15,7 +15,7 @@ func hit(damage: int):
 
 
 func _process(delta):
-	print(velocity.x)
+	pass
 
 func enemy():
 	pass
