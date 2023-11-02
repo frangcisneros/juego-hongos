@@ -33,16 +33,16 @@ func Update(_delta : float):
 		path_follow.progress += 1
 	else:
 		path_follow.progress += 5
-#	if path.curve.get_closest_point(Proyectil.position) == path.curve.get_point_position(2):
-#		if path.curve.get_closest_point(Proyectil.position) - Proyectil.
-#		path_follow.progress += 1
-#		print("amsfnlf")
+
 	Proyectil.position = path_follow.position
+	if path_follow.progress_ratio == 1:
+		path_follow.progress = 0
+		Proyectil.linear_velocity = Vector2.ZERO
+		Proyectil.gravity_scale = 0
+		Transition.emit(self,"explode_state_missile")
 	pass
-	
-			
+
 func UpdatePhysics(_delta:float):
-	
 	pass
 
 #func calc_velocity(point_a,point_b,arc, gravity = - ProjectSettings.get_setting("physics/2d/default_gravity")):
@@ -57,3 +57,11 @@ func UpdatePhysics(_delta:float):
 #	velocity.x = displacement.x / (time_up + time_down)
 #
 #	return velocity
+
+
+func _on_hitbox_body_entered(body):
+	if body.has_method("player"):
+		path_follow.progress = 0
+		Proyectil.linear_velocity = Vector2.ZERO
+		Proyectil.gravity_scale = 0
+		Transition.emit(self,"explode_state_missile")

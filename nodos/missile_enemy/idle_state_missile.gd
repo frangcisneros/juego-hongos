@@ -8,6 +8,7 @@ var StateActive : bool = false
 func Enter():
 	StateActive = true
 	
+	
 func Exit():
 	
 	StateActive = false

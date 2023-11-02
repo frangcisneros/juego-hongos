@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://byihlx06sxjuk"]
+[gd_scene load_steps=11 format=3 uid="uid://byihlx06sxjuk"]
 
 [ext_resource type="Texture2D" uid="uid://ngcy3mdtqdw4" path="res://arte/piso.png" id="1_4xrcg"]
 [ext_resource type="Script" path="res://nodos/missile_enemy/state_machine_missile.gd" id="2_bfb1h"]
 [ext_resource type="Script" path="res://nodos/missile_enemy/idle_state_missile.gd" id="3_1bnn8"]
 [ext_resource type="Script" path="res://nodos/missile_enemy/launch_state_missile.gd" id="4_4qitt"]
 [ext_resource type="Script" path="res://nodos/missile_enemy/explode_state_missile.gd" id="5_deosl"]
+[ext_resource type="Script" path="res://nodos/missile_enemy/damage_area.gd" id="6_eamw5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gu0aw"]
 size = Vector2(16, 32)
@@ -14,6 +15,12 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0.369, 20, -0.369, -20, 0, -90, 0, 0, -9.89622, 57.8966, -128, 0)
 }
 point_count = 3
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_an210"]
+size = Vector2(128, 112)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3s4tq"]
+size = Vector2(16, 32)
 
 [node name="missile_missile_enemy" type="RigidBody2D"]
 collision_layer = 2
@@ -26,6 +33,8 @@ scale = Vector2(0.0562435, 0.128904)
 texture = ExtResource("1_4xrcg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+light_mask = 2
+visibility_layer = 9
 shape = SubResource("RectangleShape2D_gu0aw")
 
 [node name="state_machine_missile" type="Node" parent="." node_paths=PackedStringArray("initial_state", "Proyectil")]
@@ -39,8 +48,9 @@ script = ExtResource("3_1bnn8")
 [node name="launch_state_missile" type="Node" parent="state_machine_missile"]
 script = ExtResource("4_4qitt")
 
-[node name="explode_state_missile" type="Node" parent="state_machine_missile"]
+[node name="explode_state_missile" type="Node" parent="state_machine_missile" node_paths=PackedStringArray("explode_wait_timer")]
 script = ExtResource("5_deosl")
+explode_wait_timer = NodePath("../../explode_wait_timer")
 
 [node name="Path2D" type="Path2D" parent="."]
 curve = SubResource("Curve2D_bvhhq")
@@ -48,3 +58,26 @@ curve = SubResource("Curve2D_bvhhq")
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
 rotation = -1.5708
 loop = false
+
+[node name="damage_area" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 9
+script = ExtResource("6_eamw5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="damage_area"]
+shape = SubResource("RectangleShape2D_an210")
+disabled = true
+
+[node name="hitbox" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 9
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+shape = SubResource("RectangleShape2D_3s4tq")
+debug_color = Color(0.843137, 0.337255, 0.470588, 0.419608)
+
+[node name="explode_wait_timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="body_entered" from="hitbox" to="state_machine_missile/launch_state_missile" method="_on_hitbox_body_entered"]
