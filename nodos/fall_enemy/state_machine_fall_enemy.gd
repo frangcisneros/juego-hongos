@@ -18,8 +18,9 @@ func _ready():
 	if initial_state:
 		initial_state.Enter()
 		currentState = initial_state 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+		
 func _process(delta):
+	print(currentState)
 	currentState.Update(delta)
 	if(Enemigo.health <= 0) and not is_dead:
 		Enemigo.set_rotation_degrees(180)
