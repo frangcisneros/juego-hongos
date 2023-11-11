@@ -3,6 +3,7 @@ extends Node
 
 @export var initial_state : State
 @export var Enemigo: CharacterBody2D
+@export var vision : RayCast2D
 
 var states :  Dictionary = {}
 var currentState : State
@@ -23,8 +24,9 @@ func _process(delta):
 	if(Enemigo.health <= 0) and not is_dead:
 		Enemigo.set_rotation_degrees(180)
 		Enemigo.velocity.x = 0
-		on_child_transition(currentState, "dead_state_armor_walker")
+		on_child_transition(currentState, "dead_state_heavy_enemy")
 		is_dead = true
+#	print(currentState)
 
 func _physics_process(delta):
 	currentState.UpdatePhysics(delta)

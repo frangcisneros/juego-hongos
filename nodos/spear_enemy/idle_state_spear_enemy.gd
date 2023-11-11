@@ -1,8 +1,6 @@
 extends State
 
-
 var StateActive : bool = false
-var stop : bool = false
 var right : bool = true
 
 @onready var Enemigo = get_parent().Enemigo
@@ -34,6 +32,8 @@ func _on_collision_query_body_exited(body):
 		Enemigo.velocity.x = - Enemigo.velocity.x
 		right = !right
 
-func _on_hitbox_area_entered(area):
-	if area.has_method("attack"):
-		Transition.emit(self,"turtle_state_armor_walker") 
+
+
+func _on_detection_area_body_entered(body):
+	if body.has_method("player"):
+		Transition.emit(self,"attack_state_spear_enemy")

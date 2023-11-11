@@ -1,6 +1,5 @@
 extends State
 
-class_name turtle_state_armor_walker
 
 var StateActive : bool = false
 

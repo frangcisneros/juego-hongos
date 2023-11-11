@@ -1,5 +1,6 @@
 extends Node
 
+#class_name state_machine_armor_walker
 
 @export var initial_state : State
 @export var Enemigo: CharacterBody2D
@@ -17,13 +18,14 @@ func _ready():
 	if initial_state:
 		initial_state.Enter()
 		currentState = initial_state 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+		
 func _process(delta):
+	print(currentState)
 	currentState.Update(delta)
 	if(Enemigo.health <= 0) and not is_dead:
 		Enemigo.set_rotation_degrees(180)
 		Enemigo.velocity.x = 0
-		on_child_transition(currentState, "dead_state_armor_walker")
+		on_child_transition(currentState, "dead_state_fall_enemy")
 		is_dead = true
 
 func _physics_process(delta):

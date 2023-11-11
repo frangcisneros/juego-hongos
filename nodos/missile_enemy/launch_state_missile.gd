@@ -45,19 +45,6 @@ func Update(_delta : float):
 func UpdatePhysics(_delta:float):
 	pass
 
-#func calc_velocity(point_a,point_b,arc, gravity = - ProjectSettings.get_setting("physics/2d/default_gravity")):
-#	var velocity = Vector2()
-#
-#	var displacement = point_b - point_a
-#
-#	var time_up = sqrt(-2 * arc / gravity) 
-#	var time_down = sqrt(2*(displacement.y - arc)/gravity) 
-#
-#	velocity.y = -sqrt(-2*gravity*arc)
-#	velocity.x = displacement.x / (time_up + time_down)
-#
-#	return velocity
-
 
 func _on_hitbox_body_entered(body):
 	if body.has_method("player"):

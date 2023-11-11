@@ -1,0 +1,71 @@
+[gd_scene load_steps=12 format=3 uid="uid://cnae8p5l5b1ss"]
+
+[ext_resource type="Texture2D" uid="uid://bqh0w6153q0gf" path="res://arte/prota.png" id="1_8aw6g"]
+[ext_resource type="Script" path="res://nodos/fall_enemy/fall_enemy.gd" id="1_jf4i5"]
+[ext_resource type="Script" path="res://nodos/fall_enemy/hitbox.gd" id="3_i4jdx"]
+[ext_resource type="Script" path="res://nodos/fall_enemy/state_machine_fall_enemy.gd" id="3_irfvr"]
+[ext_resource type="Script" path="res://nodos/fall_enemy/idle_state_fall_enemy.gd" id="4_2suab"]
+[ext_resource type="Script" path="res://nodos/fall_enemy/fall_state_fall_enemy.gd" id="5_likfi"]
+[ext_resource type="Script" path="res://nodos/fall_enemy/dead_state_fall_enemy.gd" id="6_nink2"]
+[ext_resource type="Script" path="res://nodos/fall_enemy/back_state_fall_enemy.gd" id="8_4u2y1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c6p24"]
+size = Vector2(32, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bh365"]
+size = Vector2(32, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wkq2x"]
+size = Vector2(32, 106)
+
+[node name="fall_enemy" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 9
+script = ExtResource("1_jf4i5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 3.14159
+scale = Vector2(0.166898, 0.178945)
+texture = ExtResource("1_8aw6g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_c6p24")
+
+[node name="hitbox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 41
+script = ExtResource("3_i4jdx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_bh365")
+
+[node name="detection_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detection_area"]
+position = Vector2(0, 75)
+shape = SubResource("RectangleShape2D_wkq2x")
+debug_color = Color(0.85098, 0.368627, 0.113725, 0.419608)
+
+[node name="state_machine_fall_enemy" type="Node" parent="." node_paths=PackedStringArray("initial_state", "Enemigo")]
+script = ExtResource("3_irfvr")
+initial_state = NodePath("idle_state_fall_enemy")
+Enemigo = NodePath("..")
+
+[node name="idle_state_fall_enemy" type="Node" parent="state_machine_fall_enemy"]
+script = ExtResource("4_2suab")
+
+[node name="fall_state_fall_enemy" type="Node" parent="state_machine_fall_enemy"]
+script = ExtResource("5_likfi")
+
+[node name="dead_state_fall_enemy" type="Node" parent="state_machine_fall_enemy" node_paths=PackedStringArray("corpse_timer")]
+script = ExtResource("6_nink2")
+corpse_timer = NodePath("../../corpse_timer")
+
+[node name="back_state_fall_enemy" type="Node" parent="state_machine_fall_enemy"]
+script = ExtResource("8_4u2y1")
+
+[node name="corpse_timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="body_entered" from="detection_area" to="state_machine_fall_enemy/idle_state_fall_enemy" method="_on_detection_area_body_entered"]

@@ -7,14 +7,14 @@
 [ext_resource type="Script" path="res://nodos/missile_enemy/explode_state_missile.gd" id="5_deosl"]
 [ext_resource type="Script" path="res://nodos/missile_enemy/damage_area.gd" id="6_eamw5"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_gu0aw"]
-size = Vector2(16, 32)
-
 [sub_resource type="Curve2D" id="Curve2D_bvhhq"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0.369, 20, -0.369, -20, 0, -90, 0, 0, -9.89622, 57.8966, -128, 0)
 }
 point_count = 3
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gu0aw"]
+size = Vector2(16, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_an210"]
 size = Vector2(128, 112)
@@ -31,6 +31,13 @@ position = Vector2(-6.19888e-06, 0.187288)
 rotation = 1.5708
 scale = Vector2(0.0562435, 0.128904)
 texture = ExtResource("1_4xrcg")
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_bvhhq")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+rotation = -1.5708
+loop = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 light_mask = 2
@@ -51,13 +58,6 @@ script = ExtResource("4_4qitt")
 [node name="explode_state_missile" type="Node" parent="state_machine_missile" node_paths=PackedStringArray("explode_wait_timer")]
 script = ExtResource("5_deosl")
 explode_wait_timer = NodePath("../../explode_wait_timer")
-
-[node name="Path2D" type="Path2D" parent="."]
-curve = SubResource("Curve2D_bvhhq")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
-rotation = -1.5708
-loop = false
 
 [node name="damage_area" type="Area2D" parent="."]
 collision_layer = 32

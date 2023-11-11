@@ -6,15 +6,12 @@ var stop : bool = false
 var right : bool = true
 
 @onready var Enemigo = get_parent().Enemigo
-@onready var hitbox = Enemigo.get_node("hitbox")
 
 func Enter():
-	hitbox.monitorable = false
 	Enemigo.velocity.x = 15
 	StateActive = true
 
 func Exit():
-	hitbox.set_deferred("monitorable",true)
 	StateActive = false
 	
 func Update(_delta : float):
