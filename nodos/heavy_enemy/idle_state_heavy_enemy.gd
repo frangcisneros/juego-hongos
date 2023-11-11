@@ -3,18 +3,18 @@ extends State
 
 var StateActive : bool = false
 var stop : bool = false
-var right : bool = true
+@onready var right : bool = true
 
 @onready var Enemigo = get_parent().Enemigo
-@onready var hitbox = Enemigo.get_node("hitbox")
+@onready var attack : CollisionShape2D = Enemigo.get_node("attack/CollisionShape2D")
+@onready var vision : RayCast2D = get_parent().vision
 
 func Enter():
-	hitbox.monitorable = false
+	attack.disabled = true
 	Enemigo.velocity.x = 15
 	StateActive = true
 
 func Exit():
-	hitbox.set_deferred("monitorable",true)
 	StateActive = false
 	
 func Update(_delta : float):
@@ -33,7 +33,8 @@ func _on_collision_query_body_exited(body):
 		Enemigo.scale.x = - Enemigo.scale.x
 		Enemigo.velocity.x = - Enemigo.velocity.x
 		right = !right
-
-func _on_hitbox_area_entered(area):
-	if area.has_method("attack"):
-		Transition.emit(self,"turtle_state_armor_walker") 
+		
+func _on_detection_area_body_entered(body):
+	if body.has_method("player") and StateActive:
+		if vision.vision_player(body.position):
+			Transition.emit(self, "attack_state_heavy_enemy")

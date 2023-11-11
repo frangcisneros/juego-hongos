@@ -2,13 +2,13 @@
 
 [ext_resource type="PackedScene" uid="uid://dusk6dox3dxnb" path="res://nodos/platform_world/platform_world.tscn" id="1_h2qiq"]
 [ext_resource type="PackedScene" uid="uid://dj07mg1sgtrmu" path="res://nodos/player/player.tscn" id="2_s5o1e"]
-[ext_resource type="PackedScene" uid="uid://d3tt5xvh25cpr" path="res://nodos/spear_enemy/spear_enemy.tscn" id="3_8y1yq"]
+[ext_resource type="PackedScene" uid="uid://cfam130i8m31e" path="res://nodos/heavy_enemy/heavy_enemy.tscn" id="3_h8n4t"]
 
 [node name="test_world" type="Node2D"]
 process_mode = 1
 
 [node name="player" parent="." instance=ExtResource("2_s5o1e")]
-position = Vector2(352, -304)
+position = Vector2(464, -296)
 
 [node name="platform_world" parent="." instance=ExtResource("1_h2qiq")]
 position = Vector2(117, 130)
@@ -18,8 +18,8 @@ scale = Vector2(50, 0.2)
 position = Vector2(192, -184)
 scale = Vector2(3.6, 1)
 
-[node name="spear_enemy" parent="." instance=ExtResource("3_8y1yq")]
-position = Vector2(688, -352)
-
 [node name="platform_world3" parent="." instance=ExtResource("1_h2qiq")]
 position = Vector2(208, -552)
+
+[node name="heavy_enemy" parent="." instance=ExtResource("3_h8n4t")]
+position = Vector2(80, -328)
