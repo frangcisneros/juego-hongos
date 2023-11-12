@@ -15,7 +15,7 @@
 [ext_resource type="Script" path="res://nodos/player/dead_state_player.gd" id="11_e346p"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tlug4"]
-radius = 36.1905
+radius = 30.4762
 height = 102.857
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k4lr0"]
@@ -24,7 +24,7 @@ size = Vector2(45.7142, 106.667)
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_j64mn"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ycceo"]
-radius = 39.0476
+radius = 33.3334
 height = 106.667
 
 [node name="player" type="CharacterBody2D"]
