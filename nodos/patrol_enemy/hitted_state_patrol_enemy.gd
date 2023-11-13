@@ -1,13 +1,12 @@
 extends State
 
 @export var hitted_timer : Timer
-
-@onready var Enemigo = get_parent().Enemigo
-@onready var player = get_tree().get_nodes_in_group("player")[0]
-
 @export var rest_timer : Timer
 @export var animation_player : AnimationPlayer
 @export var animation_tree : AnimationTree
+
+@onready var Enemigo = get_parent().Enemigo
+@onready var player = get_tree().get_nodes_in_group("player")[0]
 
 var StateActive : bool = false
 var hitted = false
@@ -16,9 +15,9 @@ func Enter():
 	animation_tree.set("parameters/conditions/unhit",false)
 	animation_tree.set("parameters/conditions/hit",true)
 	Enemigo.velocity.y = -100
-	if player.marker2D.scale.x == 1:
+	if player.position2D.scale.x == 1:
 		Enemigo.velocity.x = 150
-	elif player.marker2D.scale.x == -1:
+	elif player.position2D.scale.x == -1:
 		Enemigo.velocity.x = -150
 	StateActive = true
 

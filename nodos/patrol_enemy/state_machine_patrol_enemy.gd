@@ -4,19 +4,23 @@ extends Node
 @export var Enemigo: CharacterBody2D
 @export var position2D : Marker2D
 
+
+
 var states :  Dictionary = {}
 var currentState : State
-# Called when the node enters the scene tree for the first time.
+
 func _ready():
 	Enemigo.hitted.connect(on_hit_transition)
+	
 	for child in get_children():
 		if child is State:
 			states[child.name.to_lower()] = child
 			child.Transition.connect(on_child_transition)
+	
 	if initial_state:
 		initial_state.Enter()
 		currentState = initial_state 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+
 func _process(delta):
 	currentState.Update(delta)
 

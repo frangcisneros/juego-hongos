@@ -21,7 +21,6 @@ func Enter():
 	animation_tree.set("parameters/Patrulla/blend_position",0)
 	animation_player.set("speed_scale", 1)
 	
-
 func Exit():
 	StateActive = false
 	
@@ -45,6 +44,7 @@ func UpdatePhysics(_delta:float):
 		Enemigo.velocity.x = speed
 	else:
 		Enemigo.velocity.x = -speed
+
 func _on_collision_query_body_exited(body):
 	if body.has_method("plataforma") and Enemigo.is_on_floor() and StateActive:
 		Enemigo.velocity.x = -Enemigo.velocity.x
@@ -54,4 +54,4 @@ func _on_collision_query_body_exited(body):
 func _on_detection_area_body_entered(body):
 	if body.has_method("player") and StateActive:
 		if vision.vision_player(body.position) and rest_timer.is_stopped():
-			Transition.emit(self, "atack_state_patrol_enemy")
+			Transition.emit(self, "attack_state_patrol_enemy")

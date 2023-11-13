@@ -13,8 +13,8 @@ extends State
 @onready var scale_x : float = Enemigo.scale.x
 @onready var vision = Enemigo.get_node("vision_patrol_enemy")
 
-@onready var player = get_tree().get_nodes_in_group("player")[0]
 
+@onready var player = get_tree().get_nodes_in_group("player")[0]
 @onready var position2D = get_parent().position2D
 @onready var right : bool = get_parent().get_node("idle_state_patrol_enemy").right
 

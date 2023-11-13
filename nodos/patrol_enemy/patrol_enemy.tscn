@@ -35,6 +35,10 @@ size = Vector2(5, 5)
 radius = 4.66667
 height = 16.6667
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mkdpf"]
+radius = 9.0
+height = 24.0
+
 [sub_resource type="Animation" id="Animation_xpccb"]
 resource_name = "Ataque"
 length = 0.7
@@ -121,10 +125,6 @@ states/Patrulla/position = Vector2(408, 87.6667)
 states/Start/position = Vector2(172, 100)
 transitions = ["Start", "Patrulla", SubResource("AnimationNodeStateMachineTransition_xs775"), "BlendTree", "Patrulla", SubResource("AnimationNodeStateMachineTransition_wv45k"), "Patrulla", "BlendTree", SubResource("AnimationNodeStateMachineTransition_cqwp3")]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mkdpf"]
-radius = 9.0
-height = 24.0
-
 [node name="patrol_enemy" type="CharacterBody2D" node_paths=PackedStringArray("position2D")]
 scale = Vector2(3, 3)
 collision_layer = 2
@@ -146,22 +146,33 @@ texture = ExtResource("2_ff1xk")
 [node name="detection_area" type="Area2D" parent="position2D"]
 collision_layer = 2
 
-[node name="detection area collision shape" type="CollisionShape2D" parent="position2D/detection_area"]
+[node name="detection_area_collision_shape" type="CollisionShape2D" parent="position2D/detection_area"]
 position = Vector2(0, 1.83333)
 shape = SubResource("RectangleShape2D_4sxdg")
 
-[node name="collision query" type="Area2D" parent="position2D"]
+[node name="collision_query" type="Area2D" parent="position2D"]
 position = Vector2(1, 1)
 collision_layer = 2
 collision_mask = 8
 
-[node name="collision query collision shape" type="CollisionShape2D" parent="position2D/collision query"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="position2D/collision_query"]
 position = Vector2(9, 7)
 shape = SubResource("RectangleShape2D_712fq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.333333, 1.33333)
 shape = SubResource("CapsuleShape2D_dol65")
+
+[node name="hitbox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 33
+script = ExtResource("23_c4pf1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+position = Vector2(0.333333, 0.666667)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_mkdpf")
+debug_color = Color(0.913725, 0.215686, 0.501961, 0.419608)
 
 [node name="state_machine_patrol_enemy" type="Node" parent="." node_paths=PackedStringArray("initial_state", "Enemigo", "position2D")]
 script = ExtResource("3_m0d4l")
@@ -176,16 +187,18 @@ animation_tree = NodePath("../../AnimationTree")
 animation_player = NodePath("../../AnimationPlayer")
 detection_area = NodePath("../../position2D/detection_area")
 
-[node name="atack_state_patrol_enemy" type="Node" parent="state_machine_patrol_enemy" node_paths=PackedStringArray("detection_area", "animation_tree", "animation_player", "attack_timer")]
+[node name="attack_state_patrol_enemy" type="Node" parent="state_machine_patrol_enemy" node_paths=PackedStringArray("detection_area", "animation_tree", "animation_player", "attack_timer")]
 script = ExtResource("5_h5tcb")
 detection_area = NodePath("../../position2D/detection_area")
 animation_tree = NodePath("../../AnimationTree")
 animation_player = NodePath("../../AnimationPlayer")
-attack_timer = NodePath("../../AttackTimer")
+attack_timer = NodePath("../../attack_timer")
 
-[node name="dead_state_patrol_enemy" type="Node" parent="state_machine_patrol_enemy" node_paths=PackedStringArray("corpse_timer")]
+[node name="dead_state_patrol_enemy" type="Node" parent="state_machine_patrol_enemy" node_paths=PackedStringArray("corpse_timer", "animation_player", "animation_tree")]
 script = ExtResource("6_slt30")
-corpse_timer = NodePath("../../CorpseTimer")
+corpse_timer = NodePath("../../corpse_timer")
+animation_player = NodePath("../../AnimationPlayer")
+animation_tree = NodePath("../../AnimationTree")
 
 [node name="hitted_state_patrol_enemy" type="Node" parent="state_machine_patrol_enemy" node_paths=PackedStringArray("hitted_timer", "rest_timer", "animation_player", "animation_tree")]
 script = ExtResource("8_wuida")
@@ -194,7 +207,7 @@ rest_timer = NodePath("../../rest_timer")
 animation_player = NodePath("../../AnimationPlayer")
 animation_tree = NodePath("../../AnimationTree")
 
-[node name="AttackTimer" type="Timer" parent="."]
+[node name="attack_timer" type="Timer" parent="."]
 wait_time = 3.0
 one_shot = true
 
@@ -202,7 +215,7 @@ one_shot = true
 wait_time = 0.05
 one_shot = true
 
-[node name="CorpseTimer" type="Timer" parent="."]
+[node name="corpse_timer" type="Timer" parent="."]
 one_shot = true
 
 [node name="rest_timer" type="Timer" parent="."]
@@ -223,17 +236,6 @@ parameters/conditions/unhit = false
 parameters/BlendTree/TimeScale/scale = 0.0
 parameters/Patrulla/blend_position = 0
 
-[node name="hitbox" type="Area2D" parent="."]
-collision_layer = 2
-collision_mask = 33
-script = ExtResource("23_c4pf1")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
-position = Vector2(0.333333, 0.666667)
-rotation = 1.5708
-shape = SubResource("CapsuleShape2D_mkdpf")
-debug_color = Color(0.913725, 0.215686, 0.501961, 0.419608)
-
 [connection signal="body_entered" from="position2D/detection_area" to="state_machine_patrol_enemy/idle_state_patrol_enemy" method="_on_detection_area_body_entered"]
-[connection signal="body_exited" from="position2D/collision query" to="state_machine_patrol_enemy/idle_state_patrol_enemy" method="_on_collision_query_body_exited"]
-[connection signal="body_entered" from="hitbox" to="state_machine_patrol_enemy/atack_state_patrol_enemy" method="_on_hitbox_body_entered"]
+[connection signal="body_exited" from="position2D/collision_query" to="state_machine_patrol_enemy/idle_state_patrol_enemy" method="_on_collision_query_body_exited"]
+[connection signal="body_entered" from="hitbox" to="state_machine_patrol_enemy/attack_state_patrol_enemy" method="_on_hitbox_body_entered"]

@@ -19,8 +19,8 @@ var enemigo_rango = false
 
 @onready var coyote_timer = $coyote_timer # asigna el nodo coyotetimer a una variable
 @onready var jump_buffer_timer = $jump_buffer_timer # asigna el nodo jumpbuffertimer a una variable
-@onready var marker2D = $Marker2D # esto nos servira para ir dando vuelta los sprites
-@onready var ataque = $attack
+@onready var position2D = $position2D # esto nos servira para ir dando vuelta los sprites
+@onready var attack_area = $attack_area
 @onready var retroceso_tiempo = $knockback_timer
 @onready var hitbox = $hitbox_player
 @onready var tiempo_invencibilidad = $invincibility_timer

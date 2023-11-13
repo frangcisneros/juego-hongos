@@ -1,10 +1,8 @@
 extends RayCast2D
 
-var view_distance = 1
+var view_distance = 0.4
 
 @onready var player = get_tree().get_nodes_in_group("player")[0]
-
-
 
 
 func _process(delta):
