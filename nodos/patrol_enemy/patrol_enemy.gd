@@ -1,25 +1,21 @@
-extends CharacterBody2D
-
-class_name EnemigoPatrulla
+extends template_enemy
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+
 @export var walking_speed : float = 50
-@export var running_speed : float = 75
-@export var health : float = 20
-@onready var sprite_enemigo = $Sprite2D
+@export var running_speed : float = 100
+@export var position2D : Marker2D
 @onready var animation_tree = $AnimationTree
 
 func _ready():
-	animation_tree.active = true
+	animation_tree.active = true	
+	health = 20
+	sprite_enemigo = $position2D/Sprite2D
 
 func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y += gravity * delta
-	move_and_slide()
-	
-func enemy():
-	pass
+	super._physics_process(delta)
 
-func hit(damage: int):
-	health -= damage
-	sprite_enemigo.modulate = Color.from_hsv(0,1-health/20,1)
+func _process(delta):
+	super._process(delta)
