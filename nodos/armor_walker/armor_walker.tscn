@@ -1,0 +1,77 @@
+[gd_scene load_steps=11 format=3 uid="uid://cssevd6rtecpf"]
+
+[ext_resource type="Script" path="res://nodos/armor_walker/armor_walker.gd" id="1_2fr8i"]
+[ext_resource type="Texture2D" uid="uid://bqh0w6153q0gf" path="res://arte/prota.png" id="1_6kns3"]
+[ext_resource type="Script" path="res://nodos/armor_walker/state_machine_armor_walker.gd" id="2_ddsan"]
+[ext_resource type="Script" path="res://nodos/armor_walker/hitbox.gd" id="2_g8xt3"]
+[ext_resource type="Script" path="res://nodos/armor_walker/idle_state_armor_walker.gd" id="3_aaq01"]
+[ext_resource type="Script" path="res://nodos/armor_walker/dead_state_armor_walker.gd" id="4_wfup6"]
+[ext_resource type="Script" path="res://nodos/armor_walker/turtle_state_armor_walker.gd" id="6_6520q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c1cwq"]
+size = Vector2(93, 54)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2mwuq"]
+size = Vector2(96, 52)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6fu32"]
+size = Vector2(7.5, 9.5)
+
+[node name="armor_walker" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 9
+script = ExtResource("1_2fr8i")
+
+[node name="hitbox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 9
+script = ExtResource("2_g8xt3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+z_index = 1
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_c1cwq")
+debug_color = Color(0.666667, 0.509804, 0.0901961, 0.419608)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.2)
+texture = ExtResource("1_6kns3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_2mwuq")
+
+[node name="collision query" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="collision query"]
+z_index = 2
+position = Vector2(46, 23)
+shape = SubResource("RectangleShape2D_6fu32")
+debug_color = Color(0.831373, 0.392157, 0.0705882, 0.419608)
+
+[node name="state_machine_armor_walker" type="Node" parent="." node_paths=PackedStringArray("initial_state", "Enemigo")]
+script = ExtResource("2_ddsan")
+initial_state = NodePath("idle_state_armor_walker")
+Enemigo = NodePath("..")
+
+[node name="idle_state_armor_walker" type="Node" parent="state_machine_armor_walker"]
+script = ExtResource("3_aaq01")
+
+[node name="turtle_state_armor_walker" type="Node" parent="state_machine_armor_walker" node_paths=PackedStringArray("turtle_timer")]
+script = ExtResource("6_6520q")
+turtle_timer = NodePath("../../turtle_timer")
+
+[node name="dead_state_armor_walker" type="Node" parent="state_machine_armor_walker" node_paths=PackedStringArray("corpse_timer")]
+script = ExtResource("4_wfup6")
+corpse_timer = NodePath("../../corpse_timer")
+
+[node name="corpse_timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="turtle_timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[connection signal="area_entered" from="hitbox" to="state_machine_armor_walker/idle_state_armor_walker" method="_on_hitbox_area_entered"]
+[connection signal="body_exited" from="collision query" to="state_machine_armor_walker/idle_state_armor_walker" method="_on_collision_query_body_exited"]

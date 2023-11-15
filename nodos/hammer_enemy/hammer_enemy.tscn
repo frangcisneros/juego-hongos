@@ -1,0 +1,71 @@
+[gd_scene load_steps=12 format=3 uid="uid://43yekpqslo0y"]
+
+[ext_resource type="Texture2D" uid="uid://bqh0w6153q0gf" path="res://arte/prota.png" id="1_dttku"]
+[ext_resource type="Script" path="res://nodos/hammer_enemy/hammer_enemy.gd" id="1_e24vo"]
+[ext_resource type="Script" path="res://nodos/hammer_enemy/state_machine_hammer_enemy.gd" id="3_evmoj"]
+[ext_resource type="Script" path="res://nodos/hammer_enemy/idle_state_hammer_enemy.gd" id="4_ta5si"]
+[ext_resource type="Script" path="res://nodos/hammer_enemy/attack_state_hammer_enemy.gd" id="5_x0n0a"]
+[ext_resource type="Script" path="res://nodos/hammer_enemy/dead_state_hammer_enemy.gd" id="6_imbj8"]
+[ext_resource type="Script" path="res://nodos/hammer_enemy/Area2D.gd" id="7_a643q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_brjxo"]
+size = Vector2(32, 80)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o3g41"]
+size = Vector2(96, 80)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eta3a"]
+size = Vector2(96, 82)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ba804"]
+size = Vector2(32, 80)
+
+[node name="hammer_enemy" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 9
+script = ExtResource("1_e24vo")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1.43051e-06, 1.29938e-05)
+scale = Vector2(0.164103, 0.594796)
+texture = ExtResource("1_dttku")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 40)
+shape = SubResource("RectangleShape2D_brjxo")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(0, -40)
+shape = SubResource("RectangleShape2D_o3g41")
+debug_color = Color(0.447059, 0.533333, 0.72549, 0.419608)
+
+[node name="state_machine_hammer_enemy" type="Node" parent="." node_paths=PackedStringArray("initial_state", "Enemigo")]
+script = ExtResource("3_evmoj")
+initial_state = NodePath("idle_state_hammer_enemy")
+Enemigo = NodePath("..")
+
+[node name="idle_state_hammer_enemy" type="Node" parent="state_machine_hammer_enemy"]
+script = ExtResource("4_ta5si")
+
+[node name="attack_state_hammer_enemy" type="Node" parent="state_machine_hammer_enemy"]
+script = ExtResource("5_x0n0a")
+
+[node name="dead_state_hammer_enemy" type="Node" parent="state_machine_hammer_enemy" node_paths=PackedStringArray("corpse_timer")]
+script = ExtResource("6_imbj8")
+corpse_timer = NodePath("../../corpse_timer")
+
+[node name="corpse_timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="hitbox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 33
+script = ExtResource("7_a643q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+position = Vector2(0, -41)
+shape = SubResource("RectangleShape2D_eta3a")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="hitbox"]
+position = Vector2(0, 40)
+shape = SubResource("RectangleShape2D_ba804")

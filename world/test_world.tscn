@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://bnwuefdep2gcu"]
+
+[ext_resource type="PackedScene" uid="uid://dusk6dox3dxnb" path="res://nodos/platform_world/platform_world.tscn" id="1_h2qiq"]
+[ext_resource type="PackedScene" uid="uid://dj07mg1sgtrmu" path="res://nodos/player/player.tscn" id="2_s5o1e"]
+[ext_resource type="PackedScene" uid="uid://cqvycjf6wy0df" path="res://nodos/patrol_enemy/patrol_enemy.tscn" id="3_yycfh"]
+
+[node name="test_world" type="Node2D"]
+process_mode = 1
+
+[node name="player" parent="." instance=ExtResource("2_s5o1e")]
+position = Vector2(-40, -240)
+
+[node name="platform_world" parent="." instance=ExtResource("1_h2qiq")]
+position = Vector2(117, 130)
+scale = Vector2(50, 0.2)
+
+[node name="platform_world2" parent="." instance=ExtResource("1_h2qiq")]
+position = Vector2(192, -184)
+scale = Vector2(3.6, 1)
+
+[node name="platform_world3" parent="." instance=ExtResource("1_h2qiq")]
+position = Vector2(136, -408)
+scale = Vector2(0.3, 0.3)
+
+[node name="platform_world4" parent="." instance=ExtResource("1_h2qiq")]
+position = Vector2(-184, -336)
+scale = Vector2(0.3, 0.3)
+
+[node name="patrol_enemy" parent="." instance=ExtResource("3_yycfh")]
+position = Vector2(192, -272)

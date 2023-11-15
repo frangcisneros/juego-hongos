@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://7m8a08rsxmlv"]
+
+[ext_resource type="Script" path="res://world/game.gd" id="1_m2hd4"]
+[ext_resource type="PackedScene" uid="uid://dqq1yv8ydyxnk" path="res://nodos/ui/pause_menu.tscn" id="2_48b1h"]
+[ext_resource type="PackedScene" uid="uid://c0nd41gymwkwj" path="res://nodos/ui/health_bar.tscn" id="3_nn8bb"]
+[ext_resource type="PackedScene" uid="uid://8o8kh17xg4rq" path="res://nodos/ui/start_menu.tscn" id="4_emwo3"]
+
+[node name="game" type="Node"]
+process_mode = 3
+script = ExtResource("1_m2hd4")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="pause_menu" parent="CanvasLayer" node_paths=PackedStringArray("game") instance=ExtResource("2_48b1h")]
+game = NodePath("../..")
+
+[node name="health_bar" parent="CanvasLayer" node_paths=PackedStringArray("game") instance=ExtResource("3_nn8bb")]
+game = NodePath("../..")
+
+[node name="start_menu" parent="CanvasLayer" node_paths=PackedStringArray("game") instance=ExtResource("4_emwo3")]
+game = NodePath("../..")

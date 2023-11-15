@@ -1,0 +1,54 @@
+[gd_scene load_steps=8 format=3 uid="uid://bi31bxoehsk7c"]
+
+[ext_resource type="Script" path="res://nodos/walk_enemy/walk_enemy.gd" id="1_npc3e"]
+[ext_resource type="Texture2D" uid="uid://bqh0w6153q0gf" path="res://arte/prota.png" id="2_4kw4g"]
+[ext_resource type="Script" path="res://nodos/walk_enemy/state_machine_walk_enemy.gd" id="4_dka2m"]
+[ext_resource type="Script" path="res://nodos/walk_enemy/idle_state_walk_enemy.gd" id="5_er5xs"]
+[ext_resource type="Script" path="res://nodos/walk_enemy/dead_state_walk_enemy.gd" id="6_c2qvp"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_16xy7"]
+radius = 26.6667
+height = 74.2861
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w3xhl"]
+size = Vector2(12.7643, 14.535)
+
+[node name="walk_enemy" type="CharacterBody2D"]
+scale = Vector2(0.525, 0.525)
+collision_layer = 2
+collision_mask = 9
+script = ExtResource("1_npc3e")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.293956, 0.274784)
+texture = ExtResource("2_4kw4g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_16xy7")
+
+[node name="collision query" type="Area2D" parent="."]
+position = Vector2(24.7619, 30.4762)
+collision_layer = 2
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="collision query"]
+position = Vector2(-0.000244141, 0.000183105)
+shape = SubResource("RectangleShape2D_w3xhl")
+debug_color = Color(0.823529, 0.4, 0.0588235, 0.419608)
+
+[node name="state_machine_walk_enemy" type="Node" parent="." node_paths=PackedStringArray("initial_state", "Enemigo")]
+script = ExtResource("4_dka2m")
+initial_state = NodePath("idle_state_walk_enemy")
+Enemigo = NodePath("..")
+
+[node name="idle_state_walk_enemy" type="Node" parent="state_machine_walk_enemy"]
+script = ExtResource("5_er5xs")
+
+[node name="dead_state_walk_enemy" type="Node" parent="state_machine_walk_enemy" node_paths=PackedStringArray("corpse_timer")]
+script = ExtResource("6_c2qvp")
+corpse_timer = NodePath("../../corpse_timer")
+
+[node name="corpse_timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="body_exited" from="collision query" to="state_machine_walk_enemy/idle_state_walk_enemy" method="_on_collision_query_body_exited"]
