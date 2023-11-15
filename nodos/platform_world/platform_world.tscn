@@ -1,6 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://dusk6dox3dxnb"]
-
-[ext_resource type="Texture2D" uid="uid://dlnxlm8d8iur6" path="res://arte/plataforma.png" id="1_pbwk5"]
+[gd_scene load_steps=3 format=3 uid="uid://dusk6dox3dxnb"]
 
 [sub_resource type="GDScript" id="GDScript_qhqw5"]
 script/source = "extends StaticBody2D
@@ -17,9 +15,7 @@ collision_layer = 8
 collision_mask = 23
 script = SubResource("GDScript_qhqw5")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(1.89216, 0.631783)
-texture = ExtResource("1_pbwk5")
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, 0)

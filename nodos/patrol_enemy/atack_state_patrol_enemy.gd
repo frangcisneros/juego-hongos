@@ -1,6 +1,5 @@
 extends State
 
-class_name atack_state_patrol_enemy
 
 @onready var Enemigo : CharacterBody2D= get_parent().Enemigo
 
@@ -13,26 +12,26 @@ class_name atack_state_patrol_enemy
 @onready var health : float= Enemigo.health
 @onready var scale_x : float = Enemigo.scale.x
 @onready var vision = Enemigo.get_node("vision_patrol_enemy")
+
+
+@onready var player = get_tree().get_nodes_in_group("player")[0]
+@onready var position2D = get_parent().position2D
+@onready var right : bool = get_parent().get_node("idle_state_patrol_enemy").right
+
 var StateActive : bool = false
 var posicion_objetivo : Vector2 
 
 func Enter():
-	for body in detection_area.get_overlapping_bodies():
-		if body is Player:
-			posicion_objetivo = body.position
+	posicion_objetivo = player.position
 	if posicion_objetivo.x - Enemigo.position.x >= 5:
-		if Enemigo.velocity.x < 0:
-			Enemigo.scale.x *= -1 
-			vision.scale.x = - vision.scale.x
-		get_parent().get_node("idle_state_patrol_enemy").right = true
+
+		position2D.scale.x = 1
 		Enemigo.velocity.x = speed
 	elif posicion_objetivo.x - Enemigo.position.x <= -5:
-		if Enemigo.velocity.x > 0:
-			Enemigo.scale.x *= -1 
-			vision.scale.x = - vision.scale.x
-		get_parent().get_node("idle_state_patrol_enemy").right = false
+		position2D.scale.x = - 1
+		right = false
 		Enemigo.velocity.x = -speed
-#	Enemigo.velocity.x = 30
+	
 	attack_timer.start()
 	StateActive = true
 	animation_tree.set("parameters/Patrulla/blend_position",1)
@@ -42,15 +41,13 @@ func Exit():
 	StateActive = false
 	
 func Update(_delta : float):
-	
 	if(Enemigo.health <= 0):
 		Enemigo.set_rotation_degrees(180)
-		Transition.emit(self, "dead_state__patrol_enemy")
+		Transition.emit(self, "dead_state_patrol_enemy")
 	elif attack_timer.is_stopped():
 		Transition.emit(self,"idle_state_patrol_enemy")
 
-#func UpdatePhysics(_delta : float):
-#	if posicion_objetivo.x - Enemigo.position.x >= 5:
-#		Enemigo.velocity.x = speed
-#	elif posicion_objetivo.x - Enemigo.position.x <= -5:
-#		Enemigo.velocity.x = -speed
+func _on_hitbox_body_entered(body):
+	if body.has_method("player"):
+		Transition.emit(self,"idle_state_patrol_enemy")
+

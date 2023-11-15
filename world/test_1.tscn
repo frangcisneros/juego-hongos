@@ -24,11 +24,6 @@ scale = Vector2(1, 0.2)
 [node name="player" parent="." instance=ExtResource("2_r3dvt")]
 position = Vector2(517, -49)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-polygon = PackedVector2Array(-955, -40, -960, -469, 969, -476, 980, 227, 834, 74, 477, 88, -327, 74, -614, 61, -865, 45, -973, 22, -883, 191, 1112, 315, 1136, -251, 979, -798, -1109, -589)
-
 [node name="test_2_transition_point" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="test_2_transition_point"]

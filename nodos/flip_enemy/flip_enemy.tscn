@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://2bxnpi0o6m4"]
+[gd_scene load_steps=13 format=3 uid="uid://2bxnpi0o6m4"]
 
 [ext_resource type="Script" path="res://nodos/flip_enemy/flip_enemy.gd" id="1_oqvle"]
 [ext_resource type="Texture2D" uid="uid://bqh0w6153q0gf" path="res://arte/prota.png" id="2_ghnxk"]
+[ext_resource type="Script" path="res://nodos/flip_enemy/hitbox.gd" id="3_fx77k"]
 [ext_resource type="Script" path="res://nodos/flip_enemy/vision.gd" id="3_v3lnu"]
 [ext_resource type="Script" path="res://nodos/flip_enemy/state_machine_flip_enemy.gd" id="4_5len2"]
 [ext_resource type="Script" path="res://nodos/flip_enemy/idle_state_flip_enemy.gd" id="5_0d7pj"]
@@ -11,6 +12,9 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i0ajd"]
 size = Vector2(97, 134)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3m7yj"]
+size = Vector2(96, 24)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rjnno"]
 size = Vector2(96, 24)
@@ -41,10 +45,20 @@ collision_layer = 0
 polygon = PackedVector2Array(0, 0, -200.01, 300, 200, 300)
 
 [node name="hitbox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 32
+script = ExtResource("3_fx77k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+position = Vector2(0, -56)
+shape = SubResource("RectangleShape2D_3m7yj")
+debug_color = Color(0.913725, 0.156863, 0.615686, 0.419608)
+
+[node name="back_hitbox" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 8
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="back_hitbox"]
 position = Vector2(0, 56)
 shape = SubResource("RectangleShape2D_rjnno")
 debug_color = Color(0, 0.639216, 0.380392, 0.419608)
@@ -76,4 +90,4 @@ corpse_timer = NodePath("../../corpse_timer")
 one_shot = true
 
 [connection signal="body_entered" from="deteccion" to="state_machine_flip_enemy/idle_state_flip_enemy" method="_on_deteccion_body_entered"]
-[connection signal="body_entered" from="hitbox" to="state_machine_flip_enemy/attack_state_flip_enemy" method="_on_hitbox_body_entered"]
+[connection signal="body_entered" from="back_hitbox" to="state_machine_flip_enemy/attack_state_flip_enemy" method="_on_back_hitbox_body_entered"]

@@ -12,15 +12,15 @@ var retroceso_vector = Vector2.ZERO
 var retroceso_normal = 500
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity") # obtiene la gravedad desde la configuracion global del proyecto
-var health = 100
+
 var player_alive = true
 var enemigo_rango = false
 #var enemigo_position = Vector2.ZERO
 
 @onready var coyote_timer = $coyote_timer # asigna el nodo coyotetimer a una variable
 @onready var jump_buffer_timer = $jump_buffer_timer # asigna el nodo jumpbuffertimer a una variable
-@onready var marker2D = $Marker2D # esto nos servira para ir dando vuelta los sprites
-@onready var ataque = $attack
+@onready var position2D = $position2D # esto nos servira para ir dando vuelta los sprites
+@onready var attack_area = $attack_area
 @onready var retroceso_tiempo = $knockback_timer
 @onready var hitbox = $hitbox_player
 @onready var tiempo_invencibilidad = $invincibility_timer
@@ -33,14 +33,14 @@ func _input(event):
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 			global_position = get_global_mouse_position()
 
-func _process(_delta):
-	update_health()
+func _process(delta):
+
 	invencibilidad()
 
 func _physics_process(delta):
-	if health <=0:
+	if PlayerStats.health <=0:
 		player_alive = false
-		health = 0
+		PlayerStats.health = 0
 	
 	if not is_on_floor():
 		if velocity.y < 0: # cuando cae este es afectado por la gravedad
@@ -50,28 +50,10 @@ func _physics_process(delta):
 			velocity.y = clamp(velocity.y, 0, 1000)
 	move_and_slide()
 
-func update_health():
-	var healthbar = $health_bar
-	healthbar.value = health
+
 
 func player():
 	pass
-
-### NO ENTIENDO PARA QUE ESTA ESTO DE ACA ABAJO ###
-#func _on_hitbox_player_area_entered(area):
-#	print("ay")
-#	if area.has_method("enemy"):
-##		enemigo_rango = true
-#		health = health - 1
-#		#hitted = true
-#		enemigo_position = area.global_position
-#		retroceso_tiempo.start()
-#		retroceso_vector = (global_position - enemigo_position).normalized() * retroceso_normal
-#		velocity.x = retroceso_vector.x
-#		velocity.y = -200
-#		if tiempo_invencibilidad.is_stopped(): #si el personaje no es invencible
-#			tiempo_invencibilidad.start() #lo hacemos invencible por un tiempo
-### NO ENTIENDO PARA QUE ESTA ESTO DE ACA ARRIBA ###
 
 func invencibilidad():
 	if not tiempo_invencibilidad.is_stopped(): #si le pegaron al pj lo hacemos invencible
@@ -86,6 +68,8 @@ func invencibilidad():
 		hitbox.set_collision_layer_value(1,true)
 		set_collision_layer_value(1,true)
 		set_collision_mask_value(2,true) 
-		set_collision_layer_value(5,false)
+		set_collision_layer_value(5,false) 
 
-
+func _on_hitbox_player_body_entered(body):
+	if body.has_method("coin"):
+		body.queue_free()

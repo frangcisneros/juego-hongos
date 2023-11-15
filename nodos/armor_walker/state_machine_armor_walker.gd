@@ -1,12 +1,12 @@
 extends Node
 
-class_name state_machine_armor_walker
 
 @export var initial_state : State
 @export var Enemigo: CharacterBody2D
 
 var states :  Dictionary = {}
 var currentState : State
+var is_dead = false
 
 # un for que ciclee por los hijos del nodo y si son estados (if child is State) los agregue al diccionario (states[child.name] = child)
 func _ready():
@@ -20,6 +20,11 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	currentState.Update(delta)
+	if(Enemigo.health <= 0) and not is_dead:
+		Enemigo.set_rotation_degrees(180)
+		Enemigo.velocity.x = 0
+		on_child_transition(currentState, "dead_state_armor_walker")
+		is_dead = true
 
 func _physics_process(delta):
 	currentState.UpdatePhysics(delta)

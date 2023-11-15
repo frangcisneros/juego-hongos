@@ -20,11 +20,11 @@ func Exit():
 func Update(_delta : float):
 	direction = Input.get_axis("ui_left", "ui_right")
 	if direction > 0:
-		Player.marker2D.scale.x = 1
-		Player.ataque.position.x = Player.ataque.initial_position
+		Player.position2D.scale.x = 1
+		Player.attack_area.position.x = Player.attack_area.initial_position
 	elif direction < 0:
-		Player.marker2D.scale.x = -1
-		Player.ataque.position.x = - Player.ataque.initial_position
+		Player.position2D.scale.x = -1
+		Player.attack_area.position.x = - Player.attack_area.initial_position
 
 func UpdatePhysics(_delta : float):
 	if direction:
@@ -42,6 +42,6 @@ func UpdatePhysics(_delta : float):
 	if not Player.jump_buffer_timer.is_stopped() and (Player.is_on_floor() or not Player.coyote_timer.is_stopped()):
 		Transition.emit(self,"jump_state_player")
 
-func _on_hitbox_player_body_entered(body):
-	if body.has_method("enemy"):
-		Transition.emit(self,"hurt_state_player")
+#func _on_hitbox_player_body_entered(body):
+#	if body.has_method("enemy"):
+#		Transition.emit(self,"hurt_state_player")
