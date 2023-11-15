@@ -29,7 +29,7 @@ func _on_quit_pressed():
 
 
 func _on_level_1_pressed():
-	game.load_level("rock_zone")
+	game.load_level("section_1/rock_zone")
 	hide()
 
 
