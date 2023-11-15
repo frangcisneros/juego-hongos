@@ -1,0 +1,131 @@
+[gd_scene load_steps=18 format=3 uid="uid://dj07mg1sgtrmu"]
+
+[ext_resource type="Script" path="res://nodos/player/player.gd" id="1_wp7lc"]
+[ext_resource type="Script" path="res://nodos/player/atack_player/atack_player.gd" id="2_ucc6x"]
+[ext_resource type="Script" path="res://nodos/player/atack_player/collision_atack_player/collision_atack_player.gd" id="3_yge8a"]
+[ext_resource type="Texture2D" uid="uid://bqh0w6153q0gf" path="res://arte/prota.png" id="4_iq03c"]
+[ext_resource type="Texture2D" uid="uid://dlnxlm8d8iur6" path="res://arte/plataforma.png" id="5_pc6bh"]
+[ext_resource type="Script" path="res://nodos/player/state_machine_player.gd" id="6_pupon"]
+[ext_resource type="Script" path="res://nodos/player/idle_state_player.gd" id="7_tkbq0"]
+[ext_resource type="Script" path="res://nodos/player/walk_state_player.gd" id="7_vngty"]
+[ext_resource type="Script" path="res://nodos/player/jump_state_player.gd" id="8_fvqp5"]
+[ext_resource type="Script" path="res://nodos/player/attack_state_player.gd" id="9_3j50o"]
+[ext_resource type="Script" path="res://nodos/player/fall_state_player.gd" id="10_bjbsj"]
+[ext_resource type="Script" path="res://nodos/player/hurt_state_player.gd" id="10_cryw5"]
+[ext_resource type="Script" path="res://nodos/player/dead_state_player.gd" id="11_e346p"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tlug4"]
+radius = 30.4762
+height = 102.857
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k4lr0"]
+size = Vector2(45.7142, 106.667)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_j64mn"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ycceo"]
+radius = 33.3334
+height = 106.667
+
+[node name="player" type="CharacterBody2D"]
+scale = Vector2(0.525, 0.525)
+
+collision_mask = 26
+
+script = ExtResource("1_wp7lc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 1
+shape = SubResource("CapsuleShape2D_tlug4")
+debug_color = Color(0.901961, 0, 0.141176, 0.478431)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+scale = Vector2(1.5, 1.5)
+
+[node name="coyote_timer" type="Timer" parent="."]
+wait_time = 0.15
+one_shot = true
+
+[node name="jump_buffer_timer" type="Timer" parent="."]
+wait_time = 0.15
+one_shot = true
+
+[node name="attack_area" type="Area2D" parent="."]
+position = Vector2(70, 0)
+collision_layer = 32
+
+collision_mask = 18
+
+script = ExtResource("2_ucc6x")
+
+[node name="collision_attack" type="CollisionShape2D" parent="attack_area"]
+shape = SubResource("RectangleShape2D_k4lr0")
+script = ExtResource("3_yge8a")
+
+[node name="attack_timer" type="Timer" parent="attack_area/collision_attack"]
+wait_time = 0.3
+one_shot = true
+
+[node name="position2D" type="Marker2D" parent="."]
+metadata/_edit_group_ = true
+
+[node name="sprite_player" type="Sprite2D" parent="position2D"]
+material = SubResource("CanvasItemMaterial_j64mn")
+scale = Vector2(0.392552, 0.392552)
+texture = ExtResource("4_iq03c")
+
+[node name="sprite_attack" type="Sprite2D" parent="position2D"]
+position = Vector2(68.5714, 0.238101)
+scale = Vector2(0.149393, 0.823182)
+texture = ExtResource("5_pc6bh")
+
+[node name="hitbox_player" type="Area2D" parent="."]
+position = Vector2(-41.9048, -81.9048)
+
+collision_mask = 38
+
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox_player"]
+position = Vector2(40.9524, 81.9048)
+shape = SubResource("CapsuleShape2D_ycceo")
+debug_color = Color(0.0313726, 0.647059, 0.164706, 0.419608)
+
+[node name="knockback_timer" type="Timer" parent="."]
+wait_time = 0.15
+one_shot = true
+
+[node name="invincibility_timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="state_machine_player" type="Node" parent="." node_paths=PackedStringArray("initial_state", "Player")]
+script = ExtResource("6_pupon")
+initial_state = NodePath("idle_state_player")
+Player = NodePath("..")
+
+[node name="idle_state_player" type="Node" parent="state_machine_player"]
+script = ExtResource("7_tkbq0")
+
+[node name="walk_state_player" type="Node" parent="state_machine_player"]
+script = ExtResource("7_vngty")
+
+[node name="jump_state_player" type="Node" parent="state_machine_player"]
+script = ExtResource("8_fvqp5")
+
+[node name="fall_state_player" type="Node" parent="state_machine_player"]
+script = ExtResource("10_bjbsj")
+
+[node name="attack_state_player" type="Node" parent="state_machine_player"]
+script = ExtResource("9_3j50o")
+
+[node name="hurt_state_player" type="Node" parent="state_machine_player"]
+script = ExtResource("10_cryw5")
+
+[node name="dead_state_player" type="Node" parent="state_machine_player"]
+script = ExtResource("11_e346p")
+
+
+[connection signal="area_entered" from="attack_area" to="attack_area" method="_on_area_entered"]
+[connection signal="area_entered" from="hitbox_player" to="state_machine_player" method="_on_hitbox_player_area_entered"]
+[connection signal="body_entered" from="hitbox_player" to="." method="_on_hitbox_player_body_entered"]
+[connection signal="body_entered" from="hitbox_player" to="state_machine_player" method="_on_hitbox_player_body_entered"]
+

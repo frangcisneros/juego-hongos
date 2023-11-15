@@ -1,0 +1,104 @@
+[gd_scene load_steps=15 format=3 uid="uid://cfam130i8m31e"]
+
+[ext_resource type="Texture2D" uid="uid://bqh0w6153q0gf" path="res://arte/prota.png" id="1_arv85"]
+[ext_resource type="Script" path="res://nodos/heavy_enemy/heavy_enemy.gd" id="1_y4ax8"]
+[ext_resource type="Script" path="res://nodos/heavy_enemy/state_machine_heavy_enemy.gd" id="2_r8ejm"]
+[ext_resource type="Script" path="res://nodos/heavy_enemy/idle_state_heavy_enemy.gd" id="3_ap41j"]
+[ext_resource type="Script" path="res://nodos/heavy_enemy/attack_state_heavy_enemy.gd" id="4_s4280"]
+[ext_resource type="Script" path="res://nodos/heavy_enemy/dead_state_heavy_enemy.gd" id="5_drmqy"]
+[ext_resource type="Script" path="res://nodos/heavy_enemy/hitbox.gd" id="7_52b6t"]
+[ext_resource type="Script" path="res://nodos/heavy_enemy/attack.gd" id="7_o6i8a"]
+[ext_resource type="Script" path="res://nodos/heavy_enemy/vision.gd" id="9_u8hp6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gnxiu"]
+size = Vector2(160, 160)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ptnuc"]
+size = Vector2(158, 106)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vg8r8"]
+size = Vector2(160, 160)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1rvua"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hyk7p"]
+size = Vector2(432, 98)
+
+[node name="heavy_enemy" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 9
+script = ExtResource("1_y4ax8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.820513, 0.624535)
+texture = ExtResource("1_arv85")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_gnxiu")
+
+[node name="state_machine_heavy_enemy" type="Node" parent="." node_paths=PackedStringArray("initial_state", "Enemigo", "vision")]
+script = ExtResource("2_r8ejm")
+initial_state = NodePath("idle_state_heavy_enemy")
+Enemigo = NodePath("..")
+vision = NodePath("../vision")
+
+[node name="idle_state_heavy_enemy" type="Node" parent="state_machine_heavy_enemy"]
+script = ExtResource("3_ap41j")
+
+[node name="attack_state_heavy_enemy" type="Node" parent="state_machine_heavy_enemy" node_paths=PackedStringArray("attack_wait_timer", "stop_attack_timer")]
+script = ExtResource("4_s4280")
+attack_wait_timer = NodePath("../../attack_wait_timer")
+stop_attack_timer = NodePath("../../stop_attack_timer")
+
+[node name="dead_state_heavy_enemy" type="Node" parent="state_machine_heavy_enemy" node_paths=PackedStringArray("corpse_timer")]
+script = ExtResource("5_drmqy")
+corpse_timer = NodePath("../../corpse_timer")
+
+[node name="corpse_timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="attack" type="Area2D" parent="."]
+collision_layer = 2
+monitoring = false
+script = ExtResource("7_o6i8a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="attack"]
+position = Vector2(160, 32)
+shape = SubResource("RectangleShape2D_ptnuc")
+debug_color = Color(0.988235, 0, 0.317647, 0.419608)
+
+[node name="hitbox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 32
+script = ExtResource("7_52b6t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+shape = SubResource("RectangleShape2D_vg8r8")
+debug_color = Color(0.847059, 0.14902, 0.835294, 0.419608)
+
+[node name="collision_query" type="Area2D" parent="."]
+position = Vector2(80, 80)
+collision_layer = 2
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="collision_query"]
+shape = SubResource("RectangleShape2D_1rvua")
+debug_color = Color(0.129412, 0.647059, 0, 0.419608)
+
+[node name="detection_area" type="Area2D" parent="."]
+collision_layer = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detection_area"]
+shape = SubResource("RectangleShape2D_hyk7p")
+
+[node name="attack_wait_timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="stop_attack_timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="vision" type="RayCast2D" parent="."]
+script = ExtResource("9_u8hp6")
+
+[connection signal="body_exited" from="collision_query" to="state_machine_heavy_enemy/idle_state_heavy_enemy" method="_on_collision_query_body_exited"]
+[connection signal="body_entered" from="detection_area" to="state_machine_heavy_enemy/idle_state_heavy_enemy" method="_on_detection_area_body_entered"]

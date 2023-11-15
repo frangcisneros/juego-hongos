@@ -1,0 +1,87 @@
+[gd_scene load_steps=13 format=3 uid="uid://d3tt5xvh25cpr"]
+
+[ext_resource type="Script" path="res://nodos/spear_enemy/spear_enemy.gd" id="1_8d16e"]
+[ext_resource type="Texture2D" uid="uid://bqh0w6153q0gf" path="res://arte/prota.png" id="1_coj5t"]
+[ext_resource type="Script" path="res://nodos/spear_enemy/state_machine_spear_enemy.gd" id="2_8kgfm"]
+[ext_resource type="Script" path="res://nodos/spear_enemy/idle_state_spear_enemy.gd" id="3_cpsjt"]
+[ext_resource type="Script" path="res://nodos/spear_enemy/attack_state_spear_enemy.gd" id="4_d31d6"]
+[ext_resource type="Script" path="res://nodos/spear_enemy/dead_state_spear_enemy.gd" id="5_su5bk"]
+[ext_resource type="Script" path="res://nodos/spear_enemy/hitbox.gd" id="7_4dg1c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vu6jp"]
+size = Vector2(64, 176)
+
+[sub_resource type="Curve2D" id="Curve2D_1lemn"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 190.437, -704.591, -190.437, 704.591, -312, 88)
+}
+point_count = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1a3nk"]
+size = Vector2(64, 176)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2am0o"]
+size = Vector2(24, 24)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wh3sx"]
+radius = 248.129
+
+[node name="spear_enemy" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 9
+script = ExtResource("1_8d16e")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.328205, 0.654275)
+texture = ExtResource("1_coj5t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_vu6jp")
+
+[node name="Path2D" type="Path2D" parent="."]
+scale = Vector2(0.999732, 0.800385)
+curve = SubResource("Curve2D_1lemn")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+rotation = 2.86668
+loop = false
+
+[node name="state_machine_spear_enemy" type="Node" parent="." node_paths=PackedStringArray("initial_state", "Enemigo")]
+script = ExtResource("2_8kgfm")
+initial_state = NodePath("idle_state_spear_enemy")
+Enemigo = NodePath("..")
+
+[node name="idle_state_spear_enemy" type="Node" parent="state_machine_spear_enemy"]
+script = ExtResource("3_cpsjt")
+
+[node name="attack_state_spear_enemy" type="Node" parent="state_machine_spear_enemy"]
+script = ExtResource("4_d31d6")
+
+[node name="dead_state_spear_enemy" type="Node" parent="state_machine_spear_enemy" node_paths=PackedStringArray("corpse_timer")]
+script = ExtResource("5_su5bk")
+corpse_timer = NodePath("../../corpse_timer")
+
+[node name="corpse_timer" type="Timer" parent="."]
+
+[node name="hitbox" type="Area2D" parent="."]
+script = ExtResource("7_4dg1c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+shape = SubResource("RectangleShape2D_1a3nk")
+debug_color = Color(0.964706, 0.141176, 0.329412, 0.419608)
+
+[node name="collision_query" type="Area2D" parent="."]
+position = Vector2(24, 80)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="collision_query"]
+shape = SubResource("RectangleShape2D_2am0o")
+debug_color = Color(0.686275, 0.501961, 0.0117647, 0.419608)
+
+[node name="detection_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detection_area"]
+shape = SubResource("CircleShape2D_wh3sx")
+
+[connection signal="body_entered" from="hitbox" to="state_machine_spear_enemy/attack_state_spear_enemy" method="_on_hitbox_body_entered"]
+[connection signal="body_exited" from="collision_query" to="state_machine_spear_enemy/idle_state_spear_enemy" method="_on_collision_query_body_exited"]
+[connection signal="body_entered" from="detection_area" to="state_machine_spear_enemy/idle_state_spear_enemy" method="_on_detection_area_body_entered"]
