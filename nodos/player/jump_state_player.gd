@@ -21,11 +21,11 @@ func Exit():
 func Update(_delta : float):
 	direction = Input.get_axis("ui_left", "ui_right")
 	if direction > 0:
-		Player.marker2D.scale.x = 1
-		Player.ataque.position.x = Player.ataque.initial_position
+		Player.position2D.scale.x = 1
+		Player.attack_area.position.x = Player.attack_area.initial_position
 	elif direction < 0:
-		Player.marker2D.scale.x = -1
-		Player.ataque.position.x = - Player.ataque.initial_position
+		Player.position2D.scale.x = -1
+		Player.attack_area.position.x = - Player.attack_area.initial_position
 
 func UpdatePhysics(_delta : float):	
 	if direction:

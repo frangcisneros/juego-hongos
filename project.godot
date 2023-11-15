@@ -11,9 +11,7 @@ config_version=5
 [application]
 
 config/name="Juego"
-
 run/main_scene="res://world/game.tscn"
-
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -33,5 +31,3 @@ PlayerStats="*res://scripts/player_stats.gd"
 [rendering]
 
 environment/defaults/default_clear_color=Color(0.0273438, 0.34375, 0.0820313, 1)
-
-

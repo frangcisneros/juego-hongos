@@ -125,10 +125,8 @@ states/Patrulla/position = Vector2(408, 87.6667)
 states/Start/position = Vector2(172, 100)
 transitions = ["Start", "Patrulla", SubResource("AnimationNodeStateMachineTransition_xs775"), "BlendTree", "Patrulla", SubResource("AnimationNodeStateMachineTransition_wv45k"), "Patrulla", "BlendTree", SubResource("AnimationNodeStateMachineTransition_cqwp3")]
 
-
 [node name="patrol_enemy" type="CharacterBody2D" node_paths=PackedStringArray("position2D")]
 scale = Vector2(3, 3)
-
 collision_layer = 2
 collision_mask = 9
 script = ExtResource("1_lqiqa")
