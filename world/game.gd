@@ -22,7 +22,7 @@ func unload_level():
 
 func load_level(level_name : String):
 	unload_level()
-	var level_path = "res://world/section_1/%s.tscn" % level_name
+	var level_path = "res://world/%s.tscn" % level_name
 	var level_resource = load(level_path)
 	if level_resource:
 		level_instance = level_resource.instantiate()
