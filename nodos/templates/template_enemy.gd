@@ -4,7 +4,7 @@ class_name template_enemy
 var health : int
 @onready var sprite_enemigo : Sprite2D
 var coin = preload("res://nodos/collectables/coin_collectable.tscn")
-@onready var player = get_tree().get_nodes_in_group("player")[0]
+@onready var player : CharacterBody2D
 
 signal hitted
 

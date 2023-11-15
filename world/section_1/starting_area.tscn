@@ -1,9 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://ydcyvj4v7ex"]
+[gd_scene load_steps=4 format=3 uid="uid://ydcyvj4v7ex"]
 
+[ext_resource type="Script" path="res://world/section_1/starting_area.gd" id="1_7ro8m"]
 [ext_resource type="PackedScene" uid="uid://dusk6dox3dxnb" path="res://nodos/platform_world/platform_world.tscn" id="1_eaa3a"]
-[ext_resource type="PackedScene" uid="uid://dj07mg1sgtrmu" path="res://nodos/player/player.tscn" id="2_xtb5o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5pheo"]
+size = Vector2(102.875, 338.75)
 
 [node name="starting_area" type="Node2D"]
+script = ExtResource("1_7ro8m")
 
 [node name="platform_world" parent="." instance=ExtResource("1_eaa3a")]
 position = Vector2(41, -3)
@@ -14,5 +18,11 @@ position = Vector2(-1103, -370)
 rotation = 1.5708
 scale = Vector2(1.45346, 0.33909)
 
-[node name="player" parent="." instance=ExtResource("2_xtb5o")]
-position = Vector2(-2.99999, -56)
+[node name="transition_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="transition_area"]
+position = Vector2(1350.56, -158.625)
+shape = SubResource("RectangleShape2D_5pheo")
+debug_color = Color(0.756863, 0.321569, 0.803922, 0.419608)
+
+[connection signal="body_entered" from="transition_area" to="." method="_on_transition_area_body_entered"]
