@@ -34,6 +34,7 @@ func _input(event):
 			global_position = get_global_mouse_position()
 
 func _process(delta):
+
 	invencibilidad()
 
 func _physics_process(delta):
@@ -46,8 +47,7 @@ func _physics_process(delta):
 			velocity.y += gravity * delta
 		else:
 			velocity.y += gravity * 1.75 * delta # cuando salta, es afectado por la gravedad para que caiga mas rapido y no tan suave
-			velocity.y = clamp(velocity.y, 0, 750)
-
+			velocity.y = clamp(velocity.y, 0, 1000)
 	move_and_slide()
 
 

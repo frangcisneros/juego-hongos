@@ -1,0 +1,145 @@
+[gd_scene load_steps=8 format=3 uid="uid://cfq5e4qek763h"]
+
+[ext_resource type="PackedScene" uid="uid://dusk6dox3dxnb" path="res://nodos/platform_world/platform_world.tscn" id="1_5mxna"]
+[ext_resource type="PackedScene" uid="uid://dj07mg1sgtrmu" path="res://nodos/player/player.tscn" id="2_8onms"]
+[ext_resource type="PackedScene" uid="uid://bi31bxoehsk7c" path="res://nodos/walk_enemy/walk_enemy.tscn" id="3_4ro21"]
+[ext_resource type="PackedScene" uid="uid://dhtcxchlvm5ud" path="res://nodos/moss_house.tscn" id="5_ggl8k"]
+[ext_resource type="PackedScene" uid="uid://sqrkoe0x2f65" path="res://nodos/chest.tscn" id="6_krfsi"]
+[ext_resource type="PackedScene" uid="uid://cqvycjf6wy0df" path="res://nodos/patrol_enemy/patrol_enemy.tscn" id="7_icycp"]
+[ext_resource type="PackedScene" uid="uid://t13h28qs4lvp" path="res://nodos/jump_enemy/jump_enemy.tscn" id="7_qi715"]
+
+[node name="first_zone" type="Node2D"]
+
+[node name="platform_world" parent="." instance=ExtResource("1_5mxna")]
+position = Vector2(3174, 176)
+scale = Vector2(16.15, 4.74624)
+
+[node name="platform_world2" parent="." instance=ExtResource("1_5mxna")]
+position = Vector2(-400, -59)
+scale = Vector2(0.38939, 1.22593)
+
+[node name="platform_world3" parent="." instance=ExtResource("1_5mxna")]
+position = Vector2(-59, -160)
+scale = Vector2(0.262213, 0.588508)
+
+[node name="platform_world5" parent="." instance=ExtResource("1_5mxna")]
+position = Vector2(317, -135)
+scale = Vector2(0.525822, 3.7376)
+
+[node name="platform_world12" parent="." instance=ExtResource("1_5mxna")]
+position = Vector2(500, -60)
+scale = Vector2(0.168583, 1.19831)
+
+[node name="platform_world6" parent="." instance=ExtResource("1_5mxna")]
+position = Vector2(856, -208)
+scale = Vector2(0.525822, 1.0176)
+
+[node name="platform_world7" parent="." instance=ExtResource("1_5mxna")]
+position = Vector2(1313, -279)
+scale = Vector2(0.258021, 2.18237)
+
+[node name="platform_world14" parent="." instance=ExtResource("1_5mxna")]
+position = Vector2(1867, -92)
+scale = Vector2(0.258021, 2.18237)
+
+[node name="platform_world8" parent="." instance=ExtResource("1_5mxna")]
+position = Vector2(1741, -461)
+scale = Vector2(0.525822, 1.0176)
+
+[node name="platform_world15" parent="." instance=ExtResource("1_5mxna")]
+position = Vector2(1365, -43)
+scale = Vector2(0.271684, 0.74693)
+
+[node name="platform_world4" parent="." instance=ExtResource("1_5mxna")]
+position = Vector2(-737, -44)
+scale = Vector2(0.897329, 0.820653)
+
+[node name="platform_world20" parent="." instance=ExtResource("1_5mxna")]
+position = Vector2(-1277, -45)
+scale = Vector2(0.457329, 0.820653)
+
+[node name="platform_world9" parent="." instance=ExtResource("1_5mxna")]
+position = Vector2(2112, -599)
+scale = Vector2(0.262213, 0.588508)
+
+[node name="platform_world11" parent="." instance=ExtResource("1_5mxna")]
+position = Vector2(2572, -717)
+scale = Vector2(0.542211, 0.828508)
+
+[node name="platform_world16" parent="." instance=ExtResource("1_5mxna")]
+position = Vector2(4427, -225)
+scale = Vector2(0.542211, 0.828508)
+
+[node name="platform_world17" parent="." instance=ExtResource("1_5mxna")]
+position = Vector2(4902, -303)
+scale = Vector2(0.262201, 1.90851)
+
+[node name="platform_world19" parent="." instance=ExtResource("1_5mxna")]
+position = Vector2(5248, -349)
+scale = Vector2(0.262201, 1.30851)
+
+[node name="platform_world22" parent="." instance=ExtResource("1_5mxna")]
+position = Vector2(5584, -305)
+scale = Vector2(0.262201, 1.30851)
+
+[node name="platform_world10" parent="." instance=ExtResource("1_5mxna")]
+position = Vector2(3694, -161)
+scale = Vector2(0.579858, 4.34851)
+
+[node name="platform_world18" parent="." instance=ExtResource("1_5mxna")]
+position = Vector2(6051, -211)
+scale = Vector2(0.579858, 5.58851)
+
+[node name="platform_world13" parent="." instance=ExtResource("1_5mxna")]
+position = Vector2(3411, -91)
+scale = Vector2(-0.499956, 2.08718)
+
+[node name="platform_world21" parent="." instance=ExtResource("1_5mxna")]
+position = Vector2(3958, -37)
+scale = Vector2(-0.499956, 2.08718)
+
+[node name="moss_house" parent="." instance=ExtResource("5_ggl8k")]
+position = Vector2(2660, -216)
+
+[node name="player" parent="." instance=ExtResource("2_8onms")]
+visibility_layer = 2
+position = Vector2(3913.77, -219.205)
+scale = Vector2(0.525, 0.51)
+
+[node name="walk_enemy" parent="." instance=ExtResource("3_4ro21")]
+position = Vector2(-89, -45)
+scale = Vector2(0.79732, 0.79732)
+
+[node name="walk_enemy5" parent="." instance=ExtResource("3_4ro21")]
+position = Vector2(-738, -112)
+scale = Vector2(0.79732, 0.79732)
+
+[node name="walk_enemy3" parent="." instance=ExtResource("3_4ro21")]
+position = Vector2(1675, -52)
+scale = Vector2(0.79732, 0.79732)
+
+[node name="walk_enemy2" parent="." instance=ExtResource("3_4ro21")]
+position = Vector2(904, -72)
+scale = Vector2(0.79732, 0.79732)
+
+[node name="walk_enemy4" parent="." instance=ExtResource("3_4ro21")]
+position = Vector2(4496, -303)
+scale = Vector2(0.79732, 0.79732)
+
+[node name="chest" parent="." instance=ExtResource("6_krfsi")]
+position = Vector2(2575, -783)
+
+[node name="patrol_enemy" parent="." instance=ExtResource("7_icycp")]
+position = Vector2(4254, -60)
+
+[node name="patrol_enemy2" parent="." instance=ExtResource("7_icycp")]
+position = Vector2(5549, -54)
+
+[node name="jump_enemy" parent="." instance=ExtResource("7_qi715")]
+position = Vector2(1729.92, -539.519)
+
+[node name="jump_enemy2" parent="." instance=ExtResource("7_qi715")]
+position = Vector2(3704, -405)
+
+[node name="jump_enemy3" parent="." instance=ExtResource("7_qi715")]
+position = Vector2(6031.95, -515.974)

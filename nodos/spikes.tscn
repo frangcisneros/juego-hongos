@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://det7qsfsss5cr"]
+
+[ext_resource type="Texture2D" uid="uid://xt71nr0a4jen" path="res://arte/Placeholder Assets/pinchos.png" id="1_gceak"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sc4tm"]
+size = Vector2(475, 43)
+
+[node name="spikes" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_gceak")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_sc4tm")

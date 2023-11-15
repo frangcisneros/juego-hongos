@@ -11,7 +11,9 @@ config_version=5
 [application]
 
 config/name="Juego"
+
 run/main_scene="res://world/game.tscn"
+
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -26,11 +28,10 @@ PlayerStats="*res://scripts/player_stats.gd"
 2d_physics/layer_3="item"
 2d_physics/layer_4="floor"
 2d_physics/layer_5="invencibilidad"
-<<<<<<< HEAD
+2d_physics/layer_6="attack_and_detection"
 
 [rendering]
 
 environment/defaults/default_clear_color=Color(0.0273438, 0.34375, 0.0820313, 1)
-=======
-2d_physics/layer_6="attack_and_detection"
->>>>>>> main
+
+

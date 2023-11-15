@@ -36,3 +36,9 @@ func _on_collision_query_body_exited(body):
 		Enemigo.scale.x = - Enemigo.scale.x
 		Enemigo.velocity.x = - Enemigo.velocity.x
 		right = !right
+
+func _on_collision_query_top_body_entered(body):
+	if body.has_method("plataforma") and Enemigo.is_on_floor():
+		Enemigo.scale.x = - Enemigo.scale.x
+		Enemigo.velocity.x = - Enemigo.velocity.x
+		right = !right

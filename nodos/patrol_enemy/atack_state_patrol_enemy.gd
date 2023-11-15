@@ -24,13 +24,14 @@ var posicion_objetivo : Vector2
 func Enter():
 	posicion_objetivo = player.position
 	if posicion_objetivo.x - Enemigo.position.x >= 5:
+
 		position2D.scale.x = 1
 		Enemigo.velocity.x = speed
 	elif posicion_objetivo.x - Enemigo.position.x <= -5:
 		position2D.scale.x = - 1
 		right = false
 		Enemigo.velocity.x = -speed
-		
+	
 	attack_timer.start()
 	StateActive = true
 	animation_tree.set("parameters/Patrulla/blend_position",1)
@@ -46,8 +47,7 @@ func Update(_delta : float):
 	elif attack_timer.is_stopped():
 		Transition.emit(self,"idle_state_patrol_enemy")
 
-
 func _on_hitbox_body_entered(body):
 	if body.has_method("player"):
-		print("akfsjjkb")
 		Transition.emit(self,"idle_state_patrol_enemy")
+

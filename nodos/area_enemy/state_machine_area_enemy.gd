@@ -4,7 +4,9 @@ class_name state_machine_area_enemy
 
 @export var initial_state : State
 @export var Enemigo: CharacterBody2D
-
+@onready var sprite = Enemigo.get_node("damage_area/CollisionShape2D/Sprite2D2")
+@onready var sprite_scale_x = sprite.scale.x
+@onready var sprite_scale_y = sprite.scale.y
 var states :  Dictionary = {}
 var currentState : State
 
@@ -17,6 +19,7 @@ func _ready():
 	if initial_state:
 		initial_state.Enter()
 		currentState = initial_state 
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	currentState.Update(delta)
