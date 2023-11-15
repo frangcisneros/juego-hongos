@@ -1,7 +1,5 @@
 extends template_enemy
 
-class_name area_enemy
-
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _ready():
