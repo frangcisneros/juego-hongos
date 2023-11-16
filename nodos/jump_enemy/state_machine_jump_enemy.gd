@@ -10,6 +10,8 @@ var currentState : State
 
 # un for que ciclee por los hijos del nodo y si son estados (if child is State) los agregue al diccionario (states[child.name] = child)
 func _ready():
+	Enemigo.hitted.connect(on_hit_transition)
+	
 	for child in get_children():
 		if child is State:
 			states[child.name.to_lower()] = child
@@ -40,3 +42,6 @@ func on_child_transition(state, new_state_name):
 	new_state.Enter() #entras la nuevo estado
 
 	currentState = new_state #haces que el nuevo estado sea el estado actual
+
+func on_hit_transition():
+	on_child_transition(currentState, "hitted_state_jump_enemy")
