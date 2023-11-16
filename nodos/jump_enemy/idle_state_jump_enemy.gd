@@ -38,8 +38,6 @@ func UpdatePhysics(_delta : float):
 		Enemigo.velocity.x = Enemigo.SPEED
 	else:
 		Enemigo.velocity.x = - Enemigo.SPEED
-	if not Enemigo.is_on_floor() and not jump_cd.is_stopped():
-		Enemigo.velocity.y += Enemigo.gravity * _delta
 	if jump_cd.is_stopped() and Enemigo.is_on_floor():
 		Enemigo.velocity.y = Enemigo.JUMP_VELOCITY
 		jump_cd.start()

@@ -1,21 +1,26 @@
-[gd_scene load_steps=8 format=3 uid="uid://t13h28qs4lvp"]
+[gd_scene load_steps=11 format=3 uid="uid://t13h28qs4lvp"]
 
 [ext_resource type="Script" path="res://nodos/jump_enemy/jump_enemy.gd" id="1_b4o2j"]
-[ext_resource type="Texture2D" uid="uid://bqh0w6153q0gf" path="res://arte/prota.png" id="2_cceq3"]
+[ext_resource type="Texture2D" uid="uid://bqh0w6153q0gf" path="res://arte/Assets/prota.png" id="2_cceq3"]
 [ext_resource type="Script" path="res://nodos/jump_enemy/state_machine_jump_enemy.gd" id="5_lr5ei"]
 [ext_resource type="Script" path="res://nodos/jump_enemy/idle_state_jump_enemy.gd" id="6_1gdfo"]
+[ext_resource type="Script" path="res://nodos/jump_enemy/hitted_state_jump_enemy.gd" id="6_34jai"]
+[ext_resource type="Script" path="res://nodos/jump_enemy/hitbox.gd" id="6_57g2g"]
 [ext_resource type="Script" path="res://nodos/jump_enemy/dead_state_jump_enemy.gd" id="7_l551g"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8sfx5"]
-radius = 32.0
-height = 92.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_idrms"]
+height = 86.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n2ss1"]
 size = Vector2(12.7643, 14.535)
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_38qlt"]
+radius = 30.0
+height = 86.0
+
 [node name="jump_enemy" type="CharacterBody2D"]
 collision_layer = 2
-collision_mask = 9
+collision_mask = 41
 script = ExtResource("1_b4o2j")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -23,8 +28,8 @@ scale = Vector2(0.35641, 0.35641)
 texture = ExtResource("2_cceq3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 1)
-shape = SubResource("CapsuleShape2D_8sfx5")
+position = Vector2(-1, 0)
+shape = SubResource("CapsuleShape2D_idrms")
 
 [node name="jump_cd" type="Timer" parent="."]
 one_shot = true
@@ -56,8 +61,26 @@ script = ExtResource("6_1gdfo")
 script = ExtResource("7_l551g")
 corpse_timer = NodePath("../../corpse_timer")
 
+[node name="hitted_state_jump_enemy" type="Node" parent="state_machine_jump_enemy" node_paths=PackedStringArray("hitted_timer")]
+script = ExtResource("6_34jai")
+hitted_timer = NodePath("../../hitted_timer")
+
 [node name="corpse_timer" type="Timer" parent="."]
 wait_time = 3.0
+one_shot = true
+
+[node name="hitbox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 33
+script = ExtResource("6_57g2g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+position = Vector2(-1, 0)
+shape = SubResource("CapsuleShape2D_38qlt")
+debug_color = Color(0.788235, 0.368627, 0.596078, 0.419608)
+
+[node name="hitted_timer" type="Timer" parent="."]
+wait_time = 0.05
 one_shot = true
 
 [connection signal="body_exited" from="collision query" to="state_machine_jump_enemy/idle_state_jump_enemy" method="_on_collision_query_body_exited"]

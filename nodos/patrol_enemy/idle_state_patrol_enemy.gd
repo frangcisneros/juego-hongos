@@ -51,7 +51,16 @@ func _on_collision_query_body_exited(body):
 		right = !right
 		position2D.scale.x = -position2D.scale.x
 
+func _on_collision_query_2_body_entered(body):
+	if body.has_method("plataforma") and Enemigo.is_on_floor() and StateActive:
+		Enemigo.velocity.x = -Enemigo.velocity.x
+		right = !right
+		position2D.scale.x = -position2D.scale.x
+
 func _on_detection_area_body_entered(body):
 	if body.has_method("player") and StateActive:
 		if vision.vision_player(body.position) and rest_timer.is_stopped():
 			Transition.emit(self, "attack_state_patrol_enemy")
+
+
+

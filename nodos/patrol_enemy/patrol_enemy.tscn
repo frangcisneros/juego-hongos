@@ -159,6 +159,15 @@ collision_mask = 8
 position = Vector2(9, 7)
 shape = SubResource("RectangleShape2D_712fq")
 
+[node name="collision_query2" type="Area2D" parent="position2D"]
+position = Vector2(1, 1)
+collision_layer = 2
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="position2D/collision_query2"]
+position = Vector2(10.3333, -6)
+shape = SubResource("RectangleShape2D_712fq")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.333333, 1.33333)
 shape = SubResource("CapsuleShape2D_dol65")
@@ -238,4 +247,5 @@ parameters/Patrulla/blend_position = 0
 
 [connection signal="body_entered" from="position2D/detection_area" to="state_machine_patrol_enemy/idle_state_patrol_enemy" method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="position2D/collision_query" to="state_machine_patrol_enemy/idle_state_patrol_enemy" method="_on_collision_query_body_exited"]
+[connection signal="body_entered" from="position2D/collision_query2" to="state_machine_patrol_enemy/idle_state_patrol_enemy" method="_on_collision_query_2_body_entered"]
 [connection signal="body_entered" from="hitbox" to="state_machine_patrol_enemy/attack_state_patrol_enemy" method="_on_hitbox_body_entered"]
