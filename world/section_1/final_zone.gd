@@ -9,8 +9,3 @@ extends Node2D
 func _ready():
 	player.visible = true
 	player.position = spawn.position
-
-
-func _on_transition_area_body_entered(body):
-	if body.has_method("player"):
-		game.load_level("/section_1/second_zone")

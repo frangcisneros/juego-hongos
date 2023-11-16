@@ -13,4 +13,4 @@ func _ready():
 
 func _on_transition_area_body_entered(body):
 	if body.has_method("player"):
-		game.load_level("/section_1/second_zone")
+		game.load_level("/section_1/final_zone")

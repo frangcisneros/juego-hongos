@@ -39,6 +39,4 @@ func _input(event : InputEvent):
 	if event.is_action_pressed("ui_home") and game_run:
 		load_level("test_1")
 
-func _process(delta):
-	print(get_tree().get_nodes_in_group("player"))
 

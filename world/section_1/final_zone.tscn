@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://b27pr5ox0vcis"]
 
+[ext_resource type="Script" path="res://world/section_1/final_zone.gd" id="1_cf02q"]
 [ext_resource type="PackedScene" uid="uid://dusk6dox3dxnb" path="res://nodos/platform_world/platform_world.tscn" id="1_g57r2"]
-[ext_resource type="PackedScene" uid="uid://dj07mg1sgtrmu" path="res://nodos/player/player.tscn" id="3_012lf"]
 [ext_resource type="PackedScene" uid="uid://cssevd6rtecpf" path="res://nodos/armor_walker/armor_walker.tscn" id="3_rfkgb"]
 [ext_resource type="PackedScene" uid="uid://bi31bxoehsk7c" path="res://nodos/walk_enemy/walk_enemy.tscn" id="4_4v1p0"]
 [ext_resource type="PackedScene" uid="uid://cqvycjf6wy0df" path="res://nodos/patrol_enemy/patrol_enemy.tscn" id="6_0cbno"]
@@ -9,7 +9,12 @@
 [ext_resource type="PackedScene" uid="uid://t13h28qs4lvp" path="res://nodos/jump_enemy/jump_enemy.tscn" id="7_2ritm"]
 [ext_resource type="PackedScene" uid="uid://d0gordpyc8o5m" path="res://nodos/area_enemy/area_enemy.tscn" id="8_lj5sr"]
 
-[node name="first_zone" type="Node2D"]
+[node name="first_zone" type="Node2D" node_paths=PackedStringArray("spawn")]
+script = ExtResource("1_cf02q")
+spawn = NodePath("spawn")
+
+[node name="spawn" type="Marker2D" parent="."]
+position = Vector2(-1148, -87)
 
 [node name="platform_world" parent="." instance=ExtResource("1_g57r2")]
 position = Vector2(6839, 176)
@@ -126,9 +131,6 @@ scale = Vector2(0.230003, 1.58624)
 [node name="platform_world8" parent="." instance=ExtResource("1_g57r2")]
 position = Vector2(3988, -146)
 scale = Vector2(0.81698, 1.18726)
-
-[node name="player" parent="." instance=ExtResource("3_012lf")]
-position = Vector2(-967.878, -200.007)
 
 [node name="armor_walker" parent="." instance=ExtResource("3_rfkgb")]
 position = Vector2(-180, -59)

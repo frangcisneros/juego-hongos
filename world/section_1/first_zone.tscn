@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cfq5e4qek763h"]
+[gd_scene load_steps=9 format=3 uid="uid://cfq5e4qek763h"]
 
 [ext_resource type="PackedScene" uid="uid://dusk6dox3dxnb" path="res://nodos/platform_world/platform_world.tscn" id="1_5mxna"]
 [ext_resource type="Script" path="res://world/section_1/first_zone.gd" id="1_o8arc"]
@@ -8,8 +8,22 @@
 [ext_resource type="PackedScene" uid="uid://cqvycjf6wy0df" path="res://nodos/patrol_enemy/patrol_enemy.tscn" id="7_icycp"]
 [ext_resource type="PackedScene" uid="uid://t13h28qs4lvp" path="res://nodos/jump_enemy/jump_enemy.tscn" id="7_qi715"]
 
-[node name="first_zone" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_srxqs"]
+size = Vector2(148, 196)
+
+[node name="first_zone" type="Node2D" node_paths=PackedStringArray("spawn")]
 script = ExtResource("1_o8arc")
+spawn = NodePath("spawn")
+
+[node name="spawn" type="Marker2D" parent="."]
+position = Vector2(-1456, -47)
+
+[node name="transition_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="transition_area"]
+position = Vector2(7933, -109)
+shape = SubResource("RectangleShape2D_srxqs")
+debug_color = Color(0.85098, 0.345098, 0.368627, 0.419608)
 
 [node name="platform_world" parent="." instance=ExtResource("1_5mxna")]
 position = Vector2(3174, 176)
@@ -139,3 +153,5 @@ position = Vector2(3704, -405)
 
 [node name="jump_enemy3" parent="." instance=ExtResource("7_qi715")]
 position = Vector2(6031.95, -515.974)
+
+[connection signal="body_entered" from="transition_area" to="." method="_on_transition_area_body_entered"]
