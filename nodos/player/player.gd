@@ -1,6 +1,5 @@
 extends CharacterBody2D
 
-class_name Player
 
 # variables
 const SPEED = 300.0 # velocidad
@@ -26,6 +25,7 @@ var enemigo_rango = false
 @onready var tiempo_invencibilidad = $invincibility_timer
 
 func _ready():
+	
 	add_to_group("player")
 
 func _input(event):

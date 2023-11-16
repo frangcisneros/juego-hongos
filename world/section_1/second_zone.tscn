@@ -1,28 +1,47 @@
-[gd_scene load_steps=4 format=3 uid="uid://bddv64xs6kd6q"]
+[gd_scene load_steps=5 format=3 uid="uid://bddv64xs6kd6q"]
 
+[ext_resource type="Script" path="res://world/section_1/second_zone.gd" id="1_5ry6f"]
 [ext_resource type="PackedScene" uid="uid://dusk6dox3dxnb" path="res://nodos/platform_world/platform_world.tscn" id="1_8c1y5"]
-[ext_resource type="PackedScene" uid="uid://dj07mg1sgtrmu" path="res://nodos/player/player.tscn" id="2_3ue2c"]
 [ext_resource type="PackedScene" uid="uid://dhtcxchlvm5ud" path="res://nodos/moss_house.tscn" id="3_x0wsc"]
 
-[node name="second_zone" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kab27"]
+size = Vector2(248, 223)
+
+[node name="second_zone" type="Node2D" node_paths=PackedStringArray("spawn")]
+script = ExtResource("1_5ry6f")
+spawn = NodePath("spawn")
+
+[node name="spawn" type="Marker2D" parent="."]
+position = Vector2(-2240, -93)
 
 [node name="platform_world" parent="." instance=ExtResource("1_8c1y5")]
 scale = Vector2(7.88, 1)
 
-[node name="player" parent="." instance=ExtResource("2_3ue2c")]
-position = Vector2(-2150, -91)
+[node name="moss_house" parent="." instance=ExtResource("3_x0wsc")]
+position = Vector2(-1213, -151)
+scale = Vector2(0.525, 0.525)
 
-[node name="moss_house" parent="player" instance=ExtResource("3_x0wsc")]
-position = Vector2(1784.76, -114.286)
+[node name="moss_house2" parent="." instance=ExtResource("3_x0wsc")]
+position = Vector2(-688.001, -155)
+scale = Vector2(0.525, 0.525)
 
-[node name="moss_house2" parent="player" instance=ExtResource("3_x0wsc")]
-position = Vector2(2784.76, -121.905)
+[node name="moss_house3" parent="." instance=ExtResource("3_x0wsc")]
+position = Vector2(158, -147)
+scale = Vector2(0.525, 0.525)
 
-[node name="moss_house3" parent="player" instance=ExtResource("3_x0wsc")]
-position = Vector2(4396.19, -106.667)
+[node name="moss_house4" parent="." instance=ExtResource("3_x0wsc")]
+position = Vector2(430.002, -143)
+scale = Vector2(0.525, 0.525)
 
-[node name="moss_house4" parent="player" instance=ExtResource("3_x0wsc")]
-position = Vector2(4914.29, -99.0476)
+[node name="moss_house5" parent="." instance=ExtResource("3_x0wsc")]
+position = Vector2(1705, -158)
+scale = Vector2(0.525, 0.525)
 
-[node name="moss_house5" parent="player" instance=ExtResource("3_x0wsc")]
-position = Vector2(7342.86, -127.619)
+[node name="transition_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="transition_area"]
+position = Vector2(2408, -151)
+shape = SubResource("RectangleShape2D_kab27")
+debug_color = Color(0.764706, 0.376471, 0.631373, 0.419608)
+
+[connection signal="body_entered" from="transition_area" to="." method="_on_transition_area_body_entered"]

@@ -4,6 +4,7 @@ class_name game
 
 signal toggle_game_paused(is_paused : bool)
 
+
 var level_instance = null
 var game_paused : bool = false:
 	get:
@@ -29,6 +30,7 @@ func load_level(level_name : String):
 		self.add_child(level_instance)
 
 func _ready():
+	get_node("player").visible = false
 	pass
 
 func _input(event : InputEvent):
@@ -36,5 +38,5 @@ func _input(event : InputEvent):
 		game_paused = !game_paused
 	if event.is_action_pressed("ui_home") and game_run:
 		load_level("test_1")
-		
+
 

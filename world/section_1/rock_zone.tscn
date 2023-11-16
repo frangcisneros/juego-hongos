@@ -1,7 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://vkdtt4fpq48c"]
+[gd_scene load_steps=10 format=3 uid="uid://vkdtt4fpq48c"]
 
 [ext_resource type="PackedScene" uid="uid://dusk6dox3dxnb" path="res://nodos/platform_world/platform_world.tscn" id="1_c3v7j"]
-[ext_resource type="PackedScene" uid="uid://dj07mg1sgtrmu" path="res://nodos/player/player.tscn" id="2_4po80"]
+[ext_resource type="Script" path="res://world/section_1/rock_zone.gd" id="1_njqd3"]
 [ext_resource type="PackedScene" uid="uid://sqrkoe0x2f65" path="res://nodos/chest.tscn" id="3_mcmjc"]
 [ext_resource type="PackedScene" uid="uid://d0gordpyc8o5m" path="res://nodos/area_enemy/area_enemy.tscn" id="4_qg2rw"]
 [ext_resource type="PackedScene" uid="uid://bi31bxoehsk7c" path="res://nodos/walk_enemy/walk_enemy.tscn" id="5_h5ssk"]
@@ -9,8 +9,16 @@
 [ext_resource type="PackedScene" uid="uid://det7qsfsss5cr" path="res://nodos/spikes.tscn" id="7_lr8q6"]
 [ext_resource type="PackedScene" uid="uid://t13h28qs4lvp" path="res://nodos/jump_enemy/jump_enemy.tscn" id="8_skxgp"]
 
-[node name="rock_zone" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ix7h2"]
+size = Vector2(139, 222)
+
+[node name="rock_zone" type="Node2D" node_paths=PackedStringArray("spawn")]
 position = Vector2(1, 0)
+script = ExtResource("1_njqd3")
+spawn = NodePath("spawn")
+
+[node name="spawn" type="Marker2D" parent="."]
+position = Vector2(-2565, -73)
 
 [node name="platform_world2" parent="." instance=ExtResource("1_c3v7j")]
 position = Vector2(-847, -221)
@@ -340,9 +348,6 @@ position = Vector2(6640, -822)
 rotation = 0.849975
 scale = Vector2(2.67244, 0.302624)
 
-[node name="player" parent="." instance=ExtResource("2_4po80")]
-position = Vector2(1486, -484)
-
 [node name="area_enemy" parent="." instance=ExtResource("4_qg2rw")]
 position = Vector2(-273, -388)
 
@@ -428,3 +433,13 @@ position = Vector2(1793, -1839)
 
 [node name="jump_enemy2" parent="." instance=ExtResource("8_skxgp")]
 position = Vector2(5922, -81)
+
+[node name="transition area" type="Area2D" parent="."]
+position = Vector2(7710, -209)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="transition area"]
+position = Vector2(121, 85)
+shape = SubResource("RectangleShape2D_ix7h2")
+debug_color = Color(0.847059, 0.305882, 0.564706, 0.419608)
+
+[connection signal="body_entered" from="transition area" to="." method="_on_transition_area_body_entered"]

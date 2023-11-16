@@ -1,14 +1,29 @@
-[gd_scene load_steps=8 format=3 uid="uid://cfq5e4qek763h"]
+[gd_scene load_steps=9 format=3 uid="uid://cfq5e4qek763h"]
 
 [ext_resource type="PackedScene" uid="uid://dusk6dox3dxnb" path="res://nodos/platform_world/platform_world.tscn" id="1_5mxna"]
-[ext_resource type="PackedScene" uid="uid://dj07mg1sgtrmu" path="res://nodos/player/player.tscn" id="2_8onms"]
+[ext_resource type="Script" path="res://world/section_1/first_zone.gd" id="1_o8arc"]
 [ext_resource type="PackedScene" uid="uid://bi31bxoehsk7c" path="res://nodos/walk_enemy/walk_enemy.tscn" id="3_4ro21"]
 [ext_resource type="PackedScene" uid="uid://dhtcxchlvm5ud" path="res://nodos/moss_house.tscn" id="5_ggl8k"]
 [ext_resource type="PackedScene" uid="uid://sqrkoe0x2f65" path="res://nodos/chest.tscn" id="6_krfsi"]
 [ext_resource type="PackedScene" uid="uid://cqvycjf6wy0df" path="res://nodos/patrol_enemy/patrol_enemy.tscn" id="7_icycp"]
 [ext_resource type="PackedScene" uid="uid://t13h28qs4lvp" path="res://nodos/jump_enemy/jump_enemy.tscn" id="7_qi715"]
 
-[node name="first_zone" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_srxqs"]
+size = Vector2(148, 196)
+
+[node name="first_zone" type="Node2D" node_paths=PackedStringArray("spawn")]
+script = ExtResource("1_o8arc")
+spawn = NodePath("spawn")
+
+[node name="spawn" type="Marker2D" parent="."]
+position = Vector2(-1456, -47)
+
+[node name="transition_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="transition_area"]
+position = Vector2(7933, -109)
+shape = SubResource("RectangleShape2D_srxqs")
+debug_color = Color(0.85098, 0.345098, 0.368627, 0.419608)
 
 [node name="platform_world" parent="." instance=ExtResource("1_5mxna")]
 position = Vector2(3174, 176)
@@ -101,17 +116,12 @@ scale = Vector2(-0.499956, 2.08718)
 [node name="moss_house" parent="." instance=ExtResource("5_ggl8k")]
 position = Vector2(2660, -216)
 
-[node name="player" parent="." instance=ExtResource("2_8onms")]
-visibility_layer = 2
-position = Vector2(3913.77, -219.205)
-scale = Vector2(0.525, 0.51)
-
 [node name="walk_enemy" parent="." instance=ExtResource("3_4ro21")]
 position = Vector2(-89, -45)
 scale = Vector2(0.79732, 0.79732)
 
 [node name="walk_enemy5" parent="." instance=ExtResource("3_4ro21")]
-position = Vector2(-738, -112)
+position = Vector2(-849, -126)
 scale = Vector2(0.79732, 0.79732)
 
 [node name="walk_enemy3" parent="." instance=ExtResource("3_4ro21")]
@@ -143,3 +153,5 @@ position = Vector2(3704, -405)
 
 [node name="jump_enemy3" parent="." instance=ExtResource("7_qi715")]
 position = Vector2(6031.95, -515.974)
+
+[connection signal="body_entered" from="transition_area" to="." method="_on_transition_area_body_entered"]

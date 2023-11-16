@@ -24,7 +24,6 @@ var posicion_objetivo : Vector2
 func Enter():
 	posicion_objetivo = player.position
 	if posicion_objetivo.x - Enemigo.position.x >= 5:
-
 		position2D.scale.x = 1
 		Enemigo.velocity.x = speed
 	elif posicion_objetivo.x - Enemigo.position.x <= -5:
