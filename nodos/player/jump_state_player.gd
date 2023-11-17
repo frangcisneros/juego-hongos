@@ -16,7 +16,6 @@ func Enter():
 
 func Exit():
 	StateActive = false
-	Player.velocity.x = 0
 	
 func Update(_delta : float):
 	direction = Input.get_axis("ui_left", "ui_right")

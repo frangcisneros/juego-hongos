@@ -24,7 +24,7 @@ func UpdatePhysics(_delta : float):
 	
 	if Input.is_action_just_pressed("ui_select"):
 		Player.jump_buffer_timer.start()
-	
+
 	if not Player.jump_buffer_timer.is_stopped() and (Player.is_on_floor() or not Player.coyote_timer.is_stopped()):
 		Transition.emit(self,"jump_state_player")
 
