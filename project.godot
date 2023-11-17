@@ -30,4 +30,4 @@ PlayerStats="*res://scripts/player_stats.gd"
 
 [rendering]
 
-environment/defaults/default_clear_color=Color(0.0273438, 0.34375, 0.0820313, 1)
+environment/defaults/default_clear_color=Color(0.568627, 0.854902, 0.988235, 1)

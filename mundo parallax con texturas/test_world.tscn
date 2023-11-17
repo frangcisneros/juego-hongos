@@ -59,26 +59,27 @@ follow_viewport_enabled = true
 follow_viewport_scale = 0.7
 
 [node name="PiedraGrandeFondo" type="Sprite2D" parent="Arte/Background far"]
-position = Vector2(224.954, -209.535)
+position = Vector2(224.286, -167.143)
 rotation = -0.261799
 texture = ExtResource("4_xdgq0")
 
 [node name="PiedraChicaFondo2" type="Sprite2D" parent="Arte/Background far"]
-position = Vector2(522.857, -171.429)
+position = Vector2(681.429, -147.143)
 texture = ExtResource("5_pir8i")
 
 [node name="PiedraMedianaFondo" type="Sprite2D" parent="Arte/Background far"]
-position = Vector2(-322.857, -228.571)
+position = Vector2(-397.143, -158.571)
 rotation = -0.523598
 texture = ExtResource("6_atn3j")
 
 [node name="PiedraChicaFondo" type="Sprite2D" parent="Arte/Background far"]
-position = Vector2(-128.571, -171.429)
+position = Vector2(-160, -74.2857)
 rotation = -0.523598
 scale = Vector2(1.30003, 1.30003)
 texture = ExtResource("5_pir8i")
 
 [node name="Blur" type="Sprite2D" parent="Arte/Background far"]
+visible = false
 material = SubResource("ShaderMaterial_qnxav")
 scale = Vector2(1.90511, 1.90511)
 texture = ExtResource("2_3jg1s")
@@ -94,16 +95,16 @@ follow_viewport_enabled = true
 follow_viewport_scale = 0.8
 
 [node name="PiedraMedianaFondo" type="Sprite2D" parent="Arte/Background mid"]
-position = Vector2(100, -112.5)
+position = Vector2(110, -66.25)
 texture = ExtResource("6_atn3j")
 
 [node name="PiedraMedianaFondo2" type="Sprite2D" parent="Arte/Background mid"]
-position = Vector2(-640, -208.75)
+position = Vector2(-646.25, -188.75)
 rotation = 0.445977
 texture = ExtResource("6_atn3j")
 
 [node name="PiedraGrandeFondo" type="Sprite2D" parent="Arte/Background mid"]
-position = Vector2(-447.5, -126.25)
+position = Vector2(-447.5, -98.75)
 texture = ExtResource("4_xdgq0")
 
 [node name="PiedraGrandeFondo2" type="Sprite2D" parent="Arte/Background mid"]
@@ -112,12 +113,12 @@ rotation = 0.365262
 texture = ExtResource("4_xdgq0")
 
 [node name="PiedraChicaFondo" type="Sprite2D" parent="Arte/Background mid"]
-position = Vector2(-800, -85)
+position = Vector2(-802.5, -45)
 rotation = -0.139883
 texture = ExtResource("5_pir8i")
 
 [node name="PiedraChicaFondo2" type="Sprite2D" parent="Arte/Background mid"]
-position = Vector2(-137.5, -22.5)
+position = Vector2(-133.75, 5)
 rotation = 0.481724
 texture = ExtResource("5_pir8i")
 

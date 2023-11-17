@@ -1,16 +1,942 @@
-[gd_scene load_steps=3 format=3 uid="uid://ydcyvj4v7ex"]
+[gd_scene load_steps=25 format=3 uid="uid://ydcyvj4v7ex"]
 
 [ext_resource type="PackedScene" uid="uid://dusk6dox3dxnb" path="res://nodos/platform_world/platform_world.tscn" id="1_eaa3a"]
+[ext_resource type="Script" path="res://world/section_1/starting_area.gd" id="1_gsqt7"]
+[ext_resource type="Shader" path="res://mundo parallax con texturas/blur.gdshader" id="1_qwyoy"]
+[ext_resource type="Texture2D" uid="uid://c4howjk38jbcw" path="res://arte/Assets/Seccion 1 Musgo/Fondo Blanco para difuminado.png" id="2_wt682"]
 [ext_resource type="PackedScene" uid="uid://dj07mg1sgtrmu" path="res://nodos/player/player.tscn" id="2_xtb5o"]
+[ext_resource type="Texture2D" uid="uid://dc4mhqpaqlwmb" path="res://arte/Assets/Seccion 1 Musgo/fondos/moss/piedra grande fondo.png" id="3_v5osb"]
+[ext_resource type="Texture2D" uid="uid://cwtbirqbd61sk" path="res://arte/Assets/Seccion 1 Musgo/fondos/moss/piedra chica fondo.png" id="4_e7a6b"]
+[ext_resource type="Texture2D" uid="uid://bqn634m0g0034" path="res://arte/Assets/Seccion 1 Musgo/fondos/moss/piedra mediana fondo.png" id="5_gp3vt"]
+[ext_resource type="Texture2D" uid="uid://d4dk7gie2inun" path="res://arte/Assets/Seccion 1 Musgo/Pisos/piso 2 piedras.png" id="6_lrtib"]
+[ext_resource type="Texture2D" uid="uid://d36aasspjc1h3" path="res://arte/Assets/Seccion 1 Musgo/Pisos/pasto fino.png" id="7_xgmb4"]
+[ext_resource type="Texture2D" uid="uid://cngwr54v7pu5r" path="res://arte/Assets/Seccion 1 Musgo/Pisos/pasto grueso.png" id="8_3qs7c"]
+[ext_resource type="Texture2D" uid="uid://dyqq51jb0hpg2" path="res://arte/Assets/Seccion 1 Musgo/Pisos/piso 3 piedras.png" id="9_6823u"]
+[ext_resource type="Texture2D" uid="uid://dr1k2xg1w14rk" path="res://arte/Assets/Seccion 1 Musgo/Rocks/Piedra 1.png" id="10_burtl"]
+[ext_resource type="Texture2D" uid="uid://b6qqfknb7t1un" path="res://arte/Assets/Seccion 1 Musgo/Rocks/Piedra 2.png" id="11_t6mwt"]
+[ext_resource type="Texture2D" uid="uid://6tn7t7ci0u13" path="res://arte/Assets/Seccion 1 Musgo/Rocks/Piedra 3.png" id="12_qexiy"]
+[ext_resource type="Texture2D" uid="uid://dnxrq5ddyj5cs" path="res://arte/Assets/Seccion 1 Musgo/Rocks/Piedra 4.png" id="13_mieln"]
+[ext_resource type="Texture2D" uid="uid://jdrjnlac7xoi" path="res://arte/Assets/Seccion 1 Musgo/Rocks/Piedra 5.png" id="14_gk01a"]
+[ext_resource type="Texture2D" uid="uid://ta2aj1u6vu2d" path="res://arte/Assets/Seccion 1 Musgo/Bushes/Bush 1.png" id="15_0s4n6"]
+[ext_resource type="Texture2D" uid="uid://bmea7vhbxbu5m" path="res://arte/Assets/Seccion 1 Musgo/Bushes/Bush 2.png" id="16_blfne"]
+[ext_resource type="Texture2D" uid="uid://binoluw6g67q0" path="res://arte/Assets/Seccion 1 Musgo/Bushes/Bush 3.png" id="17_tto76"]
+[ext_resource type="Texture2D" uid="uid://ddidml6oe1ggl" path="res://arte/Assets/Seccion 1 Musgo/Bushes/Bush 4.png" id="18_ojk6p"]
+[ext_resource type="Texture2D" uid="uid://6aws4igqayn8" path="res://arte/Assets/Seccion 1 Musgo/Bushes/Bush 5.png" id="19_0fc7i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c872v"]
+size = Vector2(1590, 572)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8ax6g"]
+shader = ExtResource("1_qwyoy")
+shader_parameter/lod = 0.383
 
 [node name="starting_area" type="Node2D"]
+script = ExtResource("1_gsqt7")
+
+[node name="limitesCamara" type="Area2D" parent="."]
+
+[node name="limitesCamaraShape" type="CollisionShape2D" parent="limitesCamara"]
+position = Vector2(-32, -218)
+shape = SubResource("RectangleShape2D_c872v")
+
+[node name="Arte" type="Node" parent="."]
+
+[node name="Background very far" type="CanvasLayer" parent="Arte"]
+layer = -4
+follow_viewport_enabled = true
+follow_viewport_scale = 0.6
+
+[node name="Blur" type="Sprite2D" parent="Arte/Background very far"]
+material = SubResource("ShaderMaterial_8ax6g")
+scale = Vector2(1.90511, 1.90511)
+texture = ExtResource("2_wt682")
+
+[node name="Background far" type="CanvasLayer" parent="Arte"]
+layer = -3
+follow_viewport_enabled = true
+follow_viewport_scale = 0.7
+
+[node name="PiedraGrandeFondo" type="Sprite2D" parent="Arte/Background far"]
+position = Vector2(224.286, -167.143)
+rotation = -0.261799
+texture = ExtResource("3_v5osb")
+
+[node name="PiedraGrandeFondo2" type="Sprite2D" parent="Arte/Background far"]
+position = Vector2(-942.857, -227.143)
+rotation = 1.52932
+texture = ExtResource("3_v5osb")
+
+[node name="PiedraChicaFondo2" type="Sprite2D" parent="Arte/Background far"]
+position = Vector2(681.429, -147.143)
+texture = ExtResource("4_e7a6b")
+
+[node name="PiedraChicaFondo3" type="Sprite2D" parent="Arte/Background far"]
+position = Vector2(881.428, -140)
+rotation = -2.11094
+texture = ExtResource("4_e7a6b")
+
+[node name="PiedraMedianaFondo" type="Sprite2D" parent="Arte/Background far"]
+position = Vector2(-397.143, -158.571)
+rotation = -0.523598
+texture = ExtResource("5_gp3vt")
+
+[node name="PiedraMedianaFondo3" type="Sprite2D" parent="Arte/Background far"]
+position = Vector2(560, -121.429)
+rotation = 1.30789
+scale = Vector2(1, -1)
+texture = ExtResource("5_gp3vt")
+
+[node name="PiedraMedianaFondo2" type="Sprite2D" parent="Arte/Background far"]
+position = Vector2(891.429, -37.1429)
+rotation = 0.919388
+texture = ExtResource("5_gp3vt")
+
+[node name="PiedraChicaFondo" type="Sprite2D" parent="Arte/Background far"]
+position = Vector2(-160, -74.2857)
+rotation = -0.523598
+scale = Vector2(1.30003, 1.30003)
+texture = ExtResource("4_e7a6b")
+
+[node name="Blur" type="Sprite2D" parent="Arte/Background far"]
+material = SubResource("ShaderMaterial_8ax6g")
+scale = Vector2(1.90511, 1.90511)
+texture = ExtResource("2_wt682")
+
+[node name="Fondo Blanco para difuminado" type="Sprite2D" parent="Arte/Background far"]
+modulate = Color(1, 1, 1, 0.0392157)
+scale = Vector2(1.96205, 1.96205)
+texture = ExtResource("2_wt682")
+
+[node name="Background mid" type="CanvasLayer" parent="Arte"]
+layer = -2
+follow_viewport_enabled = true
+follow_viewport_scale = 0.8
+
+[node name="PiedraMedianaFondo" type="Sprite2D" parent="Arte/Background mid"]
+position = Vector2(110, -66.25)
+texture = ExtResource("5_gp3vt")
+
+[node name="PiedraMedianaFondo2" type="Sprite2D" parent="Arte/Background mid"]
+position = Vector2(-646.25, -188.75)
+rotation = 0.445977
+texture = ExtResource("5_gp3vt")
+
+[node name="PiedraGrandeFondo" type="Sprite2D" parent="Arte/Background mid"]
+position = Vector2(-447.5, -98.75)
+texture = ExtResource("3_v5osb")
+
+[node name="PiedraGrandeFondo2" type="Sprite2D" parent="Arte/Background mid"]
+position = Vector2(596.25, 8.74998)
+rotation = 0.365262
+texture = ExtResource("3_v5osb")
+
+[node name="PiedraChicaFondo" type="Sprite2D" parent="Arte/Background mid"]
+position = Vector2(-802.5, -45)
+rotation = -0.139883
+texture = ExtResource("4_e7a6b")
+
+[node name="PiedraChicaFondo2" type="Sprite2D" parent="Arte/Background mid"]
+position = Vector2(-133.75, 5)
+rotation = 0.481724
+texture = ExtResource("4_e7a6b")
+
+[node name="Blur" type="Sprite2D" parent="Arte/Background mid"]
+material = SubResource("ShaderMaterial_8ax6g")
+scale = Vector2(1.90511, 1.90511)
+texture = ExtResource("2_wt682")
+
+[node name="Fondo Blanco para difuminado" type="Sprite2D" parent="Arte/Background mid"]
+visible = false
+modulate = Color(1, 1, 1, 0.0392157)
+scale = Vector2(1.96205, 1.96205)
+texture = ExtResource("2_wt682")
+
+[node name="Background close" type="CanvasLayer" parent="Arte"]
+layer = -1
+follow_viewport_enabled = true
+follow_viewport_scale = 0.9
+
+[node name="Efectos" type="Sprite2D" parent="Arte/Background close"]
+
+[node name="piso 2 piedras" type="Sprite2D" parent="Arte/Background close/Efectos"]
+position = Vector2(-421.111, -10)
+scale = Vector2(0.664179, 0.664179)
+texture = ExtResource("6_lrtib")
+
+[node name="piso 2 piedras2" type="Sprite2D" parent="Arte/Background close/Efectos"]
+position = Vector2(-186.667, -6.66667)
+scale = Vector2(0.664179, 0.664179)
+texture = ExtResource("6_lrtib")
+
+[node name="piso 2 piedras3" type="Sprite2D" parent="Arte/Background close/Efectos"]
+position = Vector2(256.667, -4.44444)
+rotation = 3.14159
+scale = Vector2(-0.680596, -0.664179)
+texture = ExtResource("6_lrtib")
+
+[node name="pasto fino" type="Sprite2D" parent="Arte/Background close/Efectos"]
+position = Vector2(-791.111, 15.5556)
+scale = Vector2(0.602362, 0.602362)
+texture = ExtResource("7_xgmb4")
+
+[node name="pasto fino2" type="Sprite2D" parent="Arte/Background close/Efectos"]
+position = Vector2(-488.889, 15.5556)
+scale = Vector2(0.602362, 0.602362)
+texture = ExtResource("7_xgmb4")
+
+[node name="pasto fino3" type="Sprite2D" parent="Arte/Background close/Efectos"]
+position = Vector2(133.333, 8.88889)
+scale = Vector2(0.602362, 0.602362)
+texture = ExtResource("7_xgmb4")
+
+[node name="pasto fino4" type="Sprite2D" parent="Arte/Background close/Efectos"]
+position = Vector2(-304.445, 18.8889)
+scale = Vector2(0.602362, 0.602362)
+texture = ExtResource("7_xgmb4")
+
+[node name="pasto grueso" type="Sprite2D" parent="Arte/Background close/Efectos"]
+position = Vector2(417.778, 10)
+scale = Vector2(0.413386, 0.413386)
+texture = ExtResource("8_3qs7c")
+
+[node name="pasto grueso2" type="Sprite2D" parent="Arte/Background close/Efectos"]
+position = Vector2(-27.7778, 8.88889)
+scale = Vector2(0.413386, 0.413386)
+texture = ExtResource("8_3qs7c")
+
+[node name="piso 3 piedras" type="Sprite2D" parent="Arte/Background close/Efectos"]
+position = Vector2(644.444, 11.1111)
+scale = Vector2(-0.820931, 0.77907)
+texture = ExtResource("9_6823u")
+
+[node name="piso 3 piedras2" type="Sprite2D" parent="Arte/Background close/Efectos"]
+position = Vector2(-618.889, 8.88889)
+scale = Vector2(0.77907, 0.77907)
+texture = ExtResource("9_6823u")
+
+[node name="Blur" type="Sprite2D" parent="Arte/Background close/Efectos"]
+material = SubResource("ShaderMaterial_8ax6g")
+scale = Vector2(1.95839, 1.95839)
+texture = ExtResource("2_wt682")
+
+[node name="Fondo Blanco para difuminado" type="Sprite2D" parent="Arte/Background close/Efectos"]
+modulate = Color(1, 1, 1, 0.0784314)
+position = Vector2(-150.591, -2.9715)
+scale = Vector2(1.86281, 1.86281)
+texture = ExtResource("2_wt682")
+
+[node name="FloorBehind" type="CanvasLayer" parent="Arte"]
+layer = -1
+follow_viewport_enabled = true
+
+[node name="Efectos" type="Sprite2D" parent="Arte/FloorBehind"]
+
+[node name="Piedra1" type="Sprite2D" parent="Arte/FloorBehind/Efectos"]
+position = Vector2(-379, -18)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("10_burtl")
+
+[node name="Piedra2" type="Sprite2D" parent="Arte/FloorBehind/Efectos"]
+position = Vector2(-125, -12)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("11_t6mwt")
+
+[node name="Piedra3" type="Sprite2D" parent="Arte/FloorBehind/Efectos"]
+position = Vector2(126, -20)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("12_qexiy")
+
+[node name="Piedra4" type="Sprite2D" parent="Arte/FloorBehind/Efectos"]
+position = Vector2(315, -12)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("13_mieln")
+
+[node name="Piedra5" type="Sprite2D" parent="Arte/FloorBehind/Efectos"]
+position = Vector2(523, -13)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("14_gk01a")
+
+[node name="Bush1" type="Sprite2D" parent="Arte/FloorBehind/Efectos"]
+position = Vector2(350, -15)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("15_0s4n6")
+
+[node name="Bush2" type="Sprite2D" parent="Arte/FloorBehind/Efectos"]
+position = Vector2(597, -48)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("16_blfne")
+
+[node name="Bush3" type="Sprite2D" parent="Arte/FloorBehind/Efectos"]
+position = Vector2(767, -33)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("17_tto76")
+
+[node name="Bush4" type="Sprite2D" parent="Arte/FloorBehind/Efectos"]
+position = Vector2(417, -30)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("18_ojk6p")
+
+[node name="Bush5" type="Sprite2D" parent="Arte/FloorBehind/Efectos"]
+position = Vector2(-302, -20)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("19_0fc7i")
+
+[node name="Floor" type="CanvasLayer" parent="Arte"]
+follow_viewport_enabled = true
+
+[node name="Efectos" type="Sprite2D" parent="Arte/Floor"]
+position = Vector2(-5, 3)
+
+[node name="PastoFino" type="Sprite2D" parent="Arte/Floor/Efectos"]
+position = Vector2(-755, -13)
+scale = Vector2(0.492126, 0.492126)
+texture = ExtResource("7_xgmb4")
+
+[node name="PastoGrueso" type="Sprite2D" parent="Arte/Floor/Efectos"]
+position = Vector2(-596, -19)
+scale = Vector2(0.248031, 0.248031)
+texture = ExtResource("8_3qs7c")
+
+[node name="PastoGrueso2" type="Sprite2D" parent="Arte/Floor/Efectos"]
+position = Vector2(-340, -16)
+scale = Vector2(0.248031, 0.248031)
+texture = ExtResource("8_3qs7c")
+
+[node name="PastoGrueso7" type="Sprite2D" parent="Arte/Floor/Efectos"]
+position = Vector2(-342, -10)
+scale = Vector2(0.248031, 0.248031)
+texture = ExtResource("8_3qs7c")
+
+[node name="PastoGrueso8" type="Sprite2D" parent="Arte/Floor/Efectos"]
+position = Vector2(-560, -13)
+scale = Vector2(0.248031, 0.248031)
+texture = ExtResource("8_3qs7c")
+
+[node name="PastoGrueso9" type="Sprite2D" parent="Arte/Floor/Efectos"]
+position = Vector2(-817, -11)
+scale = Vector2(0.248031, 0.248031)
+texture = ExtResource("8_3qs7c")
+
+[node name="PastoGrueso3" type="Sprite2D" parent="Arte/Floor/Efectos"]
+position = Vector2(-78, -17)
+scale = Vector2(0.248031, 0.248031)
+texture = ExtResource("8_3qs7c")
+
+[node name="PastoGrueso4" type="Sprite2D" parent="Arte/Floor/Efectos"]
+position = Vector2(184, -20)
+scale = Vector2(0.248031, 0.248031)
+texture = ExtResource("8_3qs7c")
+
+[node name="PastoGrueso5" type="Sprite2D" parent="Arte/Floor/Efectos"]
+position = Vector2(783, -13)
+rotation = 0.0643184
+scale = Vector2(0.248031, 0.248031)
+texture = ExtResource("8_3qs7c")
+
+[node name="PastoGrueso6" type="Sprite2D" parent="Arte/Floor/Efectos"]
+position = Vector2(600, -14)
+scale = Vector2(0.248031, 0.365157)
+texture = ExtResource("8_3qs7c")
+
+[node name="PastoFino2" type="Sprite2D" parent="Arte/Floor/Efectos"]
+position = Vector2(-465, -10)
+scale = Vector2(0.492126, 0.492126)
+texture = ExtResource("7_xgmb4")
+
+[node name="PastoFino3" type="Sprite2D" parent="Arte/Floor/Efectos"]
+position = Vector2(-204, -12)
+scale = Vector2(0.492126, 0.492126)
+texture = ExtResource("7_xgmb4")
+
+[node name="PastoFino4" type="Sprite2D" parent="Arte/Floor/Efectos"]
+position = Vector2(71, -9)
+scale = Vector2(0.492126, 0.492126)
+texture = ExtResource("7_xgmb4")
+
+[node name="PastoFino5" type="Sprite2D" parent="Arte/Floor/Efectos"]
+position = Vector2(344, -7)
+scale = Vector2(0.492126, 0.492126)
+texture = ExtResource("7_xgmb4")
+
+[node name="PastoFino6" type="Sprite2D" parent="Arte/Floor/Efectos"]
+position = Vector2(473, -6)
+scale = Vector2(0.492126, 0.568898)
+texture = ExtResource("7_xgmb4")
+
+[node name="PastoFino7" type="Sprite2D" parent="Arte/Floor/Efectos"]
+position = Vector2(731, -3)
+scale = Vector2(0.492126, 0.568898)
+texture = ExtResource("7_xgmb4")
+
+[node name="PastoFino8" type="Sprite2D" parent="Arte/Floor/Efectos"]
+position = Vector2(867, -6)
+scale = Vector2(0.492126, 0.568898)
+texture = ExtResource("7_xgmb4")
+
+[node name="Piso 2 piedras" type="Sprite2D" parent="Arte/Floor/Efectos"]
+position = Vector2(-740, -19)
+scale = Vector2(0.48, 0.48)
+texture = ExtResource("6_lrtib")
+
+[node name="pasto fino" type="Sprite2D" parent="Arte/Floor/Efectos"]
+position = Vector2(-619, 5)
+scale = Vector2(0.627137, 0.627137)
+texture = ExtResource("7_xgmb4")
+
+[node name="pasto fino2" type="Sprite2D" parent="Arte/Floor/Efectos"]
+position = Vector2(-358, 5)
+scale = Vector2(0.627137, 0.627137)
+texture = ExtResource("7_xgmb4")
+
+[node name="pasto grueso" type="Sprite2D" parent="Arte/Floor/Efectos"]
+position = Vector2(-474, -9)
+scale = Vector2(0.247862, 0.247862)
+texture = ExtResource("8_3qs7c")
+
+[node name="pasto grueso2" type="Sprite2D" parent="Arte/Floor/Efectos"]
+position = Vector2(-158, -10)
+scale = Vector2(0.247862, 0.247862)
+texture = ExtResource("8_3qs7c")
+
+[node name="pasto grueso3" type="Sprite2D" parent="Arte/Floor/Efectos"]
+position = Vector2(-188, -3)
+scale = Vector2(0.247862, 0.247862)
+texture = ExtResource("8_3qs7c")
+
+[node name="pasto grueso4" type="Sprite2D" parent="Arte/Floor/Efectos"]
+position = Vector2(-287, -7)
+scale = Vector2(0.247862, 0.247862)
+texture = ExtResource("8_3qs7c")
+
+[node name="Piso 2 piedras2" type="Sprite2D" parent="Arte/Floor/Efectos"]
+position = Vector2(166.32, -14.84)
+scale = Vector2(0.48, 0.48)
+texture = ExtResource("6_lrtib")
+
+[node name="pasto fino3" type="Sprite2D" parent="Arte/Floor/Efectos"]
+position = Vector2(285.32, 4.16)
+scale = Vector2(0.627137, 0.627137)
+texture = ExtResource("7_xgmb4")
+
+[node name="pasto fino4" type="Sprite2D" parent="Arte/Floor/Efectos"]
+position = Vector2(548.32, 9.16)
+scale = Vector2(0.627137, 0.627137)
+texture = ExtResource("7_xgmb4")
+
+[node name="pasto grueso5" type="Sprite2D" parent="Arte/Floor/Efectos"]
+position = Vector2(432.32, -5.84)
+scale = Vector2(0.247862, 0.247862)
+texture = ExtResource("8_3qs7c")
+
+[node name="pasto grueso6" type="Sprite2D" parent="Arte/Floor/Efectos"]
+position = Vector2(619.32, -2.84)
+scale = Vector2(0.247862, 0.247862)
+texture = ExtResource("8_3qs7c")
+
+[node name="piso 3 piedras" type="Sprite2D" parent="Arte/Floor/Efectos"]
+position = Vector2(-7, -10)
+scale = Vector2(0.584077, 0.584077)
+texture = ExtResource("9_6823u")
+
+[node name="Bush1" type="Sprite2D" parent="Arte/Floor/Efectos"]
+position = Vector2(-664, -15)
+scale = Vector2(-0.2, 0.2)
+texture = ExtResource("15_0s4n6")
+
+[node name="Bush2" type="Sprite2D" parent="Arte/Floor/Efectos"]
+position = Vector2(-194, -35)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("16_blfne")
+
+[node name="Bush3" type="Sprite2D" parent="Arte/Floor/Efectos"]
+position = Vector2(-409, -27)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("17_tto76")
+
+[node name="Bush4" type="Sprite2D" parent="Arte/Floor/Efectos"]
+position = Vector2(82, -24)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("18_ojk6p")
+
+[node name="Bush5" type="Sprite2D" parent="Arte/Floor/Efectos"]
+position = Vector2(235, -13)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("19_0fc7i")
+
+[node name="Piedra2" type="Sprite2D" parent="Arte/Floor/Efectos"]
+position = Vector2(247, -25)
+scale = Vector2(-0.13, 0.15)
+texture = ExtResource("11_t6mwt")
+
+[node name="Piedra3" type="Sprite2D" parent="Arte/Floor/Efectos"]
+position = Vector2(372, -19)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("12_qexiy")
+
+[node name="Piedra4" type="Sprite2D" parent="Arte/Floor/Efectos"]
+position = Vector2(117, -4)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("13_mieln")
+
+[node name="Midground" type="CanvasLayer" parent="Arte"]
+follow_viewport_enabled = true
+follow_viewport_scale = 0.999
+
+[node name="Efectos" type="Sprite2D" parent="Arte/Midground"]
+
+[node name="piso 2 piedras" type="Sprite2D" parent="Arte/Midground/Efectos"]
+position = Vector2(-393.918, -4.54905)
+scale = Vector2(0.664179, 0.664179)
+texture = ExtResource("6_lrtib")
+
+[node name="piso 2 piedras2" type="Sprite2D" parent="Arte/Midground/Efectos"]
+position = Vector2(84.5609, -3.54805)
+scale = Vector2(0.664179, 0.664179)
+texture = ExtResource("6_lrtib")
+
+[node name="piso 2 piedras3" type="Sprite2D" parent="Arte/Midground/Efectos"]
+position = Vector2(261.84, -2.14196)
+rotation = 3.14159
+scale = Vector2(0.697182, -0.664179)
+texture = ExtResource("6_lrtib")
+
+[node name="pasto fino" type="Sprite2D" parent="Arte/Midground/Efectos"]
+position = Vector2(-708.709, 14.014)
+scale = Vector2(0.602362, 0.602362)
+texture = ExtResource("7_xgmb4")
+
+[node name="pasto fino2" type="Sprite2D" parent="Arte/Midground/Efectos"]
+position = Vector2(360.837, 15.471)
+scale = Vector2(0.602362, 0.602362)
+texture = ExtResource("7_xgmb4")
+
+[node name="pasto fino3" type="Sprite2D" parent="Arte/Midground/Efectos"]
+position = Vector2(-41.5652, 14.47)
+scale = Vector2(0.602362, 0.602362)
+texture = ExtResource("7_xgmb4")
+
+[node name="pasto grueso" type="Sprite2D" parent="Arte/Midground/Efectos"]
+position = Vector2(-573.574, 10.01)
+scale = Vector2(0.413386, 0.413386)
+texture = ExtResource("8_3qs7c")
+
+[node name="pasto grueso2" type="Sprite2D" parent="Arte/Midground/Efectos"]
+position = Vector2(85.5619, 12.468)
+scale = Vector2(0.413386, 0.413386)
+texture = ExtResource("8_3qs7c")
+
+[node name="piso 3 piedras" type="Sprite2D" parent="Arte/Midground/Efectos"]
+position = Vector2(-226.75, 11.467)
+scale = Vector2(0.77907, 0.77907)
+texture = ExtResource("9_6823u")
+
+[node name="piso 3 piedras2" type="Sprite2D" parent="Arte/Midground/Efectos"]
+position = Vector2(437.437, 15.015)
+scale = Vector2(0.77907, 0.77907)
+texture = ExtResource("9_6823u")
+
+[node name="pasto fino4" type="Sprite2D" parent="Arte/Midground/Efectos"]
+position = Vector2(717.718, 9.00901)
+scale = Vector2(0.602362, 0.602362)
+texture = ExtResource("7_xgmb4")
+
+[node name="piso 2 piedras4" type="Sprite2D" parent="Arte/Midground/Efectos"]
+position = Vector2(608.609, 7.00701)
+rotation = 3.14159
+scale = Vector2(0.697182, -0.664179)
+texture = ExtResource("6_lrtib")
+
+[node name="piso 3 piedras4" type="Sprite2D" parent="Arte/Midground/Efectos"]
+position = Vector2(761.762, 17.017)
+scale = Vector2(0.77907, 0.77907)
+texture = ExtResource("9_6823u")
+
+[node name="piso 3 piedras3" type="Sprite2D" parent="Arte/Midground/Efectos"]
+position = Vector2(-485.009, 23.479)
+scale = Vector2(0.77907, 0.77907)
+texture = ExtResource("9_6823u")
+
+[node name="Bush3" type="Sprite2D" parent="Arte/Midground/Efectos"]
+position = Vector2(-556.557, -21.021)
+scale = Vector2(0.312791, 0.312791)
+texture = ExtResource("17_tto76")
+
+[node name="Bush2" type="Sprite2D" parent="Arte/Midground/Efectos"]
+position = Vector2(-296.296, -18.018)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("16_blfne")
+
+[node name="Bush1" type="Sprite2D" parent="Arte/Midground/Efectos"]
+position = Vector2(-40.04, 22.022)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("15_0s4n6")
+
+[node name="Bush4" type="Sprite2D" parent="Arte/Midground/Efectos"]
+position = Vector2(192.192, -9.00901)
+scale = Vector2(0.2, 0.24004)
+texture = ExtResource("18_ojk6p")
+
+[node name="Bush5" type="Sprite2D" parent="Arte/Midground/Efectos"]
+position = Vector2(-792.793, 1.001)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("19_0fc7i")
+
+[node name="Foreground far" type="CanvasLayer" parent="Arte"]
+follow_viewport_enabled = true
+follow_viewport_scale = 1.1
+
+[node name="Efectos" type="Sprite2D" parent="Arte/Foreground far"]
+modulate = Color(0.24, 0.24, 0.24, 1)
+position = Vector2(-0.909091, 7.27273)
+
+[node name="piso 3 piedras" type="Sprite2D" parent="Arte/Foreground far/Efectos"]
+position = Vector2(590.909, 7.27273)
+rotation = 3.23768
+scale = Vector2(0.586305, -0.604917)
+texture = ExtResource("9_6823u")
+
+[node name="piso 2 piedras" type="Sprite2D" parent="Arte/Foreground far/Efectos"]
+position = Vector2(457.273, -14.5454)
+rotation = 0.0448681
+scale = Vector2(0.586108, 0.586108)
+texture = ExtResource("6_lrtib")
+
+[node name="pasto fino" type="Sprite2D" parent="Arte/Foreground far/Efectos"]
+position = Vector2(499.091, 26.3636)
+scale = Vector2(0.833131, 0.833131)
+texture = ExtResource("7_xgmb4")
+
+[node name="piso 3 piedras2" type="Sprite2D" parent="Arte/Foreground far/Efectos"]
+position = Vector2(-328.182, 12.7273)
+texture = ExtResource("9_6823u")
+
+[node name="pasto grueso3" type="Sprite2D" parent="Arte/Foreground far/Efectos"]
+position = Vector2(-762.727, 5.45455)
+scale = Vector2(0.42126, 0.42126)
+texture = ExtResource("8_3qs7c")
+
+[node name="piso 2 piedras2" type="Sprite2D" parent="Arte/Foreground far/Efectos"]
+position = Vector2(-28.1818, -12.7273)
+scale = Vector2(0.586108, 0.586108)
+texture = ExtResource("6_lrtib")
+
+[node name="piso 2 piedras3" type="Sprite2D" parent="Arte/Foreground far/Efectos"]
+position = Vector2(-124.329, -10.2098)
+rotation = -3.14159
+scale = Vector2(0.64466, -0.709185)
+texture = ExtResource("6_lrtib")
+
+[node name="piso 3 piedras3" type="Sprite2D" parent="Arte/Foreground far/Efectos"]
+position = Vector2(166.364, 9.09091)
+rotation = -3.14159
+scale = Vector2(0.969231, -1)
+texture = ExtResource("9_6823u")
+
+[node name="pasto grueso" type="Sprite2D" parent="Arte/Foreground far/Efectos"]
+position = Vector2(-62.7273, 12.7273)
+scale = Vector2(0.42126, 0.42126)
+texture = ExtResource("8_3qs7c")
+
+[node name="piso 2 piedras4" type="Sprite2D" parent="Arte/Foreground far/Efectos"]
+position = Vector2(352.727, -10.9091)
+scale = Vector2(0.586108, 0.586108)
+texture = ExtResource("6_lrtib")
+
+[node name="piso 2 piedras5" type="Sprite2D" parent="Arte/Foreground far/Efectos"]
+position = Vector2(250.909, -14.5455)
+rotation = -2.94863
+scale = Vector2(0.64466, -0.709185)
+texture = ExtResource("6_lrtib")
+
+[node name="pasto fino2" type="Sprite2D" parent="Arte/Foreground far/Efectos"]
+position = Vector2(-343.56, 18.1818)
+scale = Vector2(0.833131, 0.833131)
+texture = ExtResource("7_xgmb4")
+
+[node name="piso 3 piedras4" type="Sprite2D" parent="Arte/Foreground far/Efectos"]
+position = Vector2(-558.182, 14.5455)
+rotation = 0.0564825
+texture = ExtResource("9_6823u")
+
+[node name="piso 3 piedras6" type="Sprite2D" parent="Arte/Foreground far/Efectos"]
+position = Vector2(-818.182, 7.27273)
+rotation = -0.105523
+texture = ExtResource("9_6823u")
+
+[node name="pasto grueso2" type="Sprite2D" parent="Arte/Foreground far/Efectos"]
+position = Vector2(-680.909, 10.9091)
+rotation = 0.0922916
+scale = Vector2(0.42126, 0.42126)
+texture = ExtResource("8_3qs7c")
+
+[node name="piso 2 piedras6" type="Sprite2D" parent="Arte/Foreground far/Efectos"]
+position = Vector2(91.8182, -1.90735e-06)
+rotation = -0.105858
+scale = Vector2(0.586108, 0.586108)
+texture = ExtResource("6_lrtib")
+
+[node name="piso 2 piedras7" type="Sprite2D" parent="Arte/Foreground far/Efectos"]
+position = Vector2(349.091, 2.72727)
+rotation = -3.14159
+scale = Vector2(0.64466, -0.709185)
+texture = ExtResource("6_lrtib")
+
+[node name="pasto fino3" type="Sprite2D" parent="Arte/Foreground far/Efectos"]
+position = Vector2(360, 34.5455)
+rotation = -3.14159
+scale = Vector2(0.79764, -0.833131)
+texture = ExtResource("7_xgmb4")
+
+[node name="piso 3 piedras5" type="Sprite2D" parent="Arte/Foreground far/Efectos"]
+position = Vector2(941.593, 4.24193)
+rotation = 3.23768
+scale = Vector2(0.586305, -0.604917)
+texture = ExtResource("9_6823u")
+
+[node name="piso 2 piedras8" type="Sprite2D" parent="Arte/Foreground far/Efectos"]
+position = Vector2(807.957, -17.5762)
+rotation = 0.0448681
+scale = Vector2(0.586108, 0.586108)
+texture = ExtResource("6_lrtib")
+
+[node name="pasto fino4" type="Sprite2D" parent="Arte/Foreground far/Efectos"]
+position = Vector2(849.775, 23.3328)
+scale = Vector2(0.833131, 0.833131)
+texture = ExtResource("7_xgmb4")
+
+[node name="piso 2 piedras9" type="Sprite2D" parent="Arte/Foreground far/Efectos"]
+position = Vector2(703.411, -13.9399)
+scale = Vector2(0.586108, 0.586108)
+texture = ExtResource("6_lrtib")
+
+[node name="piso 2 piedras10" type="Sprite2D" parent="Arte/Foreground far/Efectos"]
+position = Vector2(699.775, -0.303532)
+rotation = -3.14159
+scale = Vector2(0.64466, -0.709185)
+texture = ExtResource("6_lrtib")
+
+[node name="pasto fino5" type="Sprite2D" parent="Arte/Foreground far/Efectos"]
+position = Vector2(710.684, 31.5147)
+rotation = -3.14159
+scale = Vector2(0.79764, -0.833131)
+texture = ExtResource("7_xgmb4")
+
+[node name="Foreground mid" type="CanvasLayer" parent="Arte"]
+follow_viewport_enabled = true
+follow_viewport_scale = 1.2
+
+[node name="Efectos" type="Sprite2D" parent="Arte/Foreground mid"]
+modulate = Color(0.1, 0.1, 0.1, 1)
+position = Vector2(-0.833333, 10.8333)
+
+[node name="pasto fino" type="Sprite2D" parent="Arte/Foreground mid/Efectos"]
+position = Vector2(-265, 15)
+scale = Vector2(0.833131, 0.833131)
+texture = ExtResource("7_xgmb4")
+
+[node name="piso 3 piedras" type="Sprite2D" parent="Arte/Foreground mid/Efectos"]
+position = Vector2(-665, 5)
+texture = ExtResource("9_6823u")
+
+[node name="piso 2 piedras" type="Sprite2D" parent="Arte/Foreground mid/Efectos"]
+position = Vector2(10, 0)
+scale = Vector2(0.586108, 0.586108)
+texture = ExtResource("6_lrtib")
+
+[node name="piso 2 piedras2" type="Sprite2D" parent="Arte/Foreground mid/Efectos"]
+position = Vector2(-81.2228, 3.65387)
+rotation = -3.14159
+scale = Vector2(0.64466, -0.709185)
+texture = ExtResource("6_lrtib")
+
+[node name="pasto fino2" type="Sprite2D" parent="Arte/Foreground mid/Efectos"]
+position = Vector2(405.567, 29.6924)
+rotation = -3.14159
+scale = Vector2(0.79764, -0.833131)
+texture = ExtResource("7_xgmb4")
+
+[node name="piso 3 piedras2" type="Sprite2D" parent="Arte/Foreground mid/Efectos"]
+position = Vector2(199.413, 12)
+rotation = -3.14159
+scale = Vector2(0.969231, -1)
+texture = ExtResource("9_6823u")
+
+[node name="pasto grueso2" type="Sprite2D" parent="Arte/Foreground mid/Efectos"]
+position = Vector2(56.3364, 22.8846)
+scale = Vector2(0.42126, 0.42126)
+texture = ExtResource("8_3qs7c")
+
+[node name="piso 2 piedras3" type="Sprite2D" parent="Arte/Foreground mid/Efectos"]
+position = Vector2(547.875, 6.61543)
+scale = Vector2(0.586108, 0.586108)
+texture = ExtResource("6_lrtib")
+
+[node name="piso 2 piedras4" type="Sprite2D" parent="Arte/Foreground mid/Efectos"]
+position = Vector2(624.798, 3.53851)
+rotation = -3.14159
+scale = Vector2(0.64466, -0.709185)
+texture = ExtResource("6_lrtib")
+
+[node name="pasto fino4" type="Sprite2D" parent="Arte/Foreground mid/Efectos"]
+position = Vector2(559.396, 27.8361)
+rotation = -3.14159
+scale = Vector2(0.79764, -0.833131)
+texture = ExtResource("7_xgmb4")
+
+[node name="piso 2 piedras7" type="Sprite2D" parent="Arte/Foreground mid/Efectos"]
+position = Vector2(701.704, 4.75918)
+scale = Vector2(0.586108, 0.586108)
+texture = ExtResource("6_lrtib")
+
+[node name="piso 2 piedras8" type="Sprite2D" parent="Arte/Foreground mid/Efectos"]
+position = Vector2(778.627, 1.68227)
+rotation = -3.14159
+scale = Vector2(0.64466, -0.709185)
+texture = ExtResource("6_lrtib")
+
+[node name="pasto fino3" type="Sprite2D" parent="Arte/Foreground mid/Efectos"]
+position = Vector2(-295.833, 25.8333)
+scale = Vector2(0.833131, 0.833131)
+texture = ExtResource("7_xgmb4")
+
+[node name="piso 3 piedras3" type="Sprite2D" parent="Arte/Foreground mid/Efectos"]
+position = Vector2(-464.167, 15.8333)
+scale = Vector2(-1.03333, 1)
+texture = ExtResource("9_6823u")
+
+[node name="pasto grueso3" type="Sprite2D" parent="Arte/Foreground mid/Efectos"]
+position = Vector2(-665.833, 25)
+scale = Vector2(0.42126, 0.42126)
+texture = ExtResource("8_3qs7c")
+
+[node name="piso 2 piedras5" type="Sprite2D" parent="Arte/Foreground mid/Efectos"]
+position = Vector2(-158.146, 6.73078)
+scale = Vector2(0.586108, 0.586108)
+texture = ExtResource("6_lrtib")
+
+[node name="piso 2 piedras6" type="Sprite2D" parent="Arte/Foreground mid/Efectos"]
+position = Vector2(-81.2228, 3.65387)
+rotation = -3.14159
+scale = Vector2(0.64466, -0.709185)
+texture = ExtResource("6_lrtib")
+
+[node name="Foreground close" type="CanvasLayer" parent="Arte"]
+follow_viewport_enabled = true
+follow_viewport_scale = 1.3
+
+[node name="Efectos" type="Sprite2D" parent="Arte/Foreground close"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(0, 4.61539)
+
+[node name="pasto fino" type="Sprite2D" parent="Arte/Foreground close/Efectos"]
+position = Vector2(-252.441, 29.2308)
+scale = Vector2(0.833131, 0.833131)
+texture = ExtResource("7_xgmb4")
+
+[node name="piso 3 piedras" type="Sprite2D" parent="Arte/Foreground close/Efectos"]
+position = Vector2(-458.595, 11.5384)
+texture = ExtResource("9_6823u")
+
+[node name="pasto grueso" type="Sprite2D" parent="Arte/Foreground close/Efectos"]
+position = Vector2(-601.672, 13.8462)
+scale = Vector2(0.42126, 0.42126)
+texture = ExtResource("8_3qs7c")
+
+[node name="piso 2 piedras" type="Sprite2D" parent="Arte/Foreground close/Efectos"]
+position = Vector2(-110.133, 6.15385)
+scale = Vector2(0.586108, 0.586108)
+texture = ExtResource("6_lrtib")
+
+[node name="piso 2 piedras2" type="Sprite2D" parent="Arte/Foreground close/Efectos"]
+position = Vector2(-33.2101, 3.07695)
+rotation = -3.14159
+scale = Vector2(0.64466, -0.709185)
+texture = ExtResource("6_lrtib")
+
+[node name="pasto fino2" type="Sprite2D" parent="Arte/Foreground close/Efectos"]
+position = Vector2(453.58, 29.1154)
+rotation = -3.14159
+scale = Vector2(0.79764, -0.833131)
+texture = ExtResource("7_xgmb4")
+
+[node name="piso 3 piedras2" type="Sprite2D" parent="Arte/Foreground close/Efectos"]
+position = Vector2(247.426, 11.4231)
+rotation = -3.14159
+scale = Vector2(0.969231, -1)
+texture = ExtResource("9_6823u")
+
+[node name="pasto grueso2" type="Sprite2D" parent="Arte/Foreground close/Efectos"]
+position = Vector2(104.349, 22.3077)
+scale = Vector2(0.42126, 0.42126)
+texture = ExtResource("8_3qs7c")
+
+[node name="piso 2 piedras3" type="Sprite2D" parent="Arte/Foreground close/Efectos"]
+position = Vector2(595.888, 6.0385)
+scale = Vector2(0.586108, 0.586108)
+texture = ExtResource("6_lrtib")
+
+[node name="piso 2 piedras4" type="Sprite2D" parent="Arte/Foreground close/Efectos"]
+position = Vector2(672.811, 2.96161)
+rotation = -3.14159
+scale = Vector2(0.64466, -0.709185)
+texture = ExtResource("6_lrtib")
+
+[node name="piso 3 piedras5" type="Sprite2D" parent="Arte/Foreground close/Efectos"]
+position = Vector2(826.405, 5.01116)
+rotation = 3.23768
+scale = Vector2(0.586305, -0.604917)
+texture = ExtResource("9_6823u")
+
+[node name="piso 2 piedras8" type="Sprite2D" parent="Arte/Foreground close/Efectos"]
+position = Vector2(692.769, -16.807)
+rotation = 0.0448681
+scale = Vector2(0.586108, 0.586108)
+texture = ExtResource("6_lrtib")
+
+[node name="pasto fino4" type="Sprite2D" parent="Arte/Foreground close/Efectos"]
+position = Vector2(734.587, 24.102)
+scale = Vector2(0.833131, 0.833131)
+texture = ExtResource("7_xgmb4")
+
+[node name="piso 2 piedras7" type="Sprite2D" parent="Arte/Foreground close/Efectos"]
+position = Vector2(783.371, 4.35386)
+scale = Vector2(0.586108, 0.586108)
+texture = ExtResource("6_lrtib")
+
+[node name="piso 2 piedras9" type="Sprite2D" parent="Arte/Foreground close/Efectos"]
+position = Vector2(860.294, 1.27694)
+rotation = -3.14159
+scale = Vector2(0.64466, -0.709185)
+texture = ExtResource("6_lrtib")
+
+[node name="pasto fino3" type="Sprite2D" parent="Arte/Foreground close/Efectos"]
+position = Vector2(689.076, 26.8538)
+rotation = -3.14159
+scale = Vector2(0.79764, -0.833131)
+texture = ExtResource("7_xgmb4")
+
+[node name="piso 2 piedras5" type="Sprite2D" parent="Arte/Foreground close/Efectos"]
+position = Vector2(831.384, 3.77693)
+scale = Vector2(0.586108, 0.586108)
+texture = ExtResource("6_lrtib")
+
+[node name="piso 2 piedras6" type="Sprite2D" parent="Arte/Foreground close/Efectos"]
+position = Vector2(908.307, 0.700035)
+rotation = -3.14159
+scale = Vector2(0.64466, -0.709185)
+texture = ExtResource("6_lrtib")
+
+[node name="piso 3 piedras3" type="Sprite2D" parent="Arte/Foreground close/Efectos"]
+position = Vector2(-781.539, 11.5385)
+scale = Vector2(-0.938462, 1)
+texture = ExtResource("9_6823u")
 
 [node name="platform_world" parent="." instance=ExtResource("1_eaa3a")]
 position = Vector2(41, -3)
 scale = Vector2(4.33346, 0.342249)
 
 [node name="platform_world2" parent="." instance=ExtResource("1_eaa3a")]
-position = Vector2(-1103, -370)
+position = Vector2(-841, -368)
 rotation = 1.5708
 scale = Vector2(1.45346, 0.33909)
 
