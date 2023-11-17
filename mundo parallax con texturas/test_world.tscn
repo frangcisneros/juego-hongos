@@ -1,14 +1,17 @@
-[gd_scene load_steps=23 format=3 uid="uid://bnwuefdep2gcu"]
+[gd_scene load_steps=26 format=3 uid="uid://bnwuefdep2gcu"]
 
 [ext_resource type="Script" path="res://mundo parallax con texturas/test_world.gd" id="1_agjrr"]
-[ext_resource type="PackedScene" uid="uid://dusk6dox3dxnb" path="res://nodos/plataforma/plataforma.tscn" id="1_h2qiq"]
+[ext_resource type="PackedScene" uid="uid://dusk6dox3dxnb" path="res://nodos/platform_world/platform_world.tscn" id="1_h2qiq"]
 [ext_resource type="Texture2D" uid="uid://c4howjk38jbcw" path="res://arte/Assets/Seccion 1 Musgo/Fondo Blanco para difuminado.png" id="2_3jg1s"]
 [ext_resource type="Shader" path="res://mundo parallax con texturas/blur.gdshader" id="2_egvaw"]
-[ext_resource type="PackedScene" uid="uid://dj07mg1sgtrmu" path="res://nodos/protagonista/protagonista.tscn" id="2_s5o1e"]
+[ext_resource type="PackedScene" uid="uid://dj07mg1sgtrmu" path="res://nodos/player/player.tscn" id="2_s5o1e"]
 [ext_resource type="PackedScene" uid="uid://d0gordpyc8o5m" path="res://nodos/area_enemy/area_enemy.tscn" id="3_i2qo2"]
 [ext_resource type="Texture2D" uid="uid://d4dk7gie2inun" path="res://arte/Assets/Seccion 1 Musgo/Pisos/piso 2 piedras.png" id="3_w8dtn"]
 [ext_resource type="Texture2D" uid="uid://d36aasspjc1h3" path="res://arte/Assets/Seccion 1 Musgo/Pisos/pasto fino.png" id="4_f7de6"]
+[ext_resource type="Texture2D" uid="uid://dc4mhqpaqlwmb" path="res://arte/Assets/Seccion 1 Musgo/fondos/moss/piedra grande fondo.png" id="4_xdgq0"]
 [ext_resource type="Texture2D" uid="uid://cngwr54v7pu5r" path="res://arte/Assets/Seccion 1 Musgo/Pisos/pasto grueso.png" id="5_mrjqg"]
+[ext_resource type="Texture2D" uid="uid://cwtbirqbd61sk" path="res://arte/Assets/Seccion 1 Musgo/fondos/moss/piedra chica fondo.png" id="5_pir8i"]
+[ext_resource type="Texture2D" uid="uid://bqn634m0g0034" path="res://arte/Assets/Seccion 1 Musgo/fondos/moss/piedra mediana fondo.png" id="6_atn3j"]
 [ext_resource type="Texture2D" uid="uid://dyqq51jb0hpg2" path="res://arte/Assets/Seccion 1 Musgo/Pisos/piso 3 piedras.png" id="6_kemly"]
 [ext_resource type="Texture2D" uid="uid://dr1k2xg1w14rk" path="res://arte/Assets/Seccion 1 Musgo/Rocks/Piedra 1.png" id="8_7h5x3"]
 [ext_resource type="Texture2D" uid="uid://binoluw6g67q0" path="res://arte/Assets/Seccion 1 Musgo/Bushes/Bush 3.png" id="8_eli6y"]
@@ -45,53 +48,6 @@ layer = -4
 follow_viewport_enabled = true
 follow_viewport_scale = 0.6
 
-[node name="Piedra10" type="Sprite2D" parent="Arte/Background very far"]
-position = Vector2(3.33327, -475)
-rotation = -0.0227271
-scale = Vector2(-0.991908, 1)
-texture = ExtResource("12_vfdty")
-
-[node name="Piedra1" type="Sprite2D" parent="Arte/Background very far"]
-position = Vector2(373.333, -380)
-texture = ExtResource("8_7h5x3")
-
-[node name="Piedra2" type="Sprite2D" parent="Arte/Background very far"]
-position = Vector2(-601.667, -603.333)
-texture = ExtResource("9_q0pxp")
-
-[node name="Piedra3" type="Sprite2D" parent="Arte/Background very far"]
-position = Vector2(983.333, -370)
-rotation = -2.33405
-texture = ExtResource("10_ppfkm")
-
-[node name="Piedra4" type="Sprite2D" parent="Arte/Background very far"]
-position = Vector2(115, -436.667)
-rotation = -0.339596
-texture = ExtResource("11_x40nd")
-
-[node name="Piedra5" type="Sprite2D" parent="Arte/Background very far"]
-position = Vector2(-336.667, -321.667)
-rotation = 0.780513
-texture = ExtResource("12_vfdty")
-
-[node name="Piedra6" type="Sprite2D" parent="Arte/Background very far"]
-position = Vector2(1196.67, -438.333)
-texture = ExtResource("8_7h5x3")
-
-[node name="Piedra7" type="Sprite2D" parent="Arte/Background very far"]
-position = Vector2(830, -468.333)
-texture = ExtResource("9_q0pxp")
-
-[node name="Piedra8" type="Sprite2D" parent="Arte/Background very far"]
-position = Vector2(983.333, -370)
-rotation = -2.33405
-texture = ExtResource("10_ppfkm")
-
-[node name="Piedra9" type="Sprite2D" parent="Arte/Background very far"]
-position = Vector2(-183.333, -448.333)
-rotation = 1.83568
-texture = ExtResource("11_x40nd")
-
 [node name="Blur" type="Sprite2D" parent="Arte/Background very far"]
 material = SubResource("ShaderMaterial_qnxav")
 scale = Vector2(1.90511, 1.90511)
@@ -102,75 +58,25 @@ layer = -3
 follow_viewport_enabled = true
 follow_viewport_scale = 0.7
 
-[node name="Piedra6" type="Sprite2D" parent="Arte/Background far"]
-position = Vector2(-778.572, -318.571)
-texture = ExtResource("12_vfdty")
+[node name="PiedraGrandeFondo" type="Sprite2D" parent="Arte/Background far"]
+position = Vector2(224.954, -209.535)
+rotation = -0.261799
+texture = ExtResource("4_xdgq0")
 
-[node name="Bush10" type="Sprite2D" parent="Arte/Background far"]
-position = Vector2(-540, -357.143)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("12_k247o")
+[node name="PiedraChicaFondo2" type="Sprite2D" parent="Arte/Background far"]
+position = Vector2(522.857, -171.429)
+texture = ExtResource("5_pir8i")
 
-[node name="Bush9" type="Sprite2D" parent="Arte/Background far"]
-position = Vector2(-807.143, -357.143)
-rotation = -0.481217
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("11_1r6d8")
+[node name="PiedraMedianaFondo" type="Sprite2D" parent="Arte/Background far"]
+position = Vector2(-322.857, -228.571)
+rotation = -0.523598
+texture = ExtResource("6_atn3j")
 
-[node name="Bush8" type="Sprite2D" parent="Arte/Background far"]
-position = Vector2(-32.8572, -418.571)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("8_eli6y")
-
-[node name="Bush7" type="Sprite2D" parent="Arte/Background far"]
-position = Vector2(777.143, -432.857)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("9_apyqp")
-
-[node name="Piedra5" type="Sprite2D" parent="Arte/Background far"]
-position = Vector2(562.857, -24.2857)
-rotation = 0.905025
-texture = ExtResource("12_vfdty")
-
-[node name="Piedra3" type="Sprite2D" parent="Arte/Background far"]
-position = Vector2(-285.714, -307.143)
-texture = ExtResource("10_ppfkm")
-
-[node name="Bush1" type="Sprite2D" parent="Arte/Background far"]
-position = Vector2(1151.43, 35.7144)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("10_8naud")
-
-[node name="Piedra1" type="Sprite2D" parent="Arte/Background far"]
-position = Vector2(-1217.14, -197.143)
-rotation = -0.227247
-texture = ExtResource("8_7h5x3")
-
-[node name="Bush2" type="Sprite2D" parent="Arte/Background far"]
-position = Vector2(-227.143, -338.571)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("9_apyqp")
-
-[node name="Bush3" type="Sprite2D" parent="Arte/Background far"]
-position = Vector2(561.429, -238.571)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("8_eli6y")
-
-[node name="Bush4" type="Sprite2D" parent="Arte/Background far"]
-position = Vector2(-882.857, -205.714)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("11_1r6d8")
-
-[node name="Bush5" type="Sprite2D" parent="Arte/Background far"]
-position = Vector2(-1177.14, -1.42857)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("12_k247o")
-
-[node name="Bush6" type="Sprite2D" parent="Arte/Background far"]
-position = Vector2(275.714, -187.143)
-rotation = -0.802842
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("10_8naud")
+[node name="PiedraChicaFondo" type="Sprite2D" parent="Arte/Background far"]
+position = Vector2(-128.571, -171.429)
+rotation = -0.523598
+scale = Vector2(1.30003, 1.30003)
+texture = ExtResource("5_pir8i")
 
 [node name="Blur" type="Sprite2D" parent="Arte/Background far"]
 material = SubResource("ShaderMaterial_qnxav")
@@ -187,55 +93,33 @@ layer = -2
 follow_viewport_enabled = true
 follow_viewport_scale = 0.8
 
-[node name="Piedra6" type="Sprite2D" parent="Arte/Background mid"]
-position = Vector2(-867.5, -88.75)
-rotation = 2.5269
-scale = Vector2(0.780424, -0.857641)
-texture = ExtResource("9_q0pxp")
+[node name="PiedraMedianaFondo" type="Sprite2D" parent="Arte/Background mid"]
+position = Vector2(100, -112.5)
+texture = ExtResource("6_atn3j")
 
-[node name="Piedra10" type="Sprite2D" parent="Arte/Background mid"]
-position = Vector2(665, 50)
-rotation = 0.182257
-texture = ExtResource("12_vfdty")
+[node name="PiedraMedianaFondo2" type="Sprite2D" parent="Arte/Background mid"]
+position = Vector2(-640, -208.75)
+rotation = 0.445977
+texture = ExtResource("6_atn3j")
 
-[node name="Piedra8" type="Sprite2D" parent="Arte/Background mid"]
-position = Vector2(77.5, -43.75)
-rotation = -1.86573
-texture = ExtResource("10_ppfkm")
+[node name="PiedraGrandeFondo" type="Sprite2D" parent="Arte/Background mid"]
+position = Vector2(-447.5, -126.25)
+texture = ExtResource("4_xdgq0")
 
-[node name="Piedra2" type="Sprite2D" parent="Arte/Background mid"]
-position = Vector2(1182.5, -342.5)
-texture = ExtResource("9_q0pxp")
+[node name="PiedraGrandeFondo2" type="Sprite2D" parent="Arte/Background mid"]
+position = Vector2(596.25, 8.74998)
+rotation = 0.365262
+texture = ExtResource("4_xdgq0")
 
-[node name="Piedra1" type="Sprite2D" parent="Arte/Background mid"]
-position = Vector2(1123.75, -161.25)
-rotation = -0.696132
-texture = ExtResource("8_7h5x3")
+[node name="PiedraChicaFondo" type="Sprite2D" parent="Arte/Background mid"]
+position = Vector2(-800, -85)
+rotation = -0.139883
+texture = ExtResource("5_pir8i")
 
-[node name="Piedra3" type="Sprite2D" parent="Arte/Background mid"]
-position = Vector2(272.5, 51.25)
-rotation = 0.659621
-texture = ExtResource("10_ppfkm")
-
-[node name="Piedra4" type="Sprite2D" parent="Arte/Background mid"]
-position = Vector2(743.75, 110)
-rotation = 0.598521
-texture = ExtResource("11_x40nd")
-
-[node name="Piedra5" type="Sprite2D" parent="Arte/Background mid"]
-position = Vector2(-550, 131.25)
-rotation = 0.182257
-texture = ExtResource("12_vfdty")
-
-[node name="Piedra7" type="Sprite2D" parent="Arte/Background mid"]
-position = Vector2(-202.5, 23.75)
-rotation = 0.306953
-texture = ExtResource("8_7h5x3")
-
-[node name="Piedra9" type="Sprite2D" parent="Arte/Background mid"]
-position = Vector2(-532.5, -120)
-rotation = 0.598521
-texture = ExtResource("11_x40nd")
+[node name="PiedraChicaFondo2" type="Sprite2D" parent="Arte/Background mid"]
+position = Vector2(-137.5, -22.5)
+rotation = 0.481724
+texture = ExtResource("5_pir8i")
 
 [node name="Blur" type="Sprite2D" parent="Arte/Background mid"]
 material = SubResource("ShaderMaterial_qnxav")
@@ -318,6 +202,7 @@ texture = ExtResource("2_3jg1s")
 
 [node name="Fondo Blanco para difuminado" type="Sprite2D" parent="Arte/Background close/Efectos"]
 modulate = Color(1, 1, 1, 0.0784314)
+position = Vector2(-150.591, -2.9715)
 scale = Vector2(1.86281, 1.86281)
 texture = ExtResource("2_3jg1s")
 

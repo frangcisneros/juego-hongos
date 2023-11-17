@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bdfsbpgcqvp7f"]
+
+[ext_resource type="Texture2D" uid="uid://b337jbtx3eblj" path="res://arte/Assets/Seccion 1 Musgo/plataformas/plataforma chica.png" id="1_nilfu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bpppy"]
+size = Vector2(247, 49)
+
+[node name="small_platform" type="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-6.5, -20.5)
+shape = SubResource("RectangleShape2D_bpppy")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(-6.5, -20.5)
+shape = SubResource("RectangleShape2D_bpppy")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_nilfu")

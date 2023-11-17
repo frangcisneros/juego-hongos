@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bqyd62scm2u7j"]
+
+[ext_resource type="Texture2D" uid="uid://bj30g2qvrju2n" path="res://arte/Assets/Seccion 1 Musgo/plataformas/plataforma grande 1.png" id="1_na8jq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_un8lr"]
+size = Vector2(285, 76)
+
+[node name="big_platform_1" type="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(13.5, -54)
+shape = SubResource("RectangleShape2D_un8lr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_na8jq")

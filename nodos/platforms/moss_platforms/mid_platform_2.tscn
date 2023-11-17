@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cax4ymewi4o8b"]
+
+[ext_resource type="Texture2D" uid="uid://ceju221emcamb" path="res://arte/Assets/Seccion 1 Musgo/plataformas/plataforma mediana 2.png" id="1_sm3mb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_42cbh"]
+size = Vector2(368, 66)
+
+[node name="mid_platform_2" type="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(7, -45)
+shape = SubResource("RectangleShape2D_42cbh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_sm3mb")
