@@ -1,17 +1,15 @@
 [gd_scene load_steps=3 format=3 uid="uid://bqyd62scm2u7j"]
 
 [ext_resource type="Texture2D" uid="uid://bj30g2qvrju2n" path="res://arte/Assets/Seccion 1 Musgo/plataformas/plataforma grande 1.png" id="1_na8jq"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_un8lr"]
-size = Vector2(285, 76)
+[ext_resource type="Script" path="res://nodos/platform_world/platform_world.gd" id="1_t1jue"]
 
 [node name="big_platform_1" type="StaticBody2D"]
 collision_layer = 8
 collision_mask = 23
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(13.5, -54)
-shape = SubResource("RectangleShape2D_un8lr")
+script = ExtResource("1_t1jue")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_na8jq")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-127, -96, 159, -92, 152, -15, 122, -6, 94, 64, 34, 104, -59, 59, -137, -17)

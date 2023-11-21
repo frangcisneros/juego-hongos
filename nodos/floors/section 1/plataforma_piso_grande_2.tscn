@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://cfqki5uqx48g6"]
+
+[ext_resource type="Texture2D" uid="uid://dy4fajijq127y" path="res://arte/Assets/Seccion 1 Musgo/Pisos/plataforma grande 2.png" id="1_chktr"]
+
+[sub_resource type="GDScript" id="GDScript_qhqw5"]
+script/source = "extends StaticBody2D
+
+func plataforma():
+	pass
+"
+
+[node name="plataforma piso grande 2" type="StaticBody2D"]
+collision_layer = 8
+collision_mask = 23
+script = SubResource("GDScript_qhqw5")
+
+[node name="PlataformaGrande2" type="Sprite2D" parent="."]
+position = Vector2(102, 32)
+texture = ExtResource("1_chktr")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-176, -128, -195, 110, -127, 206, 369, 189, 416, 42, 384, -42, 420, -127)

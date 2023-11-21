@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://defbj1ci1yt8"]
+
+[ext_resource type="Script" path="res://nodos/platform_world/platform_world.gd" id="1_3l4nn"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_faq0d"]
+
+[node name="piso world" type="StaticBody2D"]
+collision_layer = 8
+collision_mask = 23
+script = ExtResource("1_3l4nn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("WorldBoundaryShape2D_faq0d")

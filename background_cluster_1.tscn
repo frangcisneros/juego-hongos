@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://dou6n6yg5qopu"]
+
+[ext_resource type="Texture2D" uid="uid://bqn634m0g0034" path="res://arte/Assets/Seccion 1 Musgo/fondos/moss/piedra mediana fondo.png" id="1_w86iy"]
+[ext_resource type="Texture2D" uid="uid://binoluw6g67q0" path="res://arte/Assets/Seccion 1 Musgo/Bushes/Bush 3.png" id="2_i1gy4"]
+[ext_resource type="Texture2D" uid="uid://dc4mhqpaqlwmb" path="res://arte/Assets/Seccion 1 Musgo/fondos/moss/piedra grande fondo.png" id="3_qi57a"]
+[ext_resource type="Texture2D" uid="uid://d4dk7gie2inun" path="res://arte/Assets/Seccion 1 Musgo/Pisos/piso 2 piedras.png" id="4_41ts7"]
+[ext_resource type="Texture2D" uid="uid://cwtbirqbd61sk" path="res://arte/Assets/Seccion 1 Musgo/fondos/moss/piedra chica fondo.png" id="5_e1py3"]
+
+[node name="background_cluster_1" type="Node2D"]
+
+[node name="PiedraMedianaFondo2" type="Sprite2D" parent="."]
+position = Vector2(182, -117)
+rotation = 0.425721
+scale = Vector2(0.850955, -0.925155)
+texture = ExtResource("1_w86iy")
+
+[node name="Bush3" type="Sprite2D" parent="."]
+position = Vector2(349, 2.99998)
+rotation = 0.672062
+scale = Vector2(0.697975, 0.550053)
+texture = ExtResource("2_i1gy4")
+
+[node name="PiedraGrandeFondo2" type="Sprite2D" parent="."]
+position = Vector2(-229, -54)
+rotation = 2.432
+scale = Vector2(0.89863, -1.10241)
+texture = ExtResource("3_qi57a")
+
+[node name="Piso2Piedras" type="Sprite2D" parent="."]
+position = Vector2(-80, -125)
+texture = ExtResource("4_41ts7")
+
+[node name="PiedraChicaFondo" type="Sprite2D" parent="."]
+position = Vector2(44, -88)
+texture = ExtResource("5_e1py3")
+
+[node name="PiedraChicaFondo2" type="Sprite2D" parent="."]
+position = Vector2(-303, 54)
+rotation = -1.4084
+texture = ExtResource("5_e1py3")
+
+[node name="PiedraGrandeFondo" type="Sprite2D" parent="."]
+position = Vector2(85, 88)
+texture = ExtResource("3_qi57a")
+
+[node name="PiedraMedianaFondo" type="Sprite2D" parent="."]
+position = Vector2(-210, 18)
+rotation = -0.789604
+scale = Vector2(1, 1)
+texture = ExtResource("1_w86iy")

@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://bql25j2mt80qo"]
+
+[ext_resource type="Texture2D" uid="uid://dphqss36b7qvs" path="res://arte/Assets/Seccion 1 Musgo/Pisos/plataforma piso grande sin bush 1.png" id="1_vvfbp"]
+[ext_resource type="Texture2D" uid="uid://03764w3re3xf" path="res://arte/Assets/Seccion 1 Musgo/Pisos/bush 1.png" id="2_bqiq5"]
+
+[sub_resource type="GDScript" id="GDScript_qhqw5"]
+script/source = "extends StaticBody2D
+
+func plataforma():
+	pass
+"
+
+[node name="plataforma piso grande 3" type="StaticBody2D"]
+collision_layer = 8
+collision_mask = 23
+script = SubResource("GDScript_qhqw5")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-297, 83, -258, 10, -249, -141, 232, -143, 278, -57, 262, -17, 237, -26, 196, 48, 214, 103, 246, 134, 246, 152, -302, 134)
+
+[node name="PlataformaPisoGrandeSinBush1" type="Sprite2D" parent="."]
+position = Vector2(-3, 16)
+texture = ExtResource("1_vvfbp")
+
+[node name="Bush1" type="Sprite2D" parent="."]
+position = Vector2(-240, -17)
+texture = ExtResource("2_bqiq5")
