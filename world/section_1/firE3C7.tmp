@@ -80,7 +80,7 @@ rotation = 0.833878
 texture = ExtResource("11_ywseq")
 
 [node name="Piedra2" type="Sprite2D" parent="Arte/Background very far"]
-position = Vector2(965, -298.333)
+position = Vector2(992, -340)
 texture = ExtResource("11_ywseq")
 
 [node name="Piedra9" type="Sprite2D" parent="Arte/Background very far"]
@@ -113,7 +113,7 @@ position = Vector2(4836.33, -277.86)
 texture = ExtResource("14_vbj6j")
 
 [node name="PiedraMedianaFondo5" type="Sprite2D" parent="Arte/Background very far"]
-position = Vector2(-108.333, -350)
+position = Vector2(-98.1957, -395.009)
 texture = ExtResource("6_atmkc")
 
 [node name="PiedraMedianaFondo6" type="Sprite2D" parent="Arte/Background very far"]
@@ -126,7 +126,7 @@ position = Vector2(-655.696, -427.509)
 texture = ExtResource("4_qmppb")
 
 [node name="PiedraGrandeFondo6" type="Sprite2D" parent="Arte/Background very far"]
-position = Vector2(375, -295)
+position = Vector2(388.054, -320.009)
 rotation = 0.365262
 texture = ExtResource("4_qmppb")
 
@@ -141,7 +141,7 @@ rotation = -0.139883
 texture = ExtResource("5_5fotl")
 
 [node name="PiedraChicaFondo6" type="Sprite2D" parent="Arte/Background very far"]
-position = Vector2(-371.667, -316.667)
+position = Vector2(-341.946, -323.759)
 rotation = 0.481724
 texture = ExtResource("5_5fotl")
 
@@ -171,7 +171,7 @@ rotation = 0.534225
 texture = ExtResource("6_atmkc")
 
 [node name="PiedraMedianaFondo44" type="Sprite2D" parent="Arte/Background very far"]
-position = Vector2(641.667, -315)
+position = Vector2(646.668, -351.667)
 rotation = 0.534225
 texture = ExtResource("6_atmkc")
 
@@ -190,7 +190,7 @@ position = Vector2(3376.81, -296.676)
 texture = ExtResource("6_atmkc")
 
 [node name="PiedraMedianaFondo45" type="Sprite2D" parent="Arte/Background very far"]
-position = Vector2(1195, -305)
+position = Vector2(1220, -351.667)
 texture = ExtResource("6_atmkc")
 
 [node name="PiedraMedianaFondo46" type="Sprite2D" parent="Arte/Background very far"]
@@ -804,7 +804,7 @@ rotation = -2.11094
 texture = ExtResource("5_5fotl")
 
 [node name="PiedraMedianaFondo4" type="Sprite2D" parent="Arte/Background far"]
-position = Vector2(-1191.43, -208.571)
+position = Vector2(-1184.76, -250.849)
 rotation = -0.523598
 texture = ExtResource("6_atmkc")
 
@@ -910,13 +910,8 @@ rotation = -2.11094
 texture = ExtResource("5_5fotl")
 
 [node name="PiedraMedianaFondo14" type="Sprite2D" parent="Arte/Background far"]
-position = Vector2(1734.29, -157.143)
+position = Vector2(1745.25, -155.135)
 rotation = -0.523598
-texture = ExtResource("6_atmkc")
-
-[node name="PiedraMedianaFondo33" type="Sprite2D" parent="Arte/Background far"]
-position = Vector2(1851.43, -4.28564)
-rotation = -1.72617
 texture = ExtResource("6_atmkc")
 
 [node name="PiedraMedianaFondo15" type="Sprite2D" parent="Arte/Background far"]
@@ -1223,7 +1218,7 @@ rotation = 0.445977
 texture = ExtResource("6_atmkc")
 
 [node name="PiedraGrandeFondo3" type="Sprite2D" parent="Arte/Background mid"]
-position = Vector2(1320, -81.25)
+position = Vector2(1322.64, -72.5092)
 texture = ExtResource("4_qmppb")
 
 [node name="PiedraGrandeFondo4" type="Sprite2D" parent="Arte/Background mid"]
@@ -7272,7 +7267,7 @@ position = Vector2(2660, -216)
 
 [node name="player" parent="." instance=ExtResource("2_8onms")]
 visibility_layer = 2
-position = Vector2(-128.081, -290.07)
+position = Vector2(3070.9, -115.774)
 scale = Vector2(0.525, 0.51)
 
 [node name="walk_enemy" parent="." instance=ExtResource("3_4ro21")]
@@ -7358,7 +7353,7 @@ position = Vector2(-1418, -40)
 scale = Vector2(0.637092, 0.637092)
 
 [node name="plataforma piso grande 3" parent="." instance=ExtResource("34_rm0x3")]
-position = Vector2(-715, 71)
+position = Vector2(-739, 71)
 
 [node name="plataforma piso chica" parent="." instance=ExtResource("35_1nyaj")]
 position = Vector2(-391, 3.99999)
