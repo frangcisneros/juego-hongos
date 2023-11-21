@@ -1,12 +1,12 @@
 [gd_scene load_steps=11 format=3 uid="uid://cssevd6rtecpf"]
 
-[ext_resource type="Script" path="res://nodos/armor_walker/armor_walker.gd" id="1_2fr8i"]
+[ext_resource type="Script" path="res://nodos/section 1/enemies/armor_walker/armor_walker.gd" id="1_2fr8i"]
 [ext_resource type="Texture2D" uid="uid://bqh0w6153q0gf" path="res://arte/Assets/prota.png" id="1_6kns3"]
-[ext_resource type="Script" path="res://nodos/armor_walker/state_machine_armor_walker.gd" id="2_ddsan"]
-[ext_resource type="Script" path="res://nodos/armor_walker/hitbox.gd" id="2_g8xt3"]
-[ext_resource type="Script" path="res://nodos/armor_walker/idle_state_armor_walker.gd" id="3_aaq01"]
-[ext_resource type="Script" path="res://nodos/armor_walker/dead_state_armor_walker.gd" id="4_wfup6"]
-[ext_resource type="Script" path="res://nodos/armor_walker/turtle_state_armor_walker.gd" id="6_6520q"]
+[ext_resource type="Script" path="res://nodos/section 1/enemies/armor_walker/state_machine_armor_walker.gd" id="2_ddsan"]
+[ext_resource type="Script" path="res://nodos/section 1/enemies/armor_walker/hitbox.gd" id="2_g8xt3"]
+[ext_resource type="Script" path="res://nodos/section 1/enemies/armor_walker/idle_state_armor_walker.gd" id="3_aaq01"]
+[ext_resource type="Script" path="res://nodos/section 1/enemies/armor_walker/dead_state_armor_walker.gd" id="4_wfup6"]
+[ext_resource type="Script" path="res://nodos/section 1/enemies/armor_walker/turtle_state_armor_walker.gd" id="6_6520q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c1cwq"]
 size = Vector2(93, 54)

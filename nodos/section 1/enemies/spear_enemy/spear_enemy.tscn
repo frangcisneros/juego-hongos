@@ -1,12 +1,12 @@
 [gd_scene load_steps=13 format=3 uid="uid://d3tt5xvh25cpr"]
 
-[ext_resource type="Script" path="res://nodos/spear_enemy/spear_enemy.gd" id="1_8d16e"]
-[ext_resource type="Texture2D" uid="uid://bqh0w6153q0gf" path="res://arte/prota.png" id="1_coj5t"]
-[ext_resource type="Script" path="res://nodos/spear_enemy/state_machine_spear_enemy.gd" id="2_8kgfm"]
-[ext_resource type="Script" path="res://nodos/spear_enemy/idle_state_spear_enemy.gd" id="3_cpsjt"]
-[ext_resource type="Script" path="res://nodos/spear_enemy/attack_state_spear_enemy.gd" id="4_d31d6"]
-[ext_resource type="Script" path="res://nodos/spear_enemy/dead_state_spear_enemy.gd" id="5_su5bk"]
-[ext_resource type="Script" path="res://nodos/spear_enemy/hitbox.gd" id="7_4dg1c"]
+[ext_resource type="Script" path="res://nodos/section 1/enemies/spear_enemy/spear_enemy.gd" id="1_8d16e"]
+[ext_resource type="Texture2D" uid="uid://bqh0w6153q0gf" path="res://arte/Assets/prota.png" id="1_coj5t"]
+[ext_resource type="Script" path="res://nodos/section 1/enemies/spear_enemy/state_machine_spear_enemy.gd" id="2_8kgfm"]
+[ext_resource type="Script" path="res://nodos/section 1/enemies/spear_enemy/idle_state_spear_enemy.gd" id="3_cpsjt"]
+[ext_resource type="Script" path="res://nodos/section 1/enemies/spear_enemy/attack_state_spear_enemy.gd" id="4_d31d6"]
+[ext_resource type="Script" path="res://nodos/section 1/enemies/spear_enemy/dead_state_spear_enemy.gd" id="5_su5bk"]
+[ext_resource type="Script" path="res://nodos/section 1/enemies/spear_enemy/hitbox.gd" id="7_4dg1c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vu6jp"]
 size = Vector2(64, 176)

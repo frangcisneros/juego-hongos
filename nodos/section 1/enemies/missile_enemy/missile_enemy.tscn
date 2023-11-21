@@ -1,13 +1,13 @@
 [gd_scene load_steps=12 format=3 uid="uid://cd6mnkulqnulf"]
 
-[ext_resource type="Script" path="res://nodos/missile_enemy/missile_enemy.gd" id="1_bvhhg"]
-[ext_resource type="Texture2D" uid="uid://bqh0w6153q0gf" path="res://arte/prota.png" id="1_w7ath"]
-[ext_resource type="Script" path="res://nodos/missile_enemy/state_machine_missile_enemy.gd" id="2_ewwnd"]
-[ext_resource type="Script" path="res://nodos/missile_enemy/idle_state_missile_enemy.gd" id="3_d4mev"]
-[ext_resource type="Script" path="res://nodos/missile_enemy/atack_state_missile_enemy.gd" id="4_50u8k"]
-[ext_resource type="Script" path="res://nodos/missile_enemy/dead_state_missile_enemy.gd" id="5_epjmo"]
-[ext_resource type="Script" path="res://nodos/missile_enemy/hitbox.gd" id="7_1mduj"]
-[ext_resource type="Script" path="res://nodos/missile_enemy/vision_missile_enemy.gd" id="9_c54ki"]
+[ext_resource type="Script" path="res://nodos/section 1/enemies/missile_enemy/missile_enemy.gd" id="1_bvhhg"]
+[ext_resource type="Texture2D" uid="uid://bqh0w6153q0gf" path="res://arte/Assets/prota.png" id="1_w7ath"]
+[ext_resource type="Script" path="res://nodos/section 1/enemies/missile_enemy/state_machine_missile_enemy.gd" id="2_ewwnd"]
+[ext_resource type="Script" path="res://nodos/section 1/enemies/missile_enemy/idle_state_missile_enemy.gd" id="3_d4mev"]
+[ext_resource type="Script" path="res://nodos/section 1/enemies/missile_enemy/atack_state_missile_enemy.gd" id="4_50u8k"]
+[ext_resource type="Script" path="res://nodos/section 1/enemies/missile_enemy/dead_state_missile_enemy.gd" id="5_epjmo"]
+[ext_resource type="Script" path="res://nodos/section 1/enemies/missile_enemy/hitbox.gd" id="7_1mduj"]
+[ext_resource type="Script" path="res://nodos/section 1/enemies/missile_enemy/vision_missile_enemy.gd" id="9_c54ki"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lr3ic"]
 size = Vector2(48, 32)
