@@ -57,7 +57,7 @@ position = Vector2(2532.5, -578)
 scale = Vector2(0.984214, 1.01244)
 shape = SubResource("RectangleShape2D_xyiiq")
 
-[node name="Arte" type="Node" parent="."]
+[node name="Arte" type="Node2D" parent="."]
 
 [node name="Background very far" type="CanvasLayer" parent="Arte"]
 layer = -4
@@ -7263,134 +7263,144 @@ texture = ExtResource("10_uggkv")
 position = Vector2(5214.62, 17.6923)
 texture = ExtResource("9_yw7sn")
 
-[node name="piso world" parent="." instance=ExtResource("21_oc8k0")]
-position = Vector2(2950, 0)
-scale = Vector2(49.08, 17.32)
-
-[node name="moss_house" parent="." instance=ExtResource("5_ggl8k")]
-position = Vector2(2660, -216)
-
 [node name="player" parent="." instance=ExtResource("2_8onms")]
 visibility_layer = 2
 position = Vector2(-128.081, -290.07)
 scale = Vector2(0.525, 0.51)
 
-[node name="walk_enemy" parent="." instance=ExtResource("3_4ro21")]
-position = Vector2(-89, -45)
-scale = Vector2(0.79732, 0.79732)
+[node name="world" type="Node2D" parent="."]
 
-[node name="walk_enemy5" parent="." instance=ExtResource("3_4ro21")]
-position = Vector2(-738, -112)
-scale = Vector2(0.79732, 0.79732)
-
-[node name="walk_enemy3" parent="." instance=ExtResource("3_4ro21")]
-position = Vector2(1675, -52)
-scale = Vector2(0.79732, 0.79732)
-
-[node name="walk_enemy2" parent="." instance=ExtResource("3_4ro21")]
-position = Vector2(904, -72)
-scale = Vector2(0.79732, 0.79732)
-
-[node name="walk_enemy4" parent="." instance=ExtResource("3_4ro21")]
-position = Vector2(4496, -303)
-scale = Vector2(0.79732, 0.79732)
-
-[node name="chest" parent="." instance=ExtResource("6_krfsi")]
-position = Vector2(2575, -783)
-
-[node name="patrol_enemy" parent="." instance=ExtResource("7_icycp")]
-position = Vector2(4254, -60)
-
-[node name="patrol_enemy2" parent="." instance=ExtResource("7_icycp")]
-position = Vector2(5549, -54)
-
-[node name="jump_enemy" parent="." instance=ExtResource("7_qi715")]
-position = Vector2(1729.92, -539.519)
-
-[node name="jump_enemy2" parent="." instance=ExtResource("7_qi715")]
-position = Vector2(3704, -405)
-
-[node name="jump_enemy3" parent="." instance=ExtResource("7_qi715")]
-position = Vector2(6031.95, -515.974)
-
-[node name="mid_platform_4" parent="." instance=ExtResource("28_2d03v")]
+[node name="mid_platform_4" parent="world" instance=ExtResource("28_2d03v")]
 position = Vector2(4423, -210)
 scale = Vector2(0.711865, 0.592733)
 
-[node name="small_platform" parent="." instance=ExtResource("29_dixqm")]
+[node name="small_platform" parent="world" instance=ExtResource("29_dixqm")]
 position = Vector2(-73, -188)
-scale = Vector2(-0.568135, 0.68565)
+rotation = 3.14159
+scale = Vector2(0.568135, -0.68565)
 
-[node name="mid_platform_1" parent="." instance=ExtResource("28_2d03v")]
+[node name="mid_platform_1" parent="world" instance=ExtResource("28_2d03v")]
 position = Vector2(2112, -593)
 scale = Vector2(0.406984, 0.406984)
 
-[node name="mid_platform_2" parent="." instance=ExtResource("30_j35wq")]
+[node name="mid_platform_2" parent="world" instance=ExtResource("30_j35wq")]
 position = Vector2(852, -187)
 scale = Vector2(0.739877, 0.739877)
 
-[node name="mid_platform_3" parent="." instance=ExtResource("30_j35wq")]
+[node name="mid_platform_3" parent="world" instance=ExtResource("30_j35wq")]
 position = Vector2(2579, -693)
-scale = Vector2(-0.74, 0.74)
+rotation = 3.14159
+scale = Vector2(0.74, -0.74)
 
-[node name="big_platform_2" parent="." instance=ExtResource("31_61rtr")]
+[node name="big_platform_2" parent="world" instance=ExtResource("31_61rtr")]
 position = Vector2(1306, -283)
 scale = Vector2(0.90529, 0.90529)
 
-[node name="big_platform_1" parent="." instance=ExtResource("32_4mwpf")]
+[node name="big_platform_1" parent="world" instance=ExtResource("32_4mwpf")]
 position = Vector2(1728, -395)
-scale = Vector2(-1, 1)
+rotation = 3.14159
+scale = Vector2(1, -1)
 
-[node name="big_platform_3" parent="." instance=ExtResource("31_61rtr")]
+[node name="big_platform_3" parent="world" instance=ExtResource("31_61rtr")]
 position = Vector2(4899, -291)
-scale = Vector2(-0.637, 0.887)
+rotation = 3.14159
+scale = Vector2(0.637, -0.887)
 
-[node name="big_platform_4" parent="." instance=ExtResource("32_4mwpf")]
+[node name="big_platform_4" parent="world" instance=ExtResource("32_4mwpf")]
 position = Vector2(5248, -332)
 scale = Vector2(0.708734, 0.715135)
 
-[node name="small_platform2" parent="." instance=ExtResource("29_dixqm")]
+[node name="small_platform2" parent="world" instance=ExtResource("29_dixqm")]
 position = Vector2(5583, -318)
 scale = Vector2(0.728203, 0.888682)
 
-[node name="piso plataforma grande 1" parent="." instance=ExtResource("33_kdxdm")]
+[node name="piso plataforma grande 1" parent="world" instance=ExtResource("33_kdxdm")]
 position = Vector2(-1418, -40)
 scale = Vector2(0.637092, 0.637092)
 
-[node name="plataforma piso grande 3" parent="." instance=ExtResource("34_rm0x3")]
+[node name="plataforma piso grande 3" parent="world" instance=ExtResource("34_rm0x3")]
 position = Vector2(-715, 71)
 
-[node name="plataforma piso chica" parent="." instance=ExtResource("35_1nyaj")]
+[node name="plataforma piso chica" parent="world" instance=ExtResource("35_1nyaj")]
 position = Vector2(-391, 3.99999)
 scale = Vector2(0.741511, 0.741511)
 
-[node name="plataforma piso chica2" parent="." instance=ExtResource("35_1nyaj")]
+[node name="plataforma piso chica2" parent="world" instance=ExtResource("35_1nyaj")]
 position = Vector2(509, -84)
 scale = Vector2(0.457585, 0.457585)
 
-[node name="plataforma piso grande 2" parent="." instance=ExtResource("36_226q7")]
+[node name="plataforma piso grande 2" parent="world" instance=ExtResource("36_226q7")]
 position = Vector2(273, -136)
 scale = Vector2(0.53231, 0.802283)
 
-[node name="plataforma piso grande 4" parent="." instance=ExtResource("34_rm0x3")]
+[node name="plataforma piso grande 4" parent="world" instance=ExtResource("34_rm0x3")]
 position = Vector2(3978, -42)
 scale = Vector2(0.569761, 0.569761)
 
-[node name="plataforma piso grande 5" parent="." instance=ExtResource("34_rm0x3")]
+[node name="plataforma piso grande 5" parent="world" instance=ExtResource("34_rm0x3")]
 position = Vector2(3475, -26)
 scale = Vector2(0.856963, 0.856963)
 
-[node name="plataforma piso grande escalonada" parent="." instance=ExtResource("37_fh5ud")]
+[node name="plataforma piso grande escalonada" parent="world" instance=ExtResource("37_fh5ud")]
 position = Vector2(3721, -160)
 
-[node name="piso plataforma grande 2" parent="." instance=ExtResource("33_kdxdm")]
+[node name="piso plataforma grande 2" parent="world" instance=ExtResource("33_kdxdm")]
 position = Vector2(1243, -49)
 scale = Vector2(0.492509, 0.464585)
 
-[node name="plataforma piso chica3" parent="." instance=ExtResource("35_1nyaj")]
+[node name="plataforma piso chica3" parent="world" instance=ExtResource("35_1nyaj")]
 position = Vector2(1867, -74)
 scale = Vector2(0.667488, 0.667488)
 
-[node name="piso plataforma grande 3" parent="." instance=ExtResource("33_kdxdm")]
+[node name="piso plataforma grande 3" parent="world" instance=ExtResource("33_kdxdm")]
 position = Vector2(5889, -313)
 scale = Vector2(1.28104, 1.36682)
+
+[node name="piso world" parent="world" instance=ExtResource("21_oc8k0")]
+position = Vector2(2950, 0)
+scale = Vector2(49.08, 17.32)
+
+[node name="enemies" type="Node2D" parent="."]
+
+[node name="walk_enemy" parent="enemies" instance=ExtResource("3_4ro21")]
+position = Vector2(-89, -45)
+scale = Vector2(0.79732, 0.79732)
+
+[node name="walk_enemy5" parent="enemies" instance=ExtResource("3_4ro21")]
+position = Vector2(-738, -112)
+scale = Vector2(0.79732, 0.79732)
+
+[node name="walk_enemy3" parent="enemies" instance=ExtResource("3_4ro21")]
+position = Vector2(1675, -52)
+scale = Vector2(0.79732, 0.79732)
+
+[node name="walk_enemy2" parent="enemies" instance=ExtResource("3_4ro21")]
+position = Vector2(904, -72)
+scale = Vector2(0.79732, 0.79732)
+
+[node name="walk_enemy4" parent="enemies" instance=ExtResource("3_4ro21")]
+position = Vector2(4496, -303)
+scale = Vector2(0.79732, 0.79732)
+
+[node name="patrol_enemy" parent="enemies" instance=ExtResource("7_icycp")]
+position = Vector2(4254, -60)
+
+[node name="patrol_enemy2" parent="enemies" instance=ExtResource("7_icycp")]
+position = Vector2(5549, -54)
+
+[node name="jump_enemy" parent="enemies" instance=ExtResource("7_qi715")]
+position = Vector2(1729.92, -539.519)
+
+[node name="jump_enemy2" parent="enemies" instance=ExtResource("7_qi715")]
+position = Vector2(3704, -405)
+
+[node name="jump_enemy3" parent="enemies" instance=ExtResource("7_qi715")]
+position = Vector2(6031.95, -515.974)
+
+[node name="interactables" type="Node2D" parent="."]
+
+[node name="chest" parent="interactables" instance=ExtResource("6_krfsi")]
+position = Vector2(2575, -783)
+
+[node name="moss_house" parent="interactables" instance=ExtResource("5_ggl8k")]
+position = Vector2(2660, -216)
