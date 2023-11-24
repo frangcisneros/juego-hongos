@@ -9,7 +9,7 @@ extends State
 
 
 var StateActive : bool = false
-var lines : Array
+@onready var lines : Array = first_phase_attack1_area.get_children()
 var activated_line : Node2D
 var previous_activated_line : Node2D
 
@@ -17,7 +17,6 @@ func Enter():
 	attack_to_first_phase_timer.start()
 	StateActive = true
 	attack_1_lines.start()
-	lines = get_all_children(first_phase_attack1_area)
 	activated_line = activate_line(lines)
 	previous_activated_line = activated_line
 	
@@ -31,7 +30,6 @@ func Update(_delta : float):
 		activated_line = activate_line(lines)
 		previous_activated_line.visible = false
 		previous_activated_line = activated_line
-		
 		attack_1_lines.start()
 	
 	if attack_to_first_phase_timer.is_stopped():
@@ -41,14 +39,8 @@ func Update(_delta : float):
 func UpdatePhysics(_delta:float):
 	pass
 
-func get_all_children(in_node,arr:=[]):
-	arr.push_back(in_node)
-	for child in in_node.get_children():
-		arr = get_all_children(child,arr)
-	return arr
-
 func activate_line(lines):
-	var random_line = randi()%(lines.size() - 1)+1
+	var random_line = randi()%(lines.size() - 1)+0
 	var this_line
 	if not lines[random_line].visible:
 		lines[random_line].visible = true
