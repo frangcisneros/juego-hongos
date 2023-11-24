@@ -1,20 +1,28 @@
 extends State
 
-@export var attack_to_first_phase_timer : Timer
+@export var first_phase_to_window : Timer
 @export var attack_1_lines : Timer
 
 @onready var Enemigo : CharacterBody2D = get_parent().Enemigo
+@onready var hitbox = Enemigo.get_node("hitbox")
 @onready var position2D = get_parent().position2D
 @onready var first_phase_attack1_area : Area2D = Enemigo.get_node("first_phase_attack1_area")
-
+@onready var sprite_enemigo : Sprite2D = Enemigo.get_node("position2D/Sprite2D")
 
 var StateActive : bool = false
 @onready var lines : Array = first_phase_attack1_area.get_children()
 var activated_line : Node2D
 var previous_activated_line : Node2D
 
+var test_Array = [1,2,3]
+var a
+
 func Enter():
-	attack_to_first_phase_timer.start()
+	Enemigo.set_collision_layer_value(2,false)
+	hitbox.set_collision_mask_value(32,false)
+	hitbox.set_collision_layer_value(2,false)
+	sprite_enemigo.visible = false
+	first_phase_to_window.start()
 	StateActive = true
 	attack_1_lines.start()
 	activated_line = activate_line(lines)
@@ -32,8 +40,8 @@ func Update(_delta : float):
 		previous_activated_line = activated_line
 		attack_1_lines.start()
 	
-	if attack_to_first_phase_timer.is_stopped():
-		Transition.emit(self,"first_phase_initial_state_boss_first_boss")
+	if first_phase_to_window.is_stopped():
+		Transition.emit(self,"first_phase_window_state_first_boss")
 	pass
 			
 func UpdatePhysics(_delta:float):

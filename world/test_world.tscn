@@ -9,11 +9,11 @@ process_mode = 1
 script = ExtResource("1_hbace")
 spawn = NodePath("spawn")
 
-[node name="boss_platforms" type="Node2D" parent="."]
-
-[node name="platform_world2" parent="boss_platforms" instance=ExtResource("1_h2qiq")]
+[node name="platform_world2" parent="." instance=ExtResource("1_h2qiq")]
 position = Vector2(192, -184)
 scale = Vector2(3.6, 1)
+
+[node name="boss_platforms" type="Node2D" parent="."]
 
 [node name="platform_world3" parent="boss_platforms" instance=ExtResource("1_h2qiq")]
 position = Vector2(-288, -288)
@@ -47,4 +47,4 @@ scale = Vector2(0.3, 0.3)
 position = Vector2(-672, -264)
 
 [node name="boss_1" parent="." instance=ExtResource("3_eihvs")]
-position = Vector2(-440, -408)
+position = Vector2(-240, -352)
