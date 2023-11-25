@@ -16,6 +16,8 @@ var attack_list = ["second_phase_attack1_state_first_boss","second_phase_attack2
 var random_attack : int
 
 var StateActive : bool = false
+var starter_health = 50
+var new_health = starter_health
 
 func Enter():
 	Enemigo.position2D.scale.x = abs(player.position.x) / player.position.x 
@@ -25,8 +27,6 @@ func Enter():
 	
 	Enemigo.set_collision_mask_value(4,true)
 	Enemigo.set_collision_layer_value(2,true)
-	
-	
 	
 	attack_1.visible = false
 	attack_2.visible = false
@@ -42,6 +42,7 @@ func Exit():
 	StateActive = false
 	
 func Update(_delta : float):
+	to_window(5)
 	if second_phase_to_attack_timer.is_stopped():
 		Transition.emit(self,attack_list[random_attack])
 
@@ -56,3 +57,8 @@ func delete_platforms(platforms):
 	for i in platforms:
 		i.queue_free()
 
+func to_window(amount_of_windows):
+	if Enemigo.health <= new_health - (starter_health / amount_of_windows):
+		new_health = new_health - (starter_health / amount_of_windows)
+		Transition.emit(self,"second_phase_window_state_first_boss")
+		

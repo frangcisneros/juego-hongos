@@ -154,8 +154,9 @@ attack_to_second_phase = NodePath("../../attack_to_second_phase")
 script = ExtResource("14_3q7rr")
 attack_to_second_phase = NodePath("../../attack_to_second_phase")
 
-[node name="second_phase_window_state_first_boss" type="Node" parent="state_machine_first_boss"]
+[node name="second_phase_window_state_first_boss" type="Node" parent="state_machine_first_boss" node_paths=PackedStringArray("window_to_first_phase")]
 script = ExtResource("15_2bcf7")
+window_to_first_phase = NodePath("../../window_to_first_phase")
 
 [node name="dead_state_first_boss" type="Node" parent="state_machine_first_boss"]
 script = ExtResource("16_cf043")
