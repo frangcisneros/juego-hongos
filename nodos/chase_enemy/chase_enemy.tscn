@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://b37c4705el0oa"]
 
 [ext_resource type="Script" path="res://nodos/chase_enemy/chase_enemy.gd" id="1_dya4w"]
-[ext_resource type="Texture2D" uid="uid://bqh0w6153q0gf" path="res://arte/prota.png" id="2_f5vwm"]
+[ext_resource type="Texture2D" uid="uid://bqh0w6153q0gf" path="res://arte/Assets/prota.png" id="2_f5vwm"]
 [ext_resource type="Script" path="res://nodos/chase_enemy/state_machine_chase_enemy.gd" id="3_yg5su"]
 [ext_resource type="Script" path="res://nodos/chase_enemy/idle_state_chase_enemy.gd" id="4_30ip5"]
 [ext_resource type="Script" path="res://nodos/chase_enemy/chasing_state_chase_enemy.gd" id="5_ukk1a"]

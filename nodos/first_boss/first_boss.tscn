@@ -1,9 +1,10 @@
-[gd_scene load_steps=22 format=3 uid="uid://cer2nel7dtn3r"]
+[gd_scene load_steps=27 format=3 uid="uid://cer2nel7dtn3r"]
 
 [ext_resource type="Script" path="res://nodos/first_boss/first_boss.gd" id="1_nihfp"]
 [ext_resource type="Texture2D" uid="uid://bqh0w6153q0gf" path="res://arte/Assets/prota.png" id="1_sqtby"]
 [ext_resource type="Script" path="res://nodos/first_boss/hitbox.gd" id="3_5m5ew"]
 [ext_resource type="Script" path="res://nodos/first_boss/state_machine_first_boss.gd" id="3_icmwx"]
+[ext_resource type="Script" path="res://nodos/first_boss/attack_1.gd" id="4_y52m6"]
 [ext_resource type="Script" path="res://nodos/first_boss/first_phase_initial_state_boss_first_boss.gd" id="4_yhj2j"]
 [ext_resource type="Script" path="res://nodos/first_boss/first_phase_attack1_state_first_boss.gd" id="5_w7trb"]
 [ext_resource type="Script" path="res://nodos/first_boss/first_phase_attack2_state_first_boss.gd" id="6_sc8hq"]
@@ -21,6 +22,18 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0w2ht"]
 radius = 19.0
 height = 60.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xab17"]
+radius = 40.0125
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nsldc"]
+size = Vector2(129.625, 18)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g7ydp"]
+size = Vector2(20, 148)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7lxh2"]
+radius = 24.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6dwlc"]
 size = Vector2(30.5, 8)
@@ -52,11 +65,48 @@ debug_color = Color(0.776471, 0.384314, 0.572549, 0.419608)
 scale = Vector2(0.238462, 0.238462)
 texture = ExtResource("1_sqtby")
 
-[node name="RayCast2D" type="RayCast2D" parent="position2D"]
+[node name="attack_1" type="Area2D" parent="position2D"]
+position = Vector2(70, 0)
+collision_layer = 2
+monitoring = false
+monitorable = false
+script = ExtResource("4_y52m6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="position2D/attack_1"]
+shape = SubResource("CircleShape2D_xab17")
+
+[node name="attack_2" type="Area2D" parent="position2D"]
+position = Vector2(154, -41)
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="position2D/attack_2"]
+position = Vector2(-65, 0)
+shape = SubResource("RectangleShape2D_nsldc")
+
+[node name="attack_3" type="Area2D" parent="position2D"]
+position = Vector2(46, -41)
+monitoring = false
+monitorable = false
+
+[node name="RigidBody2D" type="RigidBody2D" parent="position2D/attack_3"]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="position2D/attack_3/RigidBody2D"]
+shape = SubResource("RectangleShape2D_g7ydp")
+
+[node name="attack_4" type="Area2D" parent="position2D"]
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="position2D/attack_4"]
+rotation = 1.5708
+shape = SubResource("CircleShape2D_7lxh2")
 
 [node name="state_machine_first_boss" type="Node" parent="." node_paths=PackedStringArray("initial_state", "Enemigo", "position2D")]
 script = ExtResource("3_icmwx")
-initial_state = NodePath("first_phase_initial_state_boss_first_boss")
+initial_state = NodePath("second_phase_initial_state_boss_first_boss")
 Enemigo = NodePath("..")
 position2D = NodePath("../position2D")
 
@@ -84,20 +134,25 @@ script = ExtResource("8_3irob")
 [node name="break_platforms_state_first_boss" type="Node" parent="state_machine_first_boss"]
 script = ExtResource("9_686sj")
 
-[node name="second_phase_initial_state_boss_first_boss" type="Node" parent="state_machine_first_boss"]
+[node name="second_phase_initial_state_boss_first_boss" type="Node" parent="state_machine_first_boss" node_paths=PackedStringArray("second_phase_to_attack_timer")]
 script = ExtResource("10_4gku6")
+second_phase_to_attack_timer = NodePath("../../second_phase_to_attack_timer")
 
-[node name="second_phase_attack1_state_first_boss" type="Node" parent="state_machine_first_boss"]
+[node name="second_phase_attack1_state_first_boss" type="Node" parent="state_machine_first_boss" node_paths=PackedStringArray("attack_to_second_phase")]
 script = ExtResource("11_g318s")
+attack_to_second_phase = NodePath("../../attack_to_second_phase")
 
-[node name="second_phase_attack2_state_first_boss" type="Node" parent="state_machine_first_boss"]
+[node name="second_phase_attack2_state_first_boss" type="Node" parent="state_machine_first_boss" node_paths=PackedStringArray("attack_to_second_phase")]
 script = ExtResource("12_c31r0")
+attack_to_second_phase = NodePath("../../attack_to_second_phase")
 
-[node name="second_phase_attack3_state_first_boss" type="Node" parent="state_machine_first_boss"]
+[node name="second_phase_attack3_state_first_boss" type="Node" parent="state_machine_first_boss" node_paths=PackedStringArray("attack_to_second_phase")]
 script = ExtResource("13_qi5qb")
+attack_to_second_phase = NodePath("../../attack_to_second_phase")
 
-[node name="second_phase_attack4_state_first_boss" type="Node" parent="state_machine_first_boss"]
+[node name="second_phase_attack4_state_first_boss" type="Node" parent="state_machine_first_boss" node_paths=PackedStringArray("attack_to_second_phase")]
 script = ExtResource("14_3q7rr")
+attack_to_second_phase = NodePath("../../attack_to_second_phase")
 
 [node name="second_phase_window_state_first_boss" type="Node" parent="state_machine_first_boss"]
 script = ExtResource("15_2bcf7")
@@ -107,6 +162,9 @@ script = ExtResource("16_cf043")
 
 [node name="first_phase_to_attack_timer" type="Timer" parent="."]
 wait_time = 0.5
+one_shot = true
+
+[node name="second_phase_to_attack_timer" type="Timer" parent="."]
 one_shot = true
 
 [node name="attack_1_lines" type="Timer" parent="."]
@@ -123,24 +181,26 @@ one_shot = true
 wait_time = 3.0
 one_shot = true
 
+[node name="attack_to_second_phase" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 27)
 shape = SubResource("RectangleShape2D_6dwlc")
 
 [node name="first_phase_attack1_area" type="Area2D" parent="."]
+visible = false
 
 [node name="line1" type="CollisionShape2D" parent="first_phase_attack1_area"]
-visible = false
 position = Vector2(0, -67)
 shape = SubResource("RectangleShape2D_qo2oc")
 
 [node name="line2" type="CollisionShape2D" parent="first_phase_attack1_area"]
-visible = false
 position = Vector2(0, 44)
 shape = SubResource("RectangleShape2D_qo2oc")
 
 [node name="line3" type="CollisionShape2D" parent="first_phase_attack1_area"]
-visible = false
 position = Vector2(0, 85)
 shape = SubResource("RectangleShape2D_qo2oc")
 

@@ -8,6 +8,7 @@ extends State
 
 var attack_list = ["first_phase_attack1_state_first_boss","first_phase_attack2_state_first_boss"]
 var next_attack : String
+var break_ceiling : bool = false
 
 var StateActive : bool = false
 
@@ -23,8 +24,11 @@ func Exit():
 func Update(_delta : float):
 	if first_phase_to_attack_timer.is_stopped():
 		Transition.emit(self,attack_list[0])
-#		Transition.emit(self,"first_phase_attack1_state_first_boss")
-#		Transition.emit(self,"first_phase_attack2_state_first_boss")
+	if Enemigo.health <= 75 and not break_ceiling:
+		break_ceiling = true
+		Transition.emit(self,"break_ceiling_state_first_boss")
+	if Enemigo.health <= 50:
+		Transition.emit(self,"second_phase_initial_state_boss_first_boss")
 	pass
 			
 func UpdatePhysics(_delta:float):

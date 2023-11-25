@@ -76,11 +76,9 @@ scale = Vector2(0.149393, 0.823182)
 texture = ExtResource("5_pc6bh")
 
 [node name="hitbox_player" type="Area2D" parent="."]
-position = Vector2(-41.9048, -81.9048)
 collision_mask = 38
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox_player"]
-position = Vector2(40.9524, 81.9048)
 shape = SubResource("CapsuleShape2D_ycceo")
 debug_color = Color(0.0313726, 0.647059, 0.164706, 0.419608)
 

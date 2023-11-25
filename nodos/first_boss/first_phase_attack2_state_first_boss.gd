@@ -14,6 +14,7 @@ var StateActive : bool = false
 @onready var hitbox = Enemigo.get_node("hitbox")
 
 func Enter():
+	platforms = boss_platforms.get_children()
 	Enemigo.set_collision_layer_value(2,false)
 	hitbox.set_collision_mask_value(32,false)
 	hitbox.set_collision_layer_value(2,false)
@@ -22,6 +23,7 @@ func Enter():
 	first_phase_to_window.start()
 	activate_platforms(platforms,safe_areas)	
 	StateActive = true
+	
 	
 func Exit():
 	first_phase_attack2_area.visible = false
