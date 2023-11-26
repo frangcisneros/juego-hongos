@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://2bxnpi0o6m4"]
 
 [ext_resource type="Script" path="res://nodos/flip_enemy/flip_enemy.gd" id="1_oqvle"]
-[ext_resource type="Texture2D" uid="uid://bqh0w6153q0gf" path="res://arte/prota.png" id="2_ghnxk"]
+[ext_resource type="Texture2D" uid="uid://bqh0w6153q0gf" path="res://arte/Assets/prota.png" id="2_ghnxk"]
 [ext_resource type="Script" path="res://nodos/flip_enemy/hitbox.gd" id="3_fx77k"]
 [ext_resource type="Script" path="res://nodos/flip_enemy/vision.gd" id="3_v3lnu"]
 [ext_resource type="Script" path="res://nodos/flip_enemy/state_machine_flip_enemy.gd" id="4_5len2"]

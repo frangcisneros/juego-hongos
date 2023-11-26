@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://cer2nel7dtn3r"]
+[gd_scene load_steps=29 format=3 uid="uid://cer2nel7dtn3r"]
 
 [ext_resource type="Script" path="res://nodos/first_boss/first_boss.gd" id="1_nihfp"]
 [ext_resource type="Texture2D" uid="uid://bqh0w6153q0gf" path="res://arte/Assets/prota.png" id="1_sqtby"]
@@ -14,10 +14,14 @@
 [ext_resource type="Script" path="res://nodos/first_boss/second_phase_initial_state_boss_first_boss.gd" id="10_4gku6"]
 [ext_resource type="Script" path="res://nodos/first_boss/second_phase_attack1_state_first_boss.gd" id="11_g318s"]
 [ext_resource type="Script" path="res://nodos/first_boss/second_phase_attack2_state_first_boss.gd" id="12_c31r0"]
+[ext_resource type="Script" path="res://nodos/first_boss/second_phase_run_state_boss_first_boss.gd" id="13_7we24"]
 [ext_resource type="Script" path="res://nodos/first_boss/second_phase_attack3_state_first_boss.gd" id="13_qi5qb"]
 [ext_resource type="Script" path="res://nodos/first_boss/second_phase_attack4_state_first_boss.gd" id="14_3q7rr"]
 [ext_resource type="Script" path="res://nodos/first_boss/second_phase_window_state_first_boss.gd" id="15_2bcf7"]
 [ext_resource type="Script" path="res://nodos/first_boss/dead_state_first_boss.gd" id="16_cf043"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_annbl"]
+radius = 99.8499
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0w2ht"]
 radius = 19.0
@@ -50,6 +54,20 @@ collision_mask = 32
 script = ExtResource("1_nihfp")
 position2D = NodePath("position2D")
 
+[node name="run_area" type="Area2D" parent="."]
+position = Vector2(0, 1)
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="run_area"]
+shape = SubResource("CircleShape2D_annbl")
+debug_color = Color(0.45098, 0.572549, 0.478431, 0.419608)
+
+[node name="point1" type="Marker2D" parent="."]
+position = Vector2(-256, 0)
+
+[node name="point2" type="Marker2D" parent="."]
+position = Vector2(256, 0)
+
 [node name="hitbox" type="Area2D" parent="."]
 collision_layer = 2
 collision_mask = 32
@@ -67,7 +85,7 @@ texture = ExtResource("1_sqtby")
 
 [node name="attack_1" type="Area2D" parent="position2D"]
 position = Vector2(70, 0)
-collision_layer = 2
+collision_layer = 0
 monitoring = false
 monitorable = false
 script = ExtResource("4_y52m6")
@@ -137,6 +155,9 @@ script = ExtResource("9_686sj")
 [node name="second_phase_initial_state_boss_first_boss" type="Node" parent="state_machine_first_boss" node_paths=PackedStringArray("second_phase_to_attack_timer")]
 script = ExtResource("10_4gku6")
 second_phase_to_attack_timer = NodePath("../../second_phase_to_attack_timer")
+
+[node name="second_phase_run_state_boss_first_boss" type="Node" parent="state_machine_first_boss"]
+script = ExtResource("13_7we24")
 
 [node name="second_phase_attack1_state_first_boss" type="Node" parent="state_machine_first_boss" node_paths=PackedStringArray("attack_to_second_phase")]
 script = ExtResource("11_g318s")
@@ -219,3 +240,5 @@ shape = SubResource("CircleShape2D_j62ag")
 [node name="bubble3" type="CollisionShape2D" parent="first_phase_attack2_area"]
 position = Vector2(139, 75)
 shape = SubResource("CircleShape2D_j62ag")
+
+[connection signal="body_entered" from="run_area" to="state_machine_first_boss/second_phase_initial_state_boss_first_boss" method="_on_run_area_body_entered"]
