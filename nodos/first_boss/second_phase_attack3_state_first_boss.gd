@@ -23,7 +23,7 @@ func Enter():
 	
 	attack_to_second_phase.start()
 	
-	attack_3_rigidbody.apply_force(Vector2(3000,0))
+	attack_3_rigidbody.apply_force(Vector2(Enemigo.position2D.scale.x *  3000,0))
 	StateActive = true
 	
 func Exit():
