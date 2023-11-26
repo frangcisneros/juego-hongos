@@ -13,12 +13,14 @@ extends State
 @onready var rest_timer = Enemigo.get_node("rest_timer")
 @onready var position2D = get_parent().position2D
 
+@onready var state_machine = animation_tree["parameters/playback"]
+
 var StateActive : bool = false
 
 func Enter():
 	rest_timer.start()
 	StateActive = true
-	animation_tree.set("parameters/Patrulla/blend_position",0)
+	state_machine.travel("idle")
 	animation_player.set("speed_scale", 1)
 	
 func Exit():
@@ -31,7 +33,6 @@ func Update(_delta : float):
 		Enemigo.get_node("position2D/detection_area").set_deferred("monitoring",true)
 
 	if(Enemigo.health <= 0):
-		Enemigo.set_rotation_degrees(180)
 		Transition.emit(self, "dead_state_patrol_enemy")
 	
 	if position2D.scale.x == 1:

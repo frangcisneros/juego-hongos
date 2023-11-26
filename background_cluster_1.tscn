@@ -46,5 +46,4 @@ texture = ExtResource("3_qi57a")
 [node name="PiedraMedianaFondo" type="Sprite2D" parent="."]
 position = Vector2(-210, 18)
 rotation = -0.789604
-scale = Vector2(1, 1)
 texture = ExtResource("1_w86iy")

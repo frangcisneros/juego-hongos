@@ -1,8 +1,10 @@
-[gd_scene load_steps=42 format=3 uid="uid://cqvycjf6wy0df"]
+[gd_scene load_steps=51 format=3 uid="uid://cqvycjf6wy0df"]
 
 [ext_resource type="Script" path="res://nodos/patrol_enemy/patrol_enemy.gd" id="1_lqiqa"]
 [ext_resource type="Texture2D" uid="uid://xmaew1ertpoi" path="res://arte/Animaciones/Seccion 1 Musgo/patrulla/frames/patrullar/0008.png" id="2_ff1xk"]
+[ext_resource type="Texture2D" uid="uid://dl0yknhof6oax" path="res://arte/Animaciones/Seccion 1 Musgo/patrulla/frames/death/0019.png" id="3_6g3yh"]
 [ext_resource type="Script" path="res://nodos/patrol_enemy/state_machine_patrol_enemy.gd" id="3_m0d4l"]
+[ext_resource type="Texture2D" uid="uid://cbtuk4s4t4r0b" path="res://arte/Animaciones/Seccion 1 Musgo/patrulla/frames/death/0004.png" id="3_o1gl7"]
 [ext_resource type="Script" path="res://nodos/patrol_enemy/vision.gd" id="3_qa4vv"]
 [ext_resource type="Script" path="res://nodos/patrol_enemy/idle_state_patrol_enemy.gd" id="4_xch8n"]
 [ext_resource type="Script" path="res://nodos/patrol_enemy/atack_state_patrol_enemy.gd" id="5_h5tcb"]
@@ -13,16 +15,26 @@
 [ext_resource type="Texture2D" uid="uid://dn8g48d1t2jwn" path="res://arte/Animaciones/Seccion 1 Musgo/patrulla/frames/patrullar/0003.png" id="9_suo07"]
 [ext_resource type="Texture2D" uid="uid://bsjd1clgyh2uu" path="res://arte/Animaciones/Seccion 1 Musgo/patrulla/frames/patrullar/0004.png" id="10_nq1k4"]
 [ext_resource type="Texture2D" uid="uid://r33p5h2u6hsf" path="res://arte/Animaciones/Seccion 1 Musgo/patrulla/frames/patrullar/0005.png" id="11_frcl6"]
+[ext_resource type="Texture2D" uid="uid://cltmyf61okh12" path="res://arte/Animaciones/Seccion 1 Musgo/patrulla/frames/death/0007.png" id="12_1rvft"]
 [ext_resource type="Texture2D" uid="uid://b8j4yxx0ccb7p" path="res://arte/Animaciones/Seccion 1 Musgo/patrulla/frames/patrullar/0006.png" id="12_bswng"]
 [ext_resource type="Texture2D" uid="uid://b16rjo6bxwhxb" path="res://arte/Animaciones/Seccion 1 Musgo/patrulla/frames/patrullar/0007.png" id="13_rp7m1"]
+[ext_resource type="Texture2D" uid="uid://uwxef0w5rkk" path="res://arte/Animaciones/Seccion 1 Musgo/patrulla/frames/death/0009.png" id="13_w3qc8"]
+[ext_resource type="Texture2D" uid="uid://dpu5b4adrjfie" path="res://arte/Animaciones/Seccion 1 Musgo/patrulla/frames/death/0010.png" id="14_1hlrh"]
 [ext_resource type="Texture2D" uid="uid://d32nphi2o57u0" path="res://arte/Animaciones/Seccion 1 Musgo/patrulla/frames/ataque/0001.png" id="14_10bky"]
 [ext_resource type="Texture2D" uid="uid://bh6mwx73cpbu1" path="res://arte/Animaciones/Seccion 1 Musgo/patrulla/frames/ataque/0002.png" id="15_ql1rn"]
+[ext_resource type="Texture2D" uid="uid://dfgbugy6nmc58" path="res://arte/Animaciones/Seccion 1 Musgo/patrulla/frames/death/0012.png" id="15_te3am"]
 [ext_resource type="Texture2D" uid="uid://djem2760w480s" path="res://arte/Animaciones/Seccion 1 Musgo/patrulla/frames/ataque/0003.png" id="16_1nftr"]
+[ext_resource type="Texture2D" uid="uid://r6bprqnpjw4p" path="res://arte/Animaciones/Seccion 1 Musgo/patrulla/frames/death/0013.png" id="16_lb6ku"]
 [ext_resource type="Texture2D" uid="uid://dw6bdkws7kpm6" path="res://arte/Animaciones/Seccion 1 Musgo/patrulla/frames/ataque/0004.png" id="17_1k6t5"]
+[ext_resource type="Texture2D" uid="uid://bevpvrllmwi1d" path="res://arte/Animaciones/Seccion 1 Musgo/patrulla/frames/death/0015.png" id="17_g2rn4"]
+[ext_resource type="Texture2D" uid="uid://cqm1qecmtesv2" path="res://arte/Animaciones/Seccion 1 Musgo/patrulla/frames/death/0017.png" id="18_tjjue"]
 [ext_resource type="Texture2D" uid="uid://dfs6e5bi5bw0o" path="res://arte/Animaciones/Seccion 1 Musgo/patrulla/frames/ataque/0005.png" id="18_tspkg"]
 [ext_resource type="Texture2D" uid="uid://dedjma6by6rcy" path="res://arte/Animaciones/Seccion 1 Musgo/patrulla/frames/ataque/0006.png" id="19_27v4m"]
+[ext_resource type="Texture2D" uid="uid://2uyq3eb44kgu" path="res://arte/Animaciones/Seccion 1 Musgo/patrulla/frames/death/0020.png" id="19_r2cct"]
+[ext_resource type="Texture2D" uid="uid://uoj5lyo6sf56" path="res://arte/Animaciones/Seccion 1 Musgo/patrulla/frames/death/0022.png" id="20_iutg2"]
 [ext_resource type="Texture2D" uid="uid://kg2ej7w7ja3y" path="res://arte/Animaciones/Seccion 1 Musgo/patrulla/frames/ataque/0007.png" id="20_mdv2v"]
 [ext_resource type="Texture2D" uid="uid://2xyjj11tmrr6" path="res://arte/Animaciones/Seccion 1 Musgo/patrulla/frames/ataque/0008.png" id="21_4da80"]
+[ext_resource type="Texture2D" uid="uid://ii15qif3ssge" path="res://arte/Animaciones/Seccion 1 Musgo/patrulla/frames/death/0024.png" id="21_jkhco"]
 [ext_resource type="Script" path="res://nodos/patrol_enemy/hitbox.gd" id="23_c4pf1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4sxdg"]
@@ -39,10 +51,8 @@ height = 16.6667
 radius = 9.0
 height = 24.0
 
-[sub_resource type="Animation" id="Animation_xpccb"]
-resource_name = "Ataque"
-length = 0.7
-loop_mode = 1
+[sub_resource type="Animation" id="Animation_6f050"]
+resource_name = "hitted"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -50,14 +60,30 @@ tracks/0/path = NodePath(".:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0001, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_ff1xk"), ExtResource("14_10bky"), ExtResource("15_ql1rn"), ExtResource("16_1nftr"), ExtResource("17_1k6t5"), ExtResource("18_tspkg"), ExtResource("19_27v4m"), ExtResource("20_mdv2v"), ExtResource("21_4da80")]
+"values": [ExtResource("3_o1gl7")]
+}
+
+[sub_resource type="Animation" id="Animation_y5271"]
+resource_name = "death"
+step = 0.041
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0001, 0.123, 0.205, 0.246, 0.328, 0.369, 0.451, 0.533, 0.615, 0.656, 0.738, 0.82),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("3_o1gl7"), ExtResource("7_fqwyd"), ExtResource("12_1rvft"), ExtResource("13_w3qc8"), ExtResource("14_1hlrh"), ExtResource("15_te3am"), ExtResource("16_lb6ku"), ExtResource("17_g2rn4"), ExtResource("18_tjjue"), ExtResource("3_6g3yh"), ExtResource("19_r2cct"), ExtResource("20_iutg2"), ExtResource("21_jkhco")]
 }
 
 [sub_resource type="Animation" id="Animation_cevp5"]
-resource_name = "Patrulla"
+resource_name = "idle"
 length = 0.7
 loop_mode = 1
 tracks/0/type = "value"
@@ -73,57 +99,53 @@ tracks/0/keys = {
 "values": [ExtResource("7_fqwyd"), ExtResource("8_d5vwt"), ExtResource("9_suo07"), ExtResource("10_nq1k4"), ExtResource("11_frcl6"), ExtResource("12_bswng"), ExtResource("13_rp7m1"), ExtResource("2_ff1xk")]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_3f2gt"]
-_data = {
-"Ataque": SubResource("Animation_xpccb"),
-"Patrulla": SubResource("Animation_cevp5")
+[sub_resource type="Animation" id="Animation_xpccb"]
+resource_name = "attack"
+length = 0.7
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("14_10bky"), ExtResource("15_ql1rn"), ExtResource("16_1nftr"), ExtResource("17_1k6t5"), ExtResource("18_tspkg"), ExtResource("19_27v4m"), ExtResource("20_mdv2v"), ExtResource("21_4da80")]
 }
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6wdeb"]
-animation = &"Patrulla"
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3f2gt"]
+_data = {
+"attack": SubResource("Animation_xpccb"),
+"death": SubResource("Animation_y5271"),
+"hitted": SubResource("Animation_6f050"),
+"idle": SubResource("Animation_cevp5")
+}
 
-[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_8f07x"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gvhrc"]
+animation = &"attack"
 
-[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_qnjbd"]
-graph_offset = Vector2(86.0551, 30.0788)
-nodes/Animation/node = SubResource("AnimationNodeAnimation_6wdeb")
-nodes/Animation/position = Vector2(280, 160)
-nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_8f07x")
-nodes/TimeScale/position = Vector2(520, 160)
-nodes/output/position = Vector2(780, 140)
-node_connections = [&"output", 0, &"TimeScale", &"TimeScale", 0, &"Animation"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qsryy"]
+animation = &"death"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4v22o"]
-animation = &"Patrulla"
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_30oay"]
+animation = &"hitted"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_sxwff"]
-animation = &"Ataque"
-
-[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_eq58g"]
-blend_point_0/node = SubResource("AnimationNodeAnimation_4v22o")
-blend_point_0/pos = 0.0
-blend_point_1/node = SubResource("AnimationNodeAnimation_sxwff")
-blend_point_1/pos = 1.0
-blend_mode = 1
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xs775"]
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_wv45k"]
-advance_mode = 2
-advance_condition = &"unhit"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_cqwp3"]
-advance_mode = 2
-advance_condition = &"hit"
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_x71xa"]
+animation = &"idle"
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_dqn0s"]
-states/BlendTree/node = SubResource("AnimationNodeBlendTree_qnjbd")
-states/BlendTree/position = Vector2(685, 87.6667)
-states/Patrulla/node = SubResource("AnimationNodeBlendSpace1D_eq58g")
-states/Patrulla/position = Vector2(408, 87.6667)
-states/Start/position = Vector2(172, 100)
-transitions = ["Start", "Patrulla", SubResource("AnimationNodeStateMachineTransition_xs775"), "BlendTree", "Patrulla", SubResource("AnimationNodeStateMachineTransition_wv45k"), "Patrulla", "BlendTree", SubResource("AnimationNodeStateMachineTransition_cqwp3")]
+states/Start/position = Vector2(160, 108.444)
+states/attack/node = SubResource("AnimationNodeAnimation_gvhrc")
+states/attack/position = Vector2(602.667, 86)
+states/death/node = SubResource("AnimationNodeAnimation_qsryy")
+states/death/position = Vector2(602.667, 184.667)
+states/hitted/node = SubResource("AnimationNodeAnimation_30oay")
+states/hitted/position = Vector2(403.556, 186)
+states/idle/node = SubResource("AnimationNodeAnimation_x71xa")
+states/idle/position = Vector2(403.391, 85.2922)
 
 [node name="patrol_enemy" type="CharacterBody2D" node_paths=PackedStringArray("position2D")]
 scale = Vector2(3, 3)
@@ -141,7 +163,7 @@ script = ExtResource("3_qa4vv")
 [node name="Sprite2D" type="Sprite2D" parent="position2D"]
 position = Vector2(3, -4)
 scale = Vector2(0.0475962, 0.0475962)
-texture = ExtResource("2_ff1xk")
+texture = ExtResource("3_6g3yh")
 
 [node name="detection_area" type="Area2D" parent="position2D"]
 collision_layer = 2
@@ -231,10 +253,7 @@ libraries = {
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_dqn0s")
 anim_player = NodePath("../AnimationPlayer")
-parameters/conditions/hit = false
-parameters/conditions/unhit = false
-parameters/BlendTree/TimeScale/scale = 0.0
-parameters/Patrulla/blend_position = 0
+active = true
 
 [connection signal="body_entered" from="position2D/detection_area" to="state_machine_patrol_enemy/idle_state_patrol_enemy" method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="position2D/collision_query" to="state_machine_patrol_enemy/idle_state_patrol_enemy" method="_on_collision_query_body_exited"]

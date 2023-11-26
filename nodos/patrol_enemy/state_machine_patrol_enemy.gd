@@ -4,8 +4,6 @@ extends Node
 @export var Enemigo: CharacterBody2D
 @export var position2D : Marker2D
 
-
-
 var states :  Dictionary = {}
 var currentState : State
 
@@ -45,4 +43,8 @@ func on_child_transition(state, new_state_name):
 	currentState = new_state #haces que el nuevo estado sea el estado actual
 
 func on_hit_transition():
-	on_child_transition(currentState, "hitted_state_patrol_enemy")
+	if Enemigo.health < 0:
+		on_child_transition(currentState, "hitted_state_patrol_enemy")
+	else:
+		on_child_transition(currentState, "hitted_state_patrol_enemy")
+		

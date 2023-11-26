@@ -8,16 +8,16 @@ extends State
 @export var animation_player : AnimationPlayer
 @export var animation_tree : AnimationTree
 
+@onready var state_machine = animation_tree["parameters/playback"]
+
 var StateActive : bool = false
 
 
 func Enter():
-	animation_tree.set("parameters/conditions/unhit",false)
-	animation_tree.set("parameters/conditions/hit",true)
+	state_machine.travel("death")
 	off_hitbox()
 	Enemigo.drop_coin(5)
 	Enemigo.velocity.x = 0;
-	Enemigo.set_rotation_degrees(180)
 	corpse_timer.start()
 	StateActive = true
 

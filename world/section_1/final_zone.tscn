@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://b27pr5ox0vcis"]
+[gd_scene load_steps=26 format=3 uid="uid://b27pr5ox0vcis"]
 
 [ext_resource type="PackedScene" uid="uid://dj07mg1sgtrmu" path="res://nodos/player/player.tscn" id="3_012lf"]
 [ext_resource type="PackedScene" uid="uid://cssevd6rtecpf" path="res://nodos/armor_walker/armor_walker.tscn" id="3_rfkgb"]
@@ -17,6 +17,17 @@
 [ext_resource type="PackedScene" uid="uid://bdfsbpgcqvp7f" path="res://nodos/platforms/moss_platforms/small_platform.tscn" id="13_yhg3x"]
 [ext_resource type="PackedScene" uid="uid://bpw5gqhj8wl4b" path="res://nodos/platforms/moss_platforms/mid_platform_1.tscn" id="14_7v0fq"]
 [ext_resource type="PackedScene" uid="uid://cax4ymewi4o8b" path="res://nodos/platforms/moss_platforms/mid_platform_2.tscn" id="18_5qxoj"]
+[ext_resource type="Texture2D" uid="uid://c4howjk38jbcw" path="res://arte/Assets/Seccion 1 Musgo/Fondo Blanco para difuminado.png" id="18_2023d"]
+[ext_resource type="Shader" path="res://mundo parallax con texturas/blur.gdshader" id="19_ffbxe"]
+[ext_resource type="PackedScene" uid="uid://csw2rthmct80r" path="res://background_super_cluster_2.tscn" id="20_fdl3i"]
+[ext_resource type="PackedScene" uid="uid://fwoldn4gbe0q" path="res://background_cluster_3.tscn" id="21_b2hjh"]
+[ext_resource type="PackedScene" uid="uid://dou6n6yg5qopu" path="res://background_cluster_1.tscn" id="22_62jbm"]
+[ext_resource type="PackedScene" uid="uid://bo2xy5sojbqi1" path="res://background_cluster_2.tscn" id="23_56lqb"]
+[ext_resource type="PackedScene" uid="uid://bi80arypl6fu4" path="res://background_super_cluster_1.tscn" id="24_dokik"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7vlow"]
+shader = ExtResource("19_ffbxe")
+shader_parameter/lod = 0.383
 
 [node name="final_zone" type="Node2D"]
 
@@ -74,6 +85,69 @@ position = Vector2(10904, -63)
 position = Vector2(7621, -247)
 
 [node name="world" type="Node2D" parent="."]
+
+[node name="mid_platform_2" parent="world" instance=ExtResource("18_5qxoj")]
+position = Vector2(5341, -302)
+scale = Vector2(0.506152, 0.506152)
+
+[node name="mid_platform_3" parent="world" instance=ExtResource("14_7v0fq")]
+position = Vector2(5747, -282)
+scale = Vector2(0.711915, 0.711915)
+
+[node name="small_platform2" parent="world" instance=ExtResource("13_yhg3x")]
+position = Vector2(6124, -362)
+scale = Vector2(0.562637, 0.562637)
+
+[node name="big_platform_3" parent="world" instance=ExtResource("11_np6pd")]
+position = Vector2(6500, -288)
+
+[node name="big_platform_4" parent="world" instance=ExtResource("12_x8l3e")]
+position = Vector2(6849, -441)
+scale = Vector2(0.583623, 0.583623)
+
+[node name="big_platform_5" parent="world" instance=ExtResource("11_np6pd")]
+position = Vector2(5021, -253)
+scale = Vector2(0.528902, 0.528902)
+
+[node name="plataforma piso grande 4" parent="world" instance=ExtResource("11_aujqg")]
+position = Vector2(9732, -337)
+rotation = 0.304718
+scale = Vector2(0.651519, 0.651519)
+
+[node name="piso plataforma grande 3" parent="world" instance=ExtResource("10_a2oxr")]
+position = Vector2(9705, -694)
+scale = Vector2(1.42091, 1.42091)
+
+[node name="small_platform3" parent="world" instance=ExtResource("13_yhg3x")]
+position = Vector2(7728, -658)
+scale = Vector2(0.582355, 0.582355)
+
+[node name="mid_platform_4" parent="world" instance=ExtResource("18_5qxoj")]
+position = Vector2(8183, -630)
+scale = Vector2(0.954749, 0.954749)
+
+[node name="big_platform_6" parent="world" instance=ExtResource("11_np6pd")]
+position = Vector2(8665, -726)
+scale = Vector2(0.745373, 0.745373)
+
+[node name="mid_platform_5" parent="world" instance=ExtResource("14_7v0fq")]
+position = Vector2(9185, -799)
+
+[node name="big_platform_7" parent="world" instance=ExtResource("12_x8l3e")]
+position = Vector2(10761, -463)
+scale = Vector2(0.824716, 0.824716)
+
+[node name="big_platform_8" parent="world" instance=ExtResource("12_x8l3e")]
+position = Vector2(8310, -99)
+scale = Vector2(0.560572, 0.560572)
+
+[node name="small_platform4" parent="world" instance=ExtResource("13_yhg3x")]
+position = Vector2(9024, -110)
+scale = Vector2(0.623942, 0.623942)
+
+[node name="big_platform_9" parent="world" instance=ExtResource("11_np6pd")]
+position = Vector2(9348, -80)
+scale = Vector2(0.499226, 0.499226)
 
 [node name="plataforma piso grande 2" parent="world" instance=ExtResource("11_aujqg")]
 position = Vector2(1955, -54)
@@ -156,65 +230,186 @@ scale = Vector2(1.56426, 2.21923)
 position = Vector2(369, -69)
 scale = Vector2(0.761612, 0.761612)
 
-[node name="mid_platform_2" parent="." instance=ExtResource("18_5qxoj")]
-position = Vector2(5341, -302)
-scale = Vector2(0.506152, 0.506152)
+[node name="Arte" type="Node2D" parent="."]
 
-[node name="mid_platform_1" parent="." instance=ExtResource("14_7v0fq")]
-position = Vector2(5747, -282)
-scale = Vector2(0.711915, 0.711915)
+[node name="Background very far" type="CanvasLayer" parent="Arte"]
+layer = -4
+follow_viewport_enabled = true
+follow_viewport_scale = 0.6
 
-[node name="small_platform" parent="." instance=ExtResource("13_yhg3x")]
-position = Vector2(6124, -362)
-scale = Vector2(0.562637, 0.562637)
+[node name="CanvasGroup" type="Sprite2D" parent="Arte/Background very far"]
 
-[node name="big_platform_1" parent="." instance=ExtResource("11_np6pd")]
-position = Vector2(6500, -288)
+[node name="FondoBlancoParaDifuminado" type="Sprite2D" parent="Arte/Background very far/CanvasGroup"]
+modulate = Color(0.0273438, 0.339844, 0.078125, 1)
+position = Vector2(2660, 180)
+scale = Vector2(5.03166, 0.629528)
+texture = ExtResource("18_2023d")
 
-[node name="big_platform_2" parent="." instance=ExtResource("12_x8l3e")]
-position = Vector2(6849, -441)
-scale = Vector2(0.583623, 0.583623)
+[node name="Blur" type="Sprite2D" parent="Arte/Background very far"]
+visible = false
+material = SubResource("ShaderMaterial_7vlow")
+position = Vector2(5239.17, -665.62)
+scale = Vector2(9.01996, 3.13774)
+texture = ExtResource("18_2023d")
 
-[node name="big_platform_3" parent="." instance=ExtResource("11_np6pd")]
-position = Vector2(5021, -253)
-scale = Vector2(0.528902, 0.528902)
+[node name="Background far" type="CanvasLayer" parent="Arte"]
+layer = -3
+follow_viewport_enabled = true
+follow_viewport_scale = 0.7
 
-[node name="plataforma piso grande 2" parent="." instance=ExtResource("11_aujqg")]
-position = Vector2(9732, -337)
-rotation = 0.304718
-scale = Vector2(0.651519, 0.651519)
+[node name="CanvasGroup" type="Sprite2D" parent="Arte/Background far"]
 
-[node name="piso plataforma grande 1" parent="." instance=ExtResource("10_a2oxr")]
-position = Vector2(9705, -694)
-scale = Vector2(1.42091, 1.42091)
+[node name="Blur" type="Sprite2D" parent="Arte/Background far"]
+visible = false
+material = SubResource("ShaderMaterial_7vlow")
+position = Vector2(4825.71, -631.335)
+scale = Vector2(7.31399, 3.07425)
+texture = ExtResource("18_2023d")
 
-[node name="small_platform2" parent="." instance=ExtResource("13_yhg3x")]
-position = Vector2(7728, -658)
-scale = Vector2(0.582355, 0.582355)
+[node name="Fondo Blanco para difuminado" type="Sprite2D" parent="Arte/Background far"]
+modulate = Color(1, 1, 1, 0.0392157)
+position = Vector2(4259.29, -661.675)
+scale = Vector2(7.53646, 2.3805)
+texture = ExtResource("18_2023d")
 
-[node name="mid_platform_3" parent="." instance=ExtResource("18_5qxoj")]
-position = Vector2(8183, -630)
-scale = Vector2(0.954749, 0.954749)
+[node name="Background mid" type="CanvasLayer" parent="Arte"]
+layer = -2
+follow_viewport_enabled = true
+follow_viewport_scale = 0.8
 
-[node name="big_platform_4" parent="." instance=ExtResource("11_np6pd")]
-position = Vector2(8665, -726)
-scale = Vector2(0.745373, 0.745373)
+[node name="CanvasGroup" type="Sprite2D" parent="Arte/Background mid"]
 
-[node name="mid_platform_4" parent="." instance=ExtResource("14_7v0fq")]
-position = Vector2(9185, -799)
+[node name="background_super_cluster_2" parent="Arte/Background mid/CanvasGroup" instance=ExtResource("20_fdl3i")]
+position = Vector2(1427.5, -422.5)
 
-[node name="big_platform_5" parent="." instance=ExtResource("12_x8l3e")]
-position = Vector2(10761, -463)
-scale = Vector2(0.824716, 0.824716)
+[node name="background_cluster_3" parent="Arte/Background mid/CanvasGroup" instance=ExtResource("21_b2hjh")]
+position = Vector2(-97.5, -643.25)
 
-[node name="big_platform_6" parent="." instance=ExtResource("12_x8l3e")]
-position = Vector2(8310, -99)
-scale = Vector2(0.560572, 0.560572)
+[node name="Blur" type="Sprite2D" parent="Arte/Background mid"]
+visible = false
+material = SubResource("ShaderMaterial_7vlow")
+position = Vector2(3902.5, -347.495)
+scale = Vector2(6.78646, 2.54862)
+texture = ExtResource("18_2023d")
 
-[node name="small_platform3" parent="." instance=ExtResource("13_yhg3x")]
-position = Vector2(9024, -110)
-scale = Vector2(0.623942, 0.623942)
+[node name="Fondo Blanco para difuminado" type="Sprite2D" parent="Arte/Background mid"]
+modulate = Color(1, 1, 1, 0.0392157)
+position = Vector2(4348.13, -387.121)
+scale = Vector2(7.38476, 2.67894)
+texture = ExtResource("18_2023d")
 
-[node name="big_platform_7" parent="." instance=ExtResource("11_np6pd")]
-position = Vector2(9348, -80)
-scale = Vector2(0.499226, 0.499226)
+[node name="Background close" type="CanvasLayer" parent="Arte"]
+layer = -1
+follow_viewport_enabled = true
+follow_viewport_scale = 0.9
+
+[node name="Efectos" type="Sprite2D" parent="Arte/Background close"]
+
+[node name="background_cluster_1" parent="Arte/Background close/Efectos" instance=ExtResource("22_62jbm")]
+position = Vector2(-1570, -170)
+
+[node name="background_cluster_2" parent="Arte/Background close/Efectos" instance=ExtResource("23_56lqb")]
+position = Vector2(-688.889, -107.778)
+
+[node name="background_cluster_3" parent="Arte/Background close/Efectos" instance=ExtResource("21_b2hjh")]
+position = Vector2(-761.111, -194.444)
+
+[node name="background_super_cluster_1" parent="Arte/Background close/Efectos" instance=ExtResource("24_dokik")]
+position = Vector2(894.444, -195.556)
+
+[node name="background_super_cluster_2" parent="Arte/Background close/Efectos" instance=ExtResource("20_fdl3i")]
+position = Vector2(2493.33, -128.889)
+
+[node name="background_cluster_4" parent="Arte/Background close/Efectos" instance=ExtResource("21_b2hjh")]
+position = Vector2(3917.78, -67.7778)
+rotation = 0.280094
+scale = Vector2(-1.04444, 1)
+
+[node name="background_cluster_5" parent="Arte/Background close/Efectos" instance=ExtResource("22_62jbm")]
+position = Vector2(4267.78, -43.3333)
+
+[node name="background_super_cluster_3" parent="Arte/Background close/Efectos" instance=ExtResource("24_dokik")]
+position = Vector2(5561.11, -177.778)
+
+[node name="background_super_cluster_4" parent="Arte/Background close/Efectos" instance=ExtResource("20_fdl3i")]
+position = Vector2(7143.33, -106.667)
+
+[node name="background_cluster_6" parent="Arte/Background close/Efectos" instance=ExtResource("21_b2hjh")]
+position = Vector2(7880, -151.111)
+
+[node name="background_cluster_7" parent="Arte/Background close/Efectos" instance=ExtResource("22_62jbm")]
+position = Vector2(8610, -186.667)
+
+[node name="background_super_cluster_5" parent="Arte/Background close/Efectos" instance=ExtResource("20_fdl3i")]
+position = Vector2(9810, -97.7778)
+
+[node name="background_cluster_8" parent="Arte/Background close/Efectos" instance=ExtResource("23_56lqb")]
+position = Vector2(11172.2, -94.4445)
+
+[node name="background_cluster_9" parent="Arte/Background close/Efectos" instance=ExtResource("22_62jbm")]
+position = Vector2(11491.1, -163.333)
+
+[node name="background_super_cluster_6" parent="Arte/Background close/Efectos" instance=ExtResource("24_dokik")]
+position = Vector2(12827.8, -183.333)
+
+[node name="Blur" type="Sprite2D" parent="Arte/Background close"]
+visible = false
+material = SubResource("ShaderMaterial_7vlow")
+position = Vector2(3729.97, -261.235)
+scale = Vector2(5.84378, 2.44216)
+texture = ExtResource("18_2023d")
+
+[node name="Fondo Blanco para difuminado" type="Sprite2D" parent="Arte/Background close"]
+modulate = Color(1, 1, 1, 0.0784314)
+position = Vector2(3534.44, -249.819)
+scale = Vector2(5.91956, 2.23696)
+texture = ExtResource("18_2023d")
+
+[node name="FloorBehind" type="CanvasLayer" parent="Arte"]
+layer = -1
+follow_viewport_enabled = true
+
+[node name="Efectos" type="Sprite2D" parent="Arte/FloorBehind"]
+
+[node name="FondoBlancoParaDifuminado" type="Sprite2D" parent="Arte/FloorBehind"]
+modulate = Color(0.0273438, 0.347656, 0.0820313, 1)
+position = Vector2(2641.64, 210.21)
+scale = Vector2(4.92393, 0.399399)
+texture = ExtResource("18_2023d")
+
+[node name="Floor" type="CanvasLayer" parent="Arte"]
+follow_viewport_enabled = true
+
+[node name="Efectos" type="Sprite2D" parent="Arte/Floor"]
+position = Vector2(-5, 3)
+
+[node name="Midground" type="CanvasLayer" parent="Arte"]
+follow_viewport_enabled = true
+follow_viewport_scale = 0.999
+
+[node name="Efectos" type="Sprite2D" parent="Arte/Midground"]
+position = Vector2(-8.00801, -21.021)
+
+[node name="Foreground far" type="CanvasLayer" parent="Arte"]
+follow_viewport_enabled = true
+follow_viewport_scale = 1.1
+
+[node name="Efectos" type="Sprite2D" parent="Arte/Foreground far"]
+modulate = Color(0.24, 0.24, 0.24, 1)
+position = Vector2(350, -11.8182)
+
+[node name="Foreground mid" type="CanvasLayer" parent="Arte"]
+follow_viewport_enabled = true
+follow_viewport_scale = 1.2
+
+[node name="Efectos" type="Sprite2D" parent="Arte/Foreground mid"]
+modulate = Color(0.1, 0.1, 0.1, 1)
+position = Vector2(-109.167, 20.8333)
+
+[node name="Foreground close" type="CanvasLayer" parent="Arte"]
+follow_viewport_enabled = true
+follow_viewport_scale = 1.3
+
+[node name="Efectos" type="Sprite2D" parent="Arte/Foreground close"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(0, 4.61539)
