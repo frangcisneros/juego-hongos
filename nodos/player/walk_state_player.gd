@@ -3,7 +3,7 @@ extends State
 class_name walk_state_player
 
 var StateActive : bool = false
-var direction = false
+var direction
 var was_on_floor = false
 
 @onready var Player = get_parent().Player
@@ -11,9 +11,9 @@ var was_on_floor = false
 func Enter():
 	if Player.is_on_floor():
 		was_on_floor = true
-	direction = 0
 	StateActive = true
 	Player.coyote_timer.stop()
+	
 func Exit():
 	StateActive = false
 	

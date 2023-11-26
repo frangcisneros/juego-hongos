@@ -41,7 +41,7 @@ func _physics_process(delta):
 	if PlayerStats.health <=0:
 		player_alive = false
 		PlayerStats.health = 0
-	
+	#print(velocity.x)
 	if not is_on_floor():
 		if velocity.y < 0: # cuando cae este es afectado por la gravedad
 			velocity.y += gravity * delta

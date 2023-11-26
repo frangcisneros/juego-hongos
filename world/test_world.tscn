@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://bnwuefdep2gcu"]
+[gd_scene load_steps=3 format=3 uid="uid://bnwuefdep2gcu"]
 
 [ext_resource type="PackedScene" uid="uid://dusk6dox3dxnb" path="res://nodos/platform_world/platform_world.tscn" id="1_h2qiq"]
 [ext_resource type="Script" path="res://world/test_world.gd" id="1_hbace"]
-[ext_resource type="PackedScene" uid="uid://cqvycjf6wy0df" path="res://nodos/patrol_enemy/patrol_enemy.tscn" id="3_eksn0"]
 
 [node name="test_world" type="Node2D" node_paths=PackedStringArray("spawn")]
 process_mode = 1
@@ -27,6 +26,3 @@ scale = Vector2(0.3, 0.3)
 
 [node name="spawn" type="Marker2D" parent="."]
 position = Vector2(-816, -256)
-
-[node name="patrol_enemy" parent="." instance=ExtResource("3_eksn0")]
-position = Vector2(-360, -272)
