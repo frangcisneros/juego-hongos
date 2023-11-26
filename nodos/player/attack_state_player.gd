@@ -20,16 +20,24 @@ func Exit():
 	StateActive = false
 	
 func Update(_delta : float):
+	pass
+
+func UpdatePhysics(_delta : float):	
 	direction = Input.get_axis("ui_left", "ui_right")
-	if Input.is_action_just_pressed("ui_select") and Player.is_on_floor():
-		jumped = true
-		Player.velocity.y = Player.JUMP_VELOCITY
 	if direction > 0:
 		Player.position2D.scale.x = 1
 		Player.attack_area.position.x = Player.attack_area.initial_position
 	elif direction < 0:
 		Player.position2D.scale.x = -1
 		Player.attack_area.position.x = - Player.attack_area.initial_position
+	if direction:
+		Player.velocity.x = direction * Player.SPEED
+	else:
+		Player.velocity.x = move_toward(Player.velocity.x, 0, Player.SPEED / 5)
+	
+	if Input.is_action_just_pressed("ui_select") and Player.is_on_floor():
+		jumped = true
+		Player.velocity.y = Player.JUMP_VELOCITY
 	if attack_sprite.visible and attack_collision.get_node("attack_timer").is_stopped():
 			attack_sprite.visible = false
 			attack_collision.disabled = true
@@ -37,10 +45,6 @@ func Update(_delta : float):
 				Transition.emit(self,"fall_state_player")
 			else:
 				Transition.emit(self,"walk_state_player")
-
-func UpdatePhysics(_delta : float):	
-	if direction:
-		Player.velocity.x = direction * Player.SPEED
 #func _on_hitbox_player_body_entered(body):
 #	if body.has_method("enemy"):
 #		Transition.emit(self,"hurt_state_player")
