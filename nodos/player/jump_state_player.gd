@@ -31,9 +31,9 @@ func UpdatePhysics(_delta : float):
 		Player.velocity.x = direction * Player.SPEED
 	else:
 		Player.velocity.x = move_toward(Player.velocity.x, 0, Player.SPEED / 5)
-	if Player.is_on_floor():
-		Transition.emit(self,"idle_state_player")
+	if Player.velocity.y > 0:
+		Transition.emit(self,"fall_state_player")
+#	if Player.is_on_floor():
+#		Transition.emit(self,"idle_state_player")
 
-#func _on_hitbox_player_body_entered(body):
-#	if body.has_method("enemy"):
-#		Transition.emit(self,"hurt_state_player")
+

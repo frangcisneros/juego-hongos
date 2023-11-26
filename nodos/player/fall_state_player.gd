@@ -8,20 +8,16 @@ var direction
 @onready var Player = get_parent().Player
 
 func Enter():
-#	print("Direccion al entrar al estado fall: ", direction)
 	StateActive = true
 
 func Exit():
 	StateActive = false
 	
 func Update(_delta : float):
-#	print("Direccion al principio de update, fall: ", direction)
 	pass
 		
-#	print("Direccion al final de update, fall: ", direction)
 
 func UpdatePhysics(_delta : float):	
-#	print("Direccion al principio de update physics, fall: ", direction)
 	if Player.is_on_floor():
 		Transition.emit(self,"idle_state_player")
 	if not Player.is_on_floor():
@@ -46,4 +42,3 @@ func UpdatePhysics(_delta : float):
 	
 	if not Player.jump_buffer_timer.is_stopped() and (Player.is_on_floor() or not Player.coyote_timer.is_stopped()):
 		Transition.emit(self,"jump_state_player")
-#	print("Direccion al final de update physics, fall: ", direction)
