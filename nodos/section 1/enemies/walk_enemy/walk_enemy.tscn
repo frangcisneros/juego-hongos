@@ -1,11 +1,11 @@
 [gd_scene load_steps=9 format=3 uid="uid://bi31bxoehsk7c"]
 
-[ext_resource type="Script" path="res://nodos/walk_enemy/walk_enemy.gd" id="1_npc3e"]
-[ext_resource type="Texture2D" uid="uid://bqh0w6153q0gf" path="res://arte/prota.png" id="2_4kw4g"]
-[ext_resource type="Script" path="res://nodos/walk_enemy/state_machine_walk_enemy.gd" id="4_dka2m"]
-[ext_resource type="Script" path="res://nodos/walk_enemy/idle_state_walk_enemy.gd" id="5_er5xs"]
-[ext_resource type="Script" path="res://nodos/walk_enemy/dead_state_walk_enemy.gd" id="6_c2qvp"]
-[ext_resource type="Script" path="res://nodos/walk_enemy/hitbox.gd" id="6_ge6p3"]
+[ext_resource type="Script" path="res://nodos/section 1/enemies/walk_enemy/walk_enemy.gd" id="1_npc3e"]
+[ext_resource type="Texture2D" uid="uid://bqh0w6153q0gf" path="res://arte/Assets/prota.png" id="2_4kw4g"]
+[ext_resource type="Script" path="res://nodos/section 1/enemies/walk_enemy/state_machine_walk_enemy.gd" id="4_dka2m"]
+[ext_resource type="Script" path="res://nodos/section 1/enemies/walk_enemy/idle_state_walk_enemy.gd" id="5_er5xs"]
+[ext_resource type="Script" path="res://nodos/section 1/enemies/walk_enemy/dead_state_walk_enemy.gd" id="6_c2qvp"]
+[ext_resource type="Script" path="res://nodos/section 1/enemies/walk_enemy/hitbox.gd" id="6_ge6p3"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_16xy7"]
 radius = 26.6667
