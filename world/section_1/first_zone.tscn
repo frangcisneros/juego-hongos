@@ -2,11 +2,11 @@
 
 [ext_resource type="PackedScene" uid="uid://dusk6dox3dxnb" path="res://nodos/platform_world/platform_world.tscn" id="1_5mxna"]
 [ext_resource type="Script" path="res://world/section_1/first_zone.gd" id="1_o8arc"]
-[ext_resource type="PackedScene" uid="uid://bi31bxoehsk7c" path="res://nodos/walk_enemy/walk_enemy.tscn" id="3_4ro21"]
-[ext_resource type="PackedScene" uid="uid://dhtcxchlvm5ud" path="res://nodos/moss_house.tscn" id="5_ggl8k"]
-[ext_resource type="PackedScene" uid="uid://sqrkoe0x2f65" path="res://nodos/chest.tscn" id="6_krfsi"]
-[ext_resource type="PackedScene" uid="uid://cqvycjf6wy0df" path="res://nodos/patrol_enemy/patrol_enemy.tscn" id="7_icycp"]
-[ext_resource type="PackedScene" uid="uid://t13h28qs4lvp" path="res://nodos/jump_enemy/jump_enemy.tscn" id="7_qi715"]
+[ext_resource type="PackedScene" uid="uid://bi31bxoehsk7c" path="res://nodos/section 1/enemies/walk_enemy/walk_enemy.tscn" id="3_4ro21"]
+[ext_resource type="PackedScene" uid="uid://dhtcxchlvm5ud" path="res://nodos/section 1/world_and_enviroment/moss_house.tscn" id="5_ggl8k"]
+[ext_resource type="PackedScene" uid="uid://sqrkoe0x2f65" path="res://nodos/section 1/world_and_enviroment/chest.tscn" id="6_krfsi"]
+[ext_resource type="PackedScene" uid="uid://cqvycjf6wy0df" path="res://nodos/section 1/enemies/patrol_enemy/patrol_enemy.tscn" id="7_icycp"]
+[ext_resource type="PackedScene" uid="uid://t13h28qs4lvp" path="res://nodos/section 1/enemies/jump_enemy/jump_enemy.tscn" id="7_qi715"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_srxqs"]
 size = Vector2(148, 196)

@@ -1,14 +1,14 @@
 [gd_scene load_steps=14 format=3 uid="uid://d0gordpyc8o5m"]
 
-[ext_resource type="Script" path="res://nodos/area_enemy/area_enemy.gd" id="1_5xb8b"]
+[ext_resource type="Script" path="res://nodos/section 1/enemies/area_enemy/area_enemy.gd" id="1_5xb8b"]
 [ext_resource type="Texture2D" uid="uid://bqh0w6153q0gf" path="res://arte/Assets/prota.png" id="1_8r7dp"]
-[ext_resource type="Script" path="res://nodos/area_enemy/damage_area.gd" id="3_ihx6a"]
-[ext_resource type="Script" path="res://nodos/area_enemy/state_machine_area_enemy.gd" id="4_lf255"]
+[ext_resource type="Script" path="res://nodos/section 1/enemies/area_enemy/damage_area.gd" id="3_ihx6a"]
+[ext_resource type="Script" path="res://nodos/section 1/enemies/area_enemy/state_machine_area_enemy.gd" id="4_lf255"]
 [ext_resource type="Texture2D" uid="uid://dlnxlm8d8iur6" path="res://arte/Assets/plataforma.png" id="4_ucnjh"]
-[ext_resource type="Script" path="res://nodos/area_enemy/idle_state_area_enemy.gd" id="6_6vf5n"]
-[ext_resource type="Script" path="res://nodos/area_enemy/attack_state_area_enemy.gd" id="6_mt6j6"]
-[ext_resource type="Script" path="res://nodos/area_enemy/dead_state_area_enemy.gd" id="8_leaxx"]
-[ext_resource type="Script" path="res://nodos/area_enemy/hitbox.gd" id="8_txq8d"]
+[ext_resource type="Script" path="res://nodos/section 1/enemies/area_enemy/idle_state_area_enemy.gd" id="6_6vf5n"]
+[ext_resource type="Script" path="res://nodos/section 1/enemies/area_enemy/attack_state_area_enemy.gd" id="6_mt6j6"]
+[ext_resource type="Script" path="res://nodos/section 1/enemies/area_enemy/dead_state_area_enemy.gd" id="8_leaxx"]
+[ext_resource type="Script" path="res://nodos/section 1/enemies/area_enemy/hitbox.gd" id="8_txq8d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ary8"]
 size = Vector2(18, 26)
