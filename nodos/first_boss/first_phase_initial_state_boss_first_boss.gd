@@ -6,6 +6,15 @@ extends State
 @export var first_phase_to_attack_timer : Timer
 @onready var sprite_enemigo : Sprite2D = Enemigo.get_node("position2D/Sprite2D")
 
+@onready var attack_1 : Area2D = Enemigo.get_node("position2D/attack_1")
+@onready var attack_2 : Area2D = Enemigo.get_node("position2D/attack_2")
+@onready var attack_3 : Area2D = Enemigo.get_node("position2D/attack_3")
+@onready var attack_4 : Area2D = Enemigo.get_node("position2D/attack_4")
+
+@onready var first_phase_attack2_area : Area2D = Enemigo.get_node("first_phase_attack2_area")
+@onready var first_phase_attack1_area : Area2D = Enemigo.get_node("first_phase_attack1_area")
+
+
 var attack_list = ["first_phase_attack1_state_first_boss","first_phase_attack2_state_first_boss"]
 var next_attack : String
 var break_ceiling : bool = false
@@ -13,6 +22,14 @@ var break_ceiling : bool = false
 var StateActive : bool = false
 
 func Enter():
+	attack_1.visible = false
+	attack_2.visible = false
+	attack_3.visible = false
+	attack_4.visible = false
+	
+	first_phase_attack2_area.visible = false
+	first_phase_attack1_area.visible = false
+	
 	sprite_enemigo.visible = true
 	first_phase_to_attack_timer.start()
 	attack_list.shuffle()

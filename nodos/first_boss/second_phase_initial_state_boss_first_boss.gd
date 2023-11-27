@@ -62,6 +62,8 @@ func Update(_delta : float):
 	pass
 			
 func UpdatePhysics(_delta:float):
+	if not Enemigo.is_on_floor():
+		Enemigo.velocity.y = Enemigo.gravity * _delta * 1000
 	pass
 
 func delete_platforms(platforms):

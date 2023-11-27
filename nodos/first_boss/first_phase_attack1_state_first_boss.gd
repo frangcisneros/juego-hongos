@@ -14,10 +14,12 @@ var StateActive : bool = false
 var activated_line : Node2D
 var previous_activated_line : Node2D
 
-var test_Array = [1,2,3]
-var a
-
 func Enter():
+	first_phase_attack1_area.visible = true
+	
+	for line in (first_phase_attack1_area.get_children()):
+		line.visible = false
+	
 	Enemigo.set_collision_layer_value(2,false)
 	hitbox.set_collision_mask_value(32,false)
 	hitbox.set_collision_layer_value(2,false)

@@ -25,7 +25,7 @@ position = Vector2(-288, -288)
 scale = Vector2(0.3, 0.3)
 
 [node name="platform_world4" parent="boss_platforms" instance=ExtResource("1_h2qiq")]
-position = Vector2(-536, -320)
+position = Vector2(-632, -296)
 scale = Vector2(0.3, 0.3)
 
 [node name="platform_world5" parent="boss_platforms" instance=ExtResource("1_h2qiq")]
@@ -41,7 +41,7 @@ position = Vector2(-352, -440)
 scale = Vector2(0.3, 0.3)
 
 [node name="platform_world8" parent="boss_platforms" instance=ExtResource("1_h2qiq")]
-position = Vector2(-104, -368)
+position = Vector2(-56, -360)
 scale = Vector2(0.3, 0.3)
 
 [node name="platform_world9" parent="boss_platforms" instance=ExtResource("1_h2qiq")]
@@ -52,10 +52,10 @@ scale = Vector2(0.3, 0.3)
 position = Vector2(304, -288)
 
 [node name="boss_1" parent="." instance=ExtResource("3_eihvs")]
-position = Vector2(0, -256)
+position = Vector2(-152, -496)
 
 [node name="ceiling" type="Node2D" parent="."]
-position = Vector2(-832, -720)
+position = Vector2(-328, -736)
 
 [node name="pico" type="RigidBody2D" parent="ceiling"]
 collision_layer = 0
