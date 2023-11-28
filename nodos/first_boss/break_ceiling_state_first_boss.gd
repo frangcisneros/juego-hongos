@@ -9,7 +9,6 @@ extends State
 var StateActive : bool = false
 
 func Enter():
-	print("ESTOY ACA")
 	StateActive = true
 	
 func Exit():

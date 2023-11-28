@@ -1,12 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://bnwuefdep2gcu"]
+[gd_scene load_steps=9 format=3 uid="uid://bnwuefdep2gcu"]
 
 [ext_resource type="PackedScene" uid="uid://dusk6dox3dxnb" path="res://nodos/platform_world/platform_world.tscn" id="1_h2qiq"]
 [ext_resource type="Script" path="res://world/test_world.gd" id="1_hbace"]
+[ext_resource type="Script" path="res://world/big_damage_area.gd" id="3_6e0g2"]
 [ext_resource type="PackedScene" uid="uid://cer2nel7dtn3r" path="res://nodos/first_boss/first_boss.tscn" id="3_eihvs"]
-[ext_resource type="Texture2D" uid="uid://ngcy3mdtqdw4" path="res://arte/Assets/piso.png" id="4_0vyeh"]
+[ext_resource type="Script" path="res://world/RigidBody2D.gd" id="5_eey5b"]
+[ext_resource type="Texture2D" uid="uid://dhmv6d5j327kq" path="res://arte/moneda.jpg" id="6_gmdsb"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7gs55"]
-size = Vector2(16, 80)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8rx5w"]
+size = Vector2(968, 584)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gvl8d"]
+size = Vector2(32, 160)
 
 [node name="test_world" type="Node2D" node_paths=PackedStringArray("spawn")]
 process_mode = 1
@@ -51,80 +56,17 @@ scale = Vector2(0.3, 0.3)
 [node name="spawn" type="Marker2D" parent="."]
 position = Vector2(304, -288)
 
+[node name="big_damage_area" type="Area2D" parent="."]
+collision_layer = 2
+script = ExtResource("3_6e0g2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="big_damage_area"]
+position = Vector2(44, -508)
+shape = SubResource("RectangleShape2D_8rx5w")
+debug_color = Color(0.207843, 0.631373, 0.345098, 0.419608)
+
 [node name="boss_1" parent="." instance=ExtResource("3_eihvs")]
 position = Vector2(-152, -496)
-
-[node name="ceiling" type="Node2D" parent="."]
-position = Vector2(-328, -736)
-
-[node name="pico" type="RigidBody2D" parent="ceiling"]
-collision_layer = 0
-collision_mask = 0
-gravity_scale = 0.0
-
-[node name="Sprite2D" type="Sprite2D" parent="ceiling/pico"]
-rotation = 1.5708
-scale = Vector2(0.157182, 0.157182)
-texture = ExtResource("4_0vyeh")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ceiling/pico"]
-shape = SubResource("RectangleShape2D_7gs55")
-
-[node name="pico2" type="RigidBody2D" parent="ceiling"]
-position = Vector2(160, 0)
-collision_layer = 0
-collision_mask = 0
-gravity_scale = 0.0
-
-[node name="Sprite2D" type="Sprite2D" parent="ceiling/pico2"]
-rotation = 1.5708
-scale = Vector2(0.157182, 0.157182)
-texture = ExtResource("4_0vyeh")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ceiling/pico2"]
-shape = SubResource("RectangleShape2D_7gs55")
-
-[node name="pico3" type="RigidBody2D" parent="ceiling"]
-position = Vector2(296, -8)
-collision_layer = 0
-collision_mask = 0
-gravity_scale = 0.0
-
-[node name="Sprite2D" type="Sprite2D" parent="ceiling/pico3"]
-rotation = 1.5708
-scale = Vector2(0.157182, 0.157182)
-texture = ExtResource("4_0vyeh")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ceiling/pico3"]
-shape = SubResource("RectangleShape2D_7gs55")
-
-[node name="pico4" type="RigidBody2D" parent="ceiling"]
-position = Vector2(456, -8)
-collision_layer = 0
-collision_mask = 0
-gravity_scale = 0.0
-
-[node name="Sprite2D" type="Sprite2D" parent="ceiling/pico4"]
-rotation = 1.5708
-scale = Vector2(0.157182, 0.157182)
-texture = ExtResource("4_0vyeh")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ceiling/pico4"]
-shape = SubResource("RectangleShape2D_7gs55")
-
-[node name="pico5" type="RigidBody2D" parent="ceiling"]
-position = Vector2(696, -8)
-collision_layer = 0
-collision_mask = 0
-gravity_scale = 0.0
-
-[node name="Sprite2D" type="Sprite2D" parent="ceiling/pico5"]
-rotation = 1.5708
-scale = Vector2(0.157182, 0.157182)
-texture = ExtResource("4_0vyeh")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ceiling/pico5"]
-shape = SubResource("RectangleShape2D_7gs55")
 
 [node name="platform_world" parent="." instance=ExtResource("1_h2qiq")]
 position = Vector2(-472, -496)
@@ -133,3 +75,117 @@ rotation = 1.5708
 [node name="platform_world3" parent="." instance=ExtResource("1_h2qiq")]
 position = Vector2(560, -496)
 rotation = 1.5708
+
+[node name="ceiling" type="Node2D" parent="."]
+
+[node name="RigidBody2D" type="RigidBody2D" parent="ceiling"]
+position = Vector2(-392, -848)
+collision_layer = 2
+collision_mask = 0
+gravity_scale = 0.0
+lock_rotation = true
+script = ExtResource("5_eey5b")
+
+[node name="Sprite2D" type="Sprite2D" parent="ceiling/RigidBody2D"]
+scale = Vector2(0.182857, 0.629032)
+texture = ExtResource("6_gmdsb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ceiling/RigidBody2D"]
+shape = SubResource("RectangleShape2D_gvl8d")
+debug_color = Color(0.854902, 0.305882, 0.529412, 0.419608)
+
+[node name="RigidBody2D2" type="RigidBody2D" parent="ceiling"]
+position = Vector2(-264, -848)
+collision_layer = 2
+collision_mask = 0
+gravity_scale = 0.0
+lock_rotation = true
+script = ExtResource("5_eey5b")
+
+[node name="Sprite2D" type="Sprite2D" parent="ceiling/RigidBody2D2"]
+scale = Vector2(0.182857, 0.629032)
+texture = ExtResource("6_gmdsb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ceiling/RigidBody2D2"]
+shape = SubResource("RectangleShape2D_gvl8d")
+debug_color = Color(0.854902, 0.305882, 0.529412, 0.419608)
+
+[node name="RigidBody2D3" type="RigidBody2D" parent="ceiling"]
+position = Vector2(-120, -848)
+collision_layer = 2
+collision_mask = 0
+gravity_scale = 0.0
+lock_rotation = true
+script = ExtResource("5_eey5b")
+
+[node name="Sprite2D" type="Sprite2D" parent="ceiling/RigidBody2D3"]
+scale = Vector2(0.182857, 0.629032)
+texture = ExtResource("6_gmdsb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ceiling/RigidBody2D3"]
+shape = SubResource("RectangleShape2D_gvl8d")
+debug_color = Color(0.854902, 0.305882, 0.529412, 0.419608)
+
+[node name="RigidBody2D4" type="RigidBody2D" parent="ceiling"]
+position = Vector2(40, -848)
+collision_layer = 2
+collision_mask = 0
+gravity_scale = 0.0
+lock_rotation = true
+script = ExtResource("5_eey5b")
+
+[node name="Sprite2D" type="Sprite2D" parent="ceiling/RigidBody2D4"]
+scale = Vector2(0.182857, 0.629032)
+texture = ExtResource("6_gmdsb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ceiling/RigidBody2D4"]
+shape = SubResource("RectangleShape2D_gvl8d")
+debug_color = Color(0.854902, 0.305882, 0.529412, 0.419608)
+
+[node name="RigidBody2D5" type="RigidBody2D" parent="ceiling"]
+position = Vector2(144, -848)
+collision_layer = 2
+collision_mask = 0
+gravity_scale = 0.0
+lock_rotation = true
+script = ExtResource("5_eey5b")
+
+[node name="Sprite2D" type="Sprite2D" parent="ceiling/RigidBody2D5"]
+scale = Vector2(0.182857, 0.629032)
+texture = ExtResource("6_gmdsb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ceiling/RigidBody2D5"]
+shape = SubResource("RectangleShape2D_gvl8d")
+debug_color = Color(0.854902, 0.305882, 0.529412, 0.419608)
+
+[node name="RigidBody2D6" type="RigidBody2D" parent="ceiling"]
+position = Vector2(280, -848)
+collision_layer = 2
+collision_mask = 0
+gravity_scale = 0.0
+lock_rotation = true
+script = ExtResource("5_eey5b")
+
+[node name="Sprite2D" type="Sprite2D" parent="ceiling/RigidBody2D6"]
+scale = Vector2(0.182857, 0.629032)
+texture = ExtResource("6_gmdsb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ceiling/RigidBody2D6"]
+shape = SubResource("RectangleShape2D_gvl8d")
+debug_color = Color(0.854902, 0.305882, 0.529412, 0.419608)
+
+[node name="RigidBody2D7" type="RigidBody2D" parent="ceiling"]
+position = Vector2(432, -848)
+collision_layer = 2
+collision_mask = 0
+gravity_scale = 0.0
+lock_rotation = true
+script = ExtResource("5_eey5b")
+
+[node name="Sprite2D" type="Sprite2D" parent="ceiling/RigidBody2D7"]
+scale = Vector2(0.182857, 0.629032)
+texture = ExtResource("6_gmdsb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ceiling/RigidBody2D7"]
+shape = SubResource("RectangleShape2D_gvl8d")
+debug_color = Color(0.854902, 0.305882, 0.529412, 0.419608)

@@ -4,7 +4,7 @@ extends State
 @onready var Enemigo : CharacterBody2D = get_parent().Enemigo
 @onready var position2D = get_parent().position2D
 @onready var attack_3_rigidbody : RigidBody2D = Enemigo.get_node("position2D/attack_3/RigidBody2D")
-
+@onready var player = get_tree().get_nodes_in_group("player")[0]
 @export var attack_to_second_phase : Timer
 @onready var attack_3 : Area2D = Enemigo.get_node("position2D/attack_3")
 var initial_position : Vector2
@@ -13,6 +13,7 @@ var initial_global_position : Vector2
 var StateActive : bool = false
 
 func Enter():
+	
 	attack_3_rigidbody.sleeping = false
 	attack_3_rigidbody.freeze = false
 	initial_position = attack_3.position

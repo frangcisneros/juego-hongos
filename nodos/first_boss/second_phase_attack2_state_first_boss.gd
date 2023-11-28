@@ -5,7 +5,6 @@ extends State
 @onready var position2D = get_parent().position2D
 @onready var player = get_tree().get_nodes_in_group("player")[0]
 @onready var attack_2 : Area2D = Enemigo.get_node("position2D/attack_2")
-
 @export var attack_to_second_phase : Timer
 
 var initial_position : Vector2
@@ -15,6 +14,7 @@ var angle_to_player
 var player_initial_position
 
 func Enter():
+	
 	initial_position = attack_2.position
 	attack_2.visible = true
 	player_initial_position = player.global_position

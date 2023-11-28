@@ -17,6 +17,8 @@ var attack_list = ["second_phase_attack1_state_first_boss","second_phase_attack2
 @onready var point1_x = Enemigo.get_node("point1").global_position.x
 @onready var point2_x = Enemigo.get_node("point2").global_position.x
 
+@onready var big_damage_area = Enemigo.get_parent().get_node("big_damage_area")
+
 @onready var right : bool = true
 @onready var speed : float = 100
 @onready var run_area : Area2D = Enemigo.get_node("run_area")
@@ -29,6 +31,13 @@ var starter_health = 50
 var new_health = starter_health
 
 func Enter():
+# esto en realidad hay que hacerlo en la fase anterior pero estoy probando
+	if big_damage_area and Enemigo.get_node("first_phase_attack1_area") and Enemigo.get_node("first_phase_attack2_area"):
+		big_damage_area.queue_free()
+		Enemigo.get_node("first_phase_attack1_area").queue_free()
+		Enemigo.get_node("first_phase_attack2_area").queue_free()
+	
+	
 	run_area.set_deferred("monitoring",true)
 	run_area.set_deferred("monitorable",true)
 	random_attack = randi()%(attack_list.size() - 1)+0
@@ -49,12 +58,14 @@ func Enter():
 	StateActive = true
 	
 func Exit():
+	Enemigo.position2D.scale.x = abs(player.position.x) / player.position.x 
 	run_area.set_deferred("monitoring",false)
 	run_area.set_deferred("monitorable",false)
-	Enemigo.position2D.scale.x = abs(player.position.x) / player.position.x 
+	Enemigo.position2D.scale.x = abs(player.global_position.x - Enemigo.global_position.x) / (player.global_position.x - Enemigo.global_position.x) 
 	StateActive = false
 	
 func Update(_delta : float):
+	print(player.position.x)
 	to_window(5)
 	if second_phase_to_attack_timer.is_stopped() and Enemigo.velocity.x == 0:
 		Transition.emit(self,attack_list[random_attack])

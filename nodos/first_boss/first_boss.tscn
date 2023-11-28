@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://cer2nel7dtn3r"]
+[gd_scene load_steps=33 format=3 uid="uid://cer2nel7dtn3r"]
 
 [ext_resource type="Script" path="res://nodos/first_boss/first_boss.gd" id="1_nihfp"]
 [ext_resource type="Texture2D" uid="uid://bqh0w6153q0gf" path="res://arte/Assets/prota.png" id="1_sqtby"]
@@ -22,6 +22,7 @@
 [ext_resource type="Script" path="res://nodos/first_boss/second_phase_attack4_state_first_boss.gd" id="14_3q7rr"]
 [ext_resource type="Script" path="res://nodos/first_boss/second_phase_window_state_first_boss.gd" id="15_2bcf7"]
 [ext_resource type="Script" path="res://nodos/first_boss/dead_state_first_boss.gd" id="16_cf043"]
+[ext_resource type="Script" path="res://nodos/first_boss/first_phase_attack1_area.gd" id="23_glhn1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_annbl"]
 radius = 99.8499
@@ -42,14 +43,14 @@ size = Vector2(20, 148)
 [sub_resource type="CircleShape2D" id="CircleShape2D_7lxh2"]
 radius = 24.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_j62ag"]
+radius = 102.005
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6dwlc"]
 size = Vector2(30.5, 8)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qo2oc"]
 size = Vector2(969.75, 48)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_j62ag"]
-radius = 78.0
 
 [node name="first_boss" type="CharacterBody2D" node_paths=PackedStringArray("position2D")]
 collision_layer = 2
@@ -128,9 +129,28 @@ script = ExtResource("7_7qirs")
 rotation = 1.5708
 shape = SubResource("CircleShape2D_7lxh2")
 
+[node name="first_phase_to_attack_timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="first_phase_attack2_area" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="bubble1" type="CollisionShape2D" parent="first_phase_attack2_area"]
+position = Vector2(-112, -115)
+shape = SubResource("CircleShape2D_j62ag")
+
+[node name="bubble2" type="CollisionShape2D" parent="first_phase_attack2_area"]
+position = Vector2(-103, 76)
+shape = SubResource("CircleShape2D_j62ag")
+
+[node name="bubble3" type="CollisionShape2D" parent="first_phase_attack2_area"]
+position = Vector2(139, 75)
+shape = SubResource("CircleShape2D_j62ag")
+
 [node name="state_machine_first_boss" type="Node" parent="." node_paths=PackedStringArray("initial_state", "Enemigo", "position2D")]
 script = ExtResource("3_icmwx")
-initial_state = NodePath("first_phase_initial_state_boss_first_boss")
+initial_state = NodePath("second_phase_initial_state_boss_first_boss")
 Enemigo = NodePath("..")
 position2D = NodePath("../position2D")
 
@@ -188,10 +208,6 @@ window_to_first_phase = NodePath("../../window_to_first_phase")
 [node name="dead_state_first_boss" type="Node" parent="state_machine_first_boss"]
 script = ExtResource("16_cf043")
 
-[node name="first_phase_to_attack_timer" type="Timer" parent="."]
-wait_time = 0.5
-one_shot = true
-
 [node name="second_phase_to_attack_timer" type="Timer" parent="."]
 one_shot = true
 
@@ -199,13 +215,18 @@ one_shot = true
 one_shot = true
 
 [node name="change_safe_areas_attack_2" type="Timer" parent="."]
+wait_time = 5.0
 one_shot = true
 
 [node name="first_phase_to_window" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 10.0
 one_shot = true
 
 [node name="window_to_first_phase" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="wait_attack2_timer" type="Timer" parent="."]
 wait_time = 3.0
 one_shot = true
 
@@ -218,6 +239,8 @@ position = Vector2(0, 27)
 shape = SubResource("RectangleShape2D_6dwlc")
 
 [node name="first_phase_attack1_area" type="Area2D" parent="."]
+collision_layer = 2
+script = ExtResource("23_glhn1")
 
 [node name="line1" type="CollisionShape2D" parent="first_phase_attack1_area"]
 position = Vector2(199, -83)
@@ -231,18 +254,6 @@ shape = SubResource("RectangleShape2D_qo2oc")
 position = Vector2(199, 165)
 shape = SubResource("RectangleShape2D_qo2oc")
 
-[node name="first_phase_attack2_area" type="Area2D" parent="."]
-
-[node name="bubble1" type="CollisionShape2D" parent="first_phase_attack2_area"]
-position = Vector2(-112, -115)
-shape = SubResource("CircleShape2D_j62ag")
-
-[node name="bubble2" type="CollisionShape2D" parent="first_phase_attack2_area"]
-position = Vector2(-103, 76)
-shape = SubResource("CircleShape2D_j62ag")
-
-[node name="bubble3" type="CollisionShape2D" parent="first_phase_attack2_area"]
-position = Vector2(139, 75)
-shape = SubResource("CircleShape2D_j62ag")
-
 [connection signal="body_entered" from="run_area" to="state_machine_first_boss/second_phase_initial_state_boss_first_boss" method="_on_run_area_body_entered"]
+[connection signal="body_entered" from="first_phase_attack2_area" to="state_machine_first_boss/first_phase_attack2_state_first_boss" method="_on_first_phase_attack_2_area_body_entered"]
+[connection signal="body_exited" from="first_phase_attack2_area" to="state_machine_first_boss/first_phase_attack2_state_first_boss" method="_on_first_phase_attack_2_area_body_exited"]

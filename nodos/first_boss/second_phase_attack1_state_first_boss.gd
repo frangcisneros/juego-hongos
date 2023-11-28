@@ -4,7 +4,7 @@ extends State
 
 @onready var Enemigo : CharacterBody2D = get_parent().Enemigo
 @onready var position2D = get_parent().position2D
-
+@onready var player = get_tree().get_nodes_in_group("player")[0]
 @export var attack_to_second_phase : Timer
 @onready var attack_1 : Area2D = Enemigo.get_node("position2D/attack_1")
 var initial_position : Vector2
@@ -13,6 +13,8 @@ var StateActive : bool = false
 
 
 func Enter():
+	
+	
 	initial_position = attack_1.position
 	attack_1.visible = true
 	attack_1.set_deferred("monitoring",true)

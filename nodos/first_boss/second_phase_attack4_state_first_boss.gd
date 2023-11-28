@@ -1,5 +1,5 @@
 extends State
-
+@onready var player = get_tree().get_nodes_in_group("player")[0]
 
 @onready var Enemigo : CharacterBody2D = get_parent().Enemigo
 @onready var position2D = get_parent().position2D
@@ -11,6 +11,7 @@ extends State
 var StateActive : bool = false
 
 func Enter():
+	
 	attack_4.visible = true
 	attack_4.set_deferred("monitoring",true)
 	attack_4.set_deferred("monitorable",true)

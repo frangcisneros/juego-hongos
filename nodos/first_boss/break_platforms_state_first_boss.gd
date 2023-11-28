@@ -7,8 +7,7 @@ extends State
 var StateActive : bool = false
 
 func Enter():
-	Enemigo.get_node("first_phase_attack1_area").queue_free()
-	Enemigo.get_node("first_phase_attack2_area").queue_free()
+	
 	StateActive = true
 	
 func Exit():

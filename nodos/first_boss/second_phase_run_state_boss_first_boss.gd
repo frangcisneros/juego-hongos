@@ -26,7 +26,6 @@ func Enter():
 	StateActive = true
 	
 func Exit():
-	Enemigo.position2D.scale.x = abs(player.position.x) / player.position.x 
 	StateActive = false
 	
 func Update(_delta : float):
