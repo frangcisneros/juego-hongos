@@ -18,7 +18,7 @@ func _ready():
 		currentState = initial_state 
 
 func _process(delta):
-	print(currentState)
+#	print(currentState)
 	currentState.Update(delta)
 
 func _physics_process(delta):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bnwuefdep2gcu"]
+[gd_scene load_steps=11 format=3 uid="uid://bnwuefdep2gcu"]
 
 [ext_resource type="PackedScene" uid="uid://dusk6dox3dxnb" path="res://nodos/platform_world/platform_world.tscn" id="1_h2qiq"]
 [ext_resource type="Script" path="res://world/test_world.gd" id="1_hbace"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cer2nel7dtn3r" path="res://nodos/first_boss/first_boss.tscn" id="3_eihvs"]
 [ext_resource type="Script" path="res://world/RigidBody2D.gd" id="5_eey5b"]
 [ext_resource type="Texture2D" uid="uid://dhmv6d5j327kq" path="res://arte/moneda.jpg" id="6_gmdsb"]
+[ext_resource type="Script" path="res://world/first_phase_attack1_area.gd" id="7_2hyyu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8rx5w"]
 size = Vector2(968, 584)
@@ -13,7 +14,10 @@ size = Vector2(968, 584)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gvl8d"]
 size = Vector2(32, 160)
 
-[node name="test_world" type="Node2D" node_paths=PackedStringArray("spawn")]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_30jou"]
+size = Vector2(969.75, 48)
+
+[node name="boss_arena" type="Node2D" node_paths=PackedStringArray("spawn")]
 process_mode = 1
 script = ExtResource("1_hbace")
 spawn = NodePath("spawn")
@@ -53,7 +57,7 @@ scale = Vector2(0.3, 0.3)
 position = Vector2(304, -288)
 
 [node name="big_damage_area" type="Area2D" parent="."]
-collision_layer = 0
+collision_layer = 2
 script = ExtResource("3_6e0g2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="big_damage_area"]
@@ -67,6 +71,7 @@ position = Vector2(-152, -496)
 [node name="platform_world" parent="." instance=ExtResource("1_h2qiq")]
 position = Vector2(-472, -496)
 rotation = 1.5708
+script = null
 
 [node name="platform_world2" parent="." instance=ExtResource("1_h2qiq")]
 position = Vector2(192, -184)
@@ -75,6 +80,7 @@ scale = Vector2(3.6, 1)
 [node name="platform_world3" parent="." instance=ExtResource("1_h2qiq")]
 position = Vector2(568, -488)
 rotation = 1.5708
+script = null
 
 [node name="ceiling" type="Node2D" parent="."]
 
@@ -189,3 +195,37 @@ texture = ExtResource("6_gmdsb")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ceiling/RigidBody2D7"]
 shape = SubResource("RectangleShape2D_gvl8d")
 debug_color = Color(0.854902, 0.305882, 0.529412, 0.419608)
+
+[node name="first_phase_attack1_area" type="Area2D" parent="."]
+position = Vector2(-152, -496)
+collision_layer = 2
+script = ExtResource("7_2hyyu")
+
+[node name="line1" type="CollisionShape2D" parent="first_phase_attack1_area"]
+position = Vector2(199, -83)
+shape = SubResource("RectangleShape2D_30jou")
+
+[node name="line2" type="CollisionShape2D" parent="first_phase_attack1_area"]
+position = Vector2(199, 51)
+shape = SubResource("RectangleShape2D_30jou")
+
+[node name="line3" type="CollisionShape2D" parent="first_phase_attack1_area"]
+position = Vector2(199, 165)
+shape = SubResource("RectangleShape2D_30jou")
+
+[node name="point1" type="Marker2D" parent="."]
+position = Vector2(-392, -248)
+
+[node name="point2" type="Marker2D" parent="."]
+position = Vector2(488, -256)
+
+[node name="tp_first_phase" type="Node2D" parent="."]
+
+[node name="tp1" type="Marker2D" parent="tp_first_phase"]
+position = Vector2(472, -448)
+
+[node name="tp2" type="Marker2D" parent="tp_first_phase"]
+position = Vector2(-360, -496)
+
+[node name="tp3" type="Marker2D" parent="tp_first_phase"]
+position = Vector2(232, -624)

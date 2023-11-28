@@ -2,8 +2,8 @@ extends State
 
 
 @onready var Enemigo : CharacterBody2D = get_parent().Enemigo
-@onready var point1 = Enemigo.get_node("point1").global_position
-@onready var point2 = Enemigo.get_node("point2").global_position
+@onready var point1 = Enemigo.get_parent().get_node("point1").global_position
+@onready var point2 = Enemigo.get_parent().get_node("point2").global_position
 @onready var player = get_tree().get_nodes_in_group("player")[0]
 var actual_point = point1
 var to_point = point2

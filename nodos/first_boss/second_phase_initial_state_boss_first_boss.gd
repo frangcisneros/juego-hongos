@@ -14,8 +14,8 @@ var attack_list = ["second_phase_attack1_state_first_boss","second_phase_attack2
 @onready var attack_3 = Enemigo.get_node("position2D/attack_3")
 @onready var attack_4 = Enemigo.get_node("position2D/attack_4")
 
-@onready var point1_x = Enemigo.get_node("point1").global_position.x
-@onready var point2_x = Enemigo.get_node("point2").global_position.x
+@onready var point1_x = Enemigo.get_parent().get_node("point1").global_position.x
+@onready var point2_x = Enemigo.get_parent().get_node("point2").global_position.x
 
 @onready var big_damage_area = Enemigo.get_parent().get_node("big_damage_area")
 
@@ -24,19 +24,20 @@ var attack_list = ["second_phase_attack1_state_first_boss","second_phase_attack2
 @onready var run_area : Area2D = Enemigo.get_node("run_area")
 
 var random_attack : int
-
+var amount_of_attacks = 0
+var random_amount_of_attacks = randi()%(5)+2
 
 var StateActive : bool = false
 var starter_health = 50
 var new_health = starter_health
 
 func Enter():
+	amount_of_attacks += 1
 # esto en realidad hay que hacerlo en la fase anterior pero estoy probando
-	if big_damage_area and Enemigo.get_node("first_phase_attack1_area") and Enemigo.get_node("first_phase_attack2_area"):
+	if big_damage_area and Enemigo.get_parent().get_node("first_phase_attack1_area") and Enemigo.get_node("first_phase_attack2_area"):
 		big_damage_area.queue_free()
-		Enemigo.get_node("first_phase_attack1_area").queue_free()
+		Enemigo.get_parent().get_node("first_phase_attack1_area").queue_free()
 		Enemigo.get_node("first_phase_attack2_area").queue_free()
-	
 	
 	run_area.set_deferred("monitoring",true)
 	run_area.set_deferred("monitorable",true)
@@ -65,10 +66,16 @@ func Exit():
 	StateActive = false
 	
 func Update(_delta : float):
+	if amount_of_attacks == random_amount_of_attacks:
+		amount_of_attacks = 0
+		random_amount_of_attacks = randi()%(4)+1		
+		Transition.emit(self,"second_phase_run_state_boss_first_boss")
+	
 	to_window(5)
 	if second_phase_to_attack_timer.is_stopped() and Enemigo.velocity.x == 0:
-		Transition.emit(self,attack_list[random_attack])
-
+#		Transition.emit(self,attack_list[random_attack])
+		Transition.emit(self,"second_phase_attack3_state_first_boss")
+#		Transition.emit(self,"second_phase_attack4_state_first_boss")		
 	pass
 			
 func UpdatePhysics(_delta:float):

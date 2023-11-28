@@ -6,7 +6,7 @@ extends State
 @onready var Enemigo : CharacterBody2D = get_parent().Enemigo
 @onready var hitbox = Enemigo.get_node("hitbox")
 @onready var position2D = get_parent().position2D
-@onready var first_phase_attack1_area : Area2D = Enemigo.get_node("first_phase_attack1_area")
+@onready var first_phase_attack1_area : Area2D = Enemigo.get_parent().get_node("first_phase_attack1_area")
 @onready var sprite_enemigo : Sprite2D = Enemigo.get_node("position2D/Sprite2D")
 
 var StateActive : bool = false
