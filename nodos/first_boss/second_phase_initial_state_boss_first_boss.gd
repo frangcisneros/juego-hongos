@@ -65,7 +65,6 @@ func Exit():
 	StateActive = false
 	
 func Update(_delta : float):
-	print(player.position.x)
 	to_window(5)
 	if second_phase_to_attack_timer.is_stopped() and Enemigo.velocity.x == 0:
 		Transition.emit(self,attack_list[random_attack])

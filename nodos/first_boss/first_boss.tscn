@@ -43,14 +43,14 @@ size = Vector2(20, 148)
 [sub_resource type="CircleShape2D" id="CircleShape2D_7lxh2"]
 radius = 24.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qo2oc"]
+size = Vector2(969.75, 48)
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_j62ag"]
 radius = 102.005
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6dwlc"]
 size = Vector2(30.5, 8)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qo2oc"]
-size = Vector2(969.75, 48)
 
 [node name="first_boss" type="CharacterBody2D" node_paths=PackedStringArray("position2D")]
 collision_layer = 2
@@ -132,6 +132,22 @@ shape = SubResource("CircleShape2D_7lxh2")
 [node name="first_phase_to_attack_timer" type="Timer" parent="."]
 wait_time = 3.0
 one_shot = true
+
+[node name="first_phase_attack1_area" type="Area2D" parent="."]
+collision_layer = 2
+script = ExtResource("23_glhn1")
+
+[node name="line1" type="CollisionShape2D" parent="first_phase_attack1_area"]
+position = Vector2(199, -83)
+shape = SubResource("RectangleShape2D_qo2oc")
+
+[node name="line2" type="CollisionShape2D" parent="first_phase_attack1_area"]
+position = Vector2(199, 51)
+shape = SubResource("RectangleShape2D_qo2oc")
+
+[node name="line3" type="CollisionShape2D" parent="first_phase_attack1_area"]
+position = Vector2(199, 165)
+shape = SubResource("RectangleShape2D_qo2oc")
 
 [node name="first_phase_attack2_area" type="Area2D" parent="."]
 collision_layer = 0
@@ -237,22 +253,6 @@ one_shot = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 27)
 shape = SubResource("RectangleShape2D_6dwlc")
-
-[node name="first_phase_attack1_area" type="Area2D" parent="."]
-collision_layer = 2
-script = ExtResource("23_glhn1")
-
-[node name="line1" type="CollisionShape2D" parent="first_phase_attack1_area"]
-position = Vector2(199, -83)
-shape = SubResource("RectangleShape2D_qo2oc")
-
-[node name="line2" type="CollisionShape2D" parent="first_phase_attack1_area"]
-position = Vector2(199, 51)
-shape = SubResource("RectangleShape2D_qo2oc")
-
-[node name="line3" type="CollisionShape2D" parent="first_phase_attack1_area"]
-position = Vector2(199, 165)
-shape = SubResource("RectangleShape2D_qo2oc")
 
 [connection signal="body_entered" from="run_area" to="state_machine_first_boss/second_phase_initial_state_boss_first_boss" method="_on_run_area_body_entered"]
 [connection signal="body_entered" from="first_phase_attack2_area" to="state_machine_first_boss/first_phase_attack2_state_first_boss" method="_on_first_phase_attack_2_area_body_entered"]

@@ -7,7 +7,7 @@ extends Node
 var states :  Dictionary = {}
 var currentState : State
 
-func _ready():	
+func _ready():
 	for child in get_children():
 		if child is State:
 			states[child.name.to_lower()] = child
@@ -18,7 +18,7 @@ func _ready():
 		currentState = initial_state 
 
 func _process(delta):
-#	print(currentState)
+	print(currentState)
 	currentState.Update(delta)
 
 func _physics_process(delta):
