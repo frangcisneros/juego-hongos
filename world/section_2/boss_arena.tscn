@@ -1,12 +1,12 @@
 [gd_scene load_steps=11 format=3 uid="uid://bnwuefdep2gcu"]
 
-[ext_resource type="PackedScene" uid="uid://dusk6dox3dxnb" path="res://nodos/platform_world/platform_world.tscn" id="1_h2qiq"]
-[ext_resource type="Script" path="res://world/test_world.gd" id="1_hbace"]
-[ext_resource type="Script" path="res://world/big_damage_area.gd" id="3_6e0g2"]
-[ext_resource type="PackedScene" uid="uid://cer2nel7dtn3r" path="res://nodos/first_boss/first_boss.tscn" id="3_eihvs"]
-[ext_resource type="Script" path="res://world/RigidBody2D.gd" id="5_eey5b"]
-[ext_resource type="Texture2D" uid="uid://dhmv6d5j327kq" path="res://arte/moneda.jpg" id="6_gmdsb"]
-[ext_resource type="Script" path="res://world/first_phase_attack1_area.gd" id="7_2hyyu"]
+[ext_resource type="Script" path="res://world/section_2/boss_arena.gd" id="1_b4fcc"]
+[ext_resource type="PackedScene" uid="uid://dusk6dox3dxnb" path="res://nodos/platform_world/platform_world.tscn" id="2_8ai88"]
+[ext_resource type="Script" path="res://world/section_2/big_damage_area.gd" id="3_fvnck"]
+[ext_resource type="PackedScene" uid="uid://cer2nel7dtn3r" path="res://nodos/first_boss/first_boss.tscn" id="4_k8vus"]
+[ext_resource type="Script" path="res://world/section_2/RigidBody2D.gd" id="5_v2xux"]
+[ext_resource type="Texture2D" uid="uid://dhmv6d5j327kq" path="res://arte/moneda.jpg" id="6_6vx0d"]
+[ext_resource type="Script" path="res://world/section_2/first_phase_attack1_area.gd" id="7_7vqyo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8rx5w"]
 size = Vector2(968, 584)
@@ -19,37 +19,37 @@ size = Vector2(969.75, 48)
 
 [node name="boss_arena" type="Node2D" node_paths=PackedStringArray("spawn")]
 process_mode = 1
-script = ExtResource("1_hbace")
+script = ExtResource("1_b4fcc")
 spawn = NodePath("spawn")
 
 [node name="boss_platforms" type="Node2D" parent="."]
 position = Vector2(416, 0)
 
-[node name="platform_world3" parent="boss_platforms" instance=ExtResource("1_h2qiq")]
+[node name="platform_world3" parent="boss_platforms" instance=ExtResource("2_8ai88")]
 position = Vector2(-288, -288)
 scale = Vector2(0.3, 0.3)
 
-[node name="platform_world4" parent="boss_platforms" instance=ExtResource("1_h2qiq")]
+[node name="platform_world4" parent="boss_platforms" instance=ExtResource("2_8ai88")]
 position = Vector2(-632, -296)
 scale = Vector2(0.3, 0.3)
 
-[node name="platform_world5" parent="boss_platforms" instance=ExtResource("1_h2qiq")]
+[node name="platform_world5" parent="boss_platforms" instance=ExtResource("2_8ai88")]
 position = Vector2(-736, -424)
 scale = Vector2(0.3, 0.3)
 
-[node name="platform_world6" parent="boss_platforms" instance=ExtResource("1_h2qiq")]
+[node name="platform_world6" parent="boss_platforms" instance=ExtResource("2_8ai88")]
 position = Vector2(-176, -544)
 scale = Vector2(0.3, 0.3)
 
-[node name="platform_world7" parent="boss_platforms" instance=ExtResource("1_h2qiq")]
+[node name="platform_world7" parent="boss_platforms" instance=ExtResource("2_8ai88")]
 position = Vector2(-352, -440)
 scale = Vector2(0.3, 0.3)
 
-[node name="platform_world8" parent="boss_platforms" instance=ExtResource("1_h2qiq")]
+[node name="platform_world8" parent="boss_platforms" instance=ExtResource("2_8ai88")]
 position = Vector2(-56, -360)
 scale = Vector2(0.3, 0.3)
 
-[node name="platform_world9" parent="boss_platforms" instance=ExtResource("1_h2qiq")]
+[node name="platform_world9" parent="boss_platforms" instance=ExtResource("2_8ai88")]
 position = Vector2(-560, -544)
 scale = Vector2(0.3, 0.3)
 
@@ -58,26 +58,26 @@ position = Vector2(304, -288)
 
 [node name="big_damage_area" type="Area2D" parent="."]
 collision_layer = 2
-script = ExtResource("3_6e0g2")
+script = ExtResource("3_fvnck")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="big_damage_area"]
 position = Vector2(44, -508)
 shape = SubResource("RectangleShape2D_8rx5w")
 debug_color = Color(0.207843, 0.631373, 0.345098, 0.419608)
 
-[node name="boss_1" parent="." instance=ExtResource("3_eihvs")]
+[node name="boss_1" parent="." instance=ExtResource("4_k8vus")]
 position = Vector2(-152, -496)
 
-[node name="platform_world" parent="." instance=ExtResource("1_h2qiq")]
+[node name="platform_world" parent="." instance=ExtResource("2_8ai88")]
 position = Vector2(-472, -496)
 rotation = 1.5708
 script = null
 
-[node name="platform_world2" parent="." instance=ExtResource("1_h2qiq")]
+[node name="platform_world2" parent="." instance=ExtResource("2_8ai88")]
 position = Vector2(192, -184)
 scale = Vector2(3.6, 1)
 
-[node name="platform_world3" parent="." instance=ExtResource("1_h2qiq")]
+[node name="platform_world3" parent="." instance=ExtResource("2_8ai88")]
 position = Vector2(568, -488)
 rotation = 1.5708
 script = null
@@ -90,11 +90,11 @@ collision_layer = 2
 collision_mask = 0
 gravity_scale = 0.0
 lock_rotation = true
-script = ExtResource("5_eey5b")
+script = ExtResource("5_v2xux")
 
 [node name="Sprite2D" type="Sprite2D" parent="ceiling/RigidBody2D"]
 scale = Vector2(0.182857, 0.629032)
-texture = ExtResource("6_gmdsb")
+texture = ExtResource("6_6vx0d")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ceiling/RigidBody2D"]
 shape = SubResource("RectangleShape2D_gvl8d")
@@ -106,11 +106,11 @@ collision_layer = 2
 collision_mask = 0
 gravity_scale = 0.0
 lock_rotation = true
-script = ExtResource("5_eey5b")
+script = ExtResource("5_v2xux")
 
 [node name="Sprite2D" type="Sprite2D" parent="ceiling/RigidBody2D2"]
 scale = Vector2(0.182857, 0.629032)
-texture = ExtResource("6_gmdsb")
+texture = ExtResource("6_6vx0d")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ceiling/RigidBody2D2"]
 shape = SubResource("RectangleShape2D_gvl8d")
@@ -122,11 +122,11 @@ collision_layer = 2
 collision_mask = 0
 gravity_scale = 0.0
 lock_rotation = true
-script = ExtResource("5_eey5b")
+script = ExtResource("5_v2xux")
 
 [node name="Sprite2D" type="Sprite2D" parent="ceiling/RigidBody2D3"]
 scale = Vector2(0.182857, 0.629032)
-texture = ExtResource("6_gmdsb")
+texture = ExtResource("6_6vx0d")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ceiling/RigidBody2D3"]
 shape = SubResource("RectangleShape2D_gvl8d")
@@ -138,11 +138,11 @@ collision_layer = 2
 collision_mask = 0
 gravity_scale = 0.0
 lock_rotation = true
-script = ExtResource("5_eey5b")
+script = ExtResource("5_v2xux")
 
 [node name="Sprite2D" type="Sprite2D" parent="ceiling/RigidBody2D4"]
 scale = Vector2(0.182857, 0.629032)
-texture = ExtResource("6_gmdsb")
+texture = ExtResource("6_6vx0d")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ceiling/RigidBody2D4"]
 shape = SubResource("RectangleShape2D_gvl8d")
@@ -154,11 +154,11 @@ collision_layer = 2
 collision_mask = 0
 gravity_scale = 0.0
 lock_rotation = true
-script = ExtResource("5_eey5b")
+script = ExtResource("5_v2xux")
 
 [node name="Sprite2D" type="Sprite2D" parent="ceiling/RigidBody2D5"]
 scale = Vector2(0.182857, 0.629032)
-texture = ExtResource("6_gmdsb")
+texture = ExtResource("6_6vx0d")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ceiling/RigidBody2D5"]
 shape = SubResource("RectangleShape2D_gvl8d")
@@ -170,11 +170,11 @@ collision_layer = 2
 collision_mask = 0
 gravity_scale = 0.0
 lock_rotation = true
-script = ExtResource("5_eey5b")
+script = ExtResource("5_v2xux")
 
 [node name="Sprite2D" type="Sprite2D" parent="ceiling/RigidBody2D6"]
 scale = Vector2(0.182857, 0.629032)
-texture = ExtResource("6_gmdsb")
+texture = ExtResource("6_6vx0d")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ceiling/RigidBody2D6"]
 shape = SubResource("RectangleShape2D_gvl8d")
@@ -186,11 +186,11 @@ collision_layer = 2
 collision_mask = 0
 gravity_scale = 0.0
 lock_rotation = true
-script = ExtResource("5_eey5b")
+script = ExtResource("5_v2xux")
 
 [node name="Sprite2D" type="Sprite2D" parent="ceiling/RigidBody2D7"]
 scale = Vector2(0.182857, 0.629032)
-texture = ExtResource("6_gmdsb")
+texture = ExtResource("6_6vx0d")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ceiling/RigidBody2D7"]
 shape = SubResource("RectangleShape2D_gvl8d")
@@ -199,7 +199,7 @@ debug_color = Color(0.854902, 0.305882, 0.529412, 0.419608)
 [node name="first_phase_attack1_area" type="Area2D" parent="."]
 position = Vector2(-152, -496)
 collision_layer = 2
-script = ExtResource("7_2hyyu")
+script = ExtResource("7_7vqyo")
 
 [node name="line1" type="CollisionShape2D" parent="first_phase_attack1_area"]
 position = Vector2(199, -83)
