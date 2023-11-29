@@ -1,0 +1,147 @@
+[gd_scene load_steps=21 format=3 uid="uid://cer2nel7dtn3r"]
+
+[ext_resource type="Script" path="res://nodos/first_boss/first_boss.gd" id="1_nihfp"]
+[ext_resource type="Texture2D" uid="uid://bqh0w6153q0gf" path="res://arte/Assets/prota.png" id="1_sqtby"]
+[ext_resource type="Script" path="res://nodos/first_boss/state_machine_first_boss.gd" id="3_icmwx"]
+[ext_resource type="Script" path="res://nodos/first_boss/first_phase_initial_state_boss_first_boss.gd" id="4_yhj2j"]
+[ext_resource type="Script" path="res://nodos/first_boss/first_phase_attack1_state_first_boss.gd" id="5_w7trb"]
+[ext_resource type="Script" path="res://nodos/first_boss/first_phase_attack2_state_first_boss.gd" id="6_sc8hq"]
+[ext_resource type="Script" path="res://nodos/first_boss/first_phase_window_state_first_boss.gd" id="7_gcbu5"]
+[ext_resource type="Script" path="res://nodos/first_boss/break_ceiling_state_first_boss.gd" id="8_3irob"]
+[ext_resource type="Script" path="res://nodos/first_boss/break_platforms_state_first_boss.gd" id="9_686sj"]
+[ext_resource type="Script" path="res://nodos/first_boss/second_phase_initial_state_boss_first_boss.gd" id="10_4gku6"]
+[ext_resource type="Script" path="res://nodos/first_boss/second_phase_attack1_state_first_boss.gd" id="11_g318s"]
+[ext_resource type="Script" path="res://nodos/first_boss/second_phase_attack2_state_first_boss.gd" id="12_c31r0"]
+[ext_resource type="Script" path="res://nodos/first_boss/second_phase_attack3_state_first_boss.gd" id="13_qi5qb"]
+[ext_resource type="Script" path="res://nodos/first_boss/second_phase_attack4_state_first_boss.gd" id="14_3q7rr"]
+[ext_resource type="Script" path="res://nodos/first_boss/second_phase_window_state_first_boss.gd" id="15_2bcf7"]
+[ext_resource type="Script" path="res://nodos/first_boss/dead_state_first_boss.gd" id="16_cf043"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0w2ht"]
+radius = 19.0
+height = 60.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6dwlc"]
+size = Vector2(30.5, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qo2oc"]
+size = Vector2(427, 20)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_j62ag"]
+radius = 78.0
+
+[node name="first_boss" type="CharacterBody2D"]
+script = ExtResource("1_nihfp")
+
+[node name="position2D" type="Marker2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="position2D"]
+scale = Vector2(0.238462, 0.238462)
+texture = ExtResource("1_sqtby")
+
+[node name="RayCast2D" type="RayCast2D" parent="position2D"]
+
+[node name="hitbox" type="Area2D" parent="position2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="position2D/hitbox"]
+shape = SubResource("CapsuleShape2D_0w2ht")
+debug_color = Color(0.776471, 0.384314, 0.572549, 0.419608)
+
+[node name="state_machine_first_boss" type="Node" parent="." node_paths=PackedStringArray("initial_state", "Enemigo", "position2D")]
+script = ExtResource("3_icmwx")
+initial_state = NodePath("first_phase_initial_state_boss_first_boss")
+Enemigo = NodePath("..")
+position2D = NodePath("../position2D")
+
+[node name="first_phase_initial_state_boss_first_boss" type="Node" parent="state_machine_first_boss" node_paths=PackedStringArray("first_phase_to_attack_timer")]
+script = ExtResource("4_yhj2j")
+first_phase_to_attack_timer = NodePath("../../first_phase_to_attack_timer")
+
+[node name="first_phase_attack1_state_first_boss" type="Node" parent="state_machine_first_boss" node_paths=PackedStringArray("attack_to_first_phase_timer", "attack_1_lines")]
+script = ExtResource("5_w7trb")
+attack_to_first_phase_timer = NodePath("../../attack_to_first_phase_timer")
+attack_1_lines = NodePath("../../attack_1_lines")
+
+[node name="first_phase_attack2_state_first_boss" type="Node" parent="state_machine_first_boss" node_paths=PackedStringArray("attack_to_first_phase_timer", "change_safe_areas_attack_2")]
+script = ExtResource("6_sc8hq")
+attack_to_first_phase_timer = NodePath("../../attack_to_first_phase_timer")
+change_safe_areas_attack_2 = NodePath("../../change_safe_areas_attack_2")
+
+[node name="first_phase_window_state_first_boss" type="Node" parent="state_machine_first_boss"]
+script = ExtResource("7_gcbu5")
+
+[node name="break_ceiling_state_first_boss" type="Node" parent="state_machine_first_boss"]
+script = ExtResource("8_3irob")
+
+[node name="break_platforms_state_first_boss" type="Node" parent="state_machine_first_boss"]
+script = ExtResource("9_686sj")
+
+[node name="second_phase_initial_state_boss_first_boss" type="Node" parent="state_machine_first_boss"]
+script = ExtResource("10_4gku6")
+
+[node name="second_phase_attack1_state_first_boss" type="Node" parent="state_machine_first_boss"]
+script = ExtResource("11_g318s")
+
+[node name="second_phase_attack2_state_first_boss" type="Node" parent="state_machine_first_boss"]
+script = ExtResource("12_c31r0")
+
+[node name="second_phase_attack3_state_first_boss" type="Node" parent="state_machine_first_boss"]
+script = ExtResource("13_qi5qb")
+
+[node name="second_phase_attack4_state_first_boss" type="Node" parent="state_machine_first_boss"]
+script = ExtResource("14_3q7rr")
+
+[node name="second_phase_window_state_first_boss" type="Node" parent="state_machine_first_boss"]
+script = ExtResource("15_2bcf7")
+
+[node name="dead_state_first_boss" type="Node" parent="state_machine_first_boss"]
+script = ExtResource("16_cf043")
+
+[node name="first_phase_to_attack_timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="attack_to_first_phase_timer" type="Timer" parent="."]
+wait_time = 30.0
+one_shot = true
+
+[node name="attack_1_lines" type="Timer" parent="."]
+one_shot = true
+
+[node name="change_safe_areas_attack_2" type="Timer" parent="."]
+one_shot = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 27)
+shape = SubResource("RectangleShape2D_6dwlc")
+
+[node name="first_phase_attack1_area" type="Area2D" parent="."]
+
+[node name="line1" type="CollisionShape2D" parent="first_phase_attack1_area"]
+visible = false
+position = Vector2(0, -67)
+shape = SubResource("RectangleShape2D_qo2oc")
+
+[node name="line2" type="CollisionShape2D" parent="first_phase_attack1_area"]
+visible = false
+position = Vector2(0, 44)
+shape = SubResource("RectangleShape2D_qo2oc")
+
+[node name="line3" type="CollisionShape2D" parent="first_phase_attack1_area"]
+visible = false
+position = Vector2(0, 85)
+shape = SubResource("RectangleShape2D_qo2oc")
+
+[node name="first_phase_attack2_area" type="Area2D" parent="."]
+
+[node name="bubble1" type="CollisionShape2D" parent="first_phase_attack2_area"]
+position = Vector2(-112, -115)
+shape = SubResource("CircleShape2D_j62ag")
+
+[node name="bubble2" type="CollisionShape2D" parent="first_phase_attack2_area"]
+position = Vector2(-103, 76)
+shape = SubResource("CircleShape2D_j62ag")
+
+[node name="bubble3" type="CollisionShape2D" parent="first_phase_attack2_area"]
+position = Vector2(139, 75)
+shape = SubResource("CircleShape2D_j62ag")

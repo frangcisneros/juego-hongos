@@ -1,28 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://bnwuefdep2gcu"]
+[gd_scene load_steps=3 format=3 uid="uid://by71gkcg81xg5"]
 
-[ext_resource type="PackedScene" uid="uid://dusk6dox3dxnb" path="res://nodos/platform_world/platform_world.tscn" id="1_h2qiq"]
-[ext_resource type="Script" path="res://world/test_world.gd" id="1_hbace"]
+[ext_resource type="Script" path="res://world/test_world.gd" id="1_15tp2"]
+[ext_resource type="PackedScene" uid="uid://dusk6dox3dxnb" path="res://nodos/platform_world/platform_world.tscn" id="2_hr4qa"]
 
 [node name="test_world" type="Node2D" node_paths=PackedStringArray("spawn")]
-process_mode = 1
-script = ExtResource("1_hbace")
+script = ExtResource("1_15tp2")
 spawn = NodePath("spawn")
 
-[node name="platform_world" parent="." instance=ExtResource("1_h2qiq")]
-position = Vector2(117, 130)
-scale = Vector2(50, 0.2)
-
-[node name="platform_world2" parent="." instance=ExtResource("1_h2qiq")]
-position = Vector2(192, -184)
-scale = Vector2(3.6, 1)
-
-[node name="platform_world3" parent="." instance=ExtResource("1_h2qiq")]
-position = Vector2(-136, -256)
-scale = Vector2(0.3, 0.3)
-
-[node name="platform_world4" parent="." instance=ExtResource("1_h2qiq")]
-position = Vector2(-592, -344)
-scale = Vector2(0.3, 0.3)
+[node name="platform_world" parent="." instance=ExtResource("2_hr4qa")]
+position = Vector2(0, 48)
 
 [node name="spawn" type="Marker2D" parent="."]
-position = Vector2(-816, -256)
+position = Vector2(-240, -32)
