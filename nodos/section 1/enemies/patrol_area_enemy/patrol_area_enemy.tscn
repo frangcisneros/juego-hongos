@@ -1,14 +1,14 @@
 [gd_scene load_steps=15 format=3 uid="uid://bdcwy0l23ge2o"]
 
-[ext_resource type="Script" path="res://nodos/patrol_area_enemy/patrol_area_enemy.gd" id="1_bx1uf"]
-[ext_resource type="Texture2D" uid="uid://bqh0w6153q0gf" path="res://arte/prota.png" id="1_ochcv"]
-[ext_resource type="Script" path="res://nodos/patrol_area_enemy/vision_patrol_area_enemy.gd" id="3_jksjn"]
-[ext_resource type="Script" path="res://nodos/patrol_area_enemy/hitbox.gd" id="4_eonrq"]
-[ext_resource type="Script" path="res://nodos/patrol_area_enemy/state_machine_patrol_area_enemy.gd" id="4_u0iac"]
-[ext_resource type="Script" path="res://nodos/patrol_area_enemy/idle_state_patrol_area_enemy.gd" id="5_oamxw"]
-[ext_resource type="Script" path="res://nodos/patrol_area_enemy/atack_state_patrol_area_enemy.gd" id="6_ovsot"]
-[ext_resource type="Script" path="res://nodos/patrol_area_enemy/dead_state_patrol_area_enemy.gd" id="7_rihyf"]
-[ext_resource type="Script" path="res://nodos/patrol_area_enemy/hitted_state_patrol_area_enemy.gd" id="9_5g2yo"]
+[ext_resource type="Script" path="res://nodos/section 1/enemies/patrol_area_enemy/patrol_area_enemy.gd" id="1_bx1uf"]
+[ext_resource type="Texture2D" uid="uid://bqh0w6153q0gf" path="res://arte/Assets/prota.png" id="1_ochcv"]
+[ext_resource type="Script" path="res://nodos/section 1/enemies/patrol_area_enemy/vision_patrol_area_enemy.gd" id="3_jksjn"]
+[ext_resource type="Script" path="res://nodos/section 1/enemies/patrol_area_enemy/hitbox.gd" id="4_eonrq"]
+[ext_resource type="Script" path="res://nodos/section 1/enemies/patrol_area_enemy/state_machine_patrol_area_enemy.gd" id="4_u0iac"]
+[ext_resource type="Script" path="res://nodos/section 1/enemies/patrol_area_enemy/idle_state_patrol_area_enemy.gd" id="5_oamxw"]
+[ext_resource type="Script" path="res://nodos/section 1/enemies/patrol_area_enemy/atack_state_patrol_area_enemy.gd" id="6_ovsot"]
+[ext_resource type="Script" path="res://nodos/section 1/enemies/patrol_area_enemy/dead_state_patrol_area_enemy.gd" id="7_rihyf"]
+[ext_resource type="Script" path="res://nodos/section 1/enemies/patrol_area_enemy/hitted_state_patrol_area_enemy.gd" id="9_5g2yo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bny47"]
 size = Vector2(58, 43)

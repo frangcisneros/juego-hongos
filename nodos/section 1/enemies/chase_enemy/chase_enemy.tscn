@@ -1,12 +1,12 @@
 [gd_scene load_steps=10 format=3 uid="uid://b37c4705el0oa"]
 
-[ext_resource type="Script" path="res://nodos/chase_enemy/chase_enemy.gd" id="1_dya4w"]
+[ext_resource type="Script" path="res://nodos/section 1/enemies/chase_enemy/chase_enemy.gd" id="1_dya4w"]
 [ext_resource type="Texture2D" uid="uid://bqh0w6153q0gf" path="res://arte/Assets/prota.png" id="2_f5vwm"]
-[ext_resource type="Script" path="res://nodos/chase_enemy/state_machine_chase_enemy.gd" id="3_yg5su"]
-[ext_resource type="Script" path="res://nodos/chase_enemy/idle_state_chase_enemy.gd" id="4_30ip5"]
-[ext_resource type="Script" path="res://nodos/chase_enemy/chasing_state_chase_enemy.gd" id="5_ukk1a"]
-[ext_resource type="Script" path="res://nodos/chase_enemy/dead_state_chase_enemy.gd" id="6_jeiv5"]
-[ext_resource type="Script" path="res://nodos/chase_enemy/vision_chase_enemy.gd" id="7_wmsvk"]
+[ext_resource type="Script" path="res://nodos/section 1/enemies/chase_enemy/state_machine_chase_enemy.gd" id="3_yg5su"]
+[ext_resource type="Script" path="res://nodos/section 1/enemies/chase_enemy/idle_state_chase_enemy.gd" id="4_30ip5"]
+[ext_resource type="Script" path="res://nodos/section 1/enemies/chase_enemy/chasing_state_chase_enemy.gd" id="5_ukk1a"]
+[ext_resource type="Script" path="res://nodos/section 1/enemies/chase_enemy/dead_state_chase_enemy.gd" id="6_jeiv5"]
+[ext_resource type="Script" path="res://nodos/section 1/enemies/chase_enemy/vision_chase_enemy.gd" id="7_wmsvk"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_s0y12"]
 radius = 161.05

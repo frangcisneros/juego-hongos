@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dj07mg1sgtrmu"]
+[gd_scene load_steps=19 format=3 uid="uid://dj07mg1sgtrmu"]
 
 [ext_resource type="Script" path="res://nodos/player/player.gd" id="1_wp7lc"]
 [ext_resource type="Script" path="res://nodos/player/atack_player/atack_player.gd" id="2_ucc6x"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" path="res://nodos/player/fall_state_player.gd" id="10_bjbsj"]
 [ext_resource type="Script" path="res://nodos/player/hurt_state_player.gd" id="10_cryw5"]
 [ext_resource type="Script" path="res://nodos/player/dead_state_player.gd" id="11_e346p"]
+[ext_resource type="Script" path="res://nodos/player/state_label.gd" id="14_x11im"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tlug4"]
 radius = 30.4762
@@ -115,6 +116,14 @@ script = ExtResource("10_cryw5")
 
 [node name="dead_state_player" type="Node" parent="state_machine_player"]
 script = ExtResource("11_e346p")
+
+[node name="Label" type="Label" parent="." node_paths=PackedStringArray("state_machine")]
+offset_left = -19.0476
+offset_top = -87.6191
+offset_right = 20.9524
+offset_bottom = -64.6191
+script = ExtResource("14_x11im")
+state_machine = NodePath("../state_machine_player")
 
 [connection signal="area_entered" from="attack_area" to="attack_area" method="_on_area_entered"]
 [connection signal="area_entered" from="hitbox_player" to="state_machine_player" method="_on_hitbox_player_area_entered"]

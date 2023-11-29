@@ -1,12 +1,12 @@
 [gd_scene load_steps=11 format=3 uid="uid://t13h28qs4lvp"]
 
-[ext_resource type="Script" path="res://nodos/jump_enemy/jump_enemy.gd" id="1_b4o2j"]
+[ext_resource type="Script" path="res://nodos/section 1/enemies/jump_enemy/jump_enemy.gd" id="1_b4o2j"]
 [ext_resource type="Texture2D" uid="uid://bqh0w6153q0gf" path="res://arte/Assets/prota.png" id="2_cceq3"]
-[ext_resource type="Script" path="res://nodos/jump_enemy/state_machine_jump_enemy.gd" id="5_lr5ei"]
-[ext_resource type="Script" path="res://nodos/jump_enemy/idle_state_jump_enemy.gd" id="6_1gdfo"]
-[ext_resource type="Script" path="res://nodos/jump_enemy/hitted_state_jump_enemy.gd" id="6_34jai"]
-[ext_resource type="Script" path="res://nodos/jump_enemy/hitbox.gd" id="6_57g2g"]
-[ext_resource type="Script" path="res://nodos/jump_enemy/dead_state_jump_enemy.gd" id="7_l551g"]
+[ext_resource type="Script" path="res://nodos/section 1/enemies/jump_enemy/state_machine_jump_enemy.gd" id="5_lr5ei"]
+[ext_resource type="Script" path="res://nodos/section 1/enemies/jump_enemy/idle_state_jump_enemy.gd" id="6_1gdfo"]
+[ext_resource type="Script" path="res://nodos/section 1/enemies/jump_enemy/hitted_state_jump_enemy.gd" id="6_34jai"]
+[ext_resource type="Script" path="res://nodos/section 1/enemies/jump_enemy/hitbox.gd" id="6_57g2g"]
+[ext_resource type="Script" path="res://nodos/section 1/enemies/jump_enemy/dead_state_jump_enemy.gd" id="7_l551g"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_idrms"]
 height = 86.0

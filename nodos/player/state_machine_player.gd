@@ -4,7 +4,6 @@ class_name state_machine_player
 
 @export var initial_state : State
 @export var Player: CharacterBody2D
-
 var states :  Dictionary = {}
 var currentState : State
 
@@ -19,12 +18,12 @@ func _ready():
 		currentState = initial_state 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-#	print(currentState)
 	currentState.Update(delta)
 
 
 func _physics_process(delta):
 	currentState.UpdatePhysics(delta)
+	print(Player.velocity.x,"             ", currentState)
 
 func on_child_transition(state, new_state_name):
 	if state != currentState:
@@ -52,3 +51,8 @@ func _on_hitbox_player_body_entered(body):
 func _on_hitbox_player_area_entered(area):
 	if area.has_method("enemy"):
 		on_child_transition(currentState,"hurt_state_player")
+
+func _input(event):
+	var just_pressed = event.is_pressed() and not event.is_echo()
+	if Input.is_key_pressed(KEY_Z) and just_pressed:
+		on_child_transition(currentState, "attack_state_player")
