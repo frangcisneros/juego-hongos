@@ -14,7 +14,7 @@ extends State
 @onready var first_phase_attack2_area : Area2D = Enemigo.get_node("first_phase_attack2_area")
 @onready var first_phase_attack1_area : Area2D = Enemigo.get_parent().get_node("first_phase_attack1_area")
 @onready var big_damage_area = Enemigo.get_parent().get_node("big_damage_area")
-
+@onready var hitbox = Enemigo.get_node("hitbox")
 
 
 var attack_list = ["first_phase_attack1_state_first_boss","first_phase_attack2_state_first_boss"]
@@ -26,6 +26,9 @@ var StateActive : bool = false
 @onready var random_tp_first_phase : Array = tp_first_phase.get_children()
 
 func Enter():
+	
+	hitbox.set_collision_mask_value(6,true)
+	
 	random_tp_first_phase.shuffle()
 	Enemigo.global_position = random_tp_first_phase[0].global_position
 	
@@ -65,8 +68,7 @@ func Update(_delta : float):
 	if Enemigo.health <= 75 and not break_ceiling:
 		break_ceiling = true
 		Transition.emit(self,"break_ceiling_state_first_boss")
-	if Enemigo.health <= 50:
-		Transition.emit(self,"second_phase_initial_state_boss_first_boss")
+	
 	pass
 			
 func UpdatePhysics(_delta:float):

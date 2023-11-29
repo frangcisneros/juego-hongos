@@ -50,7 +50,7 @@ size = Vector2(30.5, 8)
 
 [node name="first_boss" type="CharacterBody2D" node_paths=PackedStringArray("position2D")]
 collision_layer = 2
-collision_mask = 32
+collision_mask = 40
 script = ExtResource("1_nihfp")
 position2D = NodePath("position2D")
 
@@ -81,8 +81,6 @@ texture = ExtResource("1_sqtby")
 position = Vector2(53, 0)
 scale = Vector2(0.639999, 0.639999)
 collision_layer = 2
-monitoring = false
-monitorable = false
 script = ExtResource("4_y52m6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="position2D/attack_1"]
@@ -92,8 +90,6 @@ shape = SubResource("CircleShape2D_xab17")
 position = Vector2(0, -115)
 collision_layer = 2
 collision_mask = 9
-monitoring = false
-monitorable = false
 script = ExtResource("5_28yyf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="position2D/attack_2"]
@@ -102,12 +98,12 @@ shape = SubResource("RectangleShape2D_nsldc")
 [node name="attack_3" type="Area2D" parent="position2D"]
 position = Vector2(46, -115)
 collision_layer = 2
-monitoring = false
-monitorable = false
 
 [node name="RigidBody2D" type="RigidBody2D" parent="position2D/attack_3"]
 collision_layer = 2
 collision_mask = 8
+sleeping = true
+freeze = true
 script = ExtResource("7_54ojk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="position2D/attack_3/RigidBody2D"]
@@ -115,8 +111,6 @@ shape = SubResource("RectangleShape2D_g7ydp")
 
 [node name="attack_4" type="Area2D" parent="position2D"]
 collision_layer = 2
-monitoring = false
-monitorable = false
 script = ExtResource("7_7qirs")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="position2D/attack_4"]

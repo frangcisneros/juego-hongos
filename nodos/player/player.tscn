@@ -53,6 +53,7 @@ position = Vector2(70, 0)
 collision_layer = 32
 collision_mask = 18
 script = ExtResource("2_ucc6x")
+damage = 10
 
 [node name="collision_attack" type="CollisionShape2D" parent="attack_area"]
 shape = SubResource("RectangleShape2D_k4lr0")

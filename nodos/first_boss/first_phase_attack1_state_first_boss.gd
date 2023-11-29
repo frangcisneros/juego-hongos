@@ -15,6 +15,8 @@ var activated_line : Node2D
 var previous_activated_line : Node2D
 
 func Enter():
+	
+	
 	first_phase_attack1_area.set_deferred("monitorable",true)
 	first_phase_attack1_area.set_deferred("monitoring",true)
 	first_phase_attack1_area.visible = true
@@ -27,6 +29,8 @@ func Enter():
 	Enemigo.set_collision_layer_value(2,false)
 	hitbox.set_collision_layer_value(2,false)	
 	hitbox.set_collision_mask_value(5,false)
+	hitbox.set_collision_mask_value(6,false)
+	
 	
 	sprite_enemigo.visible = false
 	first_phase_to_window.start()

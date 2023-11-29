@@ -10,7 +10,7 @@ var StateActive : bool = false
 
 func Enter():
 	Enemigo.set_collision_layer_value(2,true)
-	hitbox.set_collision_mask_value(32,true)
+	hitbox.set_collision_mask_value(6,true)
 	hitbox.set_collision_layer_value(2,true)
 	sprite_enemigo.visible = true
 	window_to_first_phase.start()

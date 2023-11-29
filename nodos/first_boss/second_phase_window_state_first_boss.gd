@@ -8,7 +8,6 @@ extends State
 var StateActive : bool = false
 
 func Enter():
-	print(Enemigo.health)
 	window_to_first_phase.start()
 	StateActive = true
 	

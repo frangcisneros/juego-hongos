@@ -9,10 +9,10 @@ var attack_list = ["second_phase_attack1_state_first_boss","second_phase_attack2
 
 @onready var player = get_tree().get_nodes_in_group("player")[0]
 
-@onready var attack_1 = Enemigo.get_node("position2D/attack_1")
-@onready var attack_2 = Enemigo.get_node("position2D/attack_2")
-@onready var attack_3 = Enemigo.get_node("position2D/attack_3")
-@onready var attack_4 = Enemigo.get_node("position2D/attack_4")
+@onready var attack_1_cs : CollisionShape2D = Enemigo.get_node("position2D/attack_1/CollisionShape2D")
+@onready var attack_2_cs : CollisionShape2D = Enemigo.get_node("position2D/attack_2/CollisionShape2D")
+@onready var attack_3_cs : CollisionShape2D = Enemigo.get_node("position2D/attack_3/RigidBody2D/CollisionShape2D")
+@onready var attack_4_cs : CollisionShape2D = Enemigo.get_node("position2D/attack_4/CollisionShape2D")
 
 @onready var point1_x = Enemigo.get_parent().get_node("point1").global_position.x
 @onready var point2_x = Enemigo.get_parent().get_node("point2").global_position.x
@@ -22,7 +22,7 @@ var attack_list = ["second_phase_attack1_state_first_boss","second_phase_attack2
 @onready var right : bool = true
 @onready var speed : float = 100
 @onready var run_area : Area2D = Enemigo.get_node("run_area")
-
+@onready var hitbox = Enemigo.get_node("hitbox")
 var random_attack : int
 var amount_of_attacks = 0
 var random_amount_of_attacks = randi()%(5)+2
@@ -32,26 +32,34 @@ var starter_health = 50
 var new_health = starter_health
 
 func Enter():
-	amount_of_attacks += 1
-# esto en realidad hay que hacerlo en la fase anterior pero estoy probando
 	if big_damage_area and Enemigo.get_parent().get_node("first_phase_attack1_area") and Enemigo.get_node("first_phase_attack2_area"):
 		big_damage_area.queue_free()
 		Enemigo.get_parent().get_node("first_phase_attack1_area").queue_free()
 		Enemigo.get_node("first_phase_attack2_area").queue_free()
 	
+	platforms = Enemigo.get_parent().get_node("boss_platforms").get_children()
+	for platform in platforms:
+		platform.queue_free()
+	
+	amount_of_attacks += 1
 	run_area.set_deferred("monitoring",true)
 	run_area.set_deferred("monitorable",true)
 	random_attack = randi()%(attack_list.size() - 1)+0
-	platforms = Enemigo.get_parent().get_node("boss_platforms").get_children()
-	delete_platforms(platforms)
+	
 	
 	Enemigo.set_collision_mask_value(4,true)
 	Enemigo.set_collision_layer_value(2,true)
+	hitbox.set_collision_mask_value(6,true)
 	
-	attack_1.visible = false
-	attack_2.visible = false
-	attack_3.visible = false
-	attack_4.visible = false
+	attack_1_cs.visible = false
+	attack_2_cs.visible = false
+	attack_3_cs.visible = false
+	attack_4_cs.visible = false
+	
+	attack_1_cs.disabled = true
+	attack_2_cs.disabled = true
+	attack_3_cs.disabled = true
+	attack_4_cs.disabled = true
 	
 	attack_list.shuffle()
 	second_phase_to_attack_timer.start()
@@ -73,19 +81,15 @@ func Update(_delta : float):
 	
 	to_window(5)
 	if second_phase_to_attack_timer.is_stopped() and Enemigo.velocity.x == 0:
-#		Transition.emit(self,attack_list[random_attack])
-		Transition.emit(self,"second_phase_attack3_state_first_boss")
-#		Transition.emit(self,"second_phase_attack4_state_first_boss")		
+		Transition.emit(self,attack_list[random_attack])
+		
+		
 	pass
 			
 func UpdatePhysics(_delta:float):
 	if not Enemigo.is_on_floor():
 		Enemigo.velocity.y = Enemigo.gravity * _delta * 1000
 	pass
-
-func delete_platforms(platforms):
-	for i in platforms:
-		i.queue_free()
 
 func to_window(amount_of_windows):
 	if Enemigo.health <= new_health - (starter_health / amount_of_windows):

@@ -7,6 +7,8 @@ extends State
 @onready var player = get_tree().get_nodes_in_group("player")[0]
 @export var attack_to_second_phase : Timer
 @onready var attack_3 : Area2D = Enemigo.get_node("position2D/attack_3")
+@onready var attack_3_cs : CollisionShape2D = Enemigo.get_node("position2D/attack_3/RigidBody2D/CollisionShape2D")
+
 var initial_position : Vector2
 var initial_global_position : Vector2
 
@@ -18,9 +20,11 @@ func Enter():
 	attack_3_rigidbody.freeze = false
 	initial_position = attack_3.position
 	initial_global_position = attack_3_rigidbody.global_position
-	attack_3.visible = true
+	
 	attack_3.set_deferred("monitoring",true)
 	attack_3.set_deferred("monitorable",true)
+	attack_3_cs.visible = true
+	attack_3_cs.disabled = false
 	
 	attack_to_second_phase.start()
 	

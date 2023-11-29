@@ -3,9 +3,10 @@ extends Node
 @export var initial_state : State
 @export var Enemigo: CharacterBody2D
 @export var position2D : Marker2D
-
+@onready var hitbox = Enemigo.get_node("hitbox")
 var states :  Dictionary = {}
 var currentState : State
+var to_second_phase = true
 
 func _ready():
 	for child in get_children():
@@ -18,8 +19,11 @@ func _ready():
 		currentState = initial_state 
 
 func _process(delta):
-#	print(currentState)
 	currentState.Update(delta)
+	if Enemigo.health <= 50 and to_second_phase:
+		hitbox.set_collision_mask_value(6,false)	
+		on_child_transition(currentState,"break_platforms_state_first_boss")
+		to_second_phase = false
 
 func _physics_process(delta):
 	currentState.UpdatePhysics(delta)

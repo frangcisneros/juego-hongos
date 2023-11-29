@@ -24,7 +24,7 @@ func Enter():
 	platforms = boss_platforms.get_children()
 	
 	Enemigo.set_collision_layer_value(2,false)
-	hitbox.set_collision_mask_value(32,false)
+	hitbox.set_collision_mask_value(6,false)
 	hitbox.set_collision_layer_value(2,false)
 	
 	sprite_enemigo.visible = false
@@ -66,7 +66,6 @@ func activate_platforms(platforms,safe_areas):
 
 func _on_first_phase_attack_2_area_body_entered(body):
 	if body.has_method("player"):
-		print("1")
 		make_damage = false
 		big_damage_area.set_deferred("monitorable",false)
 		big_damage_area.set_deferred("monitoring",false)
@@ -74,6 +73,5 @@ func _on_first_phase_attack_2_area_body_entered(body):
 
 func _on_first_phase_attack_2_area_body_exited(body):
 	if body.has_method("player"):
-		print("2")		
 		make_damage = true
 		wait_attack2_timer.start()
