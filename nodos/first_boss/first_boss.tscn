@@ -215,7 +215,6 @@ wait_time = 3.0
 one_shot = true
 
 [node name="wait_attack2_timer" type="Timer" parent="."]
-wait_time = 3.0
 one_shot = true
 
 [node name="attack_to_second_phase" type="Timer" parent="."]
