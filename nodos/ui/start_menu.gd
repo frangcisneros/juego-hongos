@@ -70,5 +70,5 @@ func _on_boss_arena_pressed():
 	game.load_level("/section_2/boss_arena")
 	hide()
 
-
-
+func _on_last_game_pressed():
+	pass # Replace with function body.

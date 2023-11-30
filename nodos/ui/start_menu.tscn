@@ -79,6 +79,12 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 50
 text = "Section 2"
 
+[node name="last_game" type="Button" parent="Panel/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Last Game
+"
+
 [node name="VBoxContainer3" type="VBoxContainer" parent="Panel"]
 visible = false
 layout_mode = 1
@@ -144,6 +150,7 @@ text = "Boss Arena"
 [connection signal="pressed" from="Panel/VBoxContainer/quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer2/section_1" to="." method="_on_section_1_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer2/section_2" to="." method="_on_section_2_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer2/last_game" to="." method="_on_last_game_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer3/starting_area" to="." method="_on_starting_area_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer3/first_zone" to="." method="_on_first_zone_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer3/second_zone" to="." method="_on_second_zone_pressed"]
