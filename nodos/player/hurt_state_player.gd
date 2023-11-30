@@ -1,6 +1,5 @@
 extends State
 
-class_name hurt_state_player
 
 var StateActive : bool = false
 

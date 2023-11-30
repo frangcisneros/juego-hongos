@@ -1,6 +1,5 @@
 extends State
 
-class_name walk_state_player
 
 var StateActive : bool = false
 var direction

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dj07mg1sgtrmu"]
+[gd_scene load_steps=20 format=3 uid="uid://dj07mg1sgtrmu"]
 
 [ext_resource type="Script" path="res://nodos/player/player.gd" id="1_wp7lc"]
 [ext_resource type="Script" path="res://nodos/player/atack_player/atack_player.gd" id="2_ucc6x"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" path="res://nodos/player/fall_state_player.gd" id="10_bjbsj"]
 [ext_resource type="Script" path="res://nodos/player/hurt_state_player.gd" id="10_cryw5"]
 [ext_resource type="Script" path="res://nodos/player/dead_state_player.gd" id="11_e346p"]
+[ext_resource type="Script" path="res://nodos/player/reappear_state_player.gd" id="14_oh2n5"]
 [ext_resource type="Script" path="res://nodos/player/state_label.gd" id="14_x11im"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tlug4"]
@@ -50,11 +51,9 @@ wait_time = 0.15
 one_shot = true
 
 [node name="attack_position2D" type="Marker2D" parent="."]
-scale = Vector2(1, 1)
 
 [node name="attack_area" type="Area2D" parent="attack_position2D"]
 position = Vector2(70, 0)
-scale = Vector2(1, 1)
 collision_layer = 32
 collision_mask = 18
 script = ExtResource("2_ucc6x")
@@ -92,6 +91,10 @@ debug_color = Color(0.0313726, 0.647059, 0.164706, 0.419608)
 wait_time = 0.15
 one_shot = true
 
+[node name="reappear_timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
 [node name="invincibility_timer" type="Timer" parent="."]
 one_shot = true
 
@@ -120,6 +123,9 @@ script = ExtResource("10_cryw5")
 
 [node name="dead_state_player" type="Node" parent="state_machine_player"]
 script = ExtResource("11_e346p")
+
+[node name="reappear_state_player" type="Node" parent="state_machine_player"]
+script = ExtResource("14_oh2n5")
 
 [node name="Label" type="Label" parent="." node_paths=PackedStringArray("state_machine")]
 offset_left = -19.0476
