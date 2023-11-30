@@ -4,6 +4,8 @@ class_name state_machine_player
 
 @export var initial_state : State
 @export var Player: CharacterBody2D
+@onready var attack_position2D : Marker2D = Player.get_node("attack_position2D")
+@onready var position2D : Marker2D = Player.get_node("position2D")
 var states :  Dictionary = {}
 var currentState : State
 
@@ -18,6 +20,7 @@ func _ready():
 		currentState = initial_state 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	
 	currentState.Update(delta)
 
 
@@ -54,5 +57,9 @@ func _on_hitbox_player_area_entered(area):
 
 func _input(event):
 	var just_pressed = event.is_pressed() and not event.is_echo()
+	if Input.is_action_pressed("ui_up") and position2D.scale.x == 1:
+		attack_position2D.rotation_degrees = -90
+	elif Input.is_action_pressed("ui_up") and position2D.scale.x == -1:
+		attack_position2D.rotation_degrees = 90
 	if Input.is_key_pressed(KEY_Z) and just_pressed:
 		on_child_transition(currentState, "attack_state_player")

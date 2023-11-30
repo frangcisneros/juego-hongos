@@ -19,7 +19,8 @@ var enemigo_rango = false
 @onready var coyote_timer = $coyote_timer # asigna el nodo coyotetimer a una variable
 @onready var jump_buffer_timer = $jump_buffer_timer # asigna el nodo jumpbuffertimer a una variable
 @onready var position2D = $position2D # esto nos servira para ir dando vuelta los sprites
-@onready var attack_area = $attack_area
+@onready var attack_position2D = $attack_position2D
+@onready var attack_area = $attack_position2D/attack_area
 @onready var retroceso_tiempo = $knockback_timer
 @onready var hitbox = $hitbox_player
 @onready var tiempo_invencibilidad = $invincibility_timer
@@ -49,8 +50,6 @@ func _physics_process(delta):
 			velocity.y += gravity * 1.75 * delta # cuando salta, es afectado por la gravedad para que caiga mas rapido y no tan suave
 			velocity.y = clamp(velocity.y, 0, 1000)
 	move_and_slide()
-
-
 
 func player():
 	pass
