@@ -22,9 +22,11 @@ func Update(_delta : float):
 	if direction > 0:
 		Player.position2D.scale.x = 1
 		Player.attack_area.position.x = Player.attack_area.initial_position
+		Player.attack_position2D.rotation_degrees = 0
 	elif direction < 0:
 		Player.position2D.scale.x = -1
 		Player.attack_area.position.x = - Player.attack_area.initial_position
+		Player.attack_position2D.rotation_degrees = 0		
 
 func UpdatePhysics(_delta : float):
 	if direction:

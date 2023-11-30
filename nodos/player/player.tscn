@@ -49,20 +49,29 @@ one_shot = true
 wait_time = 0.15
 one_shot = true
 
-[node name="attack_area" type="Area2D" parent="."]
+[node name="attack_position2D" type="Marker2D" parent="."]
+scale = Vector2(1, 1)
+
+[node name="attack_area" type="Area2D" parent="attack_position2D"]
 position = Vector2(70, 0)
+scale = Vector2(1, 1)
 collision_layer = 32
 collision_mask = 18
 script = ExtResource("2_ucc6x")
 damage = 10
 
-[node name="collision_attack" type="CollisionShape2D" parent="attack_area"]
+[node name="collision_attack" type="CollisionShape2D" parent="attack_position2D/attack_area"]
 shape = SubResource("RectangleShape2D_k4lr0")
 script = ExtResource("3_yge8a")
 
-[node name="attack_timer" type="Timer" parent="attack_area/collision_attack"]
+[node name="attack_timer" type="Timer" parent="attack_position2D/attack_area/collision_attack"]
 wait_time = 0.3
 one_shot = true
+
+[node name="sprite_attack" type="Sprite2D" parent="attack_position2D/attack_area"]
+position = Vector2(-1.42861, 0.238101)
+scale = Vector2(0.149393, 0.823182)
+texture = ExtResource("5_pc6bh")
 
 [node name="position2D" type="Marker2D" parent="."]
 metadata/_edit_group_ = true
@@ -71,11 +80,6 @@ metadata/_edit_group_ = true
 material = SubResource("CanvasItemMaterial_j64mn")
 scale = Vector2(0.392552, 0.392552)
 texture = ExtResource("4_iq03c")
-
-[node name="sprite_attack" type="Sprite2D" parent="position2D"]
-position = Vector2(68.5714, 0.238101)
-scale = Vector2(0.149393, 0.823182)
-texture = ExtResource("5_pc6bh")
 
 [node name="hitbox_player" type="Area2D" parent="."]
 collision_mask = 38
@@ -125,7 +129,7 @@ offset_bottom = -64.6191
 script = ExtResource("14_x11im")
 state_machine = NodePath("../state_machine_player")
 
-[connection signal="area_entered" from="attack_area" to="attack_area" method="_on_area_entered"]
+[connection signal="area_entered" from="attack_position2D/attack_area" to="attack_position2D/attack_area" method="_on_area_entered"]
 [connection signal="area_entered" from="hitbox_player" to="state_machine_player" method="_on_hitbox_player_area_entered"]
 [connection signal="body_entered" from="hitbox_player" to="." method="_on_hitbox_player_body_entered"]
 [connection signal="body_entered" from="hitbox_player" to="state_machine_player" method="_on_hitbox_player_body_entered"]
