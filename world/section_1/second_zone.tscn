@@ -2,12 +2,13 @@
 
 [ext_resource type="Script" path="res://world/section_1/second_zone.gd" id="1_5ry6f"]
 [ext_resource type="PackedScene" uid="uid://dusk6dox3dxnb" path="res://nodos/platform_world/platform_world.tscn" id="1_8c1y5"]
-[ext_resource type="PackedScene" uid="uid://dhtcxchlvm5ud" path="res://nodos/moss_house.tscn" id="3_x0wsc"]
+[ext_resource type="PackedScene" uid="uid://dhtcxchlvm5ud" path="res://nodos/section 1/world_and_enviroment/moss_house.tscn" id="3_x0wsc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kab27"]
 size = Vector2(248, 223)
 
 [node name="second_zone" type="Node2D" node_paths=PackedStringArray("spawn")]
+process_mode = 1
 script = ExtResource("1_5ry6f")
 spawn = NodePath("spawn")
 

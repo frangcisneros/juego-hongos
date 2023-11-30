@@ -34,7 +34,6 @@ func _input(event):
 			global_position = get_global_mouse_position()
 
 func _process(delta):
-	print(PlayerStats.health)
 	invencibilidad()
 
 func _physics_process(delta):

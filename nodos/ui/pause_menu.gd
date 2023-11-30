@@ -20,3 +20,11 @@ func _on_resume_pressed():
 
 func _on_quit_pressed():
 	get_tree().quit()
+
+
+func _on_save_pressed():
+	game.save()
+
+
+func _on_load_pressed():
+	game.load_data()

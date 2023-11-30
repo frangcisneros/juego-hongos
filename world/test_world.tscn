@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cqvycjf6wy0df" path="res://nodos/section 1/enemies/patrol_enemy/patrol_enemy.tscn" id="3_2gc4e"]
 
 [node name="test_world" type="Node2D" node_paths=PackedStringArray("spawn")]
+process_mode = 1
 script = ExtResource("1_15tp2")
 spawn = NodePath("spawn")
 
