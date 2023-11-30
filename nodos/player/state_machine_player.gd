@@ -20,8 +20,8 @@ func _ready():
 		currentState = initial_state 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	print(currentState)
-	if Player.player_alive == false:
+#	print(currentState)
+	if PlayerStats.health <=0:
 		on_child_transition(currentState,"dead_state_player")
 	currentState.Update(delta)
 

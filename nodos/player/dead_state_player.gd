@@ -10,23 +10,17 @@ var StateActive : bool = false
 @onready var hitbox_player : Area2D = Player.get_node("hitbox_player")
 
 func Enter():
-	print("dead")
 	if Player.get_parent().level_instance:
 		checkpoints = Player.get_parent().level_instance.get_node("checkpoints").get_children()
 	for i in checkpoints:
 		if Player.global_position > i.global_position:
 			checkpoint = i
+		else:
+			checkpoint = checkpoints[0]
 	reappear_timer.start()
 	Player.velocity = Vector2.ZERO
 	Player.visible = false
 	PlayerStats.health = 5
-	Player.player_alive = true
-	
-	hitbox_player.set_collision_mask_value(2,false)
-	hitbox_player.set_collision_layer_value(1,false)
-	Player.set_collision_layer_value(1,false)
-	Player.set_collision_mask_value(2,false) 
-	Player.set_collision_layer_value(5,true)	
 	
 	StateActive = true
 
