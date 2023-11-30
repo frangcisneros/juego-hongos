@@ -192,8 +192,3 @@ position = Vector2(10904, -63)
 
 [node name="area_enemy3" parent="." instance=ExtResource("8_lj5sr")]
 position = Vector2(7621, -247)
-
-[node name="checkpoints" type="Node2D" parent="."]
-
-[node name="Marker2D" type="Marker2D" parent="checkpoints"]
-position = Vector2(-1130, -108)

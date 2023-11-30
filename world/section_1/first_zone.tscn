@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cfq5e4qek763h"]
+[gd_scene load_steps=11 format=3 uid="uid://cfq5e4qek763h"]
 
 [ext_resource type="PackedScene" uid="uid://dusk6dox3dxnb" path="res://nodos/platform_world/platform_world.tscn" id="1_5mxna"]
 [ext_resource type="Script" path="res://world/section_1/first_zone.gd" id="1_o8arc"]
@@ -7,6 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://sqrkoe0x2f65" path="res://nodos/section 1/world_and_enviroment/chest.tscn" id="6_krfsi"]
 [ext_resource type="PackedScene" uid="uid://cqvycjf6wy0df" path="res://nodos/section 1/enemies/patrol_enemy/patrol_enemy.tscn" id="7_icycp"]
 [ext_resource type="PackedScene" uid="uid://t13h28qs4lvp" path="res://nodos/section 1/enemies/jump_enemy/jump_enemy.tscn" id="7_qi715"]
+[ext_resource type="Script" path="res://world/section_1/checkpoint1.gd" id="8_lug7q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ujb30"]
+size = Vector2(57, 80)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_srxqs"]
 size = Vector2(148, 196)
@@ -15,6 +19,28 @@ size = Vector2(148, 196)
 process_mode = 1
 script = ExtResource("1_o8arc")
 spawn = NodePath("spawn")
+
+[node name="checkpoints" type="Node2D" parent="."]
+
+[node name="checkpoint1" type="Area2D" parent="checkpoints" node_paths=PackedStringArray("spawn")]
+position = Vector2(-1453, -59)
+scale = Vector2(1.10471, 1.03376)
+script = ExtResource("8_lug7q")
+spawn = NodePath("../../spawn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="checkpoints/checkpoint1"]
+shape = SubResource("RectangleShape2D_ujb30")
+debug_color = Color(0.862745, 0.317647, 0.443137, 0.419608)
+
+[node name="checkpoint2" type="Area2D" parent="checkpoints" node_paths=PackedStringArray("spawn")]
+position = Vector2(258, -336)
+scale = Vector2(1.10471, 1.03376)
+script = ExtResource("8_lug7q")
+spawn = NodePath("../../spawn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="checkpoints/checkpoint2"]
+shape = SubResource("RectangleShape2D_ujb30")
+debug_color = Color(0.862745, 0.317647, 0.443137, 0.419608)
 
 [node name="spawn" type="Marker2D" parent="."]
 position = Vector2(-1456, -47)
@@ -155,18 +181,6 @@ position = Vector2(3704, -405)
 [node name="jump_enemy3" parent="." instance=ExtResource("7_qi715")]
 position = Vector2(6031.95, -515.974)
 
-[node name="checkpoints" type="Node2D" parent="."]
-
-[node name="Marker2D" type="Marker2D" parent="checkpoints"]
-position = Vector2(-1452, -51)
-
-[node name="Marker2D2" type="Marker2D" parent="checkpoints"]
-position = Vector2(320, -322)
-
-[node name="Marker2D3" type="Marker2D" parent="checkpoints"]
-position = Vector2(3398, -237)
-
-[node name="Marker2D4" type="Marker2D" parent="checkpoints"]
-position = Vector2(6361, -100)
-
+[connection signal="body_entered" from="checkpoints/checkpoint1" to="checkpoints/checkpoint1" method="_on_body_entered"]
+[connection signal="body_entered" from="checkpoints/checkpoint2" to="checkpoints/checkpoint2" method="_on_body_entered"]
 [connection signal="body_entered" from="transition_area" to="." method="_on_transition_area_body_entered"]

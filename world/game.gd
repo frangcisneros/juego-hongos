@@ -9,6 +9,8 @@ var level_instance = null
 var level_name : String
 var save_path = "res://save_files/save_file.save"
 var player_global_position = Vector2.ZERO
+var spawn_global_position = Vector2.ZERO
+var checkpoint = false
 
 var game_paused : bool = false:
 	get:
@@ -51,7 +53,9 @@ func save():
 	player_global_position = get_node("player").global_position
 	file.store_var(player_global_position)
 	file.store_var(level_name)
-	file.store_var(PlayerStats.health)	
+	file.store_var(PlayerStats.health)
+	spawn_global_position = level_instance.get_node("spawn").global_position
+	file.store_var(spawn_global_position)
 
 
 func load_data():
@@ -61,7 +65,9 @@ func load_data():
 		level_name = file.get_var()
 		load_level(level_name)
 		get_node("player").global_position = player_global_position
-		PlayerStats.health = file.get_var()
+		PlayerStats.health = file.get_var()		
+		spawn_global_position = file.get_var()
+		level_instance.get_node("spawn").global_position = spawn_global_position
 
 	else:
 		print("no data saved")
