@@ -14,9 +14,11 @@ func _ready():
 	level2_menu_ui.hide()
 
 func _on_new_game_pressed():
-	game.load_level("test_world")
-	hide()
+	game.level_name = "test_world"
 	game.game_run = true
+	game.load_level(game.level_name)
+	hide()
+	
 
 
 func _on_load_game_pressed():
@@ -42,33 +44,54 @@ func _on_section_2_pressed():
 	level2_menu_ui.show()
 
 func _on_starting_area_pressed():
-	game.load_level("/section_1/starting_area")
+	game.level_name = "/section_1/starting_area"
+	game.load_level(game.level_name)
+	game.game_run = true
+	
 	hide()
 
 
 func _on_first_zone_pressed():
-	game.load_level("/section_1/first_zone")
+	game.level_name = "/section_1/first_zone"
+	game.load_level(game.level_name)
+	game.game_run = true
+	
 	hide()
 
 
 func _on_second_zone_pressed():
-	game.load_level("/section_1/second_zone")
+	game.level_name = "/section_1/second_zone"
+	game.load_level(game.level_name)
+	game.game_run = true
+	
 	hide()
 
 
 func _on_rock_zone_pressed():
-	game.load_level("/section_1/rock_zone")
+	game.level_name = "/section_1/rock_zone"
+	game.load_level(game.level_name)
+	game.game_run = true
+	
 	hide()
 
 
 func _on_final_zone_pressed():
-	game.load_level("/section_1/final_zone")
+	game.level_name = "/section_1/final_zone"
+	game.load_level(game.level_name)
+	game.game_run = true
+	
 	hide()
 
 
 func _on_boss_arena_pressed():
-	game.load_level("/section_2/boss_arena")
+	game.level_name = "/section_2/boss_arena"
+	game.load_level(game.level_name)
+	game.game_run = true
+	
 	hide()
 
 func _on_last_game_pressed():
-	pass # Replace with function body.
+	game.load_data()
+	game.game_run = true
+	hide()
+	

@@ -6,6 +6,7 @@ signal toggle_game_paused(is_paused : bool)
 
 
 var level_instance = null
+var level_name : String
 var save_path = "res://save_files/save_file.save"
 var player_global_position = Vector2.ZERO
 
@@ -40,8 +41,6 @@ func _ready():
 func _input(event : InputEvent):
 	if event.is_action_pressed("ui_cancel") and game_run:
 		game_paused = !game_paused
-	if event.is_action_pressed("ui_home") and game_run:
-		load_level("test_1")
 
 func _process(delta):
 	pass
@@ -51,15 +50,18 @@ func save():
 	var file = FileAccess.open(save_path, FileAccess.WRITE)
 	player_global_position = get_node("player").global_position
 	file.store_var(player_global_position)
-	file.store_var(level_instance)
+	file.store_var(level_name)
+	file.store_var(PlayerStats.health)	
 
 
 func load_data():
 	if FileAccess.file_exists(save_path):
 		var file = FileAccess.open(save_path, FileAccess.READ)
 		player_global_position = file.get_var()
-		level_instance = file.get_var()
+		level_name = file.get_var()
+		load_level(level_name)
 		get_node("player").global_position = player_global_position
+		PlayerStats.health = file.get_var()
 
 	else:
 		print("no data saved")

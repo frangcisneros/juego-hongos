@@ -12,6 +12,7 @@
 size = Vector2(148, 196)
 
 [node name="first_zone" type="Node2D" node_paths=PackedStringArray("spawn")]
+process_mode = 1
 script = ExtResource("1_o8arc")
 spawn = NodePath("spawn")
 
@@ -153,5 +154,19 @@ position = Vector2(3704, -405)
 
 [node name="jump_enemy3" parent="." instance=ExtResource("7_qi715")]
 position = Vector2(6031.95, -515.974)
+
+[node name="checkpoints" type="Node2D" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="checkpoints"]
+position = Vector2(-1452, -51)
+
+[node name="Marker2D2" type="Marker2D" parent="checkpoints"]
+position = Vector2(320, -322)
+
+[node name="Marker2D3" type="Marker2D" parent="checkpoints"]
+position = Vector2(3398, -237)
+
+[node name="Marker2D4" type="Marker2D" parent="checkpoints"]
+position = Vector2(6361, -100)
 
 [connection signal="body_entered" from="transition_area" to="." method="_on_transition_area_body_entered"]
