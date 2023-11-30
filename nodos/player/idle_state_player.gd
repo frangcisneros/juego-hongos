@@ -1,6 +1,5 @@
 extends State
 
-class_name idle_state_player
 
 var StateActive : bool = false
 @onready var Player = get_parent().Player

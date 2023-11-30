@@ -22,3 +22,5 @@ func set_hearts(value):
 	heart.size.x = 1280 * value
 	if value <= 0:
 		heart.hide()
+	else:
+		heart.show()

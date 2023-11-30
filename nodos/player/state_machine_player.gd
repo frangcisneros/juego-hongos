@@ -20,13 +20,14 @@ func _ready():
 		currentState = initial_state 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	
+#	print(currentState)
+	if PlayerStats.health <=0:
+		on_child_transition(currentState,"dead_state_player")
 	currentState.Update(delta)
 
 
 func _physics_process(delta):
 	currentState.UpdatePhysics(delta)
-	print(Player.velocity.x,"             ", currentState)
 
 func on_child_transition(state, new_state_name):
 	if state != currentState:

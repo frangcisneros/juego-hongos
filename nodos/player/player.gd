@@ -26,7 +26,6 @@ var enemigo_rango = false
 @onready var tiempo_invencibilidad = $invincibility_timer
 
 func _ready():
-	
 	add_to_group("player")
 
 func _input(event):
@@ -35,13 +34,13 @@ func _input(event):
 			global_position = get_global_mouse_position()
 
 func _process(delta):
-
+	print(PlayerStats.health)
 	invencibilidad()
 
 func _physics_process(delta):
 	if PlayerStats.health <=0:
 		player_alive = false
-		PlayerStats.health = 0
+#		PlayerStats.health = 0
 	#print(velocity.x)
 	if not is_on_floor():
 		if velocity.y < 0: # cuando cae este es afectado por la gravedad
@@ -55,7 +54,7 @@ func player():
 	pass
 
 func invencibilidad():
-	if not tiempo_invencibilidad.is_stopped(): #si le pegaron al pj lo hacemos invencible
+	if not tiempo_invencibilidad.is_stopped() or not player_alive: #si le pegaron al pj lo hacemos invencible
 		# esto es lo que uso para cambiar como interactuan los objetos
 		hitbox.set_collision_mask_value(2,false)
 		hitbox.set_collision_layer_value(1,false)

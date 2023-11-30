@@ -1,6 +1,5 @@
 extends State
 
-class_name jump_state_player
 
 var StateActive : bool = false
 var direction
