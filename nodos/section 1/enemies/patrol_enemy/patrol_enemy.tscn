@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://cqvycjf6wy0df"]
+[gd_scene load_steps=43 format=3 uid="uid://cqvycjf6wy0df"]
 
 [ext_resource type="Script" path="res://nodos/section 1/enemies/patrol_enemy/patrol_enemy.gd" id="1_lqiqa"]
 [ext_resource type="Texture2D" uid="uid://xmaew1ertpoi" path="res://arte/Animaciones/Seccion 1 Musgo/patrulla/frames/patrullar/0008.png" id="2_ff1xk"]
@@ -30,6 +30,18 @@ size = Vector2(126.333, 15.6667)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_712fq"]
 size = Vector2(5, 5)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_seb0l"]
+particle_flag_disable_z = true
+spread = 111.18
+gravity = Vector3(98, 0, 0)
+initial_velocity_min = 100.0
+initial_velocity_max = 200.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_min = 3.0
+scale_max = 3.0
+color = Color(0.12549, 0.301961, 1, 1)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dol65"]
 radius = 4.66667
@@ -124,6 +136,7 @@ states/Patrulla/node = SubResource("AnimationNodeBlendSpace1D_eq58g")
 states/Patrulla/position = Vector2(408, 87.6667)
 states/Start/position = Vector2(172, 100)
 transitions = ["Start", "Patrulla", SubResource("AnimationNodeStateMachineTransition_xs775"), "BlendTree", "Patrulla", SubResource("AnimationNodeStateMachineTransition_wv45k"), "Patrulla", "BlendTree", SubResource("AnimationNodeStateMachineTransition_cqwp3")]
+graph_offset = Vector2(-9, 21)
 
 [node name="patrol_enemy" type="CharacterBody2D" node_paths=PackedStringArray("position2D")]
 scale = Vector2(3, 3)
@@ -141,7 +154,7 @@ script = ExtResource("3_qa4vv")
 [node name="Sprite2D" type="Sprite2D" parent="position2D"]
 position = Vector2(3, -4)
 scale = Vector2(0.0475962, 0.0475962)
-texture = ExtResource("2_ff1xk")
+texture = ExtResource("18_tspkg")
 
 [node name="detection_area" type="Area2D" parent="position2D"]
 collision_layer = 2
@@ -167,6 +180,15 @@ collision_mask = 8
 [node name="CollisionShape2D" type="CollisionShape2D" parent="position2D/collision_query2"]
 position = Vector2(10.3333, -6)
 shape = SubResource("RectangleShape2D_712fq")
+
+[node name="hitted_particles" type="GPUParticles2D" parent="position2D"]
+z_index = 1
+position = Vector2(6.66667, 0.333333)
+emitting = false
+amount = 50
+process_material = SubResource("ParticleProcessMaterial_seb0l")
+lifetime = 0.1
+one_shot = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.333333, 1.33333)

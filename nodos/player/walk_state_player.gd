@@ -6,17 +6,22 @@ var direction
 var was_on_floor = false
 
 @onready var Player = get_parent().Player
+@onready var walk_particles : GPUParticles2D = Player.get_node("position2D/walk_particles")
 
 func Enter():
+	walk_particles.emitting = true
 	if Player.is_on_floor():
 		was_on_floor = true
 	StateActive = true
 	Player.coyote_timer.stop()
 	
 func Exit():
+	walk_particles.emitting = false
 	StateActive = false
 	
 func Update(_delta : float):
+#	walk_particles.process_material.set("direction",Vector3(-Player.position2D.scale.x,-1,0))
+	
 	direction = Input.get_axis("ui_left", "ui_right")
 	if direction > 0:
 		Player.position2D.scale.x = 1
