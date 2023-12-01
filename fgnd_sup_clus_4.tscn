@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://crifywab56ni7"]
+
+[ext_resource type="PackedScene" uid="uid://d2h1btrre6ado" path="res://fgnd_clus_2.tscn" id="1_jotst"]
+[ext_resource type="PackedScene" uid="uid://qd4eujkrwr3t" path="res://fgnd_clus_1.tscn" id="2_7e7yi"]
+[ext_resource type="PackedScene" uid="uid://b82q0wg0fohga" path="res://fgnd_clus_6.tscn" id="3_40v8a"]
+[ext_resource type="PackedScene" uid="uid://bnupec13y6afk" path="res://fgnd_clus_7.tscn" id="4_fpmbd"]
+
+[node name="fgnd_sup_clus_4" type="Node2D"]
+
+[node name="fgnd_clus_2" parent="." instance=ExtResource("1_jotst")]
+position = Vector2(-555, -10)
+
+[node name="fgnd_clus_1" parent="." instance=ExtResource("2_7e7yi")]
+position = Vector2(318, -13)
+
+[node name="fgnd_clus_6" parent="." instance=ExtResource("3_40v8a")]
+position = Vector2(91, 71)
+
+[node name="fgnd_clus_7" parent="." instance=ExtResource("4_fpmbd")]
+position = Vector2(-688, 14)

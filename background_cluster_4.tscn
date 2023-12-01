@@ -1,0 +1,44 @@
+[gd_scene load_steps=8 format=3 uid="uid://dptwqpjnia56"]
+
+[ext_resource type="Texture2D" uid="uid://dc4mhqpaqlwmb" path="res://arte/Assets/Seccion 1 Musgo/fondos/moss/piedra grande fondo.png" id="1_wwsbd"]
+[ext_resource type="Texture2D" uid="uid://cwtbirqbd61sk" path="res://arte/Assets/Seccion 1 Musgo/fondos/moss/piedra chica fondo.png" id="2_poswu"]
+[ext_resource type="Texture2D" uid="uid://deeukwh5h13aq" path="res://arte/Assets/Seccion 1 Musgo/Pisos/plataforma grande 1.png" id="3_j2rnn"]
+[ext_resource type="Texture2D" uid="uid://bqn634m0g0034" path="res://arte/Assets/Seccion 1 Musgo/fondos/moss/piedra mediana fondo.png" id="4_hsm56"]
+[ext_resource type="Texture2D" uid="uid://bcttf1qb7113k" path="res://arte/Assets/Seccion 1 Musgo/Pisos/bush 3.png" id="5_akrg5"]
+[ext_resource type="Texture2D" uid="uid://6tn7t7ci0u13" path="res://arte/Assets/Seccion 1 Musgo/Rocks/Piedra 3.png" id="6_xacig"]
+[ext_resource type="Texture2D" uid="uid://dnxrq5ddyj5cs" path="res://arte/Assets/Seccion 1 Musgo/Rocks/Piedra 4.png" id="7_3i0jd"]
+
+[node name="background_cluster_4" type="Node2D"]
+
+[node name="PiedraGrandeFondo" type="Sprite2D" parent="."]
+position = Vector2(-88, -31)
+texture = ExtResource("1_wwsbd")
+
+[node name="PiedraChicaFondo" type="Sprite2D" parent="."]
+position = Vector2(-147, -148)
+texture = ExtResource("2_poswu")
+
+[node name="PlataformaGrande1" type="Sprite2D" parent="."]
+position = Vector2(-130, -154)
+rotation = 0.79076
+scale = Vector2(0.270527, 0.270527)
+texture = ExtResource("3_j2rnn")
+
+[node name="PiedraMedianaFondo" type="Sprite2D" parent="."]
+position = Vector2(-74, -113)
+texture = ExtResource("4_hsm56")
+
+[node name="Bush3" type="Sprite2D" parent="."]
+position = Vector2(-134, -49)
+rotation = 1.17273
+scale = Vector2(0.734912, 0.734912)
+texture = ExtResource("5_akrg5")
+
+[node name="Piedra3" type="Sprite2D" parent="."]
+position = Vector2(-169, 56)
+scale = Vector2(0.494049, 0.494049)
+texture = ExtResource("6_xacig")
+
+[node name="Piedra4" type="Sprite2D" parent="."]
+position = Vector2(46, 73)
+texture = ExtResource("7_3i0jd")

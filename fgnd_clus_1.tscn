@@ -1,0 +1,52 @@
+[gd_scene load_steps=9 format=3 uid="uid://qd4eujkrwr3t"]
+
+[ext_resource type="Texture2D" uid="uid://d4dk7gie2inun" path="res://arte/Assets/Seccion 1 Musgo/Pisos/piso 2 piedras.png" id="1_bbn0a"]
+[ext_resource type="Texture2D" uid="uid://dnxrq5ddyj5cs" path="res://arte/Assets/Seccion 1 Musgo/Rocks/Piedra 4.png" id="2_eqwlq"]
+[ext_resource type="Texture2D" uid="uid://b337jbtx3eblj" path="res://arte/Assets/Seccion 1 Musgo/plataformas/plataforma chica.png" id="3_2qwxo"]
+[ext_resource type="Texture2D" uid="uid://dyqq51jb0hpg2" path="res://arte/Assets/Seccion 1 Musgo/Pisos/piso 3 piedras.png" id="4_33qc5"]
+[ext_resource type="Texture2D" uid="uid://03764w3re3xf" path="res://arte/Assets/Seccion 1 Musgo/Pisos/bush 1.png" id="4_0640c"]
+[ext_resource type="Texture2D" uid="uid://sn58qqhhs4dq" path="res://arte/Assets/Seccion 1 Musgo/plataformas/plataforma mediana 1.png" id="5_g3rcb"]
+[ext_resource type="Texture2D" uid="uid://d36aasspjc1h3" path="res://arte/Assets/Seccion 1 Musgo/Pisos/pasto fino.png" id="6_ayb77"]
+[ext_resource type="Texture2D" uid="uid://cngwr54v7pu5r" path="res://arte/Assets/Seccion 1 Musgo/Pisos/pasto grueso.png" id="7_nplgu"]
+
+[node name="fgnd_clus_1" type="Node2D"]
+
+[node name="Piso2Piedras" type="Sprite2D" parent="."]
+position = Vector2(184, -25)
+texture = ExtResource("1_bbn0a")
+
+[node name="Piedra4" type="Sprite2D" parent="."]
+position = Vector2(50, 52)
+rotation = 0.817482
+scale = Vector2(0.637835, 0.637835)
+texture = ExtResource("2_eqwlq")
+
+[node name="PlataformaChica" type="Sprite2D" parent="."]
+position = Vector2(331, -9.00001)
+rotation = 0.034028
+scale = Vector2(0.604912, -0.588261)
+texture = ExtResource("3_2qwxo")
+
+[node name="Bush1" type="Sprite2D" parent="."]
+position = Vector2(-80, 81)
+rotation = -0.300729
+scale = Vector2(0.902751, 0.902751)
+texture = ExtResource("4_0640c")
+
+[node name="Piso3Piedras" type="Sprite2D" parent="."]
+position = Vector2(-49, -3)
+texture = ExtResource("4_33qc5")
+
+[node name="PlataformaMediana1" type="Sprite2D" parent="."]
+position = Vector2(370, 46)
+scale = Vector2(0.615252, 0.615252)
+texture = ExtResource("5_g3rcb")
+
+[node name="PastoFino" type="Sprite2D" parent="."]
+position = Vector2(162, 22)
+texture = ExtResource("6_ayb77")
+
+[node name="PastoGrueso" type="Sprite2D" parent="."]
+position = Vector2(-78, 8)
+scale = Vector2(0.499814, 0.499814)
+texture = ExtResource("7_nplgu")

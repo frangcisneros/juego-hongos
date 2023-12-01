@@ -52,7 +52,6 @@ position = Vector2(55, -11)
 script = ExtResource("1_g1i47")
 
 [node name="limitesCamara" type="Area2D" parent="."]
-visible = false
 
 [node name="limitesCamaraShape" type="CollisionShape2D" parent="limitesCamara"]
 position = Vector2(2532.5, -578)
@@ -63,13 +62,11 @@ shape = SubResource("RectangleShape2D_xyiiq")
 
 [node name="Background very far" type="CanvasLayer" parent="Arte"]
 layer = -4
-visible = false
 follow_viewport_enabled = true
 follow_viewport_scale = 0.6
 
 [node name="Background far" type="CanvasLayer" parent="Arte"]
 layer = -3
-visible = false
 follow_viewport_enabled = true
 follow_viewport_scale = 0.7
 
@@ -535,7 +532,6 @@ texture = ExtResource("3_ab1o5")
 
 [node name="Background mid" type="CanvasLayer" parent="Arte"]
 layer = -2
-visible = false
 follow_viewport_enabled = true
 follow_viewport_scale = 0.8
 
@@ -746,7 +742,6 @@ texture = ExtResource("3_ab1o5")
 
 [node name="Background close" type="CanvasLayer" parent="Arte"]
 layer = -1
-visible = false
 follow_viewport_enabled = true
 follow_viewport_scale = 0.9
 
@@ -823,7 +818,6 @@ texture = ExtResource("3_ab1o5")
 
 [node name="FloorBehind" type="CanvasLayer" parent="Arte"]
 layer = -1
-visible = false
 follow_viewport_enabled = true
 
 [node name="Efectos" type="Sprite2D" parent="Arte/FloorBehind"]
@@ -885,7 +879,6 @@ scale = Vector2(4.92393, 0.399399)
 texture = ExtResource("3_ab1o5")
 
 [node name="Floor" type="CanvasLayer" parent="Arte"]
-visible = false
 follow_viewport_enabled = true
 
 [node name="Efectos" type="Sprite2D" parent="Arte/Floor"]
@@ -1933,7 +1926,6 @@ scale = Vector2(0.494053, 0.527938)
 texture = ExtResource("7_y8q11")
 
 [node name="Midground" type="CanvasLayer" parent="Arte"]
-visible = false
 follow_viewport_enabled = true
 follow_viewport_scale = 0.999
 
@@ -3485,7 +3477,6 @@ scale = Vector2(0.2, 0.2)
 texture = ExtResource("20_ow02g")
 
 [node name="Foreground far" type="CanvasLayer" parent="Arte"]
-visible = false
 follow_viewport_enabled = true
 follow_viewport_scale = 1.1
 
@@ -5123,7 +5114,6 @@ scale = Vector2(0.79764, -0.833131)
 texture = ExtResource("8_wr56n")
 
 [node name="Foreground mid" type="CanvasLayer" parent="Arte"]
-visible = false
 follow_viewport_enabled = true
 follow_viewport_scale = 1.2
 
@@ -6105,7 +6095,6 @@ scale = Vector2(0.64466, -0.709185)
 texture = ExtResource("7_y8q11")
 
 [node name="Foreground close" type="CanvasLayer" parent="Arte"]
-visible = false
 follow_viewport_enabled = true
 follow_viewport_scale = 1.3
 

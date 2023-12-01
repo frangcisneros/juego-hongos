@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://cv8rtaetixm0e"]
+
+[ext_resource type="Texture2D" uid="uid://cngwr54v7pu5r" path="res://arte/Assets/Seccion 1 Musgo/Pisos/pasto grueso.png" id="1_h3ywy"]
+[ext_resource type="Texture2D" uid="uid://d36aasspjc1h3" path="res://arte/Assets/Seccion 1 Musgo/Pisos/pasto fino.png" id="2_mr0nn"]
+
+[node name="floor_cluster_1" type="Node2D"]
+
+[node name="PastoGrueso5" type="Sprite2D" parent="."]
+position = Vector2(119.264, 6.12503)
+rotation = 0.0643184
+scale = Vector2(0.248031, 0.248031)
+texture = ExtResource("1_h3ywy")
+
+[node name="PastoGrueso6" type="Sprite2D" parent="."]
+position = Vector2(-63.7363, 5.12502)
+scale = Vector2(0.248031, 0.365157)
+texture = ExtResource("1_h3ywy")
+
+[node name="PastoFino6" type="Sprite2D" parent="."]
+position = Vector2(-190.736, 13.125)
+scale = Vector2(0.492126, 0.568898)
+texture = ExtResource("2_mr0nn")
+
+[node name="PastoFino7" type="Sprite2D" parent="."]
+position = Vector2(67.2638, 16.125)
+scale = Vector2(0.492126, 0.568898)
+texture = ExtResource("2_mr0nn")
+
+[node name="PastoFino8" type="Sprite2D" parent="."]
+position = Vector2(203.264, 13.125)
+scale = Vector2(0.492126, 0.568898)
+texture = ExtResource("2_mr0nn")
+
+[node name="pasto grueso6" type="Sprite2D" parent="."]
+position = Vector2(-44, 13)
+scale = Vector2(0.247862, 0.247862)
+texture = ExtResource("1_h3ywy")

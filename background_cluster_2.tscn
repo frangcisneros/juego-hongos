@@ -22,7 +22,6 @@ texture = ExtResource("2_fwa58")
 [node name="PiedraMedianaFondo" type="Sprite2D" parent="."]
 position = Vector2(-147, -141)
 rotation = 0.189099
-scale = Vector2(1, 1)
 texture = ExtResource("3_xcg3e")
 
 [node name="PiedraMedianaFondo2" type="Sprite2D" parent="."]
@@ -38,8 +37,8 @@ scale = Vector2(-0.996312, 0.929769)
 texture = ExtResource("4_vscll")
 
 [node name="Piso2Piedras" type="Sprite2D" parent="."]
-position = Vector2(56, -43)
-rotation = 0.534926
+position = Vector2(44, -41)
+rotation = 0.346087
 texture = ExtResource("5_qt5jt")
 
 [node name="PiedraGrandeFondo" type="Sprite2D" parent="."]

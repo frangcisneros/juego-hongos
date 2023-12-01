@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://d2h1btrre6ado"]
+
+[ext_resource type="Texture2D" uid="uid://jdrjnlac7xoi" path="res://arte/Assets/Seccion 1 Musgo/Rocks/Piedra 5.png" id="1_04ojq"]
+[ext_resource type="Texture2D" uid="uid://ceju221emcamb" path="res://arte/Assets/Seccion 1 Musgo/plataformas/plataforma mediana 2.png" id="2_d0lby"]
+[ext_resource type="Texture2D" uid="uid://bcttf1qb7113k" path="res://arte/Assets/Seccion 1 Musgo/Pisos/bush 3.png" id="3_6gp25"]
+[ext_resource type="Texture2D" uid="uid://dyqq51jb0hpg2" path="res://arte/Assets/Seccion 1 Musgo/Pisos/piso 3 piedras.png" id="4_gr6fh"]
+[ext_resource type="Texture2D" uid="uid://d36aasspjc1h3" path="res://arte/Assets/Seccion 1 Musgo/Pisos/pasto fino.png" id="5_8rlwj"]
+[ext_resource type="Texture2D" uid="uid://cngwr54v7pu5r" path="res://arte/Assets/Seccion 1 Musgo/Pisos/pasto grueso.png" id="6_4fdyu"]
+
+[node name="fgnd_clus_2" type="Node2D"]
+
+[node name="Piedra5" type="Sprite2D" parent="."]
+position = Vector2(363, 106)
+rotation = 0.875925
+scale = Vector2(0.480847, 0.480847)
+texture = ExtResource("1_04ojq")
+
+[node name="PlataformaMediana2" type="Sprite2D" parent="."]
+position = Vector2(105, 20)
+scale = Vector2(0.58088, 0.58088)
+texture = ExtResource("2_d0lby")
+
+[node name="Bush3" type="Sprite2D" parent="."]
+position = Vector2(233, 92)
+texture = ExtResource("3_6gp25")
+
+[node name="Piso3Piedras" type="Sprite2D" parent="."]
+position = Vector2(500, -16)
+texture = ExtResource("4_gr6fh")
+
+[node name="PastoFino" type="Sprite2D" parent="."]
+position = Vector2(53, 11)
+texture = ExtResource("5_8rlwj")
+
+[node name="PastoGrueso" type="Sprite2D" parent="."]
+position = Vector2(310, -2)
+scale = Vector2(0.498644, 0.498644)
+texture = ExtResource("6_4fdyu")
+
+[node name="PastoFino2" type="Sprite2D" parent="."]
+position = Vector2(572, 8)
+scale = Vector2(-1, 1)
+texture = ExtResource("5_8rlwj")

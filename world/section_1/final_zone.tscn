@@ -1,5 +1,7 @@
-[gd_scene load_steps=26 format=3 uid="uid://b27pr5ox0vcis"]
+[gd_scene load_steps=41 format=3 uid="uid://b27pr5ox0vcis"]
 
+[ext_resource type="Script" path="res://world/section_1/final_zone.gd" id="1_0qxp0"]
+[ext_resource type="Script" path="res://world/section_1/fps.gd" id="2_u4lsx"]
 [ext_resource type="PackedScene" uid="uid://dj07mg1sgtrmu" path="res://nodos/player/player.tscn" id="3_012lf"]
 [ext_resource type="PackedScene" uid="uid://cssevd6rtecpf" path="res://nodos/armor_walker/armor_walker.tscn" id="3_rfkgb"]
 [ext_resource type="PackedScene" uid="uid://bi31bxoehsk7c" path="res://nodos/walk_enemy/walk_enemy.tscn" id="4_4v1p0"]
@@ -20,19 +22,49 @@
 [ext_resource type="Texture2D" uid="uid://c4howjk38jbcw" path="res://arte/Assets/Seccion 1 Musgo/Fondo Blanco para difuminado.png" id="18_2023d"]
 [ext_resource type="Shader" path="res://mundo parallax con texturas/blur.gdshader" id="19_ffbxe"]
 [ext_resource type="PackedScene" uid="uid://csw2rthmct80r" path="res://background_super_cluster_2.tscn" id="20_fdl3i"]
+[ext_resource type="PackedScene" uid="uid://bv0a6kuo1hwcs" path="res://background_super_cluster_4.tscn" id="20_feq25"]
 [ext_resource type="PackedScene" uid="uid://fwoldn4gbe0q" path="res://background_cluster_3.tscn" id="21_b2hjh"]
+[ext_resource type="PackedScene" uid="uid://ddrbxmy76ccrw" path="res://background_super_cluster_5.tscn" id="21_ic6ne"]
 [ext_resource type="PackedScene" uid="uid://dou6n6yg5qopu" path="res://background_cluster_1.tscn" id="22_62jbm"]
-[ext_resource type="PackedScene" uid="uid://bo2xy5sojbqi1" path="res://background_cluster_2.tscn" id="23_56lqb"]
+[ext_resource type="PackedScene" uid="uid://p57mnpurqeln" path="res://background_super_cluster_3.tscn" id="22_iw5oo"]
+[ext_resource type="PackedScene" uid="uid://bshwe8jki2dx2" path="res://background_super_cluster_7.tscn" id="23_y03np"]
 [ext_resource type="PackedScene" uid="uid://bi80arypl6fu4" path="res://background_super_cluster_1.tscn" id="24_dokik"]
+[ext_resource type="PackedScene" uid="uid://dbu3ulxe4qstc" path="res://background_super_cluster_6.tscn" id="26_ochci"]
+[ext_resource type="PackedScene" uid="uid://cpi1f87g4fiql" path="res://background_cluster_6.tscn" id="29_jsixv"]
+[ext_resource type="PackedScene" uid="uid://d07wh1goxqcqg" path="res://fgnd_sup_clus_2.tscn" id="31_8u7pi"]
+[ext_resource type="PackedScene" uid="uid://80desl7kkdn0" path="res://fgnd_sup_clus_1.tscn" id="32_uq4mn"]
+[ext_resource type="PackedScene" uid="uid://bik1lxc3p0fyk" path="res://fgnd_sup_clus_6.tscn" id="33_dhrr7"]
+[ext_resource type="PackedScene" uid="uid://dbvvjwa4rrt7d" path="res://fgnd_sup_clus_7.tscn" id="34_wbk86"]
+[ext_resource type="PackedScene" uid="uid://bvlebncfog7iy" path="res://fgnd_sup_clus_5.tscn" id="35_iy5qy"]
+[ext_resource type="PackedScene" uid="uid://crifywab56ni7" path="res://fgnd_sup_clus_4.tscn" id="36_o875q"]
+[ext_resource type="PackedScene" uid="uid://b2jb6xyb5od4k" path="res://fgnd_sup_clus_3.tscn" id="37_0qiqo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5yy4p"]
+size = Vector2(15947.8, 1371.97)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7vlow"]
 shader = ExtResource("19_ffbxe")
 shader_parameter/lod = 0.383
 
 [node name="final_zone" type="Node2D"]
+script = ExtResource("1_0qxp0")
+
+[node name="limitesCamara" type="Area2D" parent="."]
+
+[node name="limitesCamaraShape" type="CollisionShape2D" parent="limitesCamara"]
+position = Vector2(6258, -537.518)
+scale = Vector2(0.984214, 1.01244)
+shape = SubResource("RectangleShape2D_5yy4p")
 
 [node name="player" parent="." instance=ExtResource("3_012lf")]
-position = Vector2(6880.16, -561.558)
+position = Vector2(9058.97, -1007.7)
+
+[node name="Label" type="Label" parent="player"]
+offset_left = -624.608
+offset_top = -341.039
+offset_right = -584.608
+offset_bottom = -318.039
+script = ExtResource("2_u4lsx")
 
 [node name="enemies" type="Node2D" parent="."]
 
@@ -195,7 +227,7 @@ position = Vector2(6051, 9)
 scale = Vector2(15.3077, 11.708)
 
 [node name="piso world3" parent="world" instance=ExtResource("7_sj8q7")]
-position = Vector2(7834, 9)
+position = Vector2(7834, -34)
 scale = Vector2(1.94769, 11.708)
 
 [node name="piso world4" parent="world" instance=ExtResource("7_sj8q7")]
@@ -246,7 +278,6 @@ scale = Vector2(5.03166, 0.629528)
 texture = ExtResource("18_2023d")
 
 [node name="Blur" type="Sprite2D" parent="Arte/Background very far"]
-visible = false
 material = SubResource("ShaderMaterial_7vlow")
 position = Vector2(5239.17, -665.62)
 scale = Vector2(9.01996, 3.13774)
@@ -259,8 +290,35 @@ follow_viewport_scale = 0.7
 
 [node name="CanvasGroup" type="Sprite2D" parent="Arte/Background far"]
 
+[node name="background_super_cluster_13" parent="Arte/Background far/CanvasGroup" instance=ExtResource("23_y03np")]
+position = Vector2(6844.29, -465.714)
+rotation = -0.372046
+
+[node name="background_super_cluster_6" parent="Arte/Background far/CanvasGroup" instance=ExtResource("26_ochci")]
+position = Vector2(1317.14, -302.857)
+
+[node name="background_super_cluster_7" parent="Arte/Background far/CanvasGroup" instance=ExtResource("26_ochci")]
+position = Vector2(4238.57, -402.857)
+
+[node name="background_super_cluster_8" parent="Arte/Background far/CanvasGroup" instance=ExtResource("26_ochci")]
+position = Vector2(4238.57, -402.857)
+
+[node name="background_super_cluster_9" parent="Arte/Background far/CanvasGroup" instance=ExtResource("26_ochci")]
+position = Vector2(10577.1, -417.143)
+
+[node name="background_super_cluster_10" parent="Arte/Background far/CanvasGroup" instance=ExtResource("26_ochci")]
+position = Vector2(13010, -241.429)
+
+[node name="background_super_cluster_5" parent="Arte/Background far/CanvasGroup" instance=ExtResource("21_ic6ne")]
+position = Vector2(11331.4, -250)
+
+[node name="background_super_cluster_11" parent="Arte/Background far/CanvasGroup" instance=ExtResource("21_ic6ne")]
+position = Vector2(7022.86, -357.143)
+
+[node name="background_super_cluster_12" parent="Arte/Background far/CanvasGroup" instance=ExtResource("21_ic6ne")]
+position = Vector2(2087.14, -341.429)
+
 [node name="Blur" type="Sprite2D" parent="Arte/Background far"]
-visible = false
 material = SubResource("ShaderMaterial_7vlow")
 position = Vector2(4825.71, -631.335)
 scale = Vector2(7.31399, 3.07425)
@@ -279,14 +337,36 @@ follow_viewport_scale = 0.8
 
 [node name="CanvasGroup" type="Sprite2D" parent="Arte/Background mid"]
 
+[node name="background_super_cluster_4" parent="Arte/Background mid/CanvasGroup" instance=ExtResource("20_feq25")]
+position = Vector2(-1861.25, -318.75)
+
+[node name="background_super_cluster_5" parent="Arte/Background mid/CanvasGroup" instance=ExtResource("21_ic6ne")]
+position = Vector2(-1136.25, -278.75)
+
+[node name="background_super_cluster_3" parent="Arte/Background mid/CanvasGroup" instance=ExtResource("22_iw5oo")]
+position = Vector2(315, -308.75)
+
+[node name="background_super_cluster_7" parent="Arte/Background mid/CanvasGroup" instance=ExtResource("23_y03np")]
+position = Vector2(3523.75, -403.75)
+rotation = -0.17249
+
 [node name="background_super_cluster_2" parent="Arte/Background mid/CanvasGroup" instance=ExtResource("20_fdl3i")]
-position = Vector2(1427.5, -422.5)
+position = Vector2(5763.75, -278.75)
+
+[node name="background_cluster_1" parent="Arte/Background mid/CanvasGroup" instance=ExtResource("22_62jbm")]
+position = Vector2(2593.75, -365)
+
+[node name="background_super_cluster_6" parent="Arte/Background mid/CanvasGroup" instance=ExtResource("26_ochci")]
+position = Vector2(8821.25, -331.25)
+
+[node name="background_super_cluster_1" parent="Arte/Background mid/CanvasGroup" instance=ExtResource("24_dokik")]
+position = Vector2(12010, -137.5)
+rotation = 0.320774
 
 [node name="background_cluster_3" parent="Arte/Background mid/CanvasGroup" instance=ExtResource("21_b2hjh")]
-position = Vector2(-97.5, -643.25)
+position = Vector2(10625, -341.25)
 
 [node name="Blur" type="Sprite2D" parent="Arte/Background mid"]
-visible = false
 material = SubResource("ShaderMaterial_7vlow")
 position = Vector2(3902.5, -347.495)
 scale = Vector2(6.78646, 2.54862)
@@ -305,55 +385,52 @@ follow_viewport_scale = 0.9
 
 [node name="Efectos" type="Sprite2D" parent="Arte/Background close"]
 
-[node name="background_cluster_1" parent="Arte/Background close/Efectos" instance=ExtResource("22_62jbm")]
-position = Vector2(-1570, -170)
-
-[node name="background_cluster_2" parent="Arte/Background close/Efectos" instance=ExtResource("23_56lqb")]
-position = Vector2(-688.889, -107.778)
-
-[node name="background_cluster_3" parent="Arte/Background close/Efectos" instance=ExtResource("21_b2hjh")]
-position = Vector2(-761.111, -194.444)
-
 [node name="background_super_cluster_1" parent="Arte/Background close/Efectos" instance=ExtResource("24_dokik")]
-position = Vector2(894.444, -195.556)
+position = Vector2(-1317.78, -118.889)
+scale = Vector2(-1, 1)
 
 [node name="background_super_cluster_2" parent="Arte/Background close/Efectos" instance=ExtResource("20_fdl3i")]
-position = Vector2(2493.33, -128.889)
+position = Vector2(598.889, -67.7778)
+rotation = -0.0401478
 
-[node name="background_cluster_4" parent="Arte/Background close/Efectos" instance=ExtResource("21_b2hjh")]
-position = Vector2(3917.78, -67.7778)
-rotation = 0.280094
-scale = Vector2(-1.04444, 1)
+[node name="background_super_cluster_7" parent="Arte/Background close/Efectos" instance=ExtResource("23_y03np")]
+position = Vector2(2515.56, -52.2222)
 
-[node name="background_cluster_5" parent="Arte/Background close/Efectos" instance=ExtResource("22_62jbm")]
-position = Vector2(4267.78, -43.3333)
+[node name="background_super_cluster_4" parent="Arte/Background close/Efectos" instance=ExtResource("20_feq25")]
+position = Vector2(3043.33, -203.333)
 
-[node name="background_super_cluster_3" parent="Arte/Background close/Efectos" instance=ExtResource("24_dokik")]
-position = Vector2(5561.11, -177.778)
+[node name="background_super_cluster_3" parent="Arte/Background close/Efectos" instance=ExtResource("22_iw5oo")]
+position = Vector2(4353.33, -84.4445)
 
-[node name="background_super_cluster_4" parent="Arte/Background close/Efectos" instance=ExtResource("20_fdl3i")]
-position = Vector2(7143.33, -106.667)
+[node name="background_super_cluster_5" parent="Arte/Background close/Efectos" instance=ExtResource("21_ic6ne")]
+position = Vector2(5541.11, -67.7778)
 
-[node name="background_cluster_6" parent="Arte/Background close/Efectos" instance=ExtResource("21_b2hjh")]
-position = Vector2(7880, -151.111)
+[node name="background_super_cluster_6" parent="Arte/Background close/Efectos" instance=ExtResource("26_ochci")]
+position = Vector2(7173.33, -112.222)
 
-[node name="background_cluster_7" parent="Arte/Background close/Efectos" instance=ExtResource("22_62jbm")]
-position = Vector2(8610, -186.667)
+[node name="background_super_cluster_8" parent="Arte/Background close/Efectos" instance=ExtResource("22_iw5oo")]
+position = Vector2(8335.56, -103.333)
 
-[node name="background_super_cluster_5" parent="Arte/Background close/Efectos" instance=ExtResource("20_fdl3i")]
-position = Vector2(9810, -97.7778)
+[node name="background_super_cluster_9" parent="Arte/Background close/Efectos" instance=ExtResource("20_fdl3i")]
+position = Vector2(10301.1, -137.778)
 
-[node name="background_cluster_8" parent="Arte/Background close/Efectos" instance=ExtResource("23_56lqb")]
-position = Vector2(11172.2, -94.4445)
+[node name="background_super_cluster_10" parent="Arte/Background close/Efectos" instance=ExtResource("26_ochci")]
+position = Vector2(11607.8, -107.778)
 
-[node name="background_cluster_9" parent="Arte/Background close/Efectos" instance=ExtResource("22_62jbm")]
-position = Vector2(11491.1, -163.333)
+[node name="background_super_cluster_11" parent="Arte/Background close/Efectos" instance=ExtResource("20_feq25")]
+position = Vector2(12905.6, -193.333)
 
-[node name="background_super_cluster_6" parent="Arte/Background close/Efectos" instance=ExtResource("24_dokik")]
-position = Vector2(12827.8, -183.333)
+[node name="background_cluster_6" parent="Arte/Background close/Efectos" instance=ExtResource("29_jsixv")]
+position = Vector2(-688.889, -314.444)
+
+[node name="background_cluster_1" parent="Arte/Background close/Efectos" instance=ExtResource("22_62jbm")]
+position = Vector2(-504.445, 65.5556)
+
+[node name="background_cluster_2" parent="Arte/Background close/Efectos" instance=ExtResource("22_62jbm")]
+position = Vector2(8321.11, -174.444)
+scale = Vector2(-1, 1)
 
 [node name="Blur" type="Sprite2D" parent="Arte/Background close"]
-visible = false
 material = SubResource("ShaderMaterial_7vlow")
 position = Vector2(3729.97, -261.235)
 scale = Vector2(5.84378, 2.44216)
@@ -361,12 +438,13 @@ texture = ExtResource("18_2023d")
 
 [node name="Fondo Blanco para difuminado" type="Sprite2D" parent="Arte/Background close"]
 modulate = Color(1, 1, 1, 0.0784314)
-position = Vector2(3534.44, -249.819)
+position = Vector2(3543.33, -362.222)
 scale = Vector2(5.91956, 2.23696)
 texture = ExtResource("18_2023d")
 
 [node name="FloorBehind" type="CanvasLayer" parent="Arte"]
 layer = -1
+visible = false
 follow_viewport_enabled = true
 
 [node name="Efectos" type="Sprite2D" parent="Arte/FloorBehind"]
@@ -381,14 +459,77 @@ texture = ExtResource("18_2023d")
 follow_viewport_enabled = true
 
 [node name="Efectos" type="Sprite2D" parent="Arte/Floor"]
-position = Vector2(-5, 3)
+position = Vector2(37, -1)
+
+[node name="fgnd_sup_clus_2" parent="Arte/Floor/Efectos" instance=ExtResource("31_8u7pi")]
+position = Vector2(62, 18)
+
+[node name="fgnd_sup_clus_1" parent="Arte/Floor/Efectos" instance=ExtResource("32_uq4mn")]
+position = Vector2(-1292, 10)
+
+[node name="fgnd_sup_clus_6" parent="Arte/Floor/Efectos" instance=ExtResource("33_dhrr7")]
+position = Vector2(1677, 37)
+
+[node name="fgnd_sup_clus_7" parent="Arte/Floor/Efectos" instance=ExtResource("34_wbk86")]
+position = Vector2(2899, 18)
+
+[node name="fgnd_sup_clus_5" parent="Arte/Floor/Efectos" instance=ExtResource("35_iy5qy")]
+position = Vector2(5082, 39)
+
+[node name="fgnd_sup_clus_4" parent="Arte/Floor/Efectos" instance=ExtResource("36_o875q")]
+position = Vector2(5973, 22)
+
+[node name="fgnd_sup_clus_3" parent="Arte/Floor/Efectos" instance=ExtResource("37_0qiqo")]
+position = Vector2(7283, 20)
+
+[node name="fgnd_sup_clus_8" parent="Arte/Floor/Efectos" instance=ExtResource("31_8u7pi")]
+position = Vector2(8838, 36)
+
+[node name="fgnd_sup_clus_9" parent="Arte/Floor/Efectos" instance=ExtResource("34_wbk86")]
+position = Vector2(10071, 6)
+
+[node name="fgnd_sup_clus_10" parent="Arte/Floor/Efectos" instance=ExtResource("33_dhrr7")]
+position = Vector2(12027, 25)
 
 [node name="Midground" type="CanvasLayer" parent="Arte"]
 follow_viewport_enabled = true
 follow_viewport_scale = 0.999
 
 [node name="Efectos" type="Sprite2D" parent="Arte/Midground"]
-position = Vector2(-8.00801, -21.021)
+position = Vector2(22.022, -19.019)
+
+[node name="fgnd_sup_clus_7" parent="Arte/Midground/Efectos" instance=ExtResource("34_wbk86")]
+position = Vector2(-1425.43, 94.0941)
+
+[node name="fgnd_sup_clus_6" parent="Arte/Midground/Efectos" instance=ExtResource("33_dhrr7")]
+position = Vector2(254.254, 91.0911)
+
+[node name="fgnd_sup_clus_4" parent="Arte/Midground/Efectos" instance=ExtResource("36_o875q")]
+position = Vector2(1597.6, 94.0941)
+
+[node name="fgnd_sup_clus_1" parent="Arte/Midground/Efectos" instance=ExtResource("32_uq4mn")]
+position = Vector2(2797.8, 80.0801)
+
+[node name="fgnd_sup_clus_3" parent="Arte/Midground/Efectos" instance=ExtResource("37_0qiqo")]
+position = Vector2(4034.03, 106.106)
+
+[node name="fgnd_sup_clus_5" parent="Arte/Midground/Efectos" instance=ExtResource("35_iy5qy")]
+position = Vector2(5890.89, 97.0971)
+
+[node name="fgnd_sup_clus_2" parent="Arte/Midground/Efectos" instance=ExtResource("31_8u7pi")]
+position = Vector2(6809.81, 78.0781)
+
+[node name="fgnd_sup_clus_8" parent="Arte/Midground/Efectos" instance=ExtResource("36_o875q")]
+position = Vector2(8334.33, 78.0781)
+
+[node name="fgnd_sup_clus_9" parent="Arte/Midground/Efectos" instance=ExtResource("31_8u7pi")]
+position = Vector2(9468.47, 80.0801)
+
+[node name="fgnd_sup_clus_10" parent="Arte/Midground/Efectos" instance=ExtResource("33_dhrr7")]
+position = Vector2(10981, 91.0911)
+
+[node name="fgnd_sup_clus_11" parent="Arte/Midground/Efectos" instance=ExtResource("37_0qiqo")]
+position = Vector2(12204.2, 90.0901)
 
 [node name="Foreground far" type="CanvasLayer" parent="Arte"]
 follow_viewport_enabled = true
@@ -398,13 +539,82 @@ follow_viewport_scale = 1.1
 modulate = Color(0.24, 0.24, 0.24, 1)
 position = Vector2(350, -11.8182)
 
+[node name="fgnd_sup_clus_7" parent="Arte/Foreground far/Efectos" instance=ExtResource("34_wbk86")]
+position = Vector2(11793.6, 112.727)
+
+[node name="fgnd_sup_clus_5" parent="Arte/Foreground far/Efectos" instance=ExtResource("35_iy5qy")]
+position = Vector2(11148.2, 131.818)
+
+[node name="fgnd_sup_clus_1" parent="Arte/Foreground far/Efectos" instance=ExtResource("32_uq4mn")]
+position = Vector2(9537.27, 91.8182)
+
+[node name="fgnd_sup_clus_4" parent="Arte/Foreground far/Efectos" instance=ExtResource("36_o875q")]
+position = Vector2(8295.46, 114.545)
+
+[node name="fgnd_sup_clus_6" parent="Arte/Foreground far/Efectos" instance=ExtResource("35_iy5qy")]
+position = Vector2(7380.91, 126.364)
+
+[node name="fgnd_sup_clus_2" parent="Arte/Foreground far/Efectos" instance=ExtResource("31_8u7pi")]
+position = Vector2(5773.64, 119.091)
+
+[node name="fgnd_sup_clus_3" parent="Arte/Foreground far/Efectos" instance=ExtResource("37_0qiqo")]
+position = Vector2(4349.09, 129.091)
+
+[node name="fgnd_sup_clus_8" parent="Arte/Foreground far/Efectos" instance=ExtResource("33_dhrr7")]
+position = Vector2(3330, 141.818)
+
+[node name="fgnd_sup_clus_9" parent="Arte/Foreground far/Efectos" instance=ExtResource("34_wbk86")]
+position = Vector2(1330, 116.364)
+
+[node name="fgnd_sup_clus_10" parent="Arte/Foreground far/Efectos" instance=ExtResource("35_iy5qy")]
+position = Vector2(584.546, 135.455)
+
+[node name="fgnd_sup_clus_11" parent="Arte/Foreground far/Efectos" instance=ExtResource("37_0qiqo")]
+position = Vector2(-1163.64, 116.364)
+
+[node name="fgnd_sup_clus_12" parent="Arte/Foreground far/Efectos" instance=ExtResource("31_8u7pi")]
+position = Vector2(-2356.36, 106.364)
+
 [node name="Foreground mid" type="CanvasLayer" parent="Arte"]
 follow_viewport_enabled = true
 follow_viewport_scale = 1.2
 
 [node name="Efectos" type="Sprite2D" parent="Arte/Foreground mid"]
 modulate = Color(0.1, 0.1, 0.1, 1)
-position = Vector2(-109.167, 20.8333)
+position = Vector2(-102.5, -35.8333)
+
+[node name="fgnd_sup_clus_6" parent="Arte/Foreground mid/Efectos" instance=ExtResource("33_dhrr7")]
+position = Vector2(-1489.17, 117.5)
+
+[node name="fgnd_sup_clus_2" parent="Arte/Foreground mid/Efectos" instance=ExtResource("31_8u7pi")]
+position = Vector2(-91.6663, 114.167)
+
+[node name="fgnd_sup_clus_5" parent="Arte/Foreground mid/Efectos" instance=ExtResource("35_iy5qy")]
+position = Vector2(1700.83, 126.667)
+
+[node name="fgnd_sup_clus_3" parent="Arte/Foreground mid/Efectos" instance=ExtResource("37_0qiqo")]
+position = Vector2(2741.67, 129.167)
+
+[node name="fgnd_sup_clus_1" parent="Arte/Foreground mid/Efectos" instance=ExtResource("32_uq4mn")]
+position = Vector2(4307.5, 119.167)
+
+[node name="fgnd_sup_clus_7" parent="Arte/Foreground mid/Efectos" instance=ExtResource("34_wbk86")]
+position = Vector2(5556.67, 134.167)
+
+[node name="fgnd_sup_clus_4" parent="Arte/Foreground mid/Efectos" instance=ExtResource("37_0qiqo")]
+position = Vector2(7230.83, 140)
+
+[node name="fgnd_sup_clus_8" parent="Arte/Foreground mid/Efectos" instance=ExtResource("33_dhrr7")]
+position = Vector2(8913.33, 135.833)
+
+[node name="fgnd_sup_clus_9" parent="Arte/Foreground mid/Efectos" instance=ExtResource("37_0qiqo")]
+position = Vector2(10273.3, 126.667)
+
+[node name="fgnd_sup_clus_10" parent="Arte/Foreground mid/Efectos" instance=ExtResource("35_iy5qy")]
+position = Vector2(12206.7, 131.667)
+
+[node name="fgnd_sup_clus_11" parent="Arte/Foreground mid/Efectos" instance=ExtResource("36_o875q")]
+position = Vector2(13192.5, 136.667)
 
 [node name="Foreground close" type="CanvasLayer" parent="Arte"]
 follow_viewport_enabled = true
@@ -412,4 +622,37 @@ follow_viewport_scale = 1.3
 
 [node name="Efectos" type="Sprite2D" parent="Arte/Foreground close"]
 modulate = Color(0, 0, 0, 1)
-position = Vector2(0, 4.61539)
+position = Vector2(-6.92308, -80.7692)
+
+[node name="fgnd_sup_clus_7" parent="Arte/Foreground close/Efectos" instance=ExtResource("34_wbk86")]
+position = Vector2(-1948.46, 138.462)
+
+[node name="fgnd_sup_clus_4" parent="Arte/Foreground close/Efectos" instance=ExtResource("36_o875q")]
+position = Vector2(-40, 162.308)
+
+[node name="fgnd_sup_clus_2" parent="Arte/Foreground close/Efectos" instance=ExtResource("31_8u7pi")]
+position = Vector2(1325.38, 168.462)
+
+[node name="fgnd_sup_clus_5" parent="Arte/Foreground close/Efectos" instance=ExtResource("35_iy5qy")]
+position = Vector2(3100.77, 171.538)
+
+[node name="fgnd_sup_clus_3" parent="Arte/Foreground close/Efectos" instance=ExtResource("37_0qiqo")]
+position = Vector2(4116.92, 177.692)
+
+[node name="fgnd_sup_clus_1" parent="Arte/Foreground close/Efectos" instance=ExtResource("32_uq4mn")]
+position = Vector2(5646.92, 167.692)
+
+[node name="fgnd_sup_clus_6" parent="Arte/Foreground close/Efectos" instance=ExtResource("33_dhrr7")]
+position = Vector2(7276.92, 193.846)
+
+[node name="fgnd_sup_clus_8" parent="Arte/Foreground close/Efectos" instance=ExtResource("36_o875q")]
+position = Vector2(8651.54, 175.385)
+
+[node name="fgnd_sup_clus_9" parent="Arte/Foreground close/Efectos" instance=ExtResource("31_8u7pi")]
+position = Vector2(10049.2, 171.538)
+
+[node name="fgnd_sup_clus_10" parent="Arte/Foreground close/Efectos" instance=ExtResource("37_0qiqo")]
+position = Vector2(11403.1, 173.077)
+
+[node name="fgnd_sup_clus_11" parent="Arte/Foreground close/Efectos" instance=ExtResource("32_uq4mn")]
+position = Vector2(12956.9, 172.308)

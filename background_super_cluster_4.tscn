@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://bv0a6kuo1hwcs"]
+
+[ext_resource type="PackedScene" uid="uid://dou6n6yg5qopu" path="res://background_cluster_1.tscn" id="1_jkovj"]
+[ext_resource type="PackedScene" uid="uid://cpi1f87g4fiql" path="res://background_cluster_6.tscn" id="2_1wa0y"]
+[ext_resource type="PackedScene" uid="uid://bo2xy5sojbqi1" path="res://background_cluster_2.tscn" id="3_pbbs6"]
+[ext_resource type="PackedScene" uid="uid://dgrvrn012aix8" path="res://background_cluster_7.tscn" id="4_135g3"]
+
+[node name="background_super_cluster_4" type="Node2D"]
+position = Vector2(-124, 13)
+
+[node name="background_cluster_1" parent="." instance=ExtResource("1_jkovj")]
+position = Vector2(133, 2)
+
+[node name="background_cluster_6" parent="." instance=ExtResource("2_1wa0y")]
+position = Vector2(700, -14)
+scale = Vector2(1, 1)
+
+[node name="background_cluster_2" parent="." instance=ExtResource("3_pbbs6")]
+position = Vector2(805, 51)
+
+[node name="background_cluster_7" parent="." instance=ExtResource("4_135g3")]
+position = Vector2(97, 134)

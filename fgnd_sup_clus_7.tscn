@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://dbvvjwa4rrt7d"]
+
+[ext_resource type="PackedScene" uid="uid://bwvtgaagr7emi" path="res://fgnd_clus_3.tscn" id="1_6iqat"]
+[ext_resource type="PackedScene" uid="uid://b641pitmmm55y" path="res://fgnd_clus_5.tscn" id="2_8dd0q"]
+[ext_resource type="PackedScene" uid="uid://b82q0wg0fohga" path="res://fgnd_clus_6.tscn" id="3_oaajr"]
+[ext_resource type="PackedScene" uid="uid://qd4eujkrwr3t" path="res://fgnd_clus_1.tscn" id="4_a5awi"]
+[ext_resource type="PackedScene" uid="uid://d2h1btrre6ado" path="res://fgnd_clus_2.tscn" id="5_kdorc"]
+
+[node name="fgnd_sup_clus_7" type="Node2D"]
+
+[node name="fgnd_clus_3" parent="." instance=ExtResource("1_6iqat")]
+position = Vector2(-138, -11)
+
+[node name="fgnd_clus_5" parent="." instance=ExtResource("2_8dd0q")]
+position = Vector2(596, -26)
+
+[node name="fgnd_clus_6" parent="." instance=ExtResource("3_oaajr")]
+position = Vector2(61, 85)
+
+[node name="fgnd_clus_1" parent="." instance=ExtResource("4_a5awi")]
+position = Vector2(-330, 17)
+
+[node name="fgnd_clus_2" parent="." instance=ExtResource("5_kdorc")]
+position = Vector2(544, 32)

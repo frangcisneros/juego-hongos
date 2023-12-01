@@ -1,0 +1,62 @@
+[gd_scene load_steps=9 format=3 uid="uid://cpi1f87g4fiql"]
+
+[ext_resource type="Texture2D" uid="uid://dc4mhqpaqlwmb" path="res://arte/Assets/Seccion 1 Musgo/fondos/moss/piedra grande fondo.png" id="1_lx2ye"]
+[ext_resource type="Texture2D" uid="uid://6tn7t7ci0u13" path="res://arte/Assets/Seccion 1 Musgo/Rocks/Piedra 3.png" id="2_h8a6x"]
+[ext_resource type="Texture2D" uid="uid://dy4fajijq127y" path="res://arte/Assets/Seccion 1 Musgo/Pisos/plataforma grande 2.png" id="3_s1kr4"]
+[ext_resource type="Texture2D" uid="uid://b6qqfknb7t1un" path="res://arte/Assets/Seccion 1 Musgo/Rocks/Piedra 2.png" id="4_c8a6w"]
+[ext_resource type="Texture2D" uid="uid://bqn634m0g0034" path="res://arte/Assets/Seccion 1 Musgo/fondos/moss/piedra mediana fondo.png" id="5_b8sdm"]
+[ext_resource type="Texture2D" uid="uid://bj30g2qvrju2n" path="res://arte/Assets/Seccion 1 Musgo/plataformas/plataforma grande 1.png" id="6_badw8"]
+[ext_resource type="Texture2D" uid="uid://03764w3re3xf" path="res://arte/Assets/Seccion 1 Musgo/Pisos/bush 1.png" id="7_h2mji"]
+[ext_resource type="Texture2D" uid="uid://cwtbirqbd61sk" path="res://arte/Assets/Seccion 1 Musgo/fondos/moss/piedra chica fondo.png" id="8_sgfxb"]
+
+[node name="background_cluster_6" type="Node2D"]
+position = Vector2(-105, -11)
+rotation = 0.0267799
+
+[node name="PiedraGrandeFondo" type="Sprite2D" parent="."]
+position = Vector2(170.716, -87.6026)
+scale = Vector2(0.573771, 0.573771)
+texture = ExtResource("1_lx2ye")
+
+[node name="Piedra3" type="Sprite2D" parent="."]
+position = Vector2(272.768, 99.7319)
+rotation = -0.185986
+scale = Vector2(0.681036, 0.732544)
+texture = ExtResource("2_h8a6x")
+
+[node name="PiedraGrandeFondo2" type="Sprite2D" parent="."]
+position = Vector2(88.0221, 111.683)
+rotation = -0.127843
+scale = Vector2(0.701828, 0.701828)
+texture = ExtResource("1_lx2ye")
+
+[node name="PlataformaGrande2" type="Sprite2D" parent="."]
+position = Vector2(152.142, 77.9541)
+scale = Vector2(0.717555, 0.717555)
+texture = ExtResource("3_s1kr4")
+
+[node name="Piedra2" type="Sprite2D" parent="."]
+position = Vector2(418.93, -8.22052)
+rotation = -0.108117
+scale = Vector2(0.572619, 0.572619)
+texture = ExtResource("4_c8a6w")
+
+[node name="PiedraMedianaFondo" type="Sprite2D" parent="."]
+position = Vector2(80.4533, 15.8514)
+scale = Vector2(1, 1)
+texture = ExtResource("5_b8sdm")
+
+[node name="PlataformaGrande1" type="Sprite2D" parent="."]
+position = Vector2(112, 10)
+texture = ExtResource("6_badw8")
+
+[node name="Bush1" type="Sprite2D" parent="."]
+position = Vector2(200.919, 31.6314)
+rotation = -0.378417
+scale = Vector2(0.788407, 0.788407)
+texture = ExtResource("7_h2mji")
+
+[node name="PiedraChicaFondo" type="Sprite2D" parent="."]
+position = Vector2(174.071, 0.33905)
+rotation = -1.0082
+texture = ExtResource("8_sgfxb")
