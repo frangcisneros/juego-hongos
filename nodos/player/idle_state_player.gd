@@ -28,3 +28,8 @@ func UpdatePhysics(_delta : float):
 
 	if not Player.jump_buffer_timer.is_stopped() and (Player.is_on_floor() or not Player.coyote_timer.is_stopped()):
 		Transition.emit(self,"jump_state_player")
+	
+func _input(event):
+	var just_pressed = event.is_pressed() and not event.is_echo()
+	if Input.is_key_pressed(KEY_C) and just_pressed:
+		Transition.emit(self, "healing_state_player")

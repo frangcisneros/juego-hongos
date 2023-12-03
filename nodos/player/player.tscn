@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dj07mg1sgtrmu"]
+[gd_scene load_steps=22 format=3 uid="uid://dj07mg1sgtrmu"]
 
 [ext_resource type="Script" path="res://nodos/player/player.gd" id="1_wp7lc"]
 [ext_resource type="Script" path="res://nodos/player/atack_player/atack_player.gd" id="2_ucc6x"]
@@ -15,6 +15,7 @@
 [ext_resource type="Script" path="res://nodos/player/dead_state_player.gd" id="11_e346p"]
 [ext_resource type="Script" path="res://nodos/player/reappear_state_player.gd" id="14_oh2n5"]
 [ext_resource type="Script" path="res://nodos/player/state_label.gd" id="14_x11im"]
+[ext_resource type="Script" path="res://nodos/player/healing_state_player.gd" id="15_nxwfi"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tlug4"]
 radius = 30.4762
@@ -54,7 +55,6 @@ shape = SubResource("CapsuleShape2D_tlug4")
 debug_color = Color(0.901961, 0, 0.141176, 0.478431)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(1.5, 1.5)
 
 [node name="coyote_timer" type="Timer" parent="."]
 wait_time = 0.15
@@ -66,12 +66,12 @@ one_shot = true
 
 [node name="attack_position2D" type="Marker2D" parent="."]
 
-[node name="attack_area" type="Area2D" parent="attack_position2D"]
+[node name="attack_area" type="Area2D" parent="attack_position2D" node_paths=PackedStringArray("Player")]
 position = Vector2(70, 0)
 collision_layer = 32
 collision_mask = 18
 script = ExtResource("2_ucc6x")
-damage = 10
+Player = NodePath("../..")
 
 [node name="collision_attack" type="CollisionShape2D" parent="attack_position2D/attack_area"]
 shape = SubResource("RectangleShape2D_k4lr0")
@@ -116,6 +116,10 @@ one_shot = true
 [node name="reappear_timer" type="Timer" parent="."]
 one_shot = true
 
+[node name="heal_timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
 [node name="invincibility_timer" type="Timer" parent="."]
 one_shot = true
 
@@ -147,6 +151,9 @@ script = ExtResource("11_e346p")
 
 [node name="reappear_state_player" type="Node" parent="state_machine_player"]
 script = ExtResource("14_oh2n5")
+
+[node name="healing_state_player" type="Node" parent="state_machine_player"]
+script = ExtResource("15_nxwfi")
 
 [node name="Label" type="Label" parent="." node_paths=PackedStringArray("state_machine")]
 offset_left = -19.0476

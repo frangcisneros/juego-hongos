@@ -24,6 +24,7 @@ var enemigo_rango = false
 @onready var retroceso_tiempo = $knockback_timer
 @onready var hitbox = $hitbox_player
 @onready var tiempo_invencibilidad = $invincibility_timer
+@onready var soul = 0
 
 func _ready():
 	add_to_group("player")
@@ -34,6 +35,7 @@ func _input(event):
 			global_position = get_global_mouse_position()
 
 func _process(delta):
+	print(soul)
 	invencibilidad()
 
 func _physics_process(delta):
