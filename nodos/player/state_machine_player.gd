@@ -18,7 +18,7 @@ func _ready():
 	if initial_state:
 		initial_state.Enter()
 		currentState = initial_state 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+
 func _process(delta):
 #	print(currentState)
 	if PlayerStats.health <=0:
@@ -55,6 +55,9 @@ func _on_hitbox_player_body_entered(body):
 func _on_hitbox_player_area_entered(area):
 	if area.has_method("enemy"):
 		on_child_transition(currentState,"hurt_state_player")
+	if area.has_method("exit"):
+		PlayerStats.health -= 1
+		on_child_transition(currentState,"reappear_state_player")
 
 func _input(event):
 	var just_pressed = event.is_pressed() and not event.is_echo()
