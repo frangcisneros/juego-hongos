@@ -9,6 +9,7 @@ var StateActive : bool = false
 @onready var hitbox_player_cs : CollisionShape2D = Player.get_node("hitbox_player/CollisionShape2D")
 
 func Enter():
+	Player.global_position = Player.get_parent().level_instance.spawn.global_position
 	Player.visible = true
 	StateActive = true
 

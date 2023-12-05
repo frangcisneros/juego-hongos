@@ -21,8 +21,8 @@ func Exit():
 	
 func Update(_delta : float):
 	if reappear_timer.is_stopped():
-		Player.global_position = Player.get_parent().level_instance.spawn.global_position
-		Transition.emit(self,"reappear_state_player")
+		Transition.emit(self,"reappear_state_player")		
+
 	pass
 
 func UpdatePhysics(_delta : float):
