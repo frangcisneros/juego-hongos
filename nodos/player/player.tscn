@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dj07mg1sgtrmu"]
+[gd_scene load_steps=24 format=3 uid="uid://dj07mg1sgtrmu"]
 
 [ext_resource type="Script" path="res://nodos/player/player.gd" id="1_wp7lc"]
 [ext_resource type="Script" path="res://nodos/player/atack_player/atack_player.gd" id="2_ucc6x"]
@@ -16,6 +16,8 @@
 [ext_resource type="Script" path="res://nodos/player/reappear_state_player.gd" id="14_oh2n5"]
 [ext_resource type="Script" path="res://nodos/player/state_label.gd" id="14_x11im"]
 [ext_resource type="Script" path="res://nodos/player/healing_state_player.gd" id="15_nxwfi"]
+[ext_resource type="AudioStream" uid="uid://c5iyx3qp6tp6o" path="res://sounds/hurt.mp3" id="17_7mkua"]
+[ext_resource type="AudioStream" uid="uid://chl8ocbaoyvla" path="res://sounds/attack.mp3" id="18_73ihh"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tlug4"]
 radius = 30.4762
@@ -162,6 +164,13 @@ offset_right = 20.9524
 offset_bottom = -64.6191
 script = ExtResource("14_x11im")
 state_machine = NodePath("../state_machine_player")
+
+[node name="hurt_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("17_7mkua")
+
+[node name="attack_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("18_73ihh")
+volume_db = -18.667
 
 [connection signal="area_entered" from="attack_position2D/attack_area" to="attack_position2D/attack_area" method="_on_area_entered"]
 [connection signal="area_entered" from="hitbox_player" to="state_machine_player" method="_on_hitbox_player_area_entered"]

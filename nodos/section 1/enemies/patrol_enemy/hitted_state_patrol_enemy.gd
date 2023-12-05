@@ -8,11 +8,13 @@ extends State
 @onready var Enemigo = get_parent().Enemigo
 @onready var player = get_tree().get_nodes_in_group("player")[0]
 @onready var hitted_particles : GPUParticles2D = Enemigo.get_node("position2D/hitted_particles")
+@onready var hurt_sound : AudioStreamPlayer2D = Enemigo.get_node("hurt_sound")
 
 var StateActive : bool = false
 var hitted = false
 
 func Enter():
+	hurt_sound.play()
 	hitted_particles.emitting = true
 	animation_tree.set("parameters/conditions/unhit",false)
 	animation_tree.set("parameters/conditions/hit",true)

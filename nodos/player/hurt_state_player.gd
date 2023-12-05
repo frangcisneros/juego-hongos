@@ -4,8 +4,10 @@ extends State
 var StateActive : bool = false
 
 @onready var Player = get_parent().Player
+@onready var hurt_sound : AudioStreamPlayer2D = Player.get_node("hurt_sound")
 
 func Enter():
+	hurt_sound.play()
 	StateActive = true
 	PlayerStats.health = PlayerStats.health - 1
 	if Player.position2D.scale.x == 1:
