@@ -9,6 +9,7 @@ var jumped : bool
 @onready var attack_sprite : Sprite2D = Player.get_node("attack_position2D/attack_area/sprite_attack")
 @onready var attack_position2D : Marker2D = Player.get_node("attack_position2D")
 @onready var position2D : Marker2D = Player.get_node("position2D")
+@onready var attack_sound : AudioStreamPlayer2D = Player.get_node("attack_sound")
 
 func Enter():
 	if not Player.attack_position2D.get_node("attack_area/sprite_attack").visible:
@@ -21,6 +22,7 @@ func Enter():
 		
 	
 	StateActive = true
+	attack_sound.play()
 	jumped = false
 
 func Exit():

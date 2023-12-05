@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://cqvycjf6wy0df"]
+[gd_scene load_steps=44 format=3 uid="uid://cqvycjf6wy0df"]
 
 [ext_resource type="Script" path="res://nodos/section 1/enemies/patrol_enemy/patrol_enemy.gd" id="1_lqiqa"]
 [ext_resource type="Texture2D" uid="uid://xmaew1ertpoi" path="res://arte/Animaciones/Seccion 1 Musgo/patrulla/frames/patrullar/0008.png" id="2_ff1xk"]
@@ -24,6 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://kg2ej7w7ja3y" path="res://arte/Animaciones/Seccion 1 Musgo/patrulla/frames/ataque/0007.png" id="20_mdv2v"]
 [ext_resource type="Texture2D" uid="uid://2xyjj11tmrr6" path="res://arte/Animaciones/Seccion 1 Musgo/patrulla/frames/ataque/0008.png" id="21_4da80"]
 [ext_resource type="Script" path="res://nodos/section 1/enemies/patrol_enemy/hitbox.gd" id="23_c4pf1"]
+[ext_resource type="AudioStream" uid="uid://d1svxhufu6vaf" path="res://sounds/hurt_enemy.mp3" id="25_dbgxr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4sxdg"]
 size = Vector2(126.333, 15.6667)
@@ -266,6 +267,9 @@ parameters/conditions/hit = false
 parameters/conditions/unhit = false
 parameters/BlendTree/TimeScale/scale = 0.0
 parameters/Patrulla/blend_position = 0
+
+[node name="hurt_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("25_dbgxr")
 
 [connection signal="body_entered" from="position2D/detection_area" to="state_machine_patrol_enemy/idle_state_patrol_enemy" method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="position2D/collision_query" to="state_machine_patrol_enemy/idle_state_patrol_enemy" method="_on_collision_query_body_exited"]
