@@ -16,7 +16,7 @@ func Enter():
 	animation_tree.set("parameters/conditions/hit",true)
 	off_hitbox()
 	Enemigo.drop_coin(5)
-	Enemigo.velocity.x = 0;
+	Enemigo.velocity.x = 0
 	Enemigo.set_rotation_degrees(180)
 	corpse_timer.start()
 	StateActive = true

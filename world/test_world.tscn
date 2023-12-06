@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://world/test_world.gd" id="1_15tp2"]
 [ext_resource type="PackedScene" uid="uid://dusk6dox3dxnb" path="res://nodos/platform_world/platform_world.tscn" id="2_hr4qa"]
-[ext_resource type="PackedScene" uid="uid://det7qsfsss5cr" path="res://nodos/section 1/world_and_enviroment/spikes.tscn" id="3_nvthe"]
 [ext_resource type="PackedScene" uid="uid://cv1hcfuyulsk8" path="res://nodos/section 1/world_and_enviroment/exit_zone.tscn" id="4_3vw8l"]
+[ext_resource type="PackedScene" uid="uid://t13h28qs4lvp" path="res://nodos/section 1/enemies/jump_enemy/jump_enemy.tscn" id="4_dj81g"]
 
 [node name="test_world" type="Node2D" node_paths=PackedStringArray("spawn")]
 process_mode = 1
@@ -11,7 +11,7 @@ script = ExtResource("1_15tp2")
 spawn = NodePath("spawn")
 
 [node name="platform_world" parent="." instance=ExtResource("2_hr4qa")]
-position = Vector2(-464, 8)
+position = Vector2(-112, -56)
 scale = Vector2(1, 0.197)
 
 [node name="platform_world2" parent="." instance=ExtResource("2_hr4qa")]
@@ -19,20 +19,24 @@ position = Vector2(592, 16)
 scale = Vector2(1, 0.197)
 
 [node name="platform_world3" parent="." instance=ExtResource("2_hr4qa")]
-position = Vector2(72, 56)
-scale = Vector2(1, 0.197)
+position = Vector2(248, -144)
+scale = Vector2(0.480001, 0.197)
+
+[node name="platform_world4" parent="." instance=ExtResource("2_hr4qa")]
+position = Vector2(0, -200)
+scale = Vector2(0.225288, 0.202184)
 
 [node name="spawn" type="Marker2D" parent="."]
-position = Vector2(-240, -32)
+position = Vector2(-16, -232)
 
 [node name="checkpoints" type="Node2D" parent="."]
 
 [node name="Marker2D" type="Marker2D" parent="checkpoints"]
 position = Vector2(-240, -32)
 
-[node name="spikes" parent="." instance=ExtResource("3_nvthe")]
-position = Vector2(64, -16)
-
 [node name="exit_zone" parent="." instance=ExtResource("4_3vw8l")]
 position = Vector2(0, 120)
 scale = Vector2(5.23087, 1.4259)
+
+[node name="jump_enemy" parent="." instance=ExtResource("4_dj81g")]
+position = Vector2(248, -312)

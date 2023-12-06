@@ -21,7 +21,7 @@ func _ready():
 		currentState = initial_state 
 
 func _process(delta):
-	print(currentState)
+#	print(currentState)
 	if PlayerStats.health <=0:
 		on_child_transition(currentState,"dead_state_player")
 	currentState.Update(delta)

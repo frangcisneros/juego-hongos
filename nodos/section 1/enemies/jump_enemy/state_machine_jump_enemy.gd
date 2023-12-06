@@ -7,11 +7,11 @@ class_name state_machine_jump_enemy
 
 var states :  Dictionary = {}
 var currentState : State
+var is_dead = false
 
 # un for que ciclee por los hijos del nodo y si son estados (if child is State) los agregue al diccionario (states[child.name] = child)
 func _ready():
 	Enemigo.hitted.connect(on_hit_transition)
-	
 	for child in get_children():
 		if child is State:
 			states[child.name.to_lower()] = child
@@ -21,7 +21,12 @@ func _ready():
 		currentState = initial_state 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+
 	currentState.Update(delta)
+	if(Enemigo.health <= 0) and not is_dead:
+		Enemigo.set_rotation_degrees(180)
+		on_child_transition(currentState,"dead_state_jump_enemy")
+		is_dead = true
 
 func _physics_process(delta):
 	currentState.UpdatePhysics(delta)
