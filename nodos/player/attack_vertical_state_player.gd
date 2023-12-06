@@ -5,15 +5,15 @@ var direction
 var jumped : bool
 
 @onready var Player = get_parent().Player
-@onready var attack_collision: CollisionShape2D = Player.get_node("attack_position2D/attack_area/collision_attack")
-@onready var attack_sprite : Sprite2D = Player.get_node("attack_position2D/attack_area/sprite_attack")
-@onready var attack_position2D : Marker2D = Player.get_node("attack_position2D")
+@onready var attack_collision: CollisionShape2D = Player.get_node("attack_position2D_vertical/attack_area/collision_attack")
+@onready var attack_sprite : Sprite2D = Player.get_node("attack_position2D_vertical/attack_area/sprite_attack")
+@onready var attack_position2D : Marker2D = Player.get_node("attack_position2D_vertical")
 @onready var position2D : Marker2D = Player.get_node("position2D")
 @onready var attack_sound : AudioStreamPlayer2D = Player.get_node("attack_sound")
 
 func Enter():
-	if not Player.attack_position2D.get_node("attack_area/sprite_attack").visible:
-		Player.attack_position2D.get_node("attack_area/sprite_attack").visible = true
+	if not attack_position2D.get_node("attack_area/sprite_attack").visible:
+		attack_position2D.get_node("attack_area/sprite_attack").visible = true
 		attack_collision.disabled = false
 		Player.get_node("attack_timer").start()
 		

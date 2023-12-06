@@ -8,6 +8,7 @@ class_name state_machine_player
 @onready var position2D : Marker2D = Player.get_node("position2D")
 var states :  Dictionary = {}
 var currentState : State
+var attack = false
 
 # un for que ciclee por los hijos del nodo y si son estados (if child is State) los agregue al diccionario (states[child.name] = child)
 func _ready():
@@ -20,7 +21,7 @@ func _ready():
 		currentState = initial_state 
 
 func _process(delta):
-#	print(currentState)
+	print(currentState)
 	if PlayerStats.health <=0:
 		on_child_transition(currentState,"dead_state_player")
 	currentState.Update(delta)
@@ -61,9 +62,11 @@ func _on_hitbox_player_area_entered(area):
 
 func _input(event):
 	var just_pressed = event.is_pressed() and not event.is_echo()
-	if Input.is_action_pressed("ui_up") and position2D.scale.x == 1:
-		attack_position2D.rotation_degrees = -90
-	elif Input.is_action_pressed("ui_up") and position2D.scale.x == -1:
-		attack_position2D.rotation_degrees = 90
-	if Input.is_key_pressed(KEY_Z) and just_pressed:
+	if Input.is_action_pressed("ui_up") and Input.is_key_pressed(KEY_Z) and just_pressed and not attack:
+		on_child_transition(currentState,"attack_vertical_state_player")
+		attack = true
+		
+	if Input.is_key_pressed(KEY_Z) and just_pressed and not attack:
 		on_child_transition(currentState, "attack_state_player")
+		attack = true
+		
