@@ -21,8 +21,12 @@
 [ext_resource type="AudioStream" uid="uid://chl8ocbaoyvla" path="res://sounds/attack.mp3" id="18_73ihh"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tlug4"]
-radius = 30.4762
-height = 102.857
+radius = 26.6667
+height = 95.2381
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ycceo"]
+radius = 33.3334
+height = 106.667
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k4lr0"]
 size = Vector2(45.7142, 106.667)
@@ -43,20 +47,24 @@ turbulence_noise_strength = 2.8
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_j64mn"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ycceo"]
-radius = 33.3334
-height = 106.667
-
 [node name="player" type="CharacterBody2D"]
 process_mode = 1
 scale = Vector2(0.525, 0.525)
-collision_mask = 26
+collision_mask = 8
 script = ExtResource("1_wp7lc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 z_index = 1
 shape = SubResource("CapsuleShape2D_tlug4")
 debug_color = Color(0.901961, 0, 0.141176, 0.478431)
+
+[node name="hitbox_player" type="Area2D" parent="."]
+scale = Vector2(1, 1)
+collision_mask = 38
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox_player"]
+shape = SubResource("CapsuleShape2D_ycceo")
+debug_color = Color(0.0313726, 0.647059, 0.164706, 0.419608)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
@@ -128,13 +136,6 @@ material = SubResource("CanvasItemMaterial_j64mn")
 scale = Vector2(0.392552, 0.392552)
 texture = ExtResource("4_iq03c")
 
-[node name="hitbox_player" type="Area2D" parent="."]
-collision_mask = 38
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox_player"]
-shape = SubResource("CapsuleShape2D_ycceo")
-debug_color = Color(0.0313726, 0.647059, 0.164706, 0.419608)
-
 [node name="knockback_timer" type="Timer" parent="."]
 wait_time = 0.15
 one_shot = true
@@ -147,6 +148,7 @@ wait_time = 0.5
 one_shot = true
 
 [node name="invincibility_timer" type="Timer" parent="."]
+wait_time = 3.0
 one_shot = true
 
 [node name="state_machine_player" type="Node" parent="." node_paths=PackedStringArray("initial_state", "Player")]
@@ -199,8 +201,8 @@ stream = ExtResource("17_7mkua")
 stream = ExtResource("18_73ihh")
 volume_db = -18.0
 
-[connection signal="area_entered" from="attack_position2D/attack_area" to="attack_position2D/attack_area" method="_on_area_entered"]
-[connection signal="area_entered" from="attack_position2D_vertical/attack_area" to="attack_position2D_vertical/attack_area" method="_on_area_entered"]
 [connection signal="area_entered" from="hitbox_player" to="state_machine_player" method="_on_hitbox_player_area_entered"]
 [connection signal="body_entered" from="hitbox_player" to="." method="_on_hitbox_player_body_entered"]
 [connection signal="body_entered" from="hitbox_player" to="state_machine_player" method="_on_hitbox_player_body_entered"]
+[connection signal="area_entered" from="attack_position2D/attack_area" to="attack_position2D/attack_area" method="_on_area_entered"]
+[connection signal="area_entered" from="attack_position2D_vertical/attack_area" to="attack_position2D_vertical/attack_area" method="_on_area_entered"]

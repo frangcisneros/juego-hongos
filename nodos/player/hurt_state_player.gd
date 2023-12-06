@@ -15,8 +15,7 @@ func Enter():
 	else:
 		Player.velocity.x = 1000
 	Player.velocity.y = -200
-	if Player.tiempo_invencibilidad.is_stopped():
-		Player.tiempo_invencibilidad.start() 
+
 
 func Exit():
 	StateActive = false

@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://world/test_world.gd" id="1_15tp2"]
 [ext_resource type="PackedScene" uid="uid://dusk6dox3dxnb" path="res://nodos/platform_world/platform_world.tscn" id="2_hr4qa"]
 [ext_resource type="PackedScene" uid="uid://cv1hcfuyulsk8" path="res://nodos/section 1/world_and_enviroment/exit_zone.tscn" id="4_3vw8l"]
-[ext_resource type="PackedScene" uid="uid://t13h28qs4lvp" path="res://nodos/section 1/enemies/jump_enemy/jump_enemy.tscn" id="4_dj81g"]
+[ext_resource type="PackedScene" uid="uid://bi31bxoehsk7c" path="res://nodos/section 1/enemies/walk_enemy/walk_enemy.tscn" id="4_pmxtl"]
 
 [node name="test_world" type="Node2D" node_paths=PackedStringArray("spawn")]
 process_mode = 1
@@ -38,5 +38,5 @@ position = Vector2(-240, -32)
 position = Vector2(0, 120)
 scale = Vector2(5.23087, 1.4259)
 
-[node name="jump_enemy" parent="." instance=ExtResource("4_dj81g")]
-position = Vector2(248, -312)
+[node name="walk_enemy" parent="." instance=ExtResource("4_pmxtl")]
+position = Vector2(152, -176)
