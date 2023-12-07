@@ -23,6 +23,7 @@ var enemigo_rango = false
 @onready var attack_area = $attack_position2D/attack_area
 @onready var retroceso_tiempo = $knockback_timer
 @onready var hitbox = $hitbox_player
+@onready var hitbox_cs = get_node("hitbox_player/CollisionShape2D")
 @onready var tiempo_invencibilidad = $invincibility_timer
 @onready var soul = 0
 
@@ -55,13 +56,14 @@ func player():
 
 func invencibilidad():
 	if not tiempo_invencibilidad.is_stopped() or not player_alive: #si le pegaron al pj lo hacemos invencible
-		# esto es lo que uso para cambiar como interactuan los objetos
+		hitbox_cs.set_deferred("disabled",true)
 		hitbox.set_collision_mask_value(2,false)
 		hitbox.set_collision_layer_value(1,false)
 		set_collision_layer_value(1,false)
 		set_collision_mask_value(2,false) 
 		set_collision_layer_value(5,true)
 	else: #si no le pegaron en los ultimos X segundos, no es invencible
+		hitbox_cs.set_deferred("disabled",false)		
 		hitbox.set_collision_mask_value(2,true)
 		hitbox.set_collision_layer_value(1,true)
 		set_collision_layer_value(1,true)

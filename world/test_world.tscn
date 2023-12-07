@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://world/test_world.gd" id="1_15tp2"]
 [ext_resource type="PackedScene" uid="uid://dusk6dox3dxnb" path="res://nodos/platform_world/platform_world.tscn" id="2_hr4qa"]
 [ext_resource type="PackedScene" uid="uid://cv1hcfuyulsk8" path="res://nodos/section 1/world_and_enviroment/exit_zone.tscn" id="4_3vw8l"]
-[ext_resource type="PackedScene" uid="uid://cqvycjf6wy0df" path="res://nodos/section 1/enemies/patrol_enemy/patrol_enemy.tscn" id="4_ukvf4"]
+[ext_resource type="PackedScene" uid="uid://d0gordpyc8o5m" path="res://nodos/section 1/enemies/area_enemy/area_enemy.tscn" id="4_njuad"]
 
 [node name="test_world" type="Node2D" node_paths=PackedStringArray("spawn")]
 process_mode = 1
@@ -38,6 +38,5 @@ position = Vector2(-240, -32)
 position = Vector2(0, 120)
 scale = Vector2(5.23087, 1.4259)
 
-[node name="patrol_enemy" parent="." instance=ExtResource("4_ukvf4")]
-position = Vector2(592, -40)
-scale = Vector2(2, 2)
+[node name="area_enemy" parent="." instance=ExtResource("4_njuad")]
+position = Vector2(504, -40)

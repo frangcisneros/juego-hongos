@@ -14,7 +14,6 @@ func Enter():
 	StateActive = true
 
 func Exit():
-	get_parent().attack = false
 	Player.player_alive = true
 	
 func Update(_delta : float):

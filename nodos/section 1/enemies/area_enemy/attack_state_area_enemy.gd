@@ -12,11 +12,14 @@ var creciendo = false
 
 func Enter():
 	creciendo = true
-	sprite
 	sprite.scale.x = sprite_scale_x
 	sprite.scale.y = sprite_scale_y
+	sprite.visible = true
 
 func Exit():
+	sprite.visible = false
+	sprite.scale.x = 0
+	sprite.scale.y = 0
 	pass
 		
 func Update(_delta : float):

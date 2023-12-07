@@ -37,3 +37,10 @@ func _on_collision_query_body_exited(body):
 func _on_hitbox_area_entered(area):
 	if area.has_method("attack"):
 		Transition.emit(self,"turtle_state_armor_walker") 
+
+
+func _on_collision_query_2_body_entered(body):
+	if body.has_method("plataforma") and Enemigo.is_on_floor():
+		Enemigo.scale.x = - Enemigo.scale.x
+		Enemigo.velocity.x = - Enemigo.velocity.x
+		right = !right

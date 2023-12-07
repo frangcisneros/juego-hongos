@@ -24,7 +24,6 @@ func Enter():
 func Exit():
 	attack_collision.disabled = true
 	attack_position2D.get_node("attack_area/sprite_attack").visible = false
-	get_parent().attack = false
 	StateActive = false
 	
 func Update(_delta : float):

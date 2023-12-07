@@ -10,8 +10,7 @@ var StateActive : bool = false
 @onready var hitbox_player_cs : CollisionShape2D = Player.get_node("hitbox_player/CollisionShape2D")
 
 func Enter():
-	PlayerStats.health = 5	
-	get_parent().attack = true
+	PlayerStats.health = 5
 	reappear_timer.start()
 	Player.visible = false
 	StateActive = true

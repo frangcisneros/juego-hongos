@@ -147,7 +147,6 @@ wait_time = 0.5
 one_shot = true
 
 [node name="invincibility_timer" type="Timer" parent="."]
-wait_time = 3.0
 one_shot = true
 
 [node name="state_machine_player" type="Node" parent="." node_paths=PackedStringArray("initial_state", "Player")]
