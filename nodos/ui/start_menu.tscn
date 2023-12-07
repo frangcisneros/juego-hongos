@@ -19,8 +19,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
-visible = false
+[node name="start_menu_ui" type="VBoxContainer" parent="Panel"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -34,27 +33,27 @@ offset_bottom = 68.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="new_game" type="Button" parent="Panel/VBoxContainer"]
+[node name="new_game" type="Button" parent="Panel/start_menu_ui"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
 text = "New Game"
 
-[node name="load_game" type="Button" parent="Panel/VBoxContainer"]
+[node name="load_game" type="Button" parent="Panel/start_menu_ui"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
 text = "Load Game"
 
-[node name="options" type="Button" parent="Panel/VBoxContainer"]
+[node name="options" type="Button" parent="Panel/start_menu_ui"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
 text = "Options"
 
-[node name="quit" type="Button" parent="Panel/VBoxContainer"]
+[node name="quit" type="Button" parent="Panel/start_menu_ui"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
 text = "Quit"
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="Panel"]
+[node name="load_menu_ui" type="VBoxContainer" parent="Panel"]
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -69,23 +68,28 @@ offset_bottom = 79.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="section_1" type="Button" parent="Panel/VBoxContainer2"]
+[node name="section_1" type="Button" parent="Panel/load_menu_ui"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
 text = "Section 1"
 
-[node name="section_2" type="Button" parent="Panel/VBoxContainer2"]
+[node name="section_2" type="Button" parent="Panel/load_menu_ui"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
 text = "Section 2"
 
-[node name="last_game" type="Button" parent="Panel/VBoxContainer2"]
+[node name="last_game" type="Button" parent="Panel/load_menu_ui"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
 text = "Last Game
 "
 
-[node name="VBoxContainer3" type="VBoxContainer" parent="Panel"]
+[node name="back_load" type="Button" parent="Panel/load_menu_ui"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Back"
+
+[node name="level_menu_ui" type="VBoxContainer" parent="Panel"]
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -100,32 +104,38 @@ offset_bottom = 79.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="starting_area" type="Button" parent="Panel/VBoxContainer3"]
+[node name="starting_area" type="Button" parent="Panel/level_menu_ui"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
 text = "Starting Area"
 
-[node name="first_zone" type="Button" parent="Panel/VBoxContainer3"]
+[node name="first_zone" type="Button" parent="Panel/level_menu_ui"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
 text = "First Zone"
 
-[node name="second_zone" type="Button" parent="Panel/VBoxContainer3"]
+[node name="second_zone" type="Button" parent="Panel/level_menu_ui"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
 text = "Second Zone"
 
-[node name="rock_zone" type="Button" parent="Panel/VBoxContainer3"]
+[node name="rock_zone" type="Button" parent="Panel/level_menu_ui"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
 text = "Rock Zone"
 
-[node name="final_zone" type="Button" parent="Panel/VBoxContainer3"]
+[node name="final_zone" type="Button" parent="Panel/level_menu_ui"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
 text = "Final Zone"
 
-[node name="VBoxContainer4" type="VBoxContainer" parent="Panel"]
+[node name="back_level1" type="Button" parent="Panel/level_menu_ui"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Back"
+
+[node name="level2_menu_ui" type="VBoxContainer" parent="Panel"]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -140,20 +150,168 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2.00621, 2.00621)
 
-[node name="boss_arena" type="Button" parent="Panel/VBoxContainer4"]
+[node name="boss_arena" type="Button" parent="Panel/level2_menu_ui"]
 layout_mode = 2
 text = "Boss Arena"
 
-[connection signal="pressed" from="Panel/VBoxContainer/new_game" to="." method="_on_new_game_pressed"]
-[connection signal="pressed" from="Panel/VBoxContainer/load_game" to="." method="_on_load_game_pressed"]
-[connection signal="pressed" from="Panel/VBoxContainer/options" to="." method="_on_options_pressed"]
-[connection signal="pressed" from="Panel/VBoxContainer/quit" to="." method="_on_quit_pressed"]
-[connection signal="pressed" from="Panel/VBoxContainer2/section_1" to="." method="_on_section_1_pressed"]
-[connection signal="pressed" from="Panel/VBoxContainer2/section_2" to="." method="_on_section_2_pressed"]
-[connection signal="pressed" from="Panel/VBoxContainer2/last_game" to="." method="_on_last_game_pressed"]
-[connection signal="pressed" from="Panel/VBoxContainer3/starting_area" to="." method="_on_starting_area_pressed"]
-[connection signal="pressed" from="Panel/VBoxContainer3/first_zone" to="." method="_on_first_zone_pressed"]
-[connection signal="pressed" from="Panel/VBoxContainer3/second_zone" to="." method="_on_second_zone_pressed"]
-[connection signal="pressed" from="Panel/VBoxContainer3/rock_zone" to="." method="_on_rock_zone_pressed"]
-[connection signal="pressed" from="Panel/VBoxContainer3/final_zone" to="." method="_on_final_zone_pressed"]
-[connection signal="pressed" from="Panel/VBoxContainer4/boss_arena" to="." method="_on_boss_arena_pressed"]
+[node name="back_level2" type="Button" parent="Panel/level2_menu_ui"]
+layout_mode = 2
+text = "back"
+
+[node name="options_menu" type="VBoxContainer" parent="Panel"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -170.0
+offset_top = -137.0
+offset_right = 6.0
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.00621, 2.00621)
+
+[node name="video" type="Button" parent="Panel/options_menu"]
+layout_mode = 2
+text = "Video"
+
+[node name="audio" type="Button" parent="Panel/options_menu"]
+layout_mode = 2
+text = "Audio"
+
+[node name="back_options" type="Button" parent="Panel/options_menu"]
+layout_mode = 2
+text = "Back"
+
+[node name="video_options" type="HBoxContainer" parent="Panel"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.0
+offset_top = -43.0
+offset_right = 56.0
+offset_bottom = 43.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="back_video" type="Button" parent="Panel/video_options"]
+layout_mode = 2
+text = "Back"
+
+[node name="labels" type="VBoxContainer" parent="Panel/video_options"]
+layout_mode = 2
+alignment = 1
+
+[node name="full_screen" type="Label" parent="Panel/video_options/labels"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "Full Screen"
+vertical_alignment = 1
+
+[node name="vsync" type="Label" parent="Panel/video_options/labels"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "Vsync"
+vertical_alignment = 1
+
+[node name="checks" type="VBoxContainer" parent="Panel/video_options"]
+layout_mode = 2
+
+[node name="full_screen" type="CheckBox" parent="Panel/video_options/checks"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="vsync" type="CheckBox" parent="Panel/video_options/checks"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="audio_options" type="HBoxContainer" parent="Panel"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -174.5
+offset_top = -43.0
+offset_right = 174.5
+offset_bottom = 43.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="back_audio" type="Button" parent="Panel/audio_options"]
+layout_mode = 2
+text = "Back"
+
+[node name="labels" type="VBoxContainer" parent="Panel/audio_options"]
+layout_mode = 2
+alignment = 1
+
+[node name="master" type="Label" parent="Panel/audio_options/labels"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "Master"
+vertical_alignment = 1
+
+[node name="music" type="Label" parent="Panel/audio_options/labels"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "Music"
+vertical_alignment = 1
+
+[node name="sound_fx" type="Label" parent="Panel/audio_options/labels"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "Sound FX"
+vertical_alignment = 1
+
+[node name="sliders" type="VBoxContainer" parent="Panel/audio_options"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="master" type="HSlider" parent="Panel/audio_options/sliders"]
+layout_mode = 2
+size_flags_vertical = 6
+
+[node name="music" type="HSlider" parent="Panel/audio_options/sliders"]
+layout_mode = 2
+size_flags_vertical = 6
+
+[node name="sound_fx" type="HSlider" parent="Panel/audio_options/sliders"]
+layout_mode = 2
+size_flags_vertical = 6
+
+[connection signal="pressed" from="Panel/start_menu_ui/new_game" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="Panel/start_menu_ui/load_game" to="." method="_on_load_game_pressed"]
+[connection signal="pressed" from="Panel/start_menu_ui/options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Panel/start_menu_ui/quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Panel/load_menu_ui/section_1" to="." method="_on_section_1_pressed"]
+[connection signal="pressed" from="Panel/load_menu_ui/section_2" to="." method="_on_section_2_pressed"]
+[connection signal="pressed" from="Panel/load_menu_ui/last_game" to="." method="_on_last_game_pressed"]
+[connection signal="pressed" from="Panel/load_menu_ui/back_load" to="." method="_on_back_load_pressed"]
+[connection signal="pressed" from="Panel/level_menu_ui/starting_area" to="." method="_on_starting_area_pressed"]
+[connection signal="pressed" from="Panel/level_menu_ui/first_zone" to="." method="_on_first_zone_pressed"]
+[connection signal="pressed" from="Panel/level_menu_ui/second_zone" to="." method="_on_second_zone_pressed"]
+[connection signal="pressed" from="Panel/level_menu_ui/rock_zone" to="." method="_on_rock_zone_pressed"]
+[connection signal="pressed" from="Panel/level_menu_ui/final_zone" to="." method="_on_final_zone_pressed"]
+[connection signal="pressed" from="Panel/level_menu_ui/back_level1" to="." method="_on_back_level_1_pressed"]
+[connection signal="pressed" from="Panel/level2_menu_ui/boss_arena" to="." method="_on_boss_arena_pressed"]
+[connection signal="pressed" from="Panel/level2_menu_ui/back_level2" to="." method="_on_back_level_2_pressed"]
+[connection signal="pressed" from="Panel/options_menu/video" to="." method="_on_video_pressed"]
+[connection signal="pressed" from="Panel/options_menu/audio" to="." method="_on_audio_pressed"]
+[connection signal="pressed" from="Panel/options_menu/back_options" to="." method="_on_back_options_pressed"]
+[connection signal="pressed" from="Panel/video_options/back_video" to="." method="_on_back_video_pressed"]
+[connection signal="toggled" from="Panel/video_options/checks/full_screen" to="." method="_on_full_screen_toggled"]
+[connection signal="toggled" from="Panel/video_options/checks/vsync" to="." method="_on_vsync_toggled"]
+[connection signal="pressed" from="Panel/audio_options/back_audio" to="." method="_on_back_audio_pressed"]
+[connection signal="value_changed" from="Panel/audio_options/sliders/master" to="." method="_on_master_value_changed"]
+[connection signal="value_changed" from="Panel/audio_options/sliders/music" to="." method="_on_music_value_changed"]
+[connection signal="value_changed" from="Panel/audio_options/sliders/sound_fx" to="." method="_on_sound_fx_value_changed"]

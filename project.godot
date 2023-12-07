@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 PlayerStats="*res://scripts/player_stats.gd"
 
+[display]
+
+window/vsync/vsync_mode=0
+
 [layer_names]
 
 2d_physics/layer_1="player"

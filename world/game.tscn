@@ -43,4 +43,3 @@ script = ExtResource("6_xi6q6")
 game = NodePath("../..")
 
 [node name="player" parent="." instance=ExtResource("5_sllcs")]
-process_mode = 1

@@ -1,6 +1,7 @@
 extends Control
 
 @export var game : game
+@onready var start_menu = game.get_node("CanvasLayer/start_menu")
 
 func _ready():
 	hide()
@@ -28,3 +29,12 @@ func _on_save_pressed():
 
 func _on_load_pressed():
 	game.load_data()
+
+
+func _on_menu_pressed():
+	hide()
+	game.unload_level()
+	game.get_node("player").visible = false
+	game.game_paused = false
+	game.game_run = false
+	start_menu.for_ready()
