@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://world/test_world.gd" id="1_15tp2"]
 [ext_resource type="PackedScene" uid="uid://dusk6dox3dxnb" path="res://nodos/platform_world/platform_world.tscn" id="2_hr4qa"]
 [ext_resource type="PackedScene" uid="uid://cv1hcfuyulsk8" path="res://nodos/section 1/world_and_enviroment/exit_zone.tscn" id="4_3vw8l"]
-[ext_resource type="PackedScene" uid="uid://bi31bxoehsk7c" path="res://nodos/section 1/enemies/walk_enemy/walk_enemy.tscn" id="4_pmxtl"]
+[ext_resource type="PackedScene" uid="uid://cqvycjf6wy0df" path="res://nodos/section 1/enemies/patrol_enemy/patrol_enemy.tscn" id="4_ukvf4"]
 
 [node name="test_world" type="Node2D" node_paths=PackedStringArray("spawn")]
 process_mode = 1
@@ -11,23 +11,23 @@ script = ExtResource("1_15tp2")
 spawn = NodePath("spawn")
 
 [node name="platform_world" parent="." instance=ExtResource("2_hr4qa")]
-position = Vector2(-112, -56)
-scale = Vector2(1, 0.197)
+position = Vector2(-160, -88)
+scale = Vector2(1, 1.717)
 
 [node name="platform_world2" parent="." instance=ExtResource("2_hr4qa")]
 position = Vector2(592, 16)
 scale = Vector2(1, 0.197)
 
 [node name="platform_world3" parent="." instance=ExtResource("2_hr4qa")]
-position = Vector2(248, -144)
-scale = Vector2(0.480001, 0.197)
+position = Vector2(272, -8.00002)
+scale = Vector2(2.72, 0.197)
 
 [node name="platform_world4" parent="." instance=ExtResource("2_hr4qa")]
-position = Vector2(0, -200)
-scale = Vector2(0.225288, 0.202184)
+position = Vector2(712, -64)
+scale = Vector2(0.225288, 1.1864)
 
 [node name="spawn" type="Marker2D" parent="."]
-position = Vector2(-16, -232)
+position = Vector2(112, -160)
 
 [node name="checkpoints" type="Node2D" parent="."]
 
@@ -38,5 +38,6 @@ position = Vector2(-240, -32)
 position = Vector2(0, 120)
 scale = Vector2(5.23087, 1.4259)
 
-[node name="walk_enemy" parent="." instance=ExtResource("4_pmxtl")]
-position = Vector2(152, -176)
+[node name="patrol_enemy" parent="." instance=ExtResource("4_ukvf4")]
+position = Vector2(592, -40)
+scale = Vector2(2, 2)
