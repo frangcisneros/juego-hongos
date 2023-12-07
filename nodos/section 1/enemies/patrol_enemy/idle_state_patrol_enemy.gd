@@ -12,16 +12,24 @@ extends State
 @onready var vision = Enemigo.get_node("position2D/vision_patrol_enemy")
 @onready var rest_timer = Enemigo.get_node("rest_timer")
 @onready var position2D = get_parent().position2D
+@onready var collision_query_cs : CollisionShape2D = Enemigo.get_node("position2D/collision_query/CollisionShape2D")
+@onready var collision_query2_cs : CollisionShape2D = Enemigo.get_node("position2D/collision_query2/CollisionShape2D")
+
 
 var StateActive : bool = false
 
 func Enter():
+	collision_query_cs.set_deferred("disabled",false)
+	collision_query2_cs.set_deferred("disabled",false)
+	
 	rest_timer.start()
 	StateActive = true
 	animation_tree.set("parameters/Patrulla/blend_position",0)
 	animation_player.set("speed_scale", 1)
 	
 func Exit():
+	collision_query_cs.set_deferred("disabled",true)
+	collision_query2_cs.set_deferred("disabled",true)
 	StateActive = false
 	
 func Update(_delta : float):
@@ -58,7 +66,7 @@ func _on_collision_query_2_body_entered(body):
 		position2D.scale.x = -position2D.scale.x
 
 func _on_detection_area_body_entered(body):
-	if body.has_method("player") and StateActive:
+	if body.has_method("player"):
 		if vision.vision_player(body.position) and rest_timer.is_stopped():
 			Transition.emit(self, "attack_state_patrol_enemy")
 

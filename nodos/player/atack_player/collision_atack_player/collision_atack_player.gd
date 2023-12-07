@@ -1,5 +1,5 @@
 extends CollisionShape2D
-@onready var attack_timer = $attack_timer
+@export var attack_timer : Timer
 # creamos una funcion que nos modifica el ataque para que no se vea y este deshabilitado
 func _ready():
 	get_parent().get_node("sprite_attack").visible = false

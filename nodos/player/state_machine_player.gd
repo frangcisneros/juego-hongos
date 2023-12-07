@@ -20,7 +20,6 @@ func _ready():
 		currentState = initial_state 
 
 func _process(delta):
-#	print(currentState)
 	if PlayerStats.health <=0:
 		on_child_transition(currentState,"dead_state_player")
 	currentState.Update(delta)
@@ -49,11 +48,13 @@ func on_child_transition(state, new_state_name):
 
 func _on_hitbox_player_body_entered(body):
 	if body.has_method("enemy"):
+		Player.tiempo_invencibilidad.start() 
 		on_child_transition(currentState,"hurt_state_player")
 
 
 func _on_hitbox_player_area_entered(area):
 	if area.has_method("enemy"):
+		Player.tiempo_invencibilidad.start() 
 		on_child_transition(currentState,"hurt_state_player")
 	if area.has_method("exit"):
 		PlayerStats.health -= 1
@@ -61,9 +62,9 @@ func _on_hitbox_player_area_entered(area):
 
 func _input(event):
 	var just_pressed = event.is_pressed() and not event.is_echo()
-	if Input.is_action_pressed("ui_up") and position2D.scale.x == 1:
-		attack_position2D.rotation_degrees = -90
-	elif Input.is_action_pressed("ui_up") and position2D.scale.x == -1:
-		attack_position2D.rotation_degrees = 90
-	if Input.is_key_pressed(KEY_Z) and just_pressed:
+	if Input.is_action_pressed("ui_up") and Input.is_key_pressed(KEY_Z) and just_pressed and Player.player_alive:
+		on_child_transition(currentState,"attack_vertical_state_player")
+
+	elif Input.is_key_pressed(KEY_Z) and just_pressed and Player.player_alive:
 		on_child_transition(currentState, "attack_state_player")
+		

@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://cqvycjf6wy0df"]
+[gd_scene load_steps=45 format=3 uid="uid://cqvycjf6wy0df"]
 
 [ext_resource type="Script" path="res://nodos/section 1/enemies/patrol_enemy/patrol_enemy.gd" id="1_lqiqa"]
 [ext_resource type="Texture2D" uid="uid://xmaew1ertpoi" path="res://arte/Animaciones/Seccion 1 Musgo/patrulla/frames/patrullar/0008.png" id="2_ff1xk"]
@@ -32,6 +32,9 @@ size = Vector2(126.333, 15.6667)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_712fq"]
 size = Vector2(5, 5)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c41cp"]
+size = Vector2(5, 11.5)
+
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_seb0l"]
 particle_flag_disable_z = true
 spread = 111.18
@@ -45,12 +48,12 @@ scale_max = 3.0
 color = Color(0.12549, 0.301961, 1, 1)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dol65"]
-radius = 4.66667
-height = 16.6667
+radius = 8.33333
+height = 31.3333
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mkdpf"]
 radius = 9.0
-height = 24.0
+height = 32.0
 
 [sub_resource type="Animation" id="Animation_xpccb"]
 resource_name = "Ataque"
@@ -149,6 +152,7 @@ position2D = NodePath("position2D")
 [node name="position2D" type="Marker2D" parent="."]
 
 [node name="vision_patrol_enemy" type="RayCast2D" parent="position2D"]
+scale = Vector2(2, 2)
 target_position = Vector2(65.3333, 27.3333)
 script = ExtResource("3_qa4vv")
 
@@ -166,21 +170,21 @@ shape = SubResource("RectangleShape2D_4sxdg")
 
 [node name="collision_query" type="Area2D" parent="position2D"]
 position = Vector2(1, 1)
-collision_layer = 2
+collision_layer = 0
 collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="position2D/collision_query"]
-position = Vector2(9, 7)
+position = Vector2(11, 6.66667)
 shape = SubResource("RectangleShape2D_712fq")
 
 [node name="collision_query2" type="Area2D" parent="position2D"]
 position = Vector2(1, 1)
-collision_layer = 2
+collision_layer = 0
 collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="position2D/collision_query2"]
-position = Vector2(10.3333, -6)
-shape = SubResource("RectangleShape2D_712fq")
+position = Vector2(14.6667, -1.75)
+shape = SubResource("RectangleShape2D_c41cp")
 
 [node name="hitted_particles" type="GPUParticles2D" parent="position2D"]
 z_index = 1
@@ -193,9 +197,11 @@ one_shot = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.333333, 1.33333)
+rotation = 1.5708
 shape = SubResource("CapsuleShape2D_dol65")
 
 [node name="hitbox" type="Area2D" parent="."]
+position = Vector2(0, 0.666667)
 collision_layer = 2
 collision_mask = 33
 script = ExtResource("23_c4pf1")

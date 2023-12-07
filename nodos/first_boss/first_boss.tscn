@@ -123,6 +123,7 @@ one_shot = true
 
 [node name="first_phase_attack2_area" type="Area2D" parent="."]
 collision_layer = 0
+collision_mask = 17
 
 [node name="bubble1" type="CollisionShape2D" parent="first_phase_attack2_area"]
 position = Vector2(-112, -115)
@@ -203,7 +204,7 @@ one_shot = true
 one_shot = true
 
 [node name="change_safe_areas_attack_2" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 2.0
 one_shot = true
 
 [node name="first_phase_to_window" type="Timer" parent="."]

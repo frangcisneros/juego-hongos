@@ -24,12 +24,15 @@ size = Vector2(138.165, 123)
 [node name="area_enemy" type="CharacterBody2D"]
 position = Vector2(0, -13)
 scale = Vector2(1.67, 1.67)
-collision_layer = 2
+collision_layer = 0
 collision_mask = 9
 script = ExtResource("1_5xb8b")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_1ary8")
+
+[node name="tiempo_ataque" type="Timer" parent="."]
+one_shot = true
 
 [node name="detection_area" type="Area2D" parent="."]
 collision_layer = 32
@@ -38,10 +41,6 @@ collision_layer = 32
 position = Vector2(0, -29.5)
 shape = SubResource("RectangleShape2D_m4vx8")
 debug_color = Color(0.941176, 0.0235294, 0.596078, 0.419608)
-
-[node name="tiempo_ataque" type="Timer" parent="detection_area"]
-wait_time = 0.5
-one_shot = true
 
 [node name="damage_area" type="Area2D" parent="."]
 position = Vector2(-1.1976, 0)
@@ -53,6 +52,7 @@ rotation = 1.5708
 shape = SubResource("RectangleShape2D_fap0i")
 
 [node name="Sprite2D2" type="Sprite2D" parent="damage_area/CollisionShape2D"]
+visible = false
 z_index = -1
 position = Vector2(1.17732, 0.219967)
 rotation = -1.5708
@@ -82,7 +82,6 @@ corpse_timer = NodePath("../../corpse_timer")
 one_shot = true
 
 [node name="hitbox" type="Area2D" parent="."]
-visible = false
 collision_layer = 2
 collision_mask = 33
 script = ExtResource("8_txq8d")

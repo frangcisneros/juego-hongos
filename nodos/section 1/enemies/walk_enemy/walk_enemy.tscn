@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bi31bxoehsk7c"]
+[gd_scene load_steps=10 format=3 uid="uid://bi31bxoehsk7c"]
 
 [ext_resource type="Script" path="res://nodos/section 1/enemies/walk_enemy/walk_enemy.gd" id="1_npc3e"]
 [ext_resource type="Texture2D" uid="uid://bqh0w6153q0gf" path="res://arte/Assets/prota.png" id="2_4kw4g"]
@@ -8,15 +8,19 @@
 [ext_resource type="Script" path="res://nodos/section 1/enemies/walk_enemy/hitbox.gd" id="6_ge6p3"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_16xy7"]
+radius = 19.0476
+height = 68.5714
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6ckvb"]
 radius = 26.6667
-height = 74.2861
+height = 76.1905
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w3xhl"]
 size = Vector2(12.7643, 14.535)
 
 [node name="walk_enemy" type="CharacterBody2D"]
 scale = Vector2(0.525, 0.525)
-collision_layer = 2
+collision_layer = 0
 collision_mask = 9
 script = ExtResource("1_npc3e")
 
@@ -24,12 +28,21 @@ script = ExtResource("1_npc3e")
 scale = Vector2(0.293956, 0.274784)
 texture = ExtResource("2_4kw4g")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -9.53674e-07)
 shape = SubResource("CapsuleShape2D_16xy7")
 
+[node name="hitbox" type="Area2D" parent="."]
+collision_layer = 2
+script = ExtResource("6_ge6p3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+shape = SubResource("CapsuleShape2D_6ckvb")
+debug_color = Color(0.905882, 0.219608, 0.52549, 0.419608)
+
 [node name="collision_query_top" type="Area2D" parent="."]
-position = Vector2(26.6667, -7.61905)
-scale = Vector2(1, 4.2)
+position = Vector2(34.2857, -11.4286)
+scale = Vector2(1.25487, 3.36727)
 collision_layer = 2
 collision_mask = 8
 
@@ -39,7 +52,7 @@ shape = SubResource("RectangleShape2D_w3xhl")
 debug_color = Color(0.823529, 0.4, 0.0588235, 0.419608)
 
 [node name="collision query" type="Area2D" parent="."]
-position = Vector2(24.7619, 30.4762)
+position = Vector2(30.4762, 30.4762)
 collision_layer = 2
 collision_mask = 8
 
@@ -62,14 +75,6 @@ corpse_timer = NodePath("../../corpse_timer")
 
 [node name="corpse_timer" type="Timer" parent="."]
 one_shot = true
-
-[node name="hitbox" type="Area2D" parent="."]
-collision_layer = 2
-collision_mask = 33
-script = ExtResource("6_ge6p3")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
-shape = SubResource("CapsuleShape2D_16xy7")
 
 [connection signal="body_entered" from="collision_query_top" to="state_machine_walk_enemy/idle_state_walk_enemy" method="_on_collision_query_top_body_entered"]
 [connection signal="body_exited" from="collision query" to="state_machine_walk_enemy/idle_state_walk_enemy" method="_on_collision_query_body_exited"]

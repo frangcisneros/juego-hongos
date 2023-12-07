@@ -23,7 +23,7 @@ func Update(_delta : float):
 		Player.soul -= 1
 		heal_timer.start()
 		
-	if amount == 5:
+	if amount == 5 and PlayerStats.health < 5:
 		PlayerStats.health += 1
 		amount = 0	
 		

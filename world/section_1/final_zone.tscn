@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://t13h28qs4lvp" path="res://nodos/section 1/enemies/jump_enemy/jump_enemy.tscn" id="7_2ritm"]
 [ext_resource type="PackedScene" uid="uid://d0gordpyc8o5m" path="res://nodos/section 1/enemies/area_enemy/area_enemy.tscn" id="8_lj5sr"]
 
-[node name="first_zone" type="Node2D" node_paths=PackedStringArray("spawn")]
+[node name="final_zone" type="Node2D" node_paths=PackedStringArray("spawn")]
 process_mode = 1
 script = ExtResource("1_cf02q")
 spawn = NodePath("spawn")

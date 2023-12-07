@@ -13,7 +13,7 @@ extends State
 
 @onready var first_phase_attack2_area : Area2D = Enemigo.get_node("first_phase_attack2_area")
 @onready var first_phase_attack1_area : Area2D = Enemigo.get_parent().get_node("first_phase_attack1_area")
-@onready var big_damage_area = Enemigo.get_parent().get_node("big_damage_area")
+@onready var big_damage_area_cs = Enemigo.get_parent().get_node("big_damage_area/CollisionShape2D")
 @onready var hitbox = Enemigo.get_node("hitbox")
 
 
@@ -40,8 +40,7 @@ func Enter():
 	first_phase_attack1_area.set_deferred("monitoring",false)
 	
 	first_phase_attack2_area.visible = false
-	big_damage_area.set_deferred("monitorable",false)
-	big_damage_area.set_deferred("monitoring",false)
+	big_damage_area_cs.set_deferred("disabled",true)
 	
 	attack_1_cs.disabled = true
 	attack_2_cs.disabled = true

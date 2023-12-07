@@ -4,8 +4,6 @@ extends Node
 @export var Enemigo: CharacterBody2D
 @export var position2D : Marker2D
 
-
-
 var states :  Dictionary = {}
 var currentState : State
 

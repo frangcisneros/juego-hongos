@@ -13,7 +13,7 @@ var StateActive : bool = false
 @onready var platforms : Array = boss_platforms.get_children()
 @onready var safe_areas : Array = first_phase_attack2_area.get_children()
 @onready var hitbox = Enemigo.get_node("hitbox")
-@onready var big_damage_area = Enemigo.get_parent().get_node("big_damage_area")
+@onready var big_damage_area_cs : CollisionShape2D = Enemigo.get_parent().get_node("big_damage_area/CollisionShape2D")
 
 var make_damage = true
 
@@ -40,8 +40,7 @@ func Exit():
 	
 func Update(_delta : float):
 	if wait_attack2_timer.is_stopped() and make_damage:
-		big_damage_area.set_deferred("monitorable",true)
-		big_damage_area.set_deferred("monitoring",true)
+		big_damage_area_cs.set_deferred("disabled",false)
 	
 	if change_safe_areas_attack_2.is_stopped():
 		activate_platforms(platforms,safe_areas)
@@ -63,8 +62,7 @@ func activate_platforms(platforms,safe_areas):
 func _on_first_phase_attack_2_area_body_entered(body):
 	if body.has_method("player"):
 		make_damage = false
-		big_damage_area.set_deferred("monitorable",false)
-		big_damage_area.set_deferred("monitoring",false)
+		big_damage_area_cs.set_deferred("disabled",true)
 
 func _on_first_phase_attack_2_area_body_exited(body):
 	if body.has_method("player"):

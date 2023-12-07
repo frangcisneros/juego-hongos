@@ -18,10 +18,12 @@ extends State
 @onready var position2D = get_parent().position2D
 @onready var right : bool = get_parent().get_node("idle_state_patrol_enemy").right
 
+
 var StateActive : bool = false
 var posicion_objetivo : Vector2 
 
 func Enter():
+	StateActive = true
 	posicion_objetivo = player.position
 	if posicion_objetivo.x - Enemigo.position.x >= 5:
 		position2D.scale.x = 1
@@ -32,18 +34,18 @@ func Enter():
 		Enemigo.velocity.x = -speed
 	
 	attack_timer.start()
-	StateActive = true
 	animation_tree.set("parameters/Patrulla/blend_position",1)
 	animation_player.set("speed_scale", (Enemigo.walking_speed/speed))
 
 func Exit():
+
 	StateActive = false
 	
 func Update(_delta : float):
 	if(Enemigo.health <= 0):
 		Enemigo.set_rotation_degrees(180)
 		Transition.emit(self, "dead_state_patrol_enemy")
-	elif attack_timer.is_stopped():
+	if attack_timer.is_stopped():
 		Transition.emit(self,"idle_state_patrol_enemy")
 
 func _on_hitbox_body_entered(body):
