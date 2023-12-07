@@ -4,7 +4,6 @@ class_name game
 
 signal toggle_game_paused(is_paused : bool)
 
-
 var level_instance = null
 var level_name : String
 var save_path = "res://save_files/save_file.save"

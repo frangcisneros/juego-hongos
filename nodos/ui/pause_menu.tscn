@@ -22,7 +22,7 @@ anchor_bottom = 0.5
 offset_left = -100.0
 offset_top = -85.0
 offset_right = 100.0
-offset_bottom = 85.0
+offset_bottom = 119.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -53,6 +53,10 @@ text = "Load"
 layout_mode = 2
 text = "Resume"
 
+[node name="Menu" type="Button" parent="Panel/VBoxContainer"]
+layout_mode = 2
+text = "Menu"
+
 [node name="Quit" type="Button" parent="Panel/VBoxContainer"]
 layout_mode = 2
 text = "Quit"
@@ -60,4 +64,5 @@ text = "Quit"
 [connection signal="pressed" from="Panel/VBoxContainer/Save" to="." method="_on_save_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer/Load" to="." method="_on_load_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/Menu" to="." method="_on_menu_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
