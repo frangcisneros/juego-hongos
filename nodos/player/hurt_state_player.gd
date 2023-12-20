@@ -1,10 +1,10 @@
 extends State
 
-
-var StateActive : bool = false
+var StateActive: bool = false
 
 @onready var Player = get_parent().Player
-@onready var hurt_sound : AudioStreamPlayer2D = Player.get_node("hurt_sound")
+@onready var hurt_sound: AudioStreamPlayer2D = Player.get_node("hurt_sound")
+
 
 func Enter():
 	hurt_sound.play()
@@ -19,9 +19,11 @@ func Enter():
 
 func Exit():
 	StateActive = false
-	
-func Update(_delta : float):
-	Transition.emit(self,"idle_state_player")
 
-func UpdatePhysics(_delta : float):
+
+func Update(_delta: float):
+	Transition.emit(self, "idle_state_player")
+
+
+func UpdatePhysics(_delta: float):
 	pass
