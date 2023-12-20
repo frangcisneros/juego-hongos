@@ -2,16 +2,16 @@ extends Node
 
 class_name game
 
-signal toggle_game_paused(is_paused : bool)
+signal toggle_game_paused(is_paused: bool)
 
 var level_instance = null
-var level_name : String
+var level_name: String
 var save_path = "res://save_files/save_file.save"
 var player_global_position = Vector2.ZERO
 var spawn_global_position = Vector2.ZERO
 var checkpoint = false
 
-var game_paused : bool = false:
+var game_paused: bool = false:
 	get:
 		return game_paused
 	set(value):
@@ -27,7 +27,8 @@ func unload_level():
 		level_instance.queue_free()
 	level_instance = null
 
-func load_level(level_name : String):
+
+func load_level(level_name: String):
 	unload_level()
 	var level_path = "res://world/%s.tscn" % level_name
 	var level_resource = load(level_path)
@@ -35,17 +36,20 @@ func load_level(level_name : String):
 		level_instance = level_resource.instantiate()
 		self.add_child(level_instance)
 
+
 func _ready():
 	get_node("player").visible = false
 	pass
 
-func _input(event : InputEvent):
+
+func _input(event: InputEvent):
 	if event.is_action_pressed("ui_cancel") and game_run:
 		game_paused = !game_paused
 
+
 func _process(delta):
 	pass
-	
+
 
 func save():
 	var file = FileAccess.open(save_path, FileAccess.WRITE)
@@ -64,7 +68,7 @@ func load_data():
 		level_name = file.get_var()
 		load_level(level_name)
 		get_node("player").global_position = player_global_position
-		PlayerStats.health = file.get_var()		
+		PlayerStats.health = file.get_var()
 		spawn_global_position = file.get_var()
 		level_instance.get_node("spawn").global_position = spawn_global_position
 
