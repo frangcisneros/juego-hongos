@@ -9,7 +9,7 @@ func _ready():
 	Camara.limit_left = -Rectangulo.shape.size.x/2+Rectangulo.position.x
 	Camara.limit_right = Rectangulo.shape.size.x/2+Rectangulo.position.x
 	Camara.limit_top = -Rectangulo.shape.size.y/2+Rectangulo.position.y
-	Camara.limit_bottom = Rectangulo.shape.size.y/2+Rectangulo.position.y
+	Camara.limit_bottom =  Rectangulo.shape.size.y/2+Rectangulo.position.y
 	pass # Replace with function body.
 
 

@@ -1,14 +1,77 @@
-[gd_scene load_steps=14 format=3 uid="uid://d0gordpyc8o5m"]
+[gd_scene load_steps=85 format=3 uid="uid://d0gordpyc8o5m"]
 
 [ext_resource type="Script" path="res://nodos/area_enemy/area_enemy.gd" id="1_5xb8b"]
-[ext_resource type="Texture2D" uid="uid://bqh0w6153q0gf" path="res://arte/Assets/prota.png" id="1_8r7dp"]
 [ext_resource type="Script" path="res://nodos/area_enemy/damage_area.gd" id="3_ihx6a"]
+[ext_resource type="Texture2D" uid="uid://bmq564cnq04qu" path="res://arte/Animaciones/Seccion 1 Musgo/Hongo esporas/frames/attack/0035.png" id="3_lchou"]
 [ext_resource type="Script" path="res://nodos/area_enemy/state_machine_area_enemy.gd" id="4_lf255"]
-[ext_resource type="Texture2D" uid="uid://dlnxlm8d8iur6" path="res://arte/Assets/plataforma.png" id="4_ucnjh"]
 [ext_resource type="Script" path="res://nodos/area_enemy/idle_state_area_enemy.gd" id="6_6vf5n"]
 [ext_resource type="Script" path="res://nodos/area_enemy/attack_state_area_enemy.gd" id="6_mt6j6"]
 [ext_resource type="Script" path="res://nodos/area_enemy/dead_state_area_enemy.gd" id="8_leaxx"]
 [ext_resource type="Script" path="res://nodos/area_enemy/hitbox.gd" id="8_txq8d"]
+[ext_resource type="Texture2D" uid="uid://degtrqoiaektc" path="res://arte/Animaciones/Seccion 1 Musgo/Hongo esporas/frames/attack/0001.png" id="9_21kxu"]
+[ext_resource type="Texture2D" uid="uid://d0ot4g6d3chea" path="res://arte/Animaciones/Seccion 1 Musgo/Hongo esporas/frames/attack/0002.png" id="10_owqgc"]
+[ext_resource type="Script" path="res://nodos/patrol_enemy/AnimationTreeScript.gd" id="10_yl8ij"]
+[ext_resource type="Texture2D" uid="uid://mwv7w7krfjva" path="res://arte/Animaciones/Seccion 1 Musgo/Hongo esporas/frames/attack/0003.png" id="11_qial1"]
+[ext_resource type="Texture2D" uid="uid://cqv4y54js0dqc" path="res://arte/Animaciones/Seccion 1 Musgo/Hongo esporas/frames/attack/0004.png" id="12_jcgy6"]
+[ext_resource type="Texture2D" uid="uid://b1qnhxl5ul6sx" path="res://arte/Animaciones/Seccion 1 Musgo/Hongo esporas/frames/attack/0005.png" id="13_j2gqk"]
+[ext_resource type="Texture2D" uid="uid://buu6iupekdjrm" path="res://arte/Animaciones/Seccion 1 Musgo/Hongo esporas/frames/attack/0006.png" id="14_7xnbl"]
+[ext_resource type="Texture2D" uid="uid://bu3xnrj7n2vwx" path="res://arte/Animaciones/Seccion 1 Musgo/Hongo esporas/frames/attack/0007.png" id="15_mw26x"]
+[ext_resource type="Texture2D" uid="uid://u78jkd63gl01" path="res://arte/Animaciones/Seccion 1 Musgo/Hongo esporas/frames/attack/0008.png" id="16_021y1"]
+[ext_resource type="Texture2D" uid="uid://nyum6k5282lb" path="res://arte/Animaciones/Seccion 1 Musgo/Hongo esporas/frames/attack/0009.png" id="17_meop7"]
+[ext_resource type="Texture2D" uid="uid://ws8pvrkmbvoe" path="res://arte/Animaciones/Seccion 1 Musgo/Hongo esporas/frames/attack/0010.png" id="18_esiuk"]
+[ext_resource type="Texture2D" uid="uid://bkkvkpufdiuy3" path="res://arte/Animaciones/Seccion 1 Musgo/Hongo esporas/frames/attack/0011.png" id="19_13ofv"]
+[ext_resource type="Texture2D" uid="uid://l50vrio6ay8p" path="res://arte/Animaciones/Seccion 1 Musgo/Hongo esporas/frames/attack/0012.png" id="20_3o5oq"]
+[ext_resource type="Texture2D" uid="uid://baebyl1whrxdk" path="res://arte/Animaciones/Seccion 1 Musgo/Hongo esporas/frames/attack/0013.png" id="21_xtl1m"]
+[ext_resource type="Texture2D" uid="uid://c8mtqjaxwlc70" path="res://arte/Animaciones/Seccion 1 Musgo/Hongo esporas/frames/attack/0014.png" id="22_shj8f"]
+[ext_resource type="Texture2D" uid="uid://dm23e8xuhp0w6" path="res://arte/Animaciones/Seccion 1 Musgo/Hongo esporas/frames/attack/0015.png" id="23_3s8cu"]
+[ext_resource type="Texture2D" uid="uid://bs2bx24nq8btq" path="res://arte/Animaciones/Seccion 1 Musgo/Hongo esporas/frames/attack/0016.png" id="24_mce5i"]
+[ext_resource type="Texture2D" uid="uid://d4dwr4plu4h8o" path="res://arte/Animaciones/Seccion 1 Musgo/Hongo esporas/frames/attack/0017.png" id="25_dyoch"]
+[ext_resource type="Texture2D" uid="uid://bvcq85a6ct3vm" path="res://arte/Animaciones/Seccion 1 Musgo/Hongo esporas/frames/attack/0018.png" id="26_my8v3"]
+[ext_resource type="Texture2D" uid="uid://f105knbfqrhj" path="res://arte/Animaciones/Seccion 1 Musgo/Hongo esporas/frames/attack/0019.png" id="27_v3qf4"]
+[ext_resource type="Texture2D" uid="uid://bcp04n6j0pxo4" path="res://arte/Animaciones/Seccion 1 Musgo/Hongo esporas/frames/attack/0020.png" id="28_wq1pd"]
+[ext_resource type="Texture2D" uid="uid://cgdryeuj7f4sv" path="res://arte/Animaciones/Seccion 1 Musgo/Hongo esporas/frames/attack/0021.png" id="29_wsnxk"]
+[ext_resource type="Texture2D" uid="uid://pqaepx2wln8f" path="res://arte/Animaciones/Seccion 1 Musgo/Hongo esporas/frames/attack/0022.png" id="30_xau3l"]
+[ext_resource type="Texture2D" uid="uid://dmptcdyets6lx" path="res://arte/Animaciones/Seccion 1 Musgo/Hongo esporas/frames/attack/0023.png" id="31_jstww"]
+[ext_resource type="Texture2D" uid="uid://32br2lwqpa77" path="res://arte/Animaciones/Seccion 1 Musgo/Hongo esporas/frames/attack/0024.png" id="32_4uxiw"]
+[ext_resource type="Texture2D" uid="uid://ctx78sdf6gisx" path="res://arte/Animaciones/Seccion 1 Musgo/Hongo esporas/frames/attack/0025.png" id="33_37xbd"]
+[ext_resource type="Texture2D" uid="uid://bf8e1hwtpxyfl" path="res://arte/Animaciones/Seccion 1 Musgo/Hongo esporas/frames/attack/0026.png" id="34_v3xdt"]
+[ext_resource type="Texture2D" uid="uid://c670aaxfbjut" path="res://arte/Animaciones/Seccion 1 Musgo/Hongo esporas/frames/attack/0027.png" id="35_2jtso"]
+[ext_resource type="Texture2D" uid="uid://btkh8ow0y8kan" path="res://arte/Animaciones/Seccion 1 Musgo/Hongo esporas/frames/attack/0028.png" id="36_12dwm"]
+[ext_resource type="Texture2D" uid="uid://c1gqbuv8n4pck" path="res://arte/Animaciones/Seccion 1 Musgo/Hongo esporas/frames/attack/0029.png" id="37_roirn"]
+[ext_resource type="Texture2D" uid="uid://oiiee7vylye3" path="res://arte/Animaciones/Seccion 1 Musgo/Hongo esporas/frames/attack/0030.png" id="38_bfjxg"]
+[ext_resource type="Texture2D" uid="uid://ddfcr5ffogl4g" path="res://arte/Animaciones/Seccion 1 Musgo/Hongo esporas/frames/attack/0031.png" id="39_iuoio"]
+[ext_resource type="Texture2D" uid="uid://dnjhrhw0xptjy" path="res://arte/Animaciones/Seccion 1 Musgo/Hongo esporas/frames/attack/0032.png" id="40_p584u"]
+[ext_resource type="Texture2D" uid="uid://cokfisnr0h5ks" path="res://arte/Animaciones/Seccion 1 Musgo/Hongo esporas/frames/attack/0033.png" id="41_2n25h"]
+[ext_resource type="Texture2D" uid="uid://btgad41hdx3xv" path="res://arte/Animaciones/Seccion 1 Musgo/Hongo esporas/frames/attack/0034.png" id="42_je8cw"]
+[ext_resource type="Texture2D" uid="uid://b65ypb4et1crt" path="res://arte/Animaciones/Seccion 1 Musgo/Hongo esporas/frames/attack/0036.png" id="43_ub2n0"]
+[ext_resource type="Texture2D" uid="uid://gl68edpu2xmp" path="res://arte/Animaciones/Seccion 1 Musgo/Hongo esporas/frames/attack/0037.png" id="44_nuu7b"]
+[ext_resource type="Texture2D" uid="uid://b3a2s06fgiqsi" path="res://arte/Animaciones/Seccion 1 Musgo/Hongo esporas/frames/attack/0038.png" id="45_hami7"]
+[ext_resource type="Texture2D" uid="uid://cmfwmcv7l7i8p" path="res://arte/Animaciones/Seccion 1 Musgo/Hongo esporas/frames/attack/0039.png" id="46_l3l8i"]
+[ext_resource type="Texture2D" uid="uid://dsn06h52eiyu3" path="res://arte/Animaciones/Seccion 1 Musgo/Hongo esporas/frames/attack/0040.png" id="47_uadyr"]
+[ext_resource type="Texture2D" uid="uid://drwk5urtqtjo8" path="res://arte/Animaciones/Seccion 1 Musgo/Hongo esporas/frames/attack/0041.png" id="48_qid72"]
+[ext_resource type="Texture2D" uid="uid://cm3o7pya4tfk6" path="res://arte/Animaciones/Seccion 1 Musgo/Hongo esporas/frames/attack/0042.png" id="49_44rnl"]
+[ext_resource type="Texture2D" uid="uid://b3tsl28wkdymb" path="res://arte/Animaciones/Seccion 1 Musgo/Hongo esporas/frames/death/0001.png" id="50_1jetr"]
+[ext_resource type="Texture2D" uid="uid://3wxvmd4qjfo0" path="res://arte/Animaciones/Seccion 1 Musgo/Hongo esporas/frames/death/0002.png" id="51_qrlip"]
+[ext_resource type="Texture2D" uid="uid://c8543gxfluu6c" path="res://arte/Animaciones/Seccion 1 Musgo/Hongo esporas/frames/death/0003.png" id="52_2y71q"]
+[ext_resource type="Texture2D" uid="uid://dgm31x4mupatv" path="res://arte/Animaciones/Seccion 1 Musgo/Hongo esporas/frames/death/0004.png" id="53_8ks2g"]
+[ext_resource type="Texture2D" uid="uid://bwlneplgnmpdx" path="res://arte/Animaciones/Seccion 1 Musgo/Hongo esporas/frames/death/0005.png" id="54_6a4np"]
+[ext_resource type="Texture2D" uid="uid://bun1qtg4l6bwx" path="res://arte/Animaciones/Seccion 1 Musgo/Hongo esporas/frames/death/0006.png" id="55_1lfc3"]
+[ext_resource type="Texture2D" uid="uid://c7hltmjb11mpe" path="res://arte/Animaciones/Seccion 1 Musgo/Hongo esporas/frames/death/0007.png" id="56_gr1k4"]
+[ext_resource type="Texture2D" uid="uid://tjiobwr8dnip" path="res://arte/Animaciones/Seccion 1 Musgo/Hongo esporas/frames/death/0008.png" id="57_dd1in"]
+[ext_resource type="Texture2D" uid="uid://b8nfx647aaumi" path="res://arte/Animaciones/Seccion 1 Musgo/Hongo esporas/frames/death/0009.png" id="58_fimby"]
+[ext_resource type="Texture2D" uid="uid://dx4ahjg1jpk3i" path="res://arte/Animaciones/Seccion 1 Musgo/Hongo esporas/frames/death/0010.png" id="59_wars2"]
+[ext_resource type="Texture2D" uid="uid://buco8o1li7xfi" path="res://arte/Animaciones/Seccion 1 Musgo/Hongo esporas/frames/death/0011.png" id="60_8rorj"]
+[ext_resource type="Texture2D" uid="uid://dmwsksfce88kh" path="res://arte/Animaciones/Seccion 1 Musgo/Hongo esporas/frames/death/0012.png" id="61_3nh7r"]
+[ext_resource type="Texture2D" uid="uid://brqi4wkd25a30" path="res://arte/Animaciones/Seccion 1 Musgo/Hongo esporas/frames/death/0013.png" id="62_3kudc"]
+[ext_resource type="Texture2D" uid="uid://c8iu5g4fs5pmr" path="res://arte/Animaciones/Seccion 1 Musgo/Hongo esporas/frames/death/0014.png" id="63_csu6s"]
+[ext_resource type="Texture2D" uid="uid://1p5dyplu5p2a" path="res://arte/Animaciones/Seccion 1 Musgo/Hongo esporas/frames/death/0015.png" id="64_a8wul"]
+[ext_resource type="Texture2D" uid="uid://carnowsa16rwa" path="res://arte/Animaciones/Seccion 1 Musgo/Hongo esporas/frames/death/0016.png" id="65_0uhb8"]
+[ext_resource type="Texture2D" uid="uid://b2u8elyvj0287" path="res://arte/Animaciones/Seccion 1 Musgo/Hongo esporas/frames/death/0017.png" id="66_w560o"]
+[ext_resource type="Texture2D" uid="uid://cxo0wrad26w71" path="res://arte/Animaciones/Seccion 1 Musgo/Hongo esporas/frames/death/0018.png" id="67_skvtg"]
+[ext_resource type="Texture2D" uid="uid://dnrp85n4lbj3h" path="res://arte/Animaciones/Seccion 1 Musgo/Hongo esporas/frames/death/0019.png" id="68_u5n7y"]
+[ext_resource type="Texture2D" uid="uid://47otgjw6wrg1" path="res://arte/Animaciones/Seccion 1 Musgo/Hongo esporas/frames/death/0020.png" id="69_dmfuj"]
+[ext_resource type="Texture2D" uid="uid://b0hhk203mr331" path="res://arte/Animaciones/Seccion 1 Musgo/Hongo esporas/frames/death/0021.png" id="70_h53ri"]
+[ext_resource type="Texture2D" uid="uid://cvmrbiq6l24d4" path="res://arte/Animaciones/Seccion 1 Musgo/Hongo esporas/frames/idle/0001.png" id="71_8b2f5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ary8"]
 size = Vector2(18, 26)
@@ -17,9 +80,132 @@ size = Vector2(18, 26)
 size = Vector2(124, 83)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fap0i"]
-size = Vector2(138.165, 123)
+size = Vector2(33.8847, 19.3638)
+
+[sub_resource type="Animation" id="Animation_kcobb"]
+length = 1.75
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("position2D/Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0416667, 0.0833333, 0.125, 0.166667, 0.208333, 0.25, 0.291667, 0.333333, 0.375, 0.416667, 0.458333, 0.5, 0.541667, 0.583333, 0.625, 0.666667, 0.708333, 0.75, 0.791667, 0.833333, 0.875, 0.916667, 0.958333, 1, 1.04167, 1.08333, 1.125, 1.16667, 1.20833, 1.25, 1.29167, 1.33333, 1.375, 1.41667, 1.45833, 1.5, 1.54167, 1.58333, 1.625, 1.66667, 1.70833),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("9_21kxu"), ExtResource("10_owqgc"), ExtResource("11_qial1"), ExtResource("12_jcgy6"), ExtResource("13_j2gqk"), ExtResource("14_7xnbl"), ExtResource("15_mw26x"), ExtResource("16_021y1"), ExtResource("17_meop7"), ExtResource("18_esiuk"), ExtResource("19_13ofv"), ExtResource("20_3o5oq"), ExtResource("21_xtl1m"), ExtResource("22_shj8f"), ExtResource("23_3s8cu"), ExtResource("24_mce5i"), ExtResource("25_dyoch"), ExtResource("26_my8v3"), ExtResource("27_v3qf4"), ExtResource("28_wq1pd"), ExtResource("29_wsnxk"), ExtResource("30_xau3l"), ExtResource("31_jstww"), ExtResource("32_4uxiw"), ExtResource("33_37xbd"), ExtResource("34_v3xdt"), ExtResource("35_2jtso"), ExtResource("36_12dwm"), ExtResource("37_roirn"), ExtResource("38_bfjxg"), ExtResource("39_iuoio"), ExtResource("40_p584u"), ExtResource("41_2n25h"), ExtResource("42_je8cw"), ExtResource("3_lchou"), ExtResource("43_ub2n0"), ExtResource("44_nuu7b"), ExtResource("45_hami7"), ExtResource("46_l3l8i"), ExtResource("47_uadyr"), ExtResource("48_qid72"), ExtResource("49_44rnl")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("damage_area/CollisionShape2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5, 0.625001, 0.7506, 0.875001),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(2.3952, 1.79641), Vector2(1.1976, -7.18563), Vector2(3.59281, -11.976), Vector2(1.497, -18.8623), Vector2(0.8982, -18.8623), Vector2(-0.598807, -8.38323), Vector2(-5.96046e-06, -1.79641), Vector2(0.299396, 1.79641)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("damage_area/CollisionShape2D:shape:size")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5, 0.625001, 0.7506, 0.875001),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(33.8847, 19.3638), Vector2(64.6707, 37.1258), Vector2(95.8084, 46.7066), Vector2(128.743, 60.4791), Vector2(146.707, 60.4791), Vector2(83.8324, 39.521), Vector2(52.6946, 26.3473), Vector2(30.5389, 19.1617)]
+}
+
+[sub_resource type="Animation" id="Animation_x6jjx"]
+length = 0.875
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("position2D/Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0416667, 0.0833333, 0.125, 0.166667, 0.208333, 0.25, 0.291667, 0.333333, 0.375, 0.416667, 0.458333, 0.5, 0.541667, 0.583333, 0.625, 0.666667, 0.708333, 0.75, 0.791667, 0.833333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("50_1jetr"), ExtResource("51_qrlip"), ExtResource("52_2y71q"), ExtResource("53_8ks2g"), ExtResource("54_6a4np"), ExtResource("55_1lfc3"), ExtResource("56_gr1k4"), ExtResource("57_dd1in"), ExtResource("58_fimby"), ExtResource("59_wars2"), ExtResource("60_8rorj"), ExtResource("61_3nh7r"), ExtResource("62_3kudc"), ExtResource("63_csu6s"), ExtResource("64_a8wul"), ExtResource("65_0uhb8"), ExtResource("66_w560o"), ExtResource("67_skvtg"), ExtResource("68_u5n7y"), ExtResource("69_dmfuj"), ExtResource("70_h53ri")]
+}
+
+[sub_resource type="Animation" id="Animation_awysx"]
+length = 0.0416667
+loop_mode = 1
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("position2D/Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("71_8b2f5")]
+}
+
+[sub_resource type="Animation" id="Animation_3dljb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("damage_area/CollisionShape2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2(2.3952, 1.79641)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("damage_area/CollisionShape2D:shape:size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2(33.8847, 19.3638)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nu8pg"]
+_data = {
+"RESET": SubResource("Animation_3dljb"),
+"attack": SubResource("Animation_kcobb"),
+"death": SubResource("Animation_x6jjx"),
+"idle": SubResource("Animation_awysx")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0id5x"]
+animation = &"attack"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vm2c4"]
+animation = &"death"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_tjiic"]
+animation = &"idle"
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_6mf7n"]
+states/attack/node = SubResource("AnimationNodeAnimation_0id5x")
+states/attack/position = Vector2(435.308, 26.6667)
+states/death/node = SubResource("AnimationNodeAnimation_vm2c4")
+states/death/position = Vector2(649.333, 60)
+states/idle/node = SubResource("AnimationNodeAnimation_tjiic")
+states/idle/position = Vector2(434.815, 140.444)
 
 [node name="area_enemy" type="CharacterBody2D"]
 position = Vector2(0, -13)
@@ -49,40 +235,36 @@ collision_layer = 32
 script = ExtResource("3_ihx6a")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="damage_area"]
-rotation = 1.5708
+position = Vector2(2.3952, 1.79641)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_fap0i")
 
-[node name="Sprite2D2" type="Sprite2D" parent="damage_area/CollisionShape2D"]
-z_index = -1
-position = Vector2(1.17732, 0.219967)
-rotation = -1.5708
-scale = Vector2(0.396824, 1.08025)
-texture = ExtResource("4_ucnjh")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_8r7dp")
-
-[node name="state_machine_area_enemy" type="Node" parent="." node_paths=PackedStringArray("initial_state", "Enemigo")]
+[node name="state_machine_area_enemy" type="Node" parent="." node_paths=PackedStringArray("initial_state", "Enemigo", "label")]
 script = ExtResource("4_lf255")
 initial_state = NodePath("idle_state_area_enemy")
 Enemigo = NodePath("..")
+label = NodePath("../Label")
 
-[node name="idle_state_area_enemy" type="Node" parent="state_machine_area_enemy"]
+[node name="idle_state_area_enemy" type="Node" parent="state_machine_area_enemy" node_paths=PackedStringArray("animation_tree", "animation_player")]
 script = ExtResource("6_6vf5n")
+animation_tree = NodePath("../../AnimationTree")
+animation_player = NodePath("../../AnimationPlayer")
 
-[node name="attack_state_area_enemy" type="Node" parent="state_machine_area_enemy"]
+[node name="attack_state_area_enemy" type="Node" parent="state_machine_area_enemy" node_paths=PackedStringArray("animation_tree", "animation_player")]
 script = ExtResource("6_mt6j6")
+animation_tree = NodePath("../../AnimationTree")
+animation_player = NodePath("../../AnimationPlayer")
 
-[node name="dead_state_area_enemy" type="Node" parent="state_machine_area_enemy" node_paths=PackedStringArray("corpse_timer")]
+[node name="dead_state_area_enemy" type="Node" parent="state_machine_area_enemy" node_paths=PackedStringArray("corpse_timer", "animation_tree", "animation_player")]
 script = ExtResource("8_leaxx")
 corpse_timer = NodePath("../../corpse_timer")
+animation_tree = NodePath("../../AnimationTree")
+animation_player = NodePath("../../AnimationPlayer")
 
 [node name="corpse_timer" type="Timer" parent="."]
 one_shot = true
 
 [node name="hitbox" type="Area2D" parent="."]
-visible = false
 collision_layer = 2
 collision_mask = 33
 script = ExtResource("8_txq8d")
@@ -91,9 +273,30 @@ script = ExtResource("8_txq8d")
 shape = SubResource("RectangleShape2D_1ary8")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_nu8pg")
+}
 
-[node name="AnimationTree" type="AnimationTree" parent="."]
+[node name="AnimationTree" type="AnimationTree" parent="." node_paths=PackedStringArray("animation_player")]
 tree_root = SubResource("AnimationNodeStateMachine_6mf7n")
 anim_player = NodePath("../AnimationPlayer")
+active = true
+script = ExtResource("10_yl8ij")
+animations_directory = "res://arte/Animaciones/Seccion 1 Musgo/Hongo esporas/frames"
+animation_player = NodePath("../AnimationPlayer")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -14.9701
+offset_top = -35.3293
+offset_right = 38.0299
+offset_bottom = -9.32934
+text = "estado"
+
+[node name="position2D" type="Marker2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="position2D"]
+position = Vector2(10.1796, -5.38922)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("71_8b2f5")
 
 [connection signal="body_entered" from="detection_area" to="state_machine_area_enemy/idle_state_area_enemy" method="_on_detection_area_body_entered"]

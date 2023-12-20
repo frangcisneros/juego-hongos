@@ -1,18 +1,71 @@
-[gd_scene load_steps=9 format=3 uid="uid://bi31bxoehsk7c"]
+[gd_scene load_steps=37 format=3 uid="uid://bi31bxoehsk7c"]
 
 [ext_resource type="Script" path="res://nodos/walk_enemy/walk_enemy.gd" id="1_npc3e"]
-[ext_resource type="Texture2D" uid="uid://bqh0w6153q0gf" path="res://arte/prota.png" id="2_4kw4g"]
+[ext_resource type="Texture2D" uid="uid://ck6uvwh1wd7di" path="res://arte/Animaciones/Seccion 1 Musgo/Walker musgo/frames/walking/0002.png" id="2_xmyli"]
 [ext_resource type="Script" path="res://nodos/walk_enemy/state_machine_walk_enemy.gd" id="4_dka2m"]
 [ext_resource type="Script" path="res://nodos/walk_enemy/idle_state_walk_enemy.gd" id="5_er5xs"]
 [ext_resource type="Script" path="res://nodos/walk_enemy/dead_state_walk_enemy.gd" id="6_c2qvp"]
 [ext_resource type="Script" path="res://nodos/walk_enemy/hitbox.gd" id="6_ge6p3"]
+[ext_resource type="Texture2D" uid="uid://cqfaranrjwr6u" path="res://arte/Animaciones/Seccion 1 Musgo/Walker musgo/frames/walking/0001.png" id="7_01ag5"]
+[ext_resource type="Script" path="res://nodos/patrol_enemy/AnimationTreeScript.gd" id="7_yqs67"]
+[ext_resource type="Texture2D" uid="uid://dlxommgqek3ad" path="res://arte/Animaciones/Seccion 1 Musgo/Walker musgo/frames/walking/0003.png" id="8_q1u63"]
+[ext_resource type="Texture2D" uid="uid://b2dnac0ltycvq" path="res://arte/Animaciones/Seccion 1 Musgo/Walker musgo/frames/walking/0004.png" id="9_cv8vl"]
+[ext_resource type="Texture2D" uid="uid://d2rwi3rlum1q8" path="res://arte/Animaciones/Seccion 1 Musgo/Walker musgo/frames/walking/0005.png" id="10_keslf"]
+[ext_resource type="Texture2D" uid="uid://0bgkv2hj0dpc" path="res://arte/Animaciones/Seccion 1 Musgo/Walker musgo/frames/walking/0006.png" id="11_owwlv"]
+[ext_resource type="Texture2D" uid="uid://cqbsn0ugww11f" path="res://arte/Animaciones/Seccion 1 Musgo/Walker musgo/frames/walking/0007.png" id="12_owgyg"]
+[ext_resource type="Texture2D" uid="uid://fensaoqd56c7" path="res://arte/Animaciones/Seccion 1 Musgo/Walker musgo/frames/walking/0008.png" id="13_nroeb"]
+[ext_resource type="Texture2D" uid="uid://dgbffxd0tn64r" path="res://arte/Animaciones/Seccion 1 Musgo/Walker musgo/frames/walking/0009.png" id="14_huqjk"]
+[ext_resource type="Texture2D" uid="uid://fbwesmnagqq7" path="res://arte/Animaciones/Seccion 1 Musgo/Walker musgo/frames/walking/0010.png" id="15_bo58m"]
+[ext_resource type="Texture2D" uid="uid://i06pypeab1tk" path="res://arte/Animaciones/Seccion 1 Musgo/Walker musgo/frames/walking/0011.png" id="16_cwiev"]
+[ext_resource type="Texture2D" uid="uid://bwcl3uh7y467o" path="res://arte/Animaciones/Seccion 1 Musgo/Walker musgo/frames/walking/0012.png" id="17_6ywge"]
+[ext_resource type="Texture2D" uid="uid://beiuxyjrtvtvk" path="res://arte/Animaciones/Seccion 1 Musgo/Walker musgo/frames/walking/0013.png" id="18_n7r7g"]
+[ext_resource type="Texture2D" uid="uid://dr8jg8vf0r2hf" path="res://arte/Animaciones/Seccion 1 Musgo/Walker musgo/frames/walking/0014.png" id="19_ekq7t"]
+[ext_resource type="Texture2D" uid="uid://blq8jstruym5n" path="res://arte/Animaciones/Seccion 1 Musgo/Walker musgo/frames/walking/0015.png" id="20_dlimp"]
+[ext_resource type="Texture2D" uid="uid://blwuy3e6jh1fj" path="res://arte/Animaciones/Seccion 1 Musgo/Walker musgo/frames/walking/0016.png" id="21_c3lm2"]
+[ext_resource type="Texture2D" uid="uid://yk050rg66jmx" path="res://arte/Animaciones/Seccion 1 Musgo/Walker musgo/frames/walking/0017.png" id="22_ic68y"]
+[ext_resource type="Texture2D" uid="uid://ctrpdm2x4n7af" path="res://arte/Animaciones/Seccion 1 Musgo/Walker musgo/frames/walking/0018.png" id="23_niug7"]
+[ext_resource type="Texture2D" uid="uid://e1u5bdxa6tpo" path="res://arte/Animaciones/Seccion 1 Musgo/Walker musgo/frames/walking/0019.png" id="24_lbxkd"]
+[ext_resource type="Texture2D" uid="uid://b7b7bp3d2m7pj" path="res://arte/Animaciones/Seccion 1 Musgo/Walker musgo/frames/walking/0020.png" id="25_6vx2c"]
+[ext_resource type="Texture2D" uid="uid://bmpqv8gr05fjp" path="res://arte/Animaciones/Seccion 1 Musgo/Walker musgo/frames/walking/0021.png" id="26_47tgf"]
+[ext_resource type="Texture2D" uid="uid://c5wuym4pujvfe" path="res://arte/Animaciones/Seccion 1 Musgo/Walker musgo/frames/walking/0022.png" id="27_n88xj"]
+[ext_resource type="Texture2D" uid="uid://cxxtp51eeegn0" path="res://arte/Animaciones/Seccion 1 Musgo/Walker musgo/frames/walking/0023.png" id="28_paba0"]
+[ext_resource type="Texture2D" uid="uid://dkyg0iojvkjr5" path="res://arte/Animaciones/Seccion 1 Musgo/Walker musgo/frames/walking/0024.png" id="29_gdn6t"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_16xy7"]
-radius = 26.6667
-height = 74.2861
+radius = 22.8571
+height = 64.7619
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w3xhl"]
 size = Vector2(12.7643, 14.535)
+
+[sub_resource type="Animation" id="Animation_g2m2q"]
+loop_mode = 1
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("position2D/Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0416667, 0.0833333, 0.125, 0.166667, 0.208333, 0.25, 0.291667, 0.333333, 0.375, 0.416667, 0.458333, 0.5, 0.541667, 0.583333, 0.625, 0.666667, 0.708333, 0.75, 0.791667, 0.833333, 0.875, 0.916667, 0.958333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("7_01ag5"), ExtResource("2_xmyli"), ExtResource("8_q1u63"), ExtResource("9_cv8vl"), ExtResource("10_keslf"), ExtResource("11_owwlv"), ExtResource("12_owgyg"), ExtResource("13_nroeb"), ExtResource("14_huqjk"), ExtResource("15_bo58m"), ExtResource("16_cwiev"), ExtResource("17_6ywge"), ExtResource("18_n7r7g"), ExtResource("19_ekq7t"), ExtResource("20_dlimp"), ExtResource("21_c3lm2"), ExtResource("22_ic68y"), ExtResource("23_niug7"), ExtResource("24_lbxkd"), ExtResource("25_6vx2c"), ExtResource("26_47tgf"), ExtResource("27_n88xj"), ExtResource("28_paba0"), ExtResource("29_gdn6t")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rqldm"]
+_data = {
+"walking": SubResource("Animation_g2m2q")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_m562m"]
+animation = &"walking"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_qwj0t"]
+states/walking/node = SubResource("AnimationNodeAnimation_m562m")
+states/walking/position = Vector2(422.667, 54.6667)
+graph_offset = Vector2(-215.301, -32)
 
 [node name="walk_enemy" type="CharacterBody2D"]
 scale = Vector2(0.525, 0.525)
@@ -20,11 +73,17 @@ collision_layer = 2
 collision_mask = 9
 script = ExtResource("1_npc3e")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.293956, 0.274784)
-texture = ExtResource("2_4kw4g")
+[node name="position2D" type="Marker2D" parent="."]
+scale = Vector2(1.90476, 1.90476)
+
+[node name="Sprite2D" type="Sprite2D" parent="position2D"]
+position = Vector2(-4, -1.19209e-07)
+scale = Vector2(-0.134, 0.134)
+texture = ExtResource("7_01ag5")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3.80952)
+rotation = 1.5708
 shape = SubResource("CapsuleShape2D_16xy7")
 
 [node name="collision_query_top" type="Area2D" parent="."]
@@ -53,8 +112,10 @@ script = ExtResource("4_dka2m")
 initial_state = NodePath("idle_state_walk_enemy")
 Enemigo = NodePath("..")
 
-[node name="idle_state_walk_enemy" type="Node" parent="state_machine_walk_enemy"]
+[node name="idle_state_walk_enemy" type="Node" parent="state_machine_walk_enemy" node_paths=PackedStringArray("animation_tree", "animation_player")]
 script = ExtResource("5_er5xs")
+animation_tree = NodePath("../../AnimationTree")
+animation_player = NodePath("../../AnimationPlayer")
 
 [node name="dead_state_walk_enemy" type="Node" parent="state_machine_walk_enemy" node_paths=PackedStringArray("corpse_timer")]
 script = ExtResource("6_c2qvp")
@@ -64,12 +125,27 @@ corpse_timer = NodePath("../../corpse_timer")
 one_shot = true
 
 [node name="hitbox" type="Area2D" parent="."]
+rotation = 1.5708
 collision_layer = 2
 collision_mask = 33
 script = ExtResource("6_ge6p3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+position = Vector2(3.80952, 0)
 shape = SubResource("CapsuleShape2D_16xy7")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_rqldm")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="." node_paths=PackedStringArray("animation_player")]
+tree_root = SubResource("AnimationNodeStateMachine_qwj0t")
+anim_player = NodePath("../AnimationPlayer")
+active = true
+script = ExtResource("7_yqs67")
+animations_directory = "res://arte/Animaciones/Seccion 1 Musgo/Walker musgo/frames"
+animation_player = NodePath("../AnimationPlayer")
 
 [connection signal="body_entered" from="collision_query_top" to="state_machine_walk_enemy/idle_state_walk_enemy" method="_on_collision_query_top_body_entered"]
 [connection signal="body_exited" from="collision query" to="state_machine_walk_enemy/idle_state_walk_enemy" method="_on_collision_query_body_exited"]

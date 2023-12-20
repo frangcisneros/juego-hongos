@@ -5,15 +5,15 @@ class_name idle_state_area_enemy
 var StateActive : bool = false
 
 @onready var Enemigo = get_parent().Enemigo
-@onready var damage_area = Enemigo.get_node("damage_area/CollisionShape2D")
-@onready var sprite = Enemigo.get_node("damage_area/CollisionShape2D/Sprite2D2")
-
+@export var animation_tree : AnimationTree
+@export var animation_player : AnimationPlayer
+@onready var state_machine = animation_tree["parameters/playback"]
 
 func Enter():
-	damage_area.shape.extents = Vector2(0,0)
+
 	StateActive = true
-	sprite.scale.x = 0
-	sprite.scale.y = 0
+	state_machine.travel("idle")
+	animation_player.set("speed_scale", 1)
 
 func Exit():
 	StateActive = false

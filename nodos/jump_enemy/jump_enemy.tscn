@@ -1,10 +1,35 @@
-[gd_scene load_steps=8 format=3 uid="uid://t13h28qs4lvp"]
+[gd_scene load_steps=46 format=3 uid="uid://t13h28qs4lvp"]
 
 [ext_resource type="Script" path="res://nodos/jump_enemy/jump_enemy.gd" id="1_b4o2j"]
-[ext_resource type="Texture2D" uid="uid://bqh0w6153q0gf" path="res://arte/prota.png" id="2_cceq3"]
+[ext_resource type="Texture2D" uid="uid://1r7jawhn5g6d" path="res://arte/Animaciones/Seccion 1 Musgo/saltador musgo/frames/jumping/frame extra ease in top jump 1.png" id="2_6vjeg"]
 [ext_resource type="Script" path="res://nodos/jump_enemy/state_machine_jump_enemy.gd" id="5_lr5ei"]
+[ext_resource type="Texture2D" uid="uid://s2hff4tlldpn" path="res://arte/Animaciones/Seccion 1 Musgo/saltador musgo/frames/jumping/0001.png" id="5_o1jby"]
 [ext_resource type="Script" path="res://nodos/jump_enemy/idle_state_jump_enemy.gd" id="6_1gdfo"]
+[ext_resource type="Texture2D" uid="uid://rtkxqmi006bf" path="res://arte/Animaciones/Seccion 1 Musgo/saltador musgo/frames/jumping/0002.png" id="6_g8vh0"]
 [ext_resource type="Script" path="res://nodos/jump_enemy/dead_state_jump_enemy.gd" id="7_l551g"]
+[ext_resource type="Texture2D" uid="uid://cjlgc6ie04qom" path="res://arte/Animaciones/Seccion 1 Musgo/saltador musgo/frames/jumping/0003.png" id="7_nr2b0"]
+[ext_resource type="Texture2D" uid="uid://m43fjkwthyma" path="res://arte/Animaciones/Seccion 1 Musgo/saltador musgo/frames/jumping/0004.png" id="8_paf6k"]
+[ext_resource type="Texture2D" uid="uid://djs6bjludxqtn" path="res://arte/Animaciones/Seccion 1 Musgo/saltador musgo/frames/jumping/0005.png" id="9_y8dj8"]
+[ext_resource type="Texture2D" uid="uid://btrqnuwh0j13e" path="res://arte/Animaciones/Seccion 1 Musgo/saltador musgo/frames/jumping/0006.png" id="10_wdivf"]
+[ext_resource type="Texture2D" uid="uid://bmtmqpxvahfij" path="res://arte/Animaciones/Seccion 1 Musgo/saltador musgo/frames/jumping/0007.png" id="11_r3j5n"]
+[ext_resource type="Texture2D" uid="uid://lry4qsm27j4o" path="res://arte/Animaciones/Seccion 1 Musgo/saltador musgo/frames/jumping/0008.png" id="12_nb5h5"]
+[ext_resource type="Texture2D" uid="uid://cexnb2uhrjw52" path="res://arte/Animaciones/Seccion 1 Musgo/saltador musgo/frames/jumping/0009.png" id="13_2mrpr"]
+[ext_resource type="Texture2D" uid="uid://xvlc6urq75hu" path="res://arte/Animaciones/Seccion 1 Musgo/saltador musgo/frames/jumping/0010.png" id="14_kgec8"]
+[ext_resource type="Texture2D" uid="uid://dqowi18o450ri" path="res://arte/Animaciones/Seccion 1 Musgo/saltador musgo/frames/jumping/0011.png" id="15_8jso3"]
+[ext_resource type="Texture2D" uid="uid://bdx2ekkxa1w30" path="res://arte/Animaciones/Seccion 1 Musgo/saltador musgo/frames/jumping/0012.png" id="16_8ijw6"]
+[ext_resource type="Texture2D" uid="uid://d4ajrl7gmig80" path="res://arte/Animaciones/Seccion 1 Musgo/saltador musgo/frames/jumping/0013.png" id="17_w3q6i"]
+[ext_resource type="Texture2D" uid="uid://dd85610aua5ch" path="res://arte/Animaciones/Seccion 1 Musgo/saltador musgo/frames/jumping/0014.png" id="18_5vvq3"]
+[ext_resource type="Texture2D" uid="uid://b12ovenu2ud8l" path="res://arte/Animaciones/Seccion 1 Musgo/saltador musgo/frames/jumping/frame extra ease in top jump 2.png" id="19_43chk"]
+[ext_resource type="Texture2D" uid="uid://dawrm76yk2tri" path="res://arte/Animaciones/Seccion 1 Musgo/saltador musgo/frames/jumping/0015.png" id="19_e5o0b"]
+[ext_resource type="Texture2D" uid="uid://das5m6q6ixx7x" path="res://arte/Animaciones/Seccion 1 Musgo/saltador musgo/frames/jumping/0016.png" id="20_1ydd3"]
+[ext_resource type="Texture2D" uid="uid://cahfnjagc1mjl" path="res://arte/Animaciones/Seccion 1 Musgo/saltador musgo/frames/jumping/0017.png" id="21_wku4x"]
+[ext_resource type="Texture2D" uid="uid://b5xy7kxdludc1" path="res://arte/Animaciones/Seccion 1 Musgo/saltador musgo/frames/jumping/0018.png" id="22_yo44p"]
+[ext_resource type="Texture2D" uid="uid://dj65wrbvy42dq" path="res://arte/Animaciones/Seccion 1 Musgo/saltador musgo/frames/jumping/0019.png" id="23_4hygk"]
+[ext_resource type="Texture2D" uid="uid://dycukr5wely8l" path="res://arte/Animaciones/Seccion 1 Musgo/saltador musgo/frames/jumping/0020.png" id="24_07hqf"]
+[ext_resource type="Texture2D" uid="uid://qlu0tpf7vn62" path="res://arte/Animaciones/Seccion 1 Musgo/saltador musgo/frames/jumping/0021.png" id="25_wcr2k"]
+[ext_resource type="Texture2D" uid="uid://dhkolgxswutpa" path="res://arte/Animaciones/Seccion 1 Musgo/saltador musgo/frames/jumping/0022.png" id="26_fxbqk"]
+[ext_resource type="Texture2D" uid="uid://burnacgxodnip" path="res://arte/Animaciones/Seccion 1 Musgo/saltador musgo/frames/jumping/0023.png" id="27_l6m12"]
+[ext_resource type="Texture2D" uid="uid://btbmcjbtvqinf" path="res://arte/Animaciones/Seccion 1 Musgo/saltador musgo/frames/jumping/0024.png" id="28_0ye28"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8sfx5"]
 radius = 32.0
@@ -13,14 +38,168 @@ height = 92.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n2ss1"]
 size = Vector2(12.7643, 14.535)
 
+[sub_resource type="Animation" id="Animation_tp16u"]
+length = 0.0833
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("position2D/Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0417),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("15_8jso3"), ExtResource("16_8ijw6")]
+}
+
+[sub_resource type="Animation" id="Animation_t4ynm"]
+resource_name = "jumping_2_viejo_con_ease_in_(amague)"
+length = 0.5
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("position2D/Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0416667, 0.0833333, 0.125, 0.166667, 0.208333, 0.25, 0.291667, 0.333333, 0.375, 0.416667, 0.458333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("5_o1jby"), ExtResource("6_g8vh0"), ExtResource("7_nr2b0"), ExtResource("8_paf6k"), ExtResource("9_y8dj8"), ExtResource("10_wdivf"), ExtResource("11_r3j5n"), ExtResource("12_nb5h5"), ExtResource("13_2mrpr"), ExtResource("14_kgec8"), ExtResource("15_8jso3"), ExtResource("16_8ijw6")]
+}
+
+[sub_resource type="Animation" id="Animation_ko2c5"]
+resource_name = "landing"
+length = 0.1667
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("position2D/Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0417),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("27_l6m12"), ExtResource("24_07hqf")]
+}
+
+[sub_resource type="Animation" id="Animation_rq64s"]
+resource_name = "landing_viejo_con_ease_in(amague)"
+length = 0.3333
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("position2D/Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0417, 0.0834, 0.1251, 0.1668, 0.2085, 0.2502, 0.2919),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("21_wku4x"), ExtResource("22_yo44p"), ExtResource("23_4hygk"), ExtResource("24_07hqf"), ExtResource("25_wcr2k"), ExtResource("26_fxbqk"), ExtResource("27_l6m12"), ExtResource("28_0ye28")]
+}
+
+[sub_resource type="Animation" id="Animation_o36vn"]
+resource_name = "midjump"
+length = 0.001
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("position2D/Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("19_e5o0b")]
+}
+
+[sub_resource type="Animation" id="Animation_a8yn8"]
+resource_name = "origin"
+loop_mode = 1
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("position2D/Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0416667, 0.0833333, 0.125, 0.166667, 0.208333, 0.25, 0.291667, 0.333333, 0.375, 0.416667, 0.458333, 0.5, 0.541667, 0.583333, 0.625, 0.666667, 0.708333, 0.75, 0.791667, 0.833333, 0.875, 0.916667, 0.958333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("5_o1jby"), ExtResource("6_g8vh0"), ExtResource("7_nr2b0"), ExtResource("8_paf6k"), ExtResource("9_y8dj8"), ExtResource("10_wdivf"), ExtResource("11_r3j5n"), ExtResource("12_nb5h5"), ExtResource("13_2mrpr"), ExtResource("14_kgec8"), ExtResource("15_8jso3"), ExtResource("16_8ijw6"), ExtResource("17_w3q6i"), ExtResource("18_5vvq3"), ExtResource("19_e5o0b"), ExtResource("20_1ydd3"), ExtResource("21_wku4x"), ExtResource("22_yo44p"), ExtResource("23_4hygk"), ExtResource("24_07hqf"), ExtResource("25_wcr2k"), ExtResource("26_fxbqk"), ExtResource("27_l6m12"), ExtResource("28_0ye28")]
+}
+
+[sub_resource type="Animation" id="Animation_s65io"]
+resource_name = "top"
+length = 0.0417
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("position2D/Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0417),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("2_6vjeg"), ExtResource("19_43chk")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nu2ie"]
+_data = {
+"jumping": SubResource("Animation_tp16u"),
+"jumping_2_viejo_con_ease_in_(amague)": SubResource("Animation_t4ynm"),
+"landing": SubResource("Animation_ko2c5"),
+"landing_viejo_con_ease_in(amague)": SubResource("Animation_rq64s"),
+"midjump": SubResource("Animation_o36vn"),
+"origin": SubResource("Animation_a8yn8"),
+"top": SubResource("Animation_s65io")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0jytx"]
+animation = &"jumping"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_sb7jo"]
+animation = &"landing"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_srnuc"]
+animation = &"midjump"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_f4b3g"]
+animation = &"top"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_c0b0d"]
+states/jumping/node = SubResource("AnimationNodeAnimation_0jytx")
+states/jumping/position = Vector2(533.333, 81.3333)
+states/landing/node = SubResource("AnimationNodeAnimation_sb7jo")
+states/landing/position = Vector2(406.667, 70)
+states/midjump/node = SubResource("AnimationNodeAnimation_srnuc")
+states/midjump/position = Vector2(366.667, 204.667)
+states/top/node = SubResource("AnimationNodeAnimation_f4b3g")
+states/top/position = Vector2(596, 174)
+
 [node name="jump_enemy" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 9
 script = ExtResource("1_b4o2j")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.35641, 0.35641)
-texture = ExtResource("2_cceq3")
+[node name="position2D" type="Marker2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="position2D"]
+position = Vector2(11, 9)
+scale = Vector2(0.161377, 0.161377)
+texture = ExtResource("2_6vjeg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)
@@ -49,8 +228,10 @@ script = ExtResource("5_lr5ei")
 initial_state = NodePath("idle_state_jump_enemy")
 Enemigo = NodePath("..")
 
-[node name="idle_state_jump_enemy" type="Node" parent="state_machine_jump_enemy"]
+[node name="idle_state_jump_enemy" type="Node" parent="state_machine_jump_enemy" node_paths=PackedStringArray("animation_tree", "animation_player")]
 script = ExtResource("6_1gdfo")
+animation_tree = NodePath("../../AnimationTree")
+animation_player = NodePath("../../AnimationPlayer")
 
 [node name="dead_state_jump_enemy" type="Node" parent="state_machine_jump_enemy" node_paths=PackedStringArray("corpse_timer")]
 script = ExtResource("7_l551g")
@@ -59,5 +240,17 @@ corpse_timer = NodePath("../../corpse_timer")
 [node name="corpse_timer" type="Timer" parent="."]
 wait_time = 3.0
 one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+method_call_mode = 1
+movie_quit_on_finish = true
+libraries = {
+"": SubResource("AnimationLibrary_nu2ie")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_c0b0d")
+anim_player = NodePath("../AnimationPlayer")
+active = true
 
 [connection signal="body_exited" from="collision query" to="state_machine_jump_enemy/idle_state_jump_enemy" method="_on_collision_query_body_exited"]

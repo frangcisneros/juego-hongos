@@ -14,7 +14,7 @@ var StateActive : bool = false
 var hitted = false
 
 func Enter():
-	state_machine.travel("hitted")
+	state_machine.travel("patrullar")
 	Enemigo.velocity.y = -100
 	if player.position2D.scale.x == 1:
 		Enemigo.velocity.x = 150

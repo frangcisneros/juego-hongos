@@ -36,7 +36,7 @@ func Enter():
 	
 	attack_timer.start()
 	StateActive = true
-	state_machine.travel("attack")
+	state_machine.travel("ataque")
 	animation_player.set("speed_scale", (Enemigo.walking_speed/speed))
 
 func Exit():

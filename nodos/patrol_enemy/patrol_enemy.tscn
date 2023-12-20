@@ -1,41 +1,56 @@
-[gd_scene load_steps=51 format=3 uid="uid://cqvycjf6wy0df"]
+[gd_scene load_steps=64 format=3 uid="uid://cqvycjf6wy0df"]
 
 [ext_resource type="Script" path="res://nodos/patrol_enemy/patrol_enemy.gd" id="1_lqiqa"]
-[ext_resource type="Texture2D" uid="uid://xmaew1ertpoi" path="res://arte/Animaciones/Seccion 1 Musgo/patrulla/frames/patrullar/0008.png" id="2_ff1xk"]
-[ext_resource type="Texture2D" uid="uid://dl0yknhof6oax" path="res://arte/Animaciones/Seccion 1 Musgo/patrulla/frames/death/0019.png" id="3_6g3yh"]
+[ext_resource type="Script" path="res://nodos/patrol_enemy/position2D.gd" id="2_ny67g"]
 [ext_resource type="Script" path="res://nodos/patrol_enemy/state_machine_patrol_enemy.gd" id="3_m0d4l"]
-[ext_resource type="Texture2D" uid="uid://cbtuk4s4t4r0b" path="res://arte/Animaciones/Seccion 1 Musgo/patrulla/frames/death/0004.png" id="3_o1gl7"]
 [ext_resource type="Script" path="res://nodos/patrol_enemy/vision.gd" id="3_qa4vv"]
+[ext_resource type="Texture2D" uid="uid://yjmyr4c4uvdp" path="res://arte/Animaciones/Seccion 1 Musgo/patrulla/frames/patrullar/0001.png" id="4_r3747"]
+[ext_resource type="Script" path="res://nodos/patrol_enemy/Sprite2D.gd" id="4_wmihm"]
 [ext_resource type="Script" path="res://nodos/patrol_enemy/idle_state_patrol_enemy.gd" id="4_xch8n"]
 [ext_resource type="Script" path="res://nodos/patrol_enemy/atack_state_patrol_enemy.gd" id="5_h5tcb"]
 [ext_resource type="Script" path="res://nodos/patrol_enemy/dead_state_patrol_enemy.gd" id="6_slt30"]
-[ext_resource type="Texture2D" uid="uid://yjmyr4c4uvdp" path="res://arte/Animaciones/Seccion 1 Musgo/patrulla/frames/patrullar/0001.png" id="7_fqwyd"]
-[ext_resource type="Texture2D" uid="uid://caar8x27ag7w6" path="res://arte/Animaciones/Seccion 1 Musgo/patrulla/frames/patrullar/0002.png" id="8_d5vwt"]
 [ext_resource type="Script" path="res://nodos/patrol_enemy/hitted_state_patrol_enemy.gd" id="8_wuida"]
-[ext_resource type="Texture2D" uid="uid://dn8g48d1t2jwn" path="res://arte/Animaciones/Seccion 1 Musgo/patrulla/frames/patrullar/0003.png" id="9_suo07"]
-[ext_resource type="Texture2D" uid="uid://bsjd1clgyh2uu" path="res://arte/Animaciones/Seccion 1 Musgo/patrulla/frames/patrullar/0004.png" id="10_nq1k4"]
-[ext_resource type="Texture2D" uid="uid://r33p5h2u6hsf" path="res://arte/Animaciones/Seccion 1 Musgo/patrulla/frames/patrullar/0005.png" id="11_frcl6"]
-[ext_resource type="Texture2D" uid="uid://cltmyf61okh12" path="res://arte/Animaciones/Seccion 1 Musgo/patrulla/frames/death/0007.png" id="12_1rvft"]
-[ext_resource type="Texture2D" uid="uid://b8j4yxx0ccb7p" path="res://arte/Animaciones/Seccion 1 Musgo/patrulla/frames/patrullar/0006.png" id="12_bswng"]
-[ext_resource type="Texture2D" uid="uid://b16rjo6bxwhxb" path="res://arte/Animaciones/Seccion 1 Musgo/patrulla/frames/patrullar/0007.png" id="13_rp7m1"]
-[ext_resource type="Texture2D" uid="uid://uwxef0w5rkk" path="res://arte/Animaciones/Seccion 1 Musgo/patrulla/frames/death/0009.png" id="13_w3qc8"]
-[ext_resource type="Texture2D" uid="uid://dpu5b4adrjfie" path="res://arte/Animaciones/Seccion 1 Musgo/patrulla/frames/death/0010.png" id="14_1hlrh"]
-[ext_resource type="Texture2D" uid="uid://d32nphi2o57u0" path="res://arte/Animaciones/Seccion 1 Musgo/patrulla/frames/ataque/0001.png" id="14_10bky"]
-[ext_resource type="Texture2D" uid="uid://bh6mwx73cpbu1" path="res://arte/Animaciones/Seccion 1 Musgo/patrulla/frames/ataque/0002.png" id="15_ql1rn"]
-[ext_resource type="Texture2D" uid="uid://dfgbugy6nmc58" path="res://arte/Animaciones/Seccion 1 Musgo/patrulla/frames/death/0012.png" id="15_te3am"]
-[ext_resource type="Texture2D" uid="uid://djem2760w480s" path="res://arte/Animaciones/Seccion 1 Musgo/patrulla/frames/ataque/0003.png" id="16_1nftr"]
-[ext_resource type="Texture2D" uid="uid://r6bprqnpjw4p" path="res://arte/Animaciones/Seccion 1 Musgo/patrulla/frames/death/0013.png" id="16_lb6ku"]
-[ext_resource type="Texture2D" uid="uid://dw6bdkws7kpm6" path="res://arte/Animaciones/Seccion 1 Musgo/patrulla/frames/ataque/0004.png" id="17_1k6t5"]
-[ext_resource type="Texture2D" uid="uid://bevpvrllmwi1d" path="res://arte/Animaciones/Seccion 1 Musgo/patrulla/frames/death/0015.png" id="17_g2rn4"]
-[ext_resource type="Texture2D" uid="uid://cqm1qecmtesv2" path="res://arte/Animaciones/Seccion 1 Musgo/patrulla/frames/death/0017.png" id="18_tjjue"]
-[ext_resource type="Texture2D" uid="uid://dfs6e5bi5bw0o" path="res://arte/Animaciones/Seccion 1 Musgo/patrulla/frames/ataque/0005.png" id="18_tspkg"]
-[ext_resource type="Texture2D" uid="uid://dedjma6by6rcy" path="res://arte/Animaciones/Seccion 1 Musgo/patrulla/frames/ataque/0006.png" id="19_27v4m"]
-[ext_resource type="Texture2D" uid="uid://2uyq3eb44kgu" path="res://arte/Animaciones/Seccion 1 Musgo/patrulla/frames/death/0020.png" id="19_r2cct"]
-[ext_resource type="Texture2D" uid="uid://uoj5lyo6sf56" path="res://arte/Animaciones/Seccion 1 Musgo/patrulla/frames/death/0022.png" id="20_iutg2"]
-[ext_resource type="Texture2D" uid="uid://kg2ej7w7ja3y" path="res://arte/Animaciones/Seccion 1 Musgo/patrulla/frames/ataque/0007.png" id="20_mdv2v"]
-[ext_resource type="Texture2D" uid="uid://2xyjj11tmrr6" path="res://arte/Animaciones/Seccion 1 Musgo/patrulla/frames/ataque/0008.png" id="21_4da80"]
-[ext_resource type="Texture2D" uid="uid://ii15qif3ssge" path="res://arte/Animaciones/Seccion 1 Musgo/patrulla/frames/death/0024.png" id="21_jkhco"]
+[ext_resource type="Script" path="res://nodos/patrol_enemy/AnimationTreeScript.gd" id="10_lvmnf"]
+[ext_resource type="Texture2D" uid="uid://d32nphi2o57u0" path="res://arte/Animaciones/Seccion 1 Musgo/patrulla/frames/ataque/0001.png" id="12_q28f3"]
+[ext_resource type="Texture2D" uid="uid://bh6mwx73cpbu1" path="res://arte/Animaciones/Seccion 1 Musgo/patrulla/frames/ataque/0002.png" id="13_h4ig7"]
+[ext_resource type="Texture2D" uid="uid://djem2760w480s" path="res://arte/Animaciones/Seccion 1 Musgo/patrulla/frames/ataque/0003.png" id="14_lagqp"]
+[ext_resource type="Texture2D" uid="uid://dw6bdkws7kpm6" path="res://arte/Animaciones/Seccion 1 Musgo/patrulla/frames/ataque/0004.png" id="15_6vrw7"]
+[ext_resource type="Texture2D" uid="uid://dfs6e5bi5bw0o" path="res://arte/Animaciones/Seccion 1 Musgo/patrulla/frames/ataque/0005.png" id="16_21lm5"]
+[ext_resource type="Texture2D" uid="uid://dedjma6by6rcy" path="res://arte/Animaciones/Seccion 1 Musgo/patrulla/frames/ataque/0006.png" id="17_m5btt"]
+[ext_resource type="Texture2D" uid="uid://kg2ej7w7ja3y" path="res://arte/Animaciones/Seccion 1 Musgo/patrulla/frames/ataque/0007.png" id="18_v0a2l"]
+[ext_resource type="Texture2D" uid="uid://2xyjj11tmrr6" path="res://arte/Animaciones/Seccion 1 Musgo/patrulla/frames/ataque/0008.png" id="19_kktlm"]
+[ext_resource type="Texture2D" uid="uid://o8yilmolskr" path="res://arte/Animaciones/Seccion 1 Musgo/patrulla/frames/death/0001.png" id="20_alarj"]
+[ext_resource type="Texture2D" uid="uid://dyux7400dle6b" path="res://arte/Animaciones/Seccion 1 Musgo/patrulla/frames/death/0002.png" id="21_6vnbw"]
+[ext_resource type="Texture2D" uid="uid://b187pu38h1lip" path="res://arte/Animaciones/Seccion 1 Musgo/patrulla/frames/death/0003.png" id="22_05lxi"]
+[ext_resource type="Texture2D" uid="uid://cbtuk4s4t4r0b" path="res://arte/Animaciones/Seccion 1 Musgo/patrulla/frames/death/0004.png" id="23_2yvjb"]
 [ext_resource type="Script" path="res://nodos/patrol_enemy/hitbox.gd" id="23_c4pf1"]
+[ext_resource type="Texture2D" uid="uid://cjc8rhdyy0ykl" path="res://arte/Animaciones/Seccion 1 Musgo/patrulla/frames/death/0005.png" id="24_16ok0"]
+[ext_resource type="Texture2D" uid="uid://dtbf1yksuo1ji" path="res://arte/Animaciones/Seccion 1 Musgo/patrulla/frames/death/0006.png" id="25_6c15l"]
+[ext_resource type="Texture2D" uid="uid://cltmyf61okh12" path="res://arte/Animaciones/Seccion 1 Musgo/patrulla/frames/death/0007.png" id="26_0upjo"]
+[ext_resource type="Texture2D" uid="uid://dtd5sbjewjd0s" path="res://arte/Animaciones/Seccion 1 Musgo/patrulla/frames/death/0008.png" id="27_7ptix"]
+[ext_resource type="Texture2D" uid="uid://uwxef0w5rkk" path="res://arte/Animaciones/Seccion 1 Musgo/patrulla/frames/death/0009.png" id="28_3kitc"]
+[ext_resource type="Texture2D" uid="uid://dpu5b4adrjfie" path="res://arte/Animaciones/Seccion 1 Musgo/patrulla/frames/death/0010.png" id="29_44iw5"]
+[ext_resource type="Texture2D" uid="uid://bl1ysrbsinxk4" path="res://arte/Animaciones/Seccion 1 Musgo/patrulla/frames/death/0011.png" id="30_eqqse"]
+[ext_resource type="Texture2D" uid="uid://dfgbugy6nmc58" path="res://arte/Animaciones/Seccion 1 Musgo/patrulla/frames/death/0012.png" id="31_tuhmr"]
+[ext_resource type="Texture2D" uid="uid://r6bprqnpjw4p" path="res://arte/Animaciones/Seccion 1 Musgo/patrulla/frames/death/0013.png" id="32_kvvyq"]
+[ext_resource type="Texture2D" uid="uid://xgfhecgvb2s" path="res://arte/Animaciones/Seccion 1 Musgo/patrulla/frames/death/0014.png" id="33_l5vmw"]
+[ext_resource type="Texture2D" uid="uid://bevpvrllmwi1d" path="res://arte/Animaciones/Seccion 1 Musgo/patrulla/frames/death/0015.png" id="34_viu7w"]
+[ext_resource type="Texture2D" uid="uid://cjhf3lvxkexyn" path="res://arte/Animaciones/Seccion 1 Musgo/patrulla/frames/death/0016.png" id="35_ql0dq"]
+[ext_resource type="Texture2D" uid="uid://cqm1qecmtesv2" path="res://arte/Animaciones/Seccion 1 Musgo/patrulla/frames/death/0017.png" id="36_oc0cx"]
+[ext_resource type="Texture2D" uid="uid://bl72xj35t34pf" path="res://arte/Animaciones/Seccion 1 Musgo/patrulla/frames/death/0018.png" id="37_qbb4e"]
+[ext_resource type="Texture2D" uid="uid://dl0yknhof6oax" path="res://arte/Animaciones/Seccion 1 Musgo/patrulla/frames/death/0019.png" id="38_5bn44"]
+[ext_resource type="Texture2D" uid="uid://2uyq3eb44kgu" path="res://arte/Animaciones/Seccion 1 Musgo/patrulla/frames/death/0020.png" id="39_t8ypo"]
+[ext_resource type="Texture2D" uid="uid://320xrlgqo4pq" path="res://arte/Animaciones/Seccion 1 Musgo/patrulla/frames/death/0021.png" id="40_lxr1d"]
+[ext_resource type="Texture2D" uid="uid://uoj5lyo6sf56" path="res://arte/Animaciones/Seccion 1 Musgo/patrulla/frames/death/0022.png" id="41_78jrv"]
+[ext_resource type="Texture2D" uid="uid://c0a1gsticivfa" path="res://arte/Animaciones/Seccion 1 Musgo/patrulla/frames/death/0023.png" id="42_p17cl"]
+[ext_resource type="Texture2D" uid="uid://ii15qif3ssge" path="res://arte/Animaciones/Seccion 1 Musgo/patrulla/frames/death/0024.png" id="43_mmj4x"]
+[ext_resource type="Texture2D" uid="uid://caar8x27ag7w6" path="res://arte/Animaciones/Seccion 1 Musgo/patrulla/frames/patrullar/0002.png" id="44_bk2ki"]
+[ext_resource type="Texture2D" uid="uid://dn8g48d1t2jwn" path="res://arte/Animaciones/Seccion 1 Musgo/patrulla/frames/patrullar/0003.png" id="45_t6eqo"]
+[ext_resource type="Texture2D" uid="uid://bsjd1clgyh2uu" path="res://arte/Animaciones/Seccion 1 Musgo/patrulla/frames/patrullar/0004.png" id="46_ddubq"]
+[ext_resource type="Texture2D" uid="uid://r33p5h2u6hsf" path="res://arte/Animaciones/Seccion 1 Musgo/patrulla/frames/patrullar/0005.png" id="47_r6jvr"]
+[ext_resource type="Texture2D" uid="uid://b8j4yxx0ccb7p" path="res://arte/Animaciones/Seccion 1 Musgo/patrulla/frames/patrullar/0006.png" id="48_fu4fo"]
+[ext_resource type="Texture2D" uid="uid://b16rjo6bxwhxb" path="res://arte/Animaciones/Seccion 1 Musgo/patrulla/frames/patrullar/0007.png" id="49_ccalt"]
+[ext_resource type="Texture2D" uid="uid://xmaew1ertpoi" path="res://arte/Animaciones/Seccion 1 Musgo/patrulla/frames/patrullar/0008.png" id="50_f8hbp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4sxdg"]
 size = Vector2(126.333, 15.6667)
@@ -51,101 +66,81 @@ height = 16.6667
 radius = 9.0
 height = 24.0
 
-[sub_resource type="Animation" id="Animation_6f050"]
-resource_name = "hitted"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("3_o1gl7")]
-}
-
-[sub_resource type="Animation" id="Animation_y5271"]
-resource_name = "death"
-step = 0.041
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0001, 0.123, 0.205, 0.246, 0.328, 0.369, 0.451, 0.533, 0.615, 0.656, 0.738, 0.82),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [ExtResource("3_o1gl7"), ExtResource("7_fqwyd"), ExtResource("12_1rvft"), ExtResource("13_w3qc8"), ExtResource("14_1hlrh"), ExtResource("15_te3am"), ExtResource("16_lb6ku"), ExtResource("17_g2rn4"), ExtResource("18_tjjue"), ExtResource("3_6g3yh"), ExtResource("19_r2cct"), ExtResource("20_iutg2"), ExtResource("21_jkhco")]
-}
-
-[sub_resource type="Animation" id="Animation_cevp5"]
-resource_name = "idle"
-length = 0.7
+[sub_resource type="Animation" id="Animation_aevvi"]
+length = 0.333333
 loop_mode = 1
+step = 0.0416667
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:texture")
+tracks/0/path = NodePath("position2D/Sprite2D:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"times": PackedFloat32Array(0, 0.0416667, 0.0833333, 0.125, 0.166667, 0.208333, 0.25, 0.291667),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [ExtResource("7_fqwyd"), ExtResource("8_d5vwt"), ExtResource("9_suo07"), ExtResource("10_nq1k4"), ExtResource("11_frcl6"), ExtResource("12_bswng"), ExtResource("13_rp7m1"), ExtResource("2_ff1xk")]
+"values": [ExtResource("12_q28f3"), ExtResource("13_h4ig7"), ExtResource("14_lagqp"), ExtResource("15_6vrw7"), ExtResource("16_21lm5"), ExtResource("17_m5btt"), ExtResource("18_v0a2l"), ExtResource("19_kktlm")]
 }
 
-[sub_resource type="Animation" id="Animation_xpccb"]
-resource_name = "attack"
-length = 0.7
+[sub_resource type="Animation" id="Animation_6sta7"]
 loop_mode = 1
+step = 0.0416667
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:texture")
+tracks/0/path = NodePath("position2D/Sprite2D:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.0416667, 0.0833333, 0.125, 0.166667, 0.208333, 0.25, 0.291667, 0.333333, 0.375, 0.416667, 0.458333, 0.5, 0.541667, 0.583333, 0.625, 0.666667, 0.708333, 0.75, 0.791667, 0.833333, 0.875, 0.916667, 0.958333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [ExtResource("14_10bky"), ExtResource("15_ql1rn"), ExtResource("16_1nftr"), ExtResource("17_1k6t5"), ExtResource("18_tspkg"), ExtResource("19_27v4m"), ExtResource("20_mdv2v"), ExtResource("21_4da80")]
+"values": [ExtResource("20_alarj"), ExtResource("21_6vnbw"), ExtResource("22_05lxi"), ExtResource("23_2yvjb"), ExtResource("24_16ok0"), ExtResource("25_6c15l"), ExtResource("26_0upjo"), ExtResource("27_7ptix"), ExtResource("28_3kitc"), ExtResource("29_44iw5"), ExtResource("30_eqqse"), ExtResource("31_tuhmr"), ExtResource("32_kvvyq"), ExtResource("33_l5vmw"), ExtResource("34_viu7w"), ExtResource("35_ql0dq"), ExtResource("36_oc0cx"), ExtResource("37_qbb4e"), ExtResource("38_5bn44"), ExtResource("39_t8ypo"), ExtResource("40_lxr1d"), ExtResource("41_78jrv"), ExtResource("42_p17cl"), ExtResource("43_mmj4x")]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_3f2gt"]
+[sub_resource type="Animation" id="Animation_x6v5n"]
+length = 0.333333
+loop_mode = 1
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("position2D/Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0416667, 0.0833333, 0.125, 0.166667, 0.208333, 0.25, 0.291667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("4_r3747"), ExtResource("44_bk2ki"), ExtResource("45_t6eqo"), ExtResource("46_ddubq"), ExtResource("47_r6jvr"), ExtResource("48_fu4fo"), ExtResource("49_ccalt"), ExtResource("50_f8hbp")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_eyq78"]
 _data = {
-"attack": SubResource("Animation_xpccb"),
-"death": SubResource("Animation_y5271"),
-"hitted": SubResource("Animation_6f050"),
-"idle": SubResource("Animation_cevp5")
+"ataque": SubResource("Animation_aevvi"),
+"death": SubResource("Animation_6sta7"),
+"patrullar": SubResource("Animation_x6v5n")
 }
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gvhrc"]
-animation = &"attack"
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_u264g"]
+animation = &"ataque"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qsryy"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bukl3"]
 animation = &"death"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_30oay"]
-animation = &"hitted"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_x71xa"]
-animation = &"idle"
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ckqdu"]
+animation = &"patrullar"
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_dqn0s"]
-states/Start/position = Vector2(160, 108.444)
-states/attack/node = SubResource("AnimationNodeAnimation_gvhrc")
-states/attack/position = Vector2(602.667, 86)
-states/death/node = SubResource("AnimationNodeAnimation_qsryy")
-states/death/position = Vector2(602.667, 184.667)
-states/hitted/node = SubResource("AnimationNodeAnimation_30oay")
-states/hitted/position = Vector2(403.556, 186)
-states/idle/node = SubResource("AnimationNodeAnimation_x71xa")
-states/idle/position = Vector2(403.391, 85.2922)
+states/Start/position = Vector2(193.333, 110.346)
+states/ataque/node = SubResource("AnimationNodeAnimation_u264g")
+states/ataque/position = Vector2(0, 0)
+states/death/node = SubResource("AnimationNodeAnimation_bukl3")
+states/death/position = Vector2(0, 0)
+states/patrullar/node = SubResource("AnimationNodeAnimation_ckqdu")
+states/patrullar/position = Vector2(0, 0)
+graph_offset = Vector2(-162.006, -70.5)
 
 [node name="patrol_enemy" type="CharacterBody2D" node_paths=PackedStringArray("position2D")]
 scale = Vector2(3, 3)
@@ -155,6 +150,7 @@ script = ExtResource("1_lqiqa")
 position2D = NodePath("position2D")
 
 [node name="position2D" type="Marker2D" parent="."]
+script = ExtResource("2_ny67g")
 
 [node name="vision_patrol_enemy" type="RayCast2D" parent="position2D"]
 target_position = Vector2(65.3333, 27.3333)
@@ -162,8 +158,9 @@ script = ExtResource("3_qa4vv")
 
 [node name="Sprite2D" type="Sprite2D" parent="position2D"]
 position = Vector2(3, -4)
-scale = Vector2(0.0475962, 0.0475962)
-texture = ExtResource("3_6g3yh")
+scale = Vector2(0.048, 0.048)
+texture = ExtResource("12_q28f3")
+script = ExtResource("4_wmihm")
 
 [node name="detection_area" type="Area2D" parent="position2D"]
 collision_layer = 2
@@ -196,18 +193,19 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_mkdpf")
 debug_color = Color(0.913725, 0.215686, 0.501961, 0.419608)
 
-[node name="state_machine_patrol_enemy" type="Node" parent="." node_paths=PackedStringArray("initial_state", "Enemigo", "position2D")]
+[node name="state_machine_patrol_enemy" type="Node" parent="." node_paths=PackedStringArray("initial_state", "Enemigo", "position2D", "animation_tree")]
 script = ExtResource("3_m0d4l")
 initial_state = NodePath("idle_state_patrol_enemy")
 Enemigo = NodePath("..")
 position2D = NodePath("../position2D")
+animation_tree = NodePath("../AnimationTree")
 
-[node name="idle_state_patrol_enemy" type="Node" parent="state_machine_patrol_enemy" node_paths=PackedStringArray("Enemigo", "animation_tree", "animation_player", "detection_area")]
+[node name="idle_state_patrol_enemy" type="Node" parent="state_machine_patrol_enemy" node_paths=PackedStringArray("Enemigo", "detection_area", "animation_tree", "animation_player")]
 script = ExtResource("4_xch8n")
 Enemigo = NodePath("../..")
+detection_area = NodePath("../../position2D/detection_area")
 animation_tree = NodePath("../../AnimationTree")
 animation_player = NodePath("../../AnimationPlayer")
-detection_area = NodePath("../../position2D/detection_area")
 
 [node name="attack_state_patrol_enemy" type="Node" parent="state_machine_patrol_enemy" node_paths=PackedStringArray("detection_area", "animation_tree", "animation_player", "attack_timer")]
 script = ExtResource("5_h5tcb")
@@ -245,15 +243,19 @@ wait_time = 0.1
 one_shot = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-root_node = NodePath("../position2D/Sprite2D")
+method_call_mode = 1
+movie_quit_on_finish = true
 libraries = {
-"": SubResource("AnimationLibrary_3f2gt")
+"": SubResource("AnimationLibrary_eyq78")
 }
 
-[node name="AnimationTree" type="AnimationTree" parent="."]
+[node name="AnimationTree" type="AnimationTree" parent="." node_paths=PackedStringArray("animation_player")]
 tree_root = SubResource("AnimationNodeStateMachine_dqn0s")
 anim_player = NodePath("../AnimationPlayer")
 active = true
+script = ExtResource("10_lvmnf")
+animations_directory = "res://arte/Animaciones/Seccion 1 Musgo/patrulla/frames"
+animation_player = NodePath("../AnimationPlayer")
 
 [connection signal="body_entered" from="position2D/detection_area" to="state_machine_patrol_enemy/idle_state_patrol_enemy" method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="position2D/collision_query" to="state_machine_patrol_enemy/idle_state_patrol_enemy" method="_on_collision_query_body_exited"]

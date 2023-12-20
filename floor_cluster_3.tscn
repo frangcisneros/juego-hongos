@@ -7,7 +7,7 @@
 [node name="floor_cluster_3" type="Node2D"]
 
 [node name="PastoGrueso2" type="Sprite2D" parent="."]
-position = Vector2(74.2432, -10.75)
+position = Vector2(71, -10)
 scale = Vector2(0.248031, 0.248031)
 texture = ExtResource("1_3qctj")
 

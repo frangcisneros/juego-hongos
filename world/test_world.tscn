@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bnwuefdep2gcu"]
+[gd_scene load_steps=5 format=3 uid="uid://bnwuefdep2gcu"]
 
 [ext_resource type="PackedScene" uid="uid://dusk6dox3dxnb" path="res://nodos/platform_world/platform_world.tscn" id="1_h2qiq"]
 [ext_resource type="PackedScene" uid="uid://dj07mg1sgtrmu" path="res://nodos/player/player.tscn" id="2_s5o1e"]
-[ext_resource type="PackedScene" uid="uid://d0gordpyc8o5m" path="res://nodos/area_enemy/area_enemy.tscn" id="3_kev2h"]
+[ext_resource type="Texture2D" uid="uid://dlnxlm8d8iur6" path="res://arte/Assets/plataforma.png" id="4_omdcp"]
+[ext_resource type="PackedScene" uid="uid://cqvycjf6wy0df" path="res://nodos/patrol_enemy/patrol_enemy.tscn" id="4_w4l1r"]
 
 [node name="test_world" type="Node2D"]
 process_mode = 1
@@ -26,5 +27,20 @@ scale = Vector2(0.3, 0.3)
 position = Vector2(-184, -336)
 scale = Vector2(0.3, 0.3)
 
-[node name="area_enemy" parent="." instance=ExtResource("3_kev2h")]
-position = Vector2(144, -280)
+[node name="Plataforma" type="Sprite2D" parent="."]
+position = Vector2(23, -179)
+scale = Vector2(4.01431, -0.733906)
+texture = ExtResource("4_omdcp")
+
+[node name="Plataforma2" type="Sprite2D" parent="."]
+position = Vector2(-183, -338)
+scale = Vector2(0.584246, 0.193246)
+texture = ExtResource("4_omdcp")
+
+[node name="Plataforma3" type="Sprite2D" parent="."]
+position = Vector2(138, -409)
+scale = Vector2(0.584246, 0.193246)
+texture = ExtResource("4_omdcp")
+
+[node name="patrol_enemy" parent="." instance=ExtResource("4_w4l1r")]
+position = Vector2(-418, -262)

@@ -2,8 +2,7 @@ extends State
 
 
 @export var Enemigo : CharacterBody2D
-@export var animation_tree : AnimationTree
-@export var animation_player : AnimationPlayer
+
 @export var detection_area : Area2D 
 
 @onready var right : bool = true
@@ -13,6 +12,8 @@ extends State
 @onready var rest_timer = Enemigo.get_node("rest_timer")
 @onready var position2D = get_parent().position2D
 
+@export var animation_tree : AnimationTree
+@export var animation_player : AnimationPlayer
 @onready var state_machine = animation_tree["parameters/playback"]
 
 var StateActive : bool = false
@@ -20,7 +21,7 @@ var StateActive : bool = false
 func Enter():
 	rest_timer.start()
 	StateActive = true
-	state_machine.travel("idle")
+	state_machine.travel("patrullar")
 	animation_player.set("speed_scale", 1)
 	
 func Exit():

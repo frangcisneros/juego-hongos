@@ -7,9 +7,14 @@ var StateActive : bool = false
 @onready var jump_cd = Enemigo.get_node("jump_cd")
 @onready var raycast = Enemigo.get_node("RayCast2D")
 
+@export var animation_tree : AnimationTree
+@export var animation_player : AnimationPlayer
+@onready var state_machine = animation_tree["parameters/playback"]
+
 var first_object
 var primera_vez = true
 var right = true
+var top_velocity = 100
 
 func Enter():
 	jump_cd.start()
@@ -29,21 +34,34 @@ func Update(_delta : float):
 			first_object = raycast.get_collider()
 			primera_vez = false
 		if raycast.get_collider() != first_object and raycast.get_collider().has_method("plataforma"):
-			Enemigo.scale.x = - Enemigo.scale.x
+#			Enemigo.scale.x = - Enemigo.scale.x
 			Enemigo.velocity.x = - Enemigo.velocity.x
 			right = !right
 
 func UpdatePhysics(_delta : float):
-	if right:
+	if right and not Enemigo.is_on_floor():
 		Enemigo.velocity.x = Enemigo.SPEED
-	else:
+	elif not right and not Enemigo.is_on_floor():
 		Enemigo.velocity.x = - Enemigo.SPEED
-	if not Enemigo.is_on_floor() and not jump_cd.is_stopped():
+	elif Enemigo.is_on_floor():
+		Enemigo.velocity.x = 0
+	if not Enemigo.is_on_floor():
 		Enemigo.velocity.y += Enemigo.gravity * _delta
-	if jump_cd.is_stopped() and Enemigo.is_on_floor():
-		Enemigo.velocity.y = Enemigo.JUMP_VELOCITY
-		jump_cd.start()
-
+		if abs(Enemigo.velocity.y) <= top_velocity:
+#			state_machine.travel("top")
+			pass
+		elif abs(Enemigo.velocity.y) > top_velocity:
+			state_machine.travel("midjump")
+	if Enemigo.is_on_floor():
+		if not state_machine.get_current_node() == "jumping":
+			state_machine.travel("landing")
+			if state_machine.get_current_node() == "landing" and state_machine.get_current_play_position()/state_machine.get_current_length() == 1:
+				state_machine.travel("jumping")
+		elif state_machine.get_current_node() == "jumping" and state_machine.get_current_play_position()/state_machine.get_current_length() == 1:
+			Enemigo.velocity.y = Enemigo.JUMP_VELOCITY
+			jump_cd.start()
+			state_machine.travel("midjump")
+			
 func _on_collision_query_body_exited(body):
 	if body.has_method("plataforma") and Enemigo.is_on_floor():
 		Enemigo.scale.x = - Enemigo.scale.x

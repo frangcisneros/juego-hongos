@@ -7,8 +7,15 @@ var right : bool = true
 
 @onready var Enemigo = get_parent().Enemigo
 @onready var hitbox = Enemigo.get_node("hitbox")
+@export var animation_tree : AnimationTree
+@export var animation_player : AnimationPlayer
+
+
+@onready var state_machine = animation_tree["parameters/playback"]
 
 func Enter():
+	state_machine.travel("idle")
+	animation_player.set("speed_scale", 1)
 	hitbox.monitorable = false
 	Enemigo.velocity.x = 15
 	StateActive = true

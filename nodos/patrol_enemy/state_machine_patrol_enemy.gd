@@ -3,21 +3,20 @@ extends Node
 @export var initial_state : State
 @export var Enemigo: CharacterBody2D
 @export var position2D : Marker2D
+@export var animation_tree : AnimationTree
 
 var states :  Dictionary = {}
 var currentState : State
 
 func _ready():
 	Enemigo.hitted.connect(on_hit_transition)
-	
 	for child in get_children():
 		if child is State:
 			states[child.name.to_lower()] = child
 			child.Transition.connect(on_child_transition)
-	
 	if initial_state:
-		initial_state.Enter()
-		currentState = initial_state 
+			initial_state.Enter()
+			currentState = initial_state
 
 func _process(delta):
 	currentState.Update(delta)
@@ -47,4 +46,3 @@ func on_hit_transition():
 		on_child_transition(currentState, "hitted_state_patrol_enemy")
 	else:
 		on_child_transition(currentState, "hitted_state_patrol_enemy")
-		

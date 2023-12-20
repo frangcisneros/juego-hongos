@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 PlayerStats="*res://scripts/player_stats.gd"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/SpritesheetGenerator/plugin.cfg")
+
 [layer_names]
 
 2d_physics/layer_1="player"

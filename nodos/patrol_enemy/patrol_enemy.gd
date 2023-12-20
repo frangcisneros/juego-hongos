@@ -6,7 +6,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @export var running_speed : float = 100
 @export var position2D : Marker2D
 @onready var animation_tree = $AnimationTree
-
+@export var number : int
 func _ready():
 	animation_tree.active = true	
 	health = 20
@@ -16,6 +16,7 @@ func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y += gravity * delta
 	super._physics_process(delta)
+#	print(number)
 
 func _process(delta):
 	super._process(delta)
